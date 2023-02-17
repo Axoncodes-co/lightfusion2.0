@@ -65,11 +65,11 @@ export default function Header() {
     <>
     <section className={'container horizontal horizontalTabletBreak padding_l0 widePadding_l1'}>
       <section className={'subcontainer horizontal horizontalTabletBreak fitWidth'}>
-        {/* TODO: Setup alt small logo or make it dynamic */}
         <Logo
           src={'/logo.png'}
-          width={130}
-          height={50}
+          width={'10vw'}
+          minWidth={'60px'}
+          dev={'staging'}
         />
         <Menu
           menuGroup={menuGroup}
