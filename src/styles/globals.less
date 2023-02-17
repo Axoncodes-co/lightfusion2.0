@@ -1,0 +1,28 @@
+:root {
+    --primaryColor: #00235a;
+    --secondaryColor: #ff5e14;
+    --tertiaryColor: #eff0f2;
+  
+    --primaryTextColor: #001659;
+    --secondaryTextColor: #565969;
+    --tertiaryTextColor: #fff;
+  }
+  
+  .primary_bg {background-color: var(--primaryColor)!important}
+  .primary_color {color: var(--primaryTextColor)!important}
+  .secondary_bg {background-color: var(--secondaryColor)!important}
+  .secondary_color {color: var(--secondaryTextColor)!important}
+  .tertiary_bg {background-color: var(--tertiaryColor)!important}
+  .tertiary_color {color: var(--tertiaryTextColor)!important}
+  
+
+#main_searchbar {
+    @media screen and (max-width: 600px) {width: fit-content!important}
+    width: 40vw!important;
+}
+
+#main_searchbar.axg_active {
+    @media screen and (max-width: 600px) {width: 100vw!important}
+}
+
+a {text-decoration: none}
