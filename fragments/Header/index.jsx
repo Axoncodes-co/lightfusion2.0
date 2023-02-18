@@ -69,7 +69,6 @@ export default function Header() {
         top: 0,
         zIndex: 9,
         backgroundColor: '#fff',
-        height: '8vh'
       }}
       className={'container horizontal horizontalTabletBreak padding_l0 widePadding_l1'}>
       <section className={'subcontainer horizontal horizontalTabletBreak fitWidth'}>

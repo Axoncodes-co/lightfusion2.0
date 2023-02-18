@@ -40,3 +40,6 @@
 a {
   text-decoration: none;
 }
+.highlightButtonOnHover:hover .buttonBg {
+  background-color: var(--secondaryColor) !important;
+}

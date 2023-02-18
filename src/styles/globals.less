@@ -6,15 +6,15 @@
     --primaryTextColor: #001659;
     --secondaryTextColor: #565969;
     --tertiaryTextColor: #fff;
-  }
-  
-  .primary_bg {background-color: var(--primaryColor)!important}
-  .primary_color {color: var(--primaryTextColor)!important}
-  .secondary_bg {background-color: var(--secondaryColor)!important}
-  .secondary_color {color: var(--secondaryTextColor)!important}
-  .tertiary_bg {background-color: var(--tertiaryColor)!important}
-  .tertiary_color {color: var(--tertiaryTextColor)!important}
-  
+}
+
+.primary_bg {background-color: var(--primaryColor)!important}
+.primary_color {color: var(--primaryTextColor)!important}
+.secondary_bg {background-color: var(--secondaryColor)!important}
+.secondary_color {color: var(--secondaryTextColor)!important}
+.tertiary_bg {background-color: var(--tertiaryColor)!important}
+.tertiary_color {color: var(--tertiaryTextColor)!important}
+
 
 #main_searchbar {
     @media screen and (max-width: 600px) {width: fit-content!important}
@@ -26,3 +26,7 @@
 }
 
 a {text-decoration: none}
+
+.highlightButtonOnHover:hover .buttonBg {
+    background-color: var(--secondaryColor)!important;
+}
