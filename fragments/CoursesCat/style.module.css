@@ -1,0 +1,11 @@
+@media (max-width: 768px) {
+    .cover {
+        width: 100%;
+    }
+}
+
+@media (min-width: 769px) {
+    .cover {
+        height: 300px;
+    }
+}
