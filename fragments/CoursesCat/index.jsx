@@ -14,13 +14,11 @@ export default function CoursesCat({categories}) {
             {categories.map((category, key) => (
                 <Accordion
                     key={key}
-                    dev={'staging'}
                     customclasses={`${style.cover} horizontal verticalTabletBreak fitWidth wideonTablet`}
                     groupname={'popularcourse'}
                     active={key == 0 ? 'active' : ''}
                 >
                     <Accordion_head
-                        dev={'staging'}
                         customclasses={'fitWidth wideonTablet'}
                         innerclasses={'vertical horizontalTabletBreak spread round_l3'}
                         bg={'var(--primaryColor)'}
@@ -47,7 +45,6 @@ export default function CoursesCat({categories}) {
                         </section>
                     </Accordion_head>
                     <Accordion_body
-                        dev={'staging'}
                         customclasses={'padding_l0'}
                         innercustomclasses={'subcontainer vertical nocolgap'}
                     >

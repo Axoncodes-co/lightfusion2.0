@@ -20,7 +20,6 @@ export default function CourseBox({
                         <Text text={'Free Course'} textclasses={'tertiary_color font_l1 nomargin weight_l4'} />
                     </div>
                     <Text
-                        dev={'staging'}
                         svg={svg}
                         text={title}
                         textclasses={'horizontal tertiary_color font_l3 nomargin weight_l6'}

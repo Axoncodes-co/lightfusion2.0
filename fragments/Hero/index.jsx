@@ -10,7 +10,6 @@ export default function Hero() {
         <section className={`container vertical verticalLargeTabletBreak`}>
             <section className={'subcontainer'}>
                 <Text
-                    dev={'staging'}
                     text={'A LARGE TEXT SHALL GO HERE AS TITLE TO WEBSITE'}
                     textclasses={`primary_color font_l8 gloock textleft textcenteronTablet nomargin weight_l3`}
                     subtext={'And some description here shall be written by Sir Amir ollah Amiri'}

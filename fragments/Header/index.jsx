@@ -77,7 +77,6 @@ export default function Header() {
           src={'/logo.png'}
           width={'10vw'}
           minWidth={'60px'}
-          dev={'staging'}
         />
         <Menu
           menuGroup={menuGroup}
@@ -86,7 +85,6 @@ export default function Header() {
       </section>
       <Searchbar
         id={'main_searchbar'}
-        dev={'staging'}
         name={'main_searchbar'}
         inputcustomclasses={'font_l1 wide padding_l3 noborder round_l3'}
         customclasses={'wide'}
@@ -121,7 +119,6 @@ export default function Header() {
         <DropdownBody
           key={key}
           mode={'dropdown_body_v4'}
-          dev={"staging"}
           exit={item.exit}
           headTitle={item.headTitle}
           headTitlecolor={item.headTitlecolor}
