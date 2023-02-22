@@ -1,3 +1,4 @@
+.lato {font-family: 'Lato'}
 @font-face {
     font-family: 'Lato';
     src: url('../fonts/Lato/Lato-Thin.ttf');
@@ -78,3 +79,6 @@
     font-weight: 500;
     font-style: normal;
 }
+.gloock {font-family: 'Gloock'}
+
+*{font-family: 'Lato', sans-serif, system-ui;}

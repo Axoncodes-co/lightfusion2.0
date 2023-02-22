@@ -1,4 +1,5 @@
 import dynamic from 'next/dynamic'
+import Link from 'next/link'
 import { useState } from 'react'
 const Searchbar = dynamic(() => import('../../axg-react/Searchbar3'), {ssr: false})
 const Logo = dynamic(() => import('../../axg-react/Logo'), {ssr: false})
@@ -102,20 +103,17 @@ export default function Header() {
         searchquerylinks={['link1', 'link2']}
       />
       <div id={'continue_to_article'}>
-        <Text
-          text={'Continue to Article'}
-          textcolor={'#565969'}
-          textfontsize={'var(--l1-text-fontSize)'}
-          textclasses={`nomargin`}
-          subtext={'the article link'}
-          subtextclasses={`nomargin weight_l9`}
-          subtextcolor={'#001659'}
-          subtextfontsize={'var(--l3-text-fontSize)'}
-          innercustomclasses={'norowgapOnMobile nocolgap vertical verticalOnTablet'}
-          orderdirection={'horizontal'}
-          customclasses={'topy fitWidth'}
-          link={'/'}
-        />
+        <Link href={'/'}>
+          <Text
+            text={'Continue to Article'}
+            textclasses={`secondary_color weight_l3 font_l1 nomargin`}
+            subtext={'the article link'}
+            subtextclasses={`font_l3 primary_color nomargin weight_l6`}
+            innercustomclasses={'norowgapOnMobile nocolgap vertical verticalOnTablet'}
+            orderdirection={'horizontal'}
+            customclasses={'topy fitWidth'}
+          />
+        </Link>
       </div>
     </section>
     <section className="ax_elements" nomain="true">

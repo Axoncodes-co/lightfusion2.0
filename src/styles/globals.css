@@ -7,22 +7,22 @@
   --tertiaryTextColor: #fff;
 }
 .primary_bg {
-  background-color: var(--primaryColor) !important;
+  background-color: var(--primaryColor);
 }
 .primary_color {
-  color: var(--primaryTextColor) !important;
+  color: var(--primaryTextColor);
 }
 .secondary_bg {
-  background-color: var(--secondaryColor) !important;
+  background-color: var(--secondaryColor);
 }
 .secondary_color {
-  color: var(--secondaryTextColor) !important;
+  color: var(--secondaryTextColor);
 }
 .tertiary_bg {
-  background-color: var(--tertiaryColor) !important;
+  background-color: var(--tertiaryColor);
 }
 .tertiary_color {
-  color: var(--tertiaryTextColor) !important;
+  color: var(--tertiaryTextColor);
 }
 #main_searchbar {
   width: 40vw!important;

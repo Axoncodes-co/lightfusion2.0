@@ -4,7 +4,7 @@ export default function Document() {
   return (
     <Html lang="en">
       <Head />
-      <body style={{height: 1000}}>
+      <body>
         <Main />
         <NextScript />
       </body>
