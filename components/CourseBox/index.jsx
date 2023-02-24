@@ -13,9 +13,9 @@ export default function CourseBox({
     courseAttitude
 }) {
     return (
-        <section className={`${style.outer} subcontainer vertical round_l3 fitWidth`}>
+        <article className={`${style.outer} subcontainer vertical round_l3 fitWidth`}>
             <Link href={link} className={`${style.link} padding_l0 subcontainer vertical round_l3`}>
-                <article className={`${style.inner} round_l3`}>
+                <section className={`${style.inner} round_l3`}>
                     <div className={'subcontainer primary_bg round_l2 widePadding_l2'}>
                         <Text text={'Free Course'} textclasses={'tertiary_color font_l1 nomargin weight_l4'} />
                     </div>
@@ -32,8 +32,8 @@ export default function CourseBox({
                             <Text text={'19'} textclasses={'tertiary_color font_l1 nomargin weight_l4 fitWidth'} />
                         </div>
                     </div>
-                </article>
+                </section>
             </Link>
-        </section>
+        </article>
     )
 }

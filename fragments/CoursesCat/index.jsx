@@ -47,6 +47,7 @@ export default function CoursesCat({categories}) {
                     <Accordion_body
                         customclasses={'padding_l0'}
                         innercustomclasses={'subcontainer vertical nocolgap'}
+                        dev={'staging'}
                     >
                         {category.courses.map(({
                             svg,
