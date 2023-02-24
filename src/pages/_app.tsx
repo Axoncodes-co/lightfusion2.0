@@ -17,6 +17,7 @@ export default function App({ Component, pageProps }: AppProps) {
       <Script src={'http://localhost:3012/init/v4/dev'} type={'module'} strategy={"beforeInteractive"}></Script>
       <Script src={'http://localhost:3012/global/runScripts'} strategy={'beforeInteractive'}></Script>
       <Script src={'/activationhandlerutils.js'} strategy={"beforeInteractive"}></Script>
+      {/* <Script src={'http://localhost:3012/button/v3/template/dev'} strategy={'beforeInteractive'}></Script> */}
       <Axg />
     </>
   )

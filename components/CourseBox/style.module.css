@@ -3,12 +3,18 @@
 }
 
 .link {
-    width: 240px !important;
+    width: 19vw !important;
+    min-width: 250px;
 }
 
 .inner {
     box-shadow: 0px 23px 12px -16px rgb(0 0 0 / 47%);
     background-image: linear-gradient(155deg, #e2edff, #005ae880, #00235a);
-    width: 220px !important;
+    width: 18vw !important;
+    min-width: 240px;
 
+}
+
+.outer:hover .inner {
+    backdrop-filter: invert(0.7);
 }

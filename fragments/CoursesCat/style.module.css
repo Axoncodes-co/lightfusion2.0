@@ -1,11 +1,16 @@
 @media (max-width: 768px) {
-    .cover {
-        width: 100%;
-    }
+    .cover {width: 100%}
 }
 
 @media (min-width: 769px) {
-    .cover {
-        height: 300px;
+    .head {
+        width: 13vw!important;
+        min-width: 130px;
+        /* height: 54vw!important; */
+        height: auto!important;
     }
+}
+.title svg {
+    height: 8vw;
+    min-height: 70px;
 }
