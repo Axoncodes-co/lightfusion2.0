@@ -26,7 +26,7 @@ export default function CourseBox({
                     </div>
                     <section className={'subcontainer padding_l2 widePadding_l3'}>
                         <Text
-                            svg={svg}
+                            icon={JSON.stringify({svg})}
                             text={title}
                             textclasses={'horizontal tertiary_color font_l4 nomargin weight_l6'}
                             customclasses={'horizontalTabletBreak padding_l0 horizontal fitWidth spread colgap_l3'}

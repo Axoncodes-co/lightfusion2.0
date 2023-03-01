@@ -43,3 +43,6 @@ a {
 .highlightButtonOnHover:hover .buttonBg {
   background-color: var(--secondaryColor) !important;
 }
+.searchbarheight {
+  height: 40px;
+}

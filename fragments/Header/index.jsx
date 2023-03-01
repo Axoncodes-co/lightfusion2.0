@@ -86,8 +86,8 @@ export default function Header() {
       <Searchbar
         id={'main_searchbar'}
         name={'main_searchbar'}
-        inputcustomclasses={'font_l1 wide padding_l3 noborder round_l3'}
-        customclasses={'wide'}
+        inputcustomclasses={'searchbarheight font_l1 wide padding_l3 noborder round_l3'}
+        customclasses={'searchbarheight wide'}
         bg={'#c1c1c1a3'}
         color={'#000'}
         placeholder={'Search whatever the fuck you need...'}
@@ -107,7 +107,7 @@ export default function Header() {
             textclasses={`secondary_color weight_l3 font_l1 nomargin`}
             subtext={'the article link'}
             subtextclasses={`font_l3 primary_color nomargin weight_l6`}
-            innercustomclasses={'norowgapOnMobile nocolgap vertical verticalOnTablet'}
+            innercustomclasses={'norowgapOnMobile norowgap nocolgap vertical verticalOnTablet'}
             orderdirection={'horizontal'}
             customclasses={'topy fitWidth'}
           />

@@ -19,7 +19,7 @@ export default function Hero() {
                     customclasses={'fitWidth'}
                     subtextalign={'centerOnTablet'}
                 />
-                <section className={'centerOnTablet horizontal horizontalTabletBreak lefty padding_l3 subcontainer widePadding_l0'}>
+                <section className={'allLefty centerOnTablet horizontal horizontalTabletBreak padding_l3 subcontainer widePadding_l0'}>
                     <Button
                         text={'Start Learn'}
                         innerclasses={'padding_l4 widePadding_l3 round_l3'}
