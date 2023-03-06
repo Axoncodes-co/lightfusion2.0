@@ -10,12 +10,14 @@ export default function CourseBox({
     description,
     link,
     lessons,
+    lessons_count,
     hours,
     paid,
     level,
+    customclasses
 }) {
     return (
-        <article className={`${style.outer} subcontainer vertical round_l3 fitWidth`}>
+        <article className={`${style.outer} subcontainer vertical round_l3 fitWidth ${customclasses}`}>
             <Link
                 href={link}
                 className={`${style.link} padding_l0 subcontainer vertical round_l3`}
@@ -41,7 +43,7 @@ export default function CourseBox({
                         <Text text={level} textclasses={'fitWidth tertiary_color font_l1 nomargin weight_l4'} />
                         <div className={'subcontainer horizontal horizontalTabletBreak fitWidth'}>
                             <div className={'subcontainer horizontal tooltip_parent center'}>
-                                <Text text={lessons} textclasses={'tertiary_color font_l1 nomargin weight_l4 fitWidth'} />
+                                <Text text={lessons_count} textclasses={'tertiary_color font_l1 nomargin weight_l4 fitWidth'} />
                                 <Text text={'Lessons'} customclasses={'tooltip_content'} textclasses={'tertiary_color font_l1 nomargin weight_l4 fitWidth'} />
                             </div>
                             <div className={'subcontainer horizontal tooltip_parent center'}>

@@ -8,7 +8,7 @@ export default function CoursesCat({categories}) {
                 key={key}
                 title={category.title}
                 svg={category.svg}
-                link={category.link}
+                link={category.slug}
             />)}
         </section>
     )

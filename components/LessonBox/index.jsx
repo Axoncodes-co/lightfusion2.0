@@ -6,11 +6,11 @@ import Image from 'next/image'
 import { useEffect } from 'react'
 const Text = dynamic(() => import('../../axg-react/Text2'), {ssr: false})
 
-export default function LessonBox({data}) {
+export default function LessonBox({data, link, customclasses}) {
     return (
-        <article className={`subcontainer vertical round_l3`}>
+        <article className={`subcontainer vertical round_l3 ${customclasses}`}>
             <Link
-                href={data.link}
+                href={link}
                 className={`padding_l0 subcontainer vertical round_l3`}
             >
                 <section className={`${style.inner} transition round_l3 subcontainer spread padding_l3`}
