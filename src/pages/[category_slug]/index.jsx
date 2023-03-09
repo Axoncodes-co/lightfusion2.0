@@ -7,12 +7,13 @@ const CourseBox = dynamic(() => import('../../../components/CourseBox'), {ssr: f
 export default function Archive({ category_slug, categories }) {
 
 	const category = categories.filter(category => category.slug == category_slug ? category : null)[0]
-	
+	const levels = [...new Set(category.courses.map(course => course.level))]
+
 	return (
         <section className={'container vertical'} style={{minHeight: '600px'}}>
 			<SectionTitle
 				title={category.title}
-				textclasses={'font_l7 nomargin gloock'}
+				textclasses={'font_l7 weight_l3 nomargin secondary_font'}
 			/>
 			<section className={'subcontainer horizontal topy verticalTabletBreak'}>
 				<Filter
@@ -21,10 +22,7 @@ export default function Archive({ category_slug, categories }) {
 					filterPlacement="itemplacement"
 					elementId="iconsFilter"
 					elements={[
-						{ name: 'Level', items: [
-							{ type: 'checkbox', tag: 'input', name: 'damn', label: "Damn" },
-							{ type: 'checkbox', tag: 'input', name: 'beginner_friendly', label: "Beginner Friendly" },
-						]},
+						{ name: 'Level', items: levels.map(level => ({ type: 'checkbox', tag: 'input', name: level.toLowerCase().replaceAll(' ', '_'), label: level }))},
 						{ name: 'Paid', items: [
 							{ type: 'checkbox', tag: 'input', name: 'free_course', label: "Free" },
 							{ type: 'checkbox', tag: 'input', name: 'paid_course', label: "Paid" },

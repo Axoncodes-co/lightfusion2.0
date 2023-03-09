@@ -11,7 +11,7 @@ export default function Post({ category_slug, course_slug, lesson_slug, categori
     return (
         <SectionTitle
             title={lesson.title}
-            textclasses={'font_l7 nomargin gloock'}
+            textclasses={'font_l7 nomargin secondary_font'}
         />
     )
 }

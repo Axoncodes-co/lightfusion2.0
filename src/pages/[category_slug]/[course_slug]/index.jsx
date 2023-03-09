@@ -14,7 +14,7 @@ export default function Archive({ category_slug, course_slug, categories }) {
         <section className={'container vertical'} style={{minHeight: '600px'}}>
 			<SectionTitle
 				title={course.title}
-				textclasses={'font_l7 nomargin gloock'}
+				textclasses={'font_l7 secondary_font'}
 			/>
 			<section className={'subcontainer horizontal topy verticalTabletBreak'}>
 				{/* <Filter

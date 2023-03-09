@@ -19,7 +19,7 @@ const categories = [
               slug: 'course1',
               title: 'Meterology',
               hours: 35,
-              lessons: 17,
+              lessons_count: 17,
               paid: 'Free Course',
               level: 'Beginner Friendly',
               lessons: []
@@ -29,7 +29,7 @@ const categories = [
               slug: 'course2',
               title: 'Meterology',
               hours: 15,
-              lessons: 20,
+              lessons_count: 20,
               paid: 'Free Course',
               level: 'Your Fucked',
               lessons: [
@@ -86,7 +86,7 @@ const categories = [
               slug: '',
               title: 'Meterology',
               hours: 15,
-              lessons: 20,
+              lessons_count: 20,
               paid: 'Free Course',
               level: 'Your Fucked',
               lessons: []
@@ -96,7 +96,7 @@ const categories = [
               slug: '',
               title: 'Meterology',
               hours: 15,
-              lessons: 20,
+              lessons_count: 20,
               paid: 'Free Course',
               level: 'Your Fucked',
               lessons: [
@@ -125,7 +125,7 @@ const categories = [
               slug: '',
               title: 'Meterology',
               hours: 35,
-              lessons: 17,
+              lessons_count: 17,
               paid: 'Free Course',
               level: 'Beginner Friendly',
               lessons: []
@@ -135,7 +135,7 @@ const categories = [
               slug: '',
               title: 'Meterology',
               hours: 15,
-              lessons: 20,
+              lessons_count: 20,
               paid: 'Free Course',
               level: 'Your Fucked',
               lessons: [
@@ -173,7 +173,7 @@ const categories = [
               slug: '',
               title: 'Meterology',
               hours: 35,
-              lessons: 17,
+              lessons_count: 17,
               paid: 'Free Course',
               level: 'Beginner Friendly',
               lessons: [
@@ -217,7 +217,7 @@ export default function App({ Component, pageProps }) {
       <Component {...pageProps} categories={categories} />
       <Footer />
       <ActivationHandler />
-      <Script src={'http://localhost:3012/init/v4/dev'} type={'module'} strategy={"beforeInteractive"}></Script>
+      <Script src={'http://localhost:3012/init/v5/dev'} type={'module'} strategy={"beforeInteractive"}></Script>
       <Script src={'http://localhost:3012/global/runScripts'} strategy={'afterInteractive'}></Script>
       <Script src={'/activationhandlerutils.js'} strategy={"beforeInteractive"}></Script>
       <Axg />

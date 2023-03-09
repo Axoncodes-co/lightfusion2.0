@@ -21,7 +21,7 @@ export default function Posts({link, title, svg, children}) {
                     customclasses={'centerOnMobile righty'}
                 />
             </section>
-            <section className={'subcontainer horizontal verticalTabletBreak'}>
+            <section className={'subcontainer horizontal verticalLargeTabletBreak'}>
                 {children}
             </section>
         </section>

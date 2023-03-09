@@ -11,7 +11,7 @@ export default function Hero() {
             <section className={'subcontainer'}>
                 <Text
                     text={'A LARGE TEXT SHALL GO HERE AS TITLE TO WEBSITE'}
-                    textclasses={`primary_color font_l8 gloock textleft textcenteronTablet nomargin weight_l3`}
+                    textclasses={`primary_color font_l8 textleft textcenteronTablet nomargin weight_l3`}
                     subtext={'And some description here shall be written by Sir Amir ollah Amiri'}
                     subtextclasses={`primary_color font_l4 lato textleft textcenteronTablet nomargin weight_l4`}
                     innercustomclasses={'norowgapOnMobile nocolgap vertical verticalOnTablet'}
@@ -27,7 +27,7 @@ export default function Hero() {
                         height={'48px'}
                         plane={'1'}
                         link={'/shop'}
-                        textclasses={'transition tertiary_color gloock font_l4'}
+                        textclasses={'transition tertiary_color secondary_font font_l4'}
                         hovercolor={'var(--primaryTextColor)'}
                         hoverbg={'var(--secondaryColor)'}
                     />

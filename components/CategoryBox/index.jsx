@@ -16,7 +16,7 @@ export default function CategoryBox({
                     text={title}
                     icon={JSON.stringify({svg})}
                     customclasses={`${style.title} fitWidthOnTablet fitminWidth textcenter center padding_l5 vertical horizontalTabletBreak`}
-                    textclasses={'gloock tertiary_color nomargin font_l6 weight_l6'}
+                    textclasses={'tertiary_color nomargin font_l6 weight_l6'}
                 />
             </section>
             <section className={'subcontainer vertical horizontalTabletBreak fitWidth'}>

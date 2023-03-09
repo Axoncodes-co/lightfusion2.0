@@ -17,3 +17,7 @@
         height: 200px;
     }
 }
+
+.title {
+    line-height: 2rem;
+}

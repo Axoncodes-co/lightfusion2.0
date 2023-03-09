@@ -3,7 +3,6 @@ import dynamic from 'next/dynamic'
 import Link from 'next/link'
 import style from './style.module.css'
 import Image from 'next/image'
-import { useEffect } from 'react'
 const Text = dynamic(() => import('../../axg-react/Text2'), {ssr: false})
 
 export default function LessonBox({data, link, customclasses}) {
@@ -23,7 +22,7 @@ export default function LessonBox({data, link, customclasses}) {
                 >
                     <section className={'subcontainer round_l2'}>
                         {/* Tag */}
-                        <Text text={data.tag} customclasses={'primary_bg fitWidth round_l5'} textclasses={'fitWidth tertiary_color font_l1 nomargin weight_l4 padding_l1 widePadding_l2'} />
+                        <Text text={data.tag} customclasses={'primary_bg fitWidth round_l5'} textclasses={'secondary_font fitWidth tertiary_color font_l1 nomargin weight_l4 padding_l1 widePadding_l2'} />
                     </section>
                     <section className={'subcontainer vertical norowgap lefty'}>
                         <div className={'subcontainer horizontal horizontalTabletBreak fitWidth'}>
@@ -35,8 +34,8 @@ export default function LessonBox({data, link, customclasses}) {
                         </div>
                         <Text
                             text={data.title}
-                            textclasses={'gloock horizontal tertiary_color font_l6_min nomargin weight_l6'}
-                            customclasses={'horizontalTabletBreak padding_l0 horizontal spread colgap_l3'}
+                            textclasses={'horizontal tertiary_color font_l6_min nomargin weight_l6'}
+                            customclasses={`${style.title} horizontalTabletBreak padding_l0 horizontal spread colgap_l3`}
                         />
                         {/* <Text
                             text={data.description}
