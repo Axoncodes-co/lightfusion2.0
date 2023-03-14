@@ -7,7 +7,7 @@ const Button = dynamic(() => import('../../axg-react/Button'), {ssr: false})
 export default function Hero() {
 
     return (
-        <section className={`container vertical verticalLargeTabletBreak tertiary_bg`}>
+        <section className={`container vertical verticalLargeTabletBreak`}>
             <section className={'subcontainer'}>
                 <Text
                     text={'A LARGE TEXT SHALL GO HERE AS TITLE TO WEBSITE'}

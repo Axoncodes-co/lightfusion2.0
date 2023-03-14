@@ -7,8 +7,18 @@ import fetchup from '../../lib/fetch'
 
 export default function Home({categories}) {
 	return (<>
-		<Hero />
-		<CoursesCat categories={categories} />
+		<section className={'relative'}>
+			<div style={{
+				filter: 'brightness(0.5)',
+				background: 'url(/1.jpg) center no-repeat',
+				backgroundSize: 'cover',
+				position: 'absolute',
+				width: '100%',
+				height: '100%',
+			}}></div>
+			<Hero />
+			<CoursesCat categories={categories} />
+		</section>
 		<Posts
 			link={`/${categories[0].slug}/${categories[0].courses[1].slug}`}
 			title={`${categories[0].courses[1].title} Popular Lessons`}
@@ -17,6 +27,7 @@ export default function Home({categories}) {
 			{categories[0].courses[8].lessons.map((lesson, key) => key < 3 ? <LessonBox
 				key={key}
 				data={lesson}
+				customclasses={key == 2 ? 'hideonlargetablet' : ''}
 				link={`/${categories[0].slug}/${categories[0].courses[1].slug}/${lesson.slug}`}
 			/> : null).filter(item => item)}
 		</Posts>

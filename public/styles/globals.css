@@ -49,3 +49,8 @@ a {
 .dropdown .dropdownBody.open > .menu .listHead:hover a {
   color: #fff;
 }
+@media screen and (max-width: 1500px) and (min-width: 1000px) {
+  .hideonlargetablet {
+    display: none !important;
+  }
+}
