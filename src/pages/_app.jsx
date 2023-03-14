@@ -217,8 +217,8 @@ export default function App({ Component, pageProps }) {
       <Component {...pageProps} />
       <Footer />
       <ActivationHandler />
-      <Script src={'http://localhost:3012/init/v5/dev'} type={'module'} strategy={"beforeInteractive"}></Script>
-      <Script src={'http://localhost:3012/global/runScripts'} strategy={'afterInteractive'}></Script>
+      <Script src={'https://beta.axg.axoncodes.com/init/v5/dev'} type={'module'} strategy={"beforeInteractive"}></Script>
+      <Script src={'https://beta.axg.axoncodes.com/global/runScripts'} strategy={'afterInteractive'}></Script>
       <Script src={'/activationhandlerutils.js'} strategy={"beforeInteractive"}></Script>
       <Axg />
   </>)
