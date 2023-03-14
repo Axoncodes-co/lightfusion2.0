@@ -7,29 +7,27 @@ const Button = dynamic(() => import('../../axg-react/Button'), {ssr: false})
 export default function Hero() {
 
     return (
-        <section className={`container vertical verticalLargeTabletBreak`}>
+        <section className={`container vertical verticalLargeTabletBreak tertiary_bg`}>
             <section className={'subcontainer'}>
                 <Text
                     text={'A LARGE TEXT SHALL GO HERE AS TITLE TO WEBSITE'}
-                    textclasses={`primary_color font_l8 textleft textcenteronTablet nomargin weight_l3`}
+                    textclasses={`primary_color secondary_font font_l8 textleft textcenteronTablet nomargin weight_l3`}
                     subtext={'And some description here shall be written by Sir Amir ollah Amiri'}
                     subtextclasses={`primary_color font_l4 lato textleft textcenteronTablet nomargin weight_l4`}
+                    subtextalign={'centerOnTablet'}
                     innercustomclasses={'norowgapOnMobile nocolgap vertical verticalOnTablet'}
                     orderdirection={'horizontal'}
                     customclasses={'fitWidth'}
-                    subtextalign={'centerOnTablet'}
                 />
                 <section className={'allLefty centerOnTablet horizontal horizontalTabletBreak padding_l3 subcontainer widePadding_l0'}>
                     <Button
-                        text={'Start Learn'}
+                        text={'Start Learning'}
                         innerclasses={'padding_l4 widePadding_l3 round_l3'}
-                        bg={'var(--primaryColor)'}
+                        bg={'var(--secondaryColor)'}
                         height={'48px'}
                         plane={'1'}
                         link={'/shop'}
                         textclasses={'transition tertiary_color secondary_font font_l4'}
-                        hovercolor={'var(--primaryTextColor)'}
-                        hoverbg={'var(--secondaryColor)'}
                     />
                     <Button
                         text={'Start Building'}

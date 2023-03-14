@@ -14,27 +14,25 @@ export default function LessonBox({data, link, customclasses}) {
             >
                 <section className={`${style.inner} transition round_l3 subcontainer spread padding_l3`}
                     style={{
-                        backgroundImage: `linear-gradient(0deg, #000000ab, #0000005c, #0001, #0002), url(${data.thumbnail})`,
+                        backgroundImage: `linear-gradient(0deg, #000000ba, #00000066, #0001, #0002), url(${data.thumbnail_url})`,
                         backgroundSize: 'cover',
                         backgroundRepeat: 'no-repeat',
                         backgroundPosition: 'center',
                     }}
                 >
-                    <section className={'subcontainer round_l2'}>
-                        {/* Tag */}
-                        <Text text={data.tag} customclasses={'primary_bg fitWidth round_l5'} textclasses={'secondary_font fitWidth tertiary_color font_l1 nomargin weight_l4 padding_l1 widePadding_l2'} />
+                    {/* Tag */}
+                    <section className={'subcontainer round_l2 rowgap_l1 colgap_l1'}>
+                        {data.tags.map((tag, key) => <Text key={key} link={`/tag/${tag.slug}`} text={tag.name} customclasses={'tertiary_bg fitWidth round_l5'} textclasses={'secondary_font fitWidth primary_color font_l1 nomargin weight_l4 padding_l1 widePadding_l2'} />)}
                     </section>
                     <section className={'subcontainer vertical norowgap lefty'}>
                         <div className={'subcontainer horizontal horizontalTabletBreak fitWidth'}>
                             {/* Publish Date */}
-                            <Text text={data.updateDate || data.publishDate} textclasses={'fitWidth tertiary_color font_l1 nomargin weight_l6'} />
-                            <Text text={'|'} textclasses={'fitWidth tertiary_color font_l1 nomargin weight_l4'} />
-                            {/* Estimated Time to Read */}
-                            <Text text={data.ETtR ? `${data.ETtR} mins` : ''} textclasses={'tertiary_color font_l1 nomargin weight_l6 fitWidth'} />
+                            <Text text={data.updateDate || data.publishDate} textclasses={'primary_color fitWidth font_l1 nomargin weight_l5'} />
+                            {/* <Text text={'|'} textclasses={'fitWidth primary_color font_l1 nomargin weight_l4'} /> */}
                         </div>
                         <Text
                             text={data.title}
-                            textclasses={'horizontal tertiary_color font_l6_min nomargin weight_l6'}
+                            textclasses={'horizontal primary_color font_l6_min nomargin weight_l6'}
                             customclasses={`${style.title} horizontalTabletBreak padding_l0 horizontal spread colgap_l3`}
                         />
                         {/* <Text

@@ -14,3 +14,7 @@
     height: 8vw;
     min-height: 70px;
 }
+
+.icon svg {
+    width: 100px;
+}

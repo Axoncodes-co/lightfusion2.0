@@ -17,3 +17,9 @@
 .outer:hover .inner {
     backdrop-filter: invert(0.7);
 }
+
+.icon svg {
+    width: 5vw;
+    max-width: 50px;
+    min-width: 30px;
+}

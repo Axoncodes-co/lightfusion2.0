@@ -1,18 +1,19 @@
 :root {
-    --primaryColor: #00235a;
-    --secondaryColor: #ff5e14;
-    --tertiaryColor: #eff0f2;
+    --primaryColor: #fff;
+    --secondaryColor: #04AA6D;
+    --tertiaryColor: #282A35;
   
-    --primaryTextColor: #001659;
-    --secondaryTextColor: #565969;
-    --tertiaryTextColor: #fff;
+    --primaryTextColor: #fff;
+    --secondaryTextColor: #04AA6D;
+    --tertiaryTextColor: #282A35;
 }
 
 .primary_bg {background-color: var(--primaryColor)}
-.primary_color {color: var(--primaryTextColor)}
 .secondary_bg {background-color: var(--secondaryColor)}
-.secondary_color {color: var(--secondaryTextColor)}
 .tertiary_bg {background-color: var(--tertiaryColor)}
+
+.primary_color {color: var(--primaryTextColor)}
+.secondary_color {color: var(--secondaryTextColor)}
 .tertiary_color {color: var(--tertiaryTextColor)}
 
 
@@ -30,3 +31,7 @@ a {text-decoration: none}
 .highlightButtonOnHover:hover .buttonBg {background-color: var(--secondaryColor)!important}
 
 .searchbarheight {height: 40px}
+
+.dropdown .dropdownBody.open > .menu .listHead:hover a {
+    color: #fff;
+}

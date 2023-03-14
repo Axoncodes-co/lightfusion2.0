@@ -17,7 +17,7 @@ export default function Newssubscriber() {
             <form className={'subcontainer horizontal horizontalTabletBreak'}>
                 <input
                     placeholder={'Enter your email'}
-                    className={'padding_l2 round_l2 tertiary_bg'}
+                    className={'primary_color padding_l2 round_l2 tertiary_bg'}
                     style={{border: '1px solid var(--primaryTextColor)', width: '25vw', minWidth: '140px'}}
                 />
                 <input type="submit" value={'Subscribe'} className={'padding_l2 round_l2 secondary_bg'} style={{border: '1px solid var(--secondaryColor)', cursor: 'pointer'}} />

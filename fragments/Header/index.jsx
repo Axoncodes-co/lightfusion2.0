@@ -6,13 +6,13 @@ const Logo = dynamic(() => import('../../axg-react/Logo'), {ssr: false})
 const Text = dynamic(() => import('../../axg-react/Text2'), {ssr: false})
 const Menu = dynamic(() => import('../../axg-react/Menu'), {ssr: false})
 const DropdownBody = dynamic(() => import('../../axg-react/DropdownBody'), {ssr: false})
-
+const Button = dynamic(() => import('../../axg-react/Button'), {ssr: false})
 export default function Header() {
 
   const [menuGroup, setMenuGroup] = useState({
     headTitlecolor: '#ededed',
     height: '50',
-    color: 'var(--primaryTextColor)',
+    color: 'var(--tertiaryColor)',
     colorHover: '#fff',
     activeBackground: 'var(--primaryColor)',
     headBackground: '#0000',
@@ -28,36 +28,36 @@ export default function Header() {
       targetLocator: 'shoplocator',
       structure: 'mega singletab',
       name: 'General',
-      color: 'var(--primaryColor)',
-      activeColor: 'var(--tertiaryTextColor)',
-      activeBg: 'var(--primaryColor)',
+      color: 'var(--tertiaryColor)',
+      activeColor: 'var(--primaryColor)',
+      activeBg: 'var(--secondaryColor)',
       subtrigger: 'click',
       subopening: 'sub',
-      background: 'var(--primaryColor)',
+      background: 'var(--tertiaryColor)',
       dir: 'rtl',
       exit: '1',
     },{
       targetLocator: 'shoplocator',
       structure: 'mega singletab',
       name: 'ATPL',
-      color: 'var(--primaryColor)',
-      activeColor: 'var(--tertiaryTextColor)',
-      activeBg: 'var(--primaryColor)',
+      color: 'var(--tertiaryColor)',
+      activeColor: 'var(--primaryColor)',
+      activeBg: 'var(--secondaryColor)',
       subtrigger: 'click',
       subopening: 'sub',
-      background: 'var(--primaryColor)',
+      background: 'var(--tertiaryColor)',
       dir: 'rtl',
       exit: '1',
     },{
       targetLocator: 'shoplocator',
       structure: 'mega singletab',
       name: 'DIY',
-      color: 'var(--primaryColor)',
-      activeColor: 'var(--tertiaryTextColor)',
-      activeBg: 'var(--primaryColor)',
+      color: 'var(--tertiaryColor)',
+      activeColor: 'var(--primaryColor)',
+      activeBg: 'var(--secondaryColor)',
       subtrigger: 'click',
       subopening: 'sub',
-      background: 'var(--primaryColor)',
+      background: 'var(--tertiaryColor)',
       dir: 'rtl',
       exit: '1',
     },
@@ -101,17 +101,15 @@ export default function Header() {
         searchquerylinks={['link1', 'link2']}
       />
       <div id={'continue_to_article'}>
-        <Link href={'/'}>
-          <Text
-            text={'Continue to Article'}
-            textclasses={`secondary_color weight_l3 font_l1 nomargin`}
-            subtext={'the article link'}
-            subtextclasses={`font_l3 primary_color nomargin weight_l6`}
-            innercustomclasses={'norowgapOnMobile norowgap nocolgap vertical verticalOnTablet'}
-            orderdirection={'horizontal'}
-            customclasses={'topy fitWidth'}
-          />
-        </Link>
+        <Button
+          text={'Sign In'}
+          innerclasses={'widePadding_l3 round_l3'}
+          bg={'var(--secondaryColor)'}
+          height={'40px'}
+          plane={'1'}
+          link={'/login'}
+          textclasses={'transition tertiary_color font_l3'}
+        />
       </div>
     </section>
     <section className="ax_elements" nomain="true">

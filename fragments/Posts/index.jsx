@@ -1,6 +1,6 @@
 
 import dynamic from 'next/dynamic'
-
+import style from './style.module.css'
 const Text = dynamic(() => import('../../axg-react/Text2'), {ssr: false})
 
 export default function Posts({link, title, svg, children}) {
@@ -11,7 +11,10 @@ export default function Posts({link, title, svg, children}) {
                     text={title}
                     textclasses={'font_l4 nomargin weight_l4'}
                     customclasses={'centerOnMobile allLefty horizontal'}
-                    icon={JSON.stringify({svg})}
+                    icon={JSON.stringify({
+                        svg,
+                        customclasses: style.icon
+                    })}
                 />
 
                 <Text
@@ -21,7 +24,7 @@ export default function Posts({link, title, svg, children}) {
                     customclasses={'centerOnMobile righty'}
                 />
             </section>
-            <section className={'subcontainer horizontal verticalLargeTabletBreak'}>
+            <section className={'subcontainer horizontal verticalLargeTabletBreak rowgap_l3'}>
                 {children}
             </section>
         </section>

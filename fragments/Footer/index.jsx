@@ -17,7 +17,7 @@ export default function Footer() {
             <section className={'subcontainer centerOnTablet'}>
                 <Text
                     inlinestyle={'width: 90%'}
-                    textclasses={'weight_l4 font_l3 textcenteronTablet'}
+                    textclasses={'weight_l4 font_l3 textcenteronTablet primary_color'}
                     text={'Homa Pilot was founded in 2020 and the purpose of this complex is to provide digital aviation and piloting courses for free and online so that all students of piloting and aviation.'}
                 />
             </section>
@@ -52,30 +52,30 @@ export default function Footer() {
         </section>
         <div className={'round_l5'} style={{backgroundColor: '#000000d4', width: '100%', height: '1px', margin: '22px 0'}} />
         <section className={'subcontainer horizontal spread'}>
-            <Text customclasses={'primary_color lefty'}>
-                by <Link href={'https://axoncodes.com'}>Axoncodes</Link>
+            <Text customclasses={'primary_color lefty centerOnMobile'}>
+                by <Link href={'https://axoncodes.com'} className={'secondary_color'} >Axoncodes</Link>
             </Text>
             <div className={'subcontainer horizontal horizontalTabletBreak fitWidth'}>
                 <Link href={'https://www.instagram.com/homapilot/'}>
-                    <Image src={'/instagram.svg'} width={20} height={20} />
+                    <Image alt={'socialmedia'} src={'/instagram.svg'} width={20} height={20} />
                 </Link>
                 <Link href={'https://www.instagram.com/homapilot/'}>
-                    <Image src={'/instagram.svg'} width={20} height={20} />
+                    <Image alt={'socialmedia'} src={'/instagram.svg'} width={20} height={20} />
                 </Link>
                 <Link href={'https://www.instagram.com/homapilot/'}>
-                    <Image src={'/instagram.svg'} width={20} height={20} />
+                    <Image alt={'socialmedia'} src={'/instagram.svg'} width={20} height={20} />
                 </Link>
                 <Link href={'https://www.instagram.com/homapilot/'}>
-                    <Image src={'/instagram.svg'} width={20} height={20} />
+                    <Image alt={'socialmedia'} src={'/instagram.svg'} width={20} height={20} />
                 </Link>
                 <Link href={'https://www.instagram.com/homapilot/'}>
-                    <Image src={'/instagram.svg'} width={20} height={20} />
+                    <Image alt={'socialmedia'} src={'/instagram.svg'} width={20} height={20} />
                 </Link>
                 <Link href={'https://www.instagram.com/homapilot/'}>
-                    <Image src={'/facebook.svg'} width={20} height={20} />
+                    <Image alt={'socialmedia'} src={'/facebook.svg'} width={20} height={20} />
                 </Link>
                 <Link href={'https://www.instagram.com/homapilot/'}>
-                    <Image src={'/instagram.svg'} width={20} height={20} />
+                    <Image alt={'socialmedia'} src={'/instagram.svg'} width={20} height={20} />
                 </Link>
             </div>
         </section>
