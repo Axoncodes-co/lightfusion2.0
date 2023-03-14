@@ -19,3 +19,7 @@
     width: 7vw;
     min-width: 100px;
 }
+
+@media (max-width: 375px) {
+    .icon svg {min-width: 50px}
+}

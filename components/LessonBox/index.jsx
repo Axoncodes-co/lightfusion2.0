@@ -21,7 +21,7 @@ export default function LessonBox({data, link, customclasses}) {
                 >
                     {/* Tag */}
                     <section className={'subcontainer round_l2 rowgap_l1 colgap_l1'}>
-                        {data.tags.map((tag, key) => <Text key={key} link={`/tag/${tag.slug}`} text={tag.name} customclasses={'tertiary_bg fitWidth round_l5'} textclasses={'secondary_font fitWidth primary_color font_l1 nomargin weight_l4 padding_l1 widePadding_l2'} />)}
+                        {data.tags.map((tag, key) => key > 1 ? '' : <Text key={key} link={`/tag/${tag.slug}`} text={tag.name} customclasses={'tertiary_bg fitWidth round_l5'} textclasses={'secondary_font fitWidth primary_color font_l1 nomargin weight_l4 padding_l1 widePadding_l2'} />)}
                     </section>
                     <section className={'subcontainer vertical norowgap lefty'}>
                         <div className={'subcontainer horizontal horizontalTabletBreak fitWidth'}>

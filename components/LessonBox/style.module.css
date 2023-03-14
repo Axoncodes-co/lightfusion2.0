@@ -14,7 +14,8 @@
 @media (max-width: 768px) {
     .inner {
         width: 100%!important;
-        height: 200px;
+        height: 30vw;
+        min-height: 130px;
     }
 }
 
