@@ -2,7 +2,6 @@
 import dynamic from 'next/dynamic'
 import Link from 'next/link'
 import style from './style.module.css'
-import Image from 'next/image'
 const Text = dynamic(() => import('../../axg-react/Text2'), {ssr: false})
 
 export default function LessonBox({data, link, customclasses}) {
