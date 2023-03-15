@@ -37,9 +37,8 @@ export default function Home({categories}) {
 }
 
 export const getStaticProps = async () => {
-	const categories = await fetchup()
-
-	return {
-	  props: {categories}
-	}
+	return fetchup()
+	.then(categories => ({
+		props: {categories}
+	}))
 }

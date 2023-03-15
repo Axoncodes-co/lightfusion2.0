@@ -11,8 +11,8 @@ export default function Archive({ category }) {
 		...course,
 		paid: course.paid == true ? "Paid Course" : "Free Course"
 	}))
-	const levels = [...new Set(category.courses.map(course => course.level))]
-	const paids = [...new Set(category.courses.map(course => course.paid))]
+	const levels = category.courses.map(course => course.level).length > 0 ? [...new Set(category.courses.map(course => course.level))] : []
+	const paids = category.courses.map(course => course.paid) > 0 ? [...new Set(category.courses.map(course => course.paid))] : []
 
 	return (
         <section className={'container vertical'} style={{minHeight: '600px'}}>

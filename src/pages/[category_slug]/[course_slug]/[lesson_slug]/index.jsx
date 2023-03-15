@@ -1,15 +1,11 @@
 import dynamic from 'next/dynamic'
 import Link from 'next/link'
+import fetchup from '../../../../../lib/fetch'
 const SectionTitle = dynamic(() => import('../../../../../axg-react/SectionTitle'), {ssr: false})
 const DropdownBody = dynamic(() => import('../../../../../axg-react/DropdownBody'), {ssr: false})
 const DropdownHead = dynamic(() => import('../../../../../axg-react/DropdownHead'), {ssr: false})
 
-export default function Post({ category_slug, course_slug, lesson_slug, categories }) {
-
-    const category = categories.filter(category => category.slug == category_slug ? category : null)[0]
-	const course = category.courses.filter(course => course.slug == course_slug ? course : null)[0]
-	const lesson = course.lessons.filter(lesson => lesson.slug == lesson_slug ? lesson : null)[0]
-
+export default function Post({ categories, category, course, lesson }) {
     return (
         <>
             <section style={{height: '25vw'}}>
@@ -92,28 +88,39 @@ export default function Post({ category_slug, course_slug, lesson_slug, categori
 }
 
 export async function getStaticPaths() {
-	
-    // const paths = categories.map(category => ({params: {
-	// 	archive: category.slug
-	// }}))
-
-	const paths = [
-		{params: {category_slug: 'general', course_slug: 'course2', lesson_slug: 'lesson1'}},
-		{params: {category_slug: 'general', course_slug: 'course2', lesson_slug: 'lesson2'}},
-	]
-
-	return {
-      paths,
-      fallback: false
-    }
+	return fetchup()
+	.then(categories => categories
+		.map(category => category.courses
+			.map(course => course.lessons
+                .map(lesson => ({
+                    params: {
+                        category_slug: category.slug,
+                        course_slug: course.slug,
+                        lesson_slug: lesson.slug
+                    }
+                }))
+            )
+		)
+	)
+	.then(paths => {
+        return ({
+		paths: paths.flat(2),
+		fallback: false
+	})})
 }
   
 export const getStaticProps = async ({params}) => {
 	const { category_slug, course_slug, lesson_slug } = params
-
-	// const category = categories.filter(category => category.slug == archive ? category : null)[0]
-    
-    return {
-      props: {category_slug, course_slug, lesson_slug}
-    }
+    const categories = await fetchup()
+    const category = categories.filter(category => category.slug == category_slug)[0]
+    const course = category.courses.filter(course => course.slug == course_slug)[0]
+    const lesson = course.lessons.filter(lesson => lesson.slug == lesson_slug)[0]
+    return ({
+        props: {
+            categories,
+            category,
+			lesson,
+            course,
+		}
+    })
 }
