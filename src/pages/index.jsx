@@ -10,7 +10,7 @@ import Navbar from '../../fragments/Navbar'
 export default function Home({categories}) {
 	return (<>
 		<Header />
-      	<Navbar data={categories} />
+      	<Navbar data={categories} current_slug={'home'} />
 		<section className={'relative'}>
 			<div style={{
 				filter: 'brightness(0.5)',
@@ -24,11 +24,11 @@ export default function Home({categories}) {
 			<CoursesCat categories={categories} />
 		</section>
 		<Posts
-			link={`/${categories[0].slug}/${categories[0].courses[1].slug}`}
-			title={`${categories[0].courses[1].title} Popular Lessons`}
-			svg={categories[0].courses[1].svg}
+			link={`/${categories[0].slug}/${categories[0].courses[0].slug}`}
+			title={`${categories[0].courses[0].title} Popular Lessons`}
+			svg={categories[0].courses[0].svg}
 		>
-			{categories[0].courses[8].lessons.map((lesson, key) => key < 3 ? <LessonBox
+			{categories[0].courses[0].lessons.map((lesson, key) => key < 3 ? <LessonBox
 				key={key}
 				data={lesson}
 				customclasses={key == 2 ? 'hideonlargetablet' : ''}

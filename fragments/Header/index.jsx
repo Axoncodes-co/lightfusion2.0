@@ -66,10 +66,8 @@ export default function Header() {
     <>
     <section
       style={{
-        position: 'sticky',
-        top: 0,
-        zIndex: 9,
         backgroundColor: '#fff',
+        boxShadow: '0px 0px 20px -7px rgb(0 0 0)',
       }}
       className={'container horizontal horizontalTabletBreak padding_l0 widePadding_l1'}>
       <section className={'subcontainer horizontal horizontalTabletBreak fitWidth'}>

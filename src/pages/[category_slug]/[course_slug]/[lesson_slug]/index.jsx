@@ -7,11 +7,11 @@ const DropdownHead = dynamic(() => import('../../../../../axg-react/DropdownHead
 import Header from '../../../../../fragments/Header'
 import Navbar from '../../../../../fragments/Navbar'
 
-export default function Post({ categories, category, course, lesson }) {
+export default function Post({ categories, course_slug, course, lesson }) {
     return (
         <>
             <Header />
-			<Navbar data={categories} />
+			<Navbar data={categories} current_slug={course_slug} />
             <section style={{height: '25vw'}}>
                 {/* breadcrumb */}
                 <div>
@@ -125,6 +125,9 @@ export const getStaticProps = async ({params}) => {
             category,
 			lesson,
             course,
+            category_slug,
+            course_slug,
+            lesson_slug,
 		}
     })
 }

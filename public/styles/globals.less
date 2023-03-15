@@ -12,9 +12,17 @@
 .secondary_bg {background-color: var(--secondaryColor)}
 .tertiary_bg {background-color: var(--tertiaryColor)}
 
+.primary_bg_hover:hover {background-color: var(--primaryColor)}
+.secondary_bg_hover:hover {background-color: var(--secondaryColor)}
+.tertiary_bg_hover:hover {background-color: var(--tertiaryColor)}
+
 .primary_color {color: var(--primaryTextColor)}
 .secondary_color {color: var(--secondaryTextColor)}
 .tertiary_color {color: var(--tertiaryTextColor)}
+
+.primary_color_hover:hover {color: var(--primaryTextColor)}
+.secondary_color_hover:hover {color: var(--secondaryTextColor)}
+.tertiary_color_hover:hover {color: var(--tertiaryTextColor)}
 
 
 #main_searchbar {
@@ -38,4 +46,22 @@ a {text-decoration: none}
 
 .hideonlargetablet {
     @media screen and (max-width: 1500px) and (min-width: 1000px) {display: none!important}
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background-color: #000;
+}
+
+
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #0000008f;
+    border-radius: 10px;
+}
+::-webkit-scrollbar-track {
+    background: #afafaf52;
 }

@@ -7,11 +7,11 @@ import fetchup from '../../../../lib/fetch'
 import Header from '../../../../fragments/Header'
 import Navbar from '../../../../fragments/Navbar'
 
-export default function Archive({ category_slug, course, categories }) {
+export default function Archive({ category_slug, course_slug, course, categories }) {
 	return (
 		<>
 			<Header />
-			<Navbar data={categories} />
+			<Navbar data={categories} current_slug={course_slug} />
 			<section className={'container vertical'} style={{minHeight: '600px'}}>
 				<SectionTitle
 					title={course.title}
@@ -60,6 +60,7 @@ export const getStaticProps = async ({params}) => {
 		props: {
 			course,
 			category_slug,
+			course_slug,
 			categories
 		}
 	})
