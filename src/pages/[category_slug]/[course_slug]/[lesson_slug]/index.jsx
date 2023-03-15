@@ -4,10 +4,14 @@ import fetchup from '../../../../../lib/fetch'
 const SectionTitle = dynamic(() => import('../../../../../axg-react/SectionTitle'), {ssr: false})
 const DropdownBody = dynamic(() => import('../../../../../axg-react/DropdownBody'), {ssr: false})
 const DropdownHead = dynamic(() => import('../../../../../axg-react/DropdownHead'), {ssr: false})
+import Header from '../../../../../fragments/Header'
+import Navbar from '../../../../../fragments/Navbar'
 
 export default function Post({ categories, category, course, lesson }) {
     return (
         <>
+            <Header />
+			<Navbar data={categories} />
             <section style={{height: '25vw'}}>
                 {/* breadcrumb */}
                 <div>

@@ -4,9 +4,13 @@ import CoursesCat from '../../fragments/CoursesCat'
 import LessonBox from '../../components/LessonBox'
 import Posts from '../../fragments/Posts'
 import fetchup from '../../lib/fetch'
+import Header from '../../fragments/Header'
+import Navbar from '../../fragments/Navbar'
 
 export default function Home({categories}) {
 	return (<>
+		<Header />
+      	<Navbar data={categories} />
 		<section className={'relative'}>
 			<div style={{
 				filter: 'brightness(0.5)',
