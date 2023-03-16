@@ -36,7 +36,7 @@ export default function Archive({ categories, category }) {
 							{ name: 'Paid', items: paids.map(paid => ({ type: 'checkbox', tag: 'input', name: paid.toLowerCase().replaceAll(' ', '_'), label: paid }))},
 						]}
 					/>
-					<section className={'subcontainer wrap rowgap_l3 colgap_l1 center'} id={'mainitemslist'}>
+					<section className={'subcontainer wrap rowgap_l3 colgap_l1 center topy'} id={'mainitemslist'}>
 						{category.courses.map((course, key) => <CourseBox
 							key={key}
 							svg={course.svg}
