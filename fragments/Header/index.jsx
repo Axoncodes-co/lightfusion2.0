@@ -7,12 +7,12 @@ const Text = dynamic(() => import('../../axg-react/Text2'), {ssr: false})
 const Menu = dynamic(() => import('../../axg-react/Menu'), {ssr: false})
 const DropdownBody = dynamic(() => import('../../axg-react/DropdownBody'), {ssr: false})
 const Button = dynamic(() => import('../../axg-react/Button'), {ssr: false})
-export default function Header() {
+export default function Header({ categories }) {
 
   const [menuGroup, setMenuGroup] = useState({
     headTitlecolor: '#ededed',
     height: '50',
-    color: 'var(--tertiaryColor)',
+    color: 'var(--primaryTextColor)',
     colorHover: '#fff',
     activeBackground: 'var(--primaryColor)',
     headBackground: '#0000',
@@ -25,10 +25,10 @@ export default function Header() {
   })
   const [menuItems, setMenuItems] = useState([
     {
-      targetLocator: 'shoplocator',
+      targetLocator: 'courseslocator',
       structure: 'mega singletab',
-      name: 'General',
-      color: 'var(--tertiaryColor)',
+      name: 'Courses',
+      color: 'var(--primaryTextColor)',
       activeColor: 'var(--primaryColor)',
       activeBg: 'var(--secondaryColor)',
       subtrigger: 'click',
@@ -36,40 +36,31 @@ export default function Header() {
       background: 'var(--tertiaryColor)',
       dir: 'rtl',
       exit: '1',
-    },{
-      targetLocator: 'shoplocator',
-      structure: 'mega singletab',
-      name: 'ATPL',
-      color: 'var(--tertiaryColor)',
-      activeColor: 'var(--primaryColor)',
-      activeBg: 'var(--secondaryColor)',
-      subtrigger: 'click',
-      subopening: 'sub',
-      background: 'var(--tertiaryColor)',
-      dir: 'rtl',
-      exit: '1',
-    },{
-      targetLocator: 'shoplocator',
-      structure: 'mega singletab',
-      name: 'DIY',
-      color: 'var(--tertiaryColor)',
-      activeColor: 'var(--primaryColor)',
-      activeBg: 'var(--secondaryColor)',
-      subtrigger: 'click',
-      subopening: 'sub',
-      background: 'var(--tertiaryColor)',
-      dir: 'rtl',
-      exit: '1',
-    },
+      // options: categories.map(category => ({
+      //     title: category.title,
+      //     url: '/shop/tehran-cement',
+      //     level: 'undertab',
+      //     color: 'var(--secondaryColor)',
+      //     fontsize: 'var(--l7-text-fontSize)',
+      //     dir: 'rtl',
+      //     content: category.courses.map(course => ({
+      //       title: course.title,
+      //       url: '/shop/tehran-cement',
+      //       level: 'undertab',
+      //       color: 'var(--secondaryColor)',
+      //       fontsize: 'var(--l7-text-fontSize)',
+      //       dir: 'rtl',
+      //     }))
+      // }))
+    }
   ])
   return (
     <>
     <section
       style={{
-        backgroundColor: '#fff',
         boxShadow: '0px 0px 20px -7px rgb(0 0 0)',
       }}
-      className={'container horizontal horizontalTabletBreak padding_l0 widePadding_l1'}>
+      className={'primary_bg container horizontal horizontalTabletBreak padding_l0 widePadding_l1'}>
       <section className={'subcontainer horizontal horizontalTabletBreak fitWidth'}>
         <Logo
           src={'/logo.png'}
@@ -129,7 +120,7 @@ export default function Header() {
           title={item.title}
           background={item.background}
           targetLocator={item.targetLocator}
-          subOpening={item.subOpening}
+          subOpening={item.subopening}
           options={JSON.stringify(item.options)}
           optionsApi={item.optionsApi}
           dropdownid={key}

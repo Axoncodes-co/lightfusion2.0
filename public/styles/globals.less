@@ -2,10 +2,26 @@
     --primaryColor: #fff;
     --secondaryColor: #04AA6D;
     --tertiaryColor: #282A35;
-  
     --primaryTextColor: #fff;
-    --secondaryTextColor: #04AA6D;
-    --tertiaryTextColor: #282A35;
+
+    --originalprimaryColor: #fff;
+    --originalsecondaryColor: #04AA6D;
+    --originaltertiaryColor: #282A35;
+    --originalprimaryTextColor: #fff;
+
+    --darkprimaryColor: #1d2a35;
+    --darksecondaryColor: #008353;
+    --darktertiaryColor: #0d1721;
+    --darkprimaryTextColor: #e2e2e2;
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --primaryColor: #1d2a35;
+        --secondaryColor: #008353;
+        --tertiaryColor: #0d1721;
+        --primaryTextColor: #e2e2e2;
+    }
 }
 
 .primary_bg {background-color: var(--primaryColor)}
@@ -17,12 +33,12 @@
 .tertiary_bg_hover:hover {background-color: var(--tertiaryColor)}
 
 .primary_color {color: var(--primaryTextColor)}
-.secondary_color {color: var(--secondaryTextColor)}
-.tertiary_color {color: var(--tertiaryTextColor)}
+.secondary_color {color: var(--primaryTextColor)}
+.tertiary_color {color: var(--primaryTextColor)}
 
-.primary_color_hover:hover {color: var(--primaryTextColor)}
-.secondary_color_hover:hover {color: var(--secondaryTextColor)}
-.tertiary_color_hover:hover {color: var(--tertiaryTextColor)}
+.primary_color_hover:hover {color: var(--primaryColor)}
+.secondary_color_hover:hover {color: var(--secondaryColor)}
+.tertiary_color_hover:hover {color: var(--tertiaryColor)}
 
 
 #main_searchbar {
@@ -65,3 +81,6 @@ a {text-decoration: none}
 ::-webkit-scrollbar-track {
     background: #afafaf52;
 }
+
+html[theme-preference="light"] .hidesublighttheme {display: none!important}
+html[theme-preference="dark"] .hidesubdarktheme {display: none!important}

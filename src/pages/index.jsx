@@ -9,7 +9,7 @@ import Navbar from '../../fragments/Navbar'
 
 export default function Home({categories}) {
 	return (<>
-		<Header />
+		<Header categories={categories} />
       	<Navbar data={categories} current_slug={'home'} />
 		<section className={'relative'}>
 			<div style={{

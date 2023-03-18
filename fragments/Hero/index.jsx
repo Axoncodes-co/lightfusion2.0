@@ -27,7 +27,7 @@ export default function Hero() {
                         height={'48px'}
                         plane={'1'}
                         link={'/shop'}
-                        textclasses={'transition tertiary_color secondary_font font_l4'}
+                        textclasses={'transition primary_color secondary_font font_l4'}
                     />
                     <Button
                         text={'Start Building'}
@@ -38,7 +38,6 @@ export default function Hero() {
                         plane={'1'}
                         link={'/shop'}
                         textclasses={'transition primary_color font_l4'}
-                        hovercolor={'var(--primaryTextColor)'}
                         hoverbg={'var(--secondaryColor)'}
                     />
                 </section>

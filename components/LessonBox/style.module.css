@@ -22,3 +22,6 @@
 .title {
     line-height: 2rem;
 }
+
+.opacity {opacity: 0.5}
+.opacity:hover {opacity: 1}

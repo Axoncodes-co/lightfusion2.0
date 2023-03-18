@@ -10,7 +10,7 @@ import Navbar from '../../../../../fragments/Navbar'
 export default function Post({ categories, course_slug, course, lesson }) {
     return (
         <>
-            <Header />
+            <Header categories={categories} />
 			<Navbar data={categories} current_slug={course_slug} />
             <section style={{height: '25vw'}}>
                 {/* breadcrumb */}

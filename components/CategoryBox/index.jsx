@@ -20,20 +20,20 @@ export default function CategoryBox({
                         customclasses: style.icon
                     })}
                     customclasses={`${style.title} fitWidthOnTablet fitminWidth textcenter center padding_l3 vertical horizontalTabletBreak`}
-                    textclasses={'tertiary_color nomargin font_l6 weight_l6'}
+                    textclasses={'primary_color nomargin font_l6 weight_l6'}
                 />
             </section>
             <section className={'norowgap subcontainer vertical horizontalTabletBreak fitWidth'}>
                 <Text
                     text={'Explore'}
                     customclasses={'fitWidthOnTablet fitminWidth textcenter center padding_l0 vertical horizontalTabletBreak'}
-                    textclasses={'tertiary_color nomargin font_l1 weight_l4'}
+                    textclasses={'primary_color nomargin font_l1 weight_l4'}
                     // link={link}
                 />
                 <section className={'subcontainer center horizontal padding_l3 verticalTabletBreak fitminWidth'}>
                     <div className={'subcontainer horizontal center'}>
-                        <Text text={courses_count} customclasses={'center'} textclasses={'tertiary_color nomargin font_l1 weight_l6'} />
-                        <Text text={'Courses'} customclasses={''} textclasses={'tertiary_color nomargin font_l1 weight_l6'} />
+                        <Text text={courses_count} customclasses={'center'} textclasses={'primary_color nomargin font_l1 weight_l6'} />
+                        <Text text={'Courses'} customclasses={''} textclasses={'primary_color nomargin font_l1 weight_l6'} />
                     </div>
                 </section>
             </section>

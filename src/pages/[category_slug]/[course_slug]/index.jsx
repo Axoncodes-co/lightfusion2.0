@@ -10,7 +10,7 @@ import Navbar from '../../../../fragments/Navbar'
 export default function Archive({ category_slug, course_slug, course, categories }) {
 	return (
 		<>
-			<Header />
+			<Header categories={categories} />
 			<Navbar data={categories} current_slug={course_slug} />
 			<section className={'container vertical'} style={{minHeight: '600px'}}>
 				<SectionTitle

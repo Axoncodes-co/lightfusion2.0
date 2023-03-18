@@ -18,7 +18,7 @@ export default function Newssubscriber() {
                 <input
                     placeholder={'Enter your email'}
                     className={'primary_color padding_l2 round_l2 tertiary_bg'}
-                    style={{border: '1px solid var(--primaryTextColor)', width: '25vw', minWidth: '140px'}}
+                    style={{border: '1px solid var(--primaryColor)', width: '25vw', minWidth: '140px'}}
                 />
                 <input type="submit" value={'Subscribe'} className={'padding_l2 round_l2 secondary_bg'} style={{border: '1px solid var(--secondaryColor)', cursor: 'pointer'}} />
             </form>

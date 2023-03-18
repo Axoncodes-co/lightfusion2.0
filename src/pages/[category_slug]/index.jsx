@@ -18,7 +18,7 @@ export default function Archive({ categories, category }) {
 
 	return (
 		<>
-			<Header />
+			<Header categories={categories} />
 			<Navbar data={categories} />
 			<section className={'container vertical'} style={{minHeight: '600px'}}>
 				<SectionTitle
