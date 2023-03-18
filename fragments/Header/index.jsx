@@ -34,25 +34,44 @@ export default function Header({ categories }) {
       subtrigger: 'click',
       subopening: 'sub',
       background: 'var(--tertiaryColor)',
-      dir: 'rtl',
       exit: '1',
-      // options: categories.map(category => ({
-      //     title: category.title,
-      //     url: '/shop/tehran-cement',
-      //     level: 'undertab',
-      //     color: 'var(--secondaryColor)',
-      //     fontsize: 'var(--l7-text-fontSize)',
-      //     dir: 'rtl',
-      //     content: category.courses.map(course => ({
-      //       title: course.title,
-      //       url: '/shop/tehran-cement',
-      //       level: 'undertab',
-      //       color: 'var(--secondaryColor)',
-      //       fontsize: 'var(--l7-text-fontSize)',
-      //       dir: 'rtl',
-      //     }))
-      // }))
-    }
+      options: categories.map(category => ({
+          title: category.title,
+          url: `/${category.slug}`,
+          level: 'undertab',
+          color: 'var(--tertiaryTextColor)',
+          fontsize: 'var(--l7-text-fontSize)',
+          content: category.courses.map(course => ({
+            title: course.title,
+            url: `/${category.slug}/${course.slug}`,
+            level: 'undertab',
+            color: 'var(--primaryTextColor)',
+            fontsize: 'var(--l4-text-fontSize)',
+          }))
+      }))
+    },
+    {
+      structure: 'link',
+      name: 'About Us',
+      link: '/about',
+      color: 'var(--secondaryTextColor)',
+      activeColor: 'var(--primaryColor)',
+      activeBg: 'var(--secondaryColor)',
+      subtrigger: 'click',
+      subopening: 'sub',
+      background: 'var(--tertiaryColor)',
+    },
+    {
+      structure: 'link',
+      name: 'Contact Us',
+      link: '/contact',
+      color: 'var(--secondaryTextColor)',
+      activeColor: 'var(--primaryColor)',
+      activeBg: 'var(--secondaryColor)',
+      subtrigger: 'click',
+      subopening: 'sub',
+      background: 'var(--tertiaryColor)',
+    },
   ])
   return (
     <>
@@ -104,6 +123,7 @@ export default function Header({ categories }) {
     <section className="ax_elements" nomain="true">
       {menuItems.map((item, key) => (
         <DropdownBody
+          dev={'staging'}
           key={key}
           mode={'dropdown_body_v4'}
           exit={item.exit}
@@ -121,7 +141,7 @@ export default function Header({ categories }) {
           background={item.background}
           targetLocator={item.targetLocator}
           subOpening={item.subopening}
-          options={JSON.stringify(item.options)}
+          options={item.options}
           optionsApi={item.optionsApi}
           dropdownid={key}
         />
