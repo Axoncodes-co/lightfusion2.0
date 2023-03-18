@@ -4,16 +4,19 @@
   --tertiaryColor: #282A35;
   --primaryTextColor: #fff;
   --secondaryTextColor: #242424;
+  --tertiaryTextColor: #04AA6D;
   --originalprimaryColor: #fff;
   --originalsecondaryColor: #04AA6D;
   --originaltertiaryColor: #282A35;
   --originalprimaryTextColor: #fff;
   --originalsecondaryTextColor: #242424;
+  --originaltertiaryTextColor: #04AA6D;
   --darkprimaryColor: #1d2a35;
   --darksecondaryColor: #008353;
   --darktertiaryColor: #0d1721;
   --darkprimaryTextColor: #e2e2e2;
   --darksecondaryTextColor: #ffffff;
+  --darktertiaryTextColor: #008353;
 }
 @media (prefers-color-scheme: dark) {
   :root {
@@ -48,7 +51,7 @@
   color: var(--secondaryTextColor);
 }
 .tertiary_color {
-  color: var(--primaryTextColor);
+  color: var(--tertiaryTextColor);
 }
 .primary_color_hover:hover {
   color: var(--primaryColor);
@@ -57,7 +60,31 @@
   color: var(--secondaryTextColor);
 }
 .tertiary_color_hover:hover {
-  color: var(--primaryTextColor);
+  color: var(--tertiaryTextColor);
+}
+.primary_fill,
+.primary_fill svg {
+  fill: var(--primaryColor);
+}
+.secondary_fill,
+.secondary_fill svg {
+  fill: var(--secondaryTextColor);
+}
+.tertiary_fill,
+.tertiary_fill svg {
+  fill: var(--tertiaryTextColor);
+}
+.primary_fill_hover:hover,
+.primary_fill_hover:hover svg {
+  fill: var(--primaryColor);
+}
+.secondary_fill_hover:hover,
+.secondary_fill_hover:hover svg {
+  fill: var(--secondaryTextColor);
+}
+.tertiary_fill_hover:hover,
+.tertiary_fill_hover:hover svg {
+  fill: var(--tertiaryTextColor);
 }
 #main_searchbar {
   width: 40vw!important;

@@ -9,7 +9,7 @@ const Text = dynamic(() => import('../../axg-react/Text2'), {ssr: false})
 export default function Footer() {
 
     const headsclasses = 'primary_color font_l2_min weight_l6 fitWidth'
-    const itemsclasses = 'primary_color font_l2_max nomargin weight_l4 fitWidth'
+    const itemsclasses = 'primary_color font_l2_max nomargin weight_l4 fitWidth tertiary_color_hover'
 
     return (<footer className={'container tertiary_bg vertical'}>
         <Newssubscriber />
@@ -76,7 +76,7 @@ export default function Footer() {
                 </Link>
             </div>
             <Text customclasses={'primary_color righty centerOnMobile'}>
-                by <Link href={'https://axoncodes.com'} className={'secondary_color'} >Axoncodes</Link>
+                by <Link href={'https://axoncodes.com'} className={'tertiary_color'} >Axoncodes</Link>
             </Text>
         </section>
     </footer>)
