@@ -12,7 +12,7 @@ export default function Header({ categories }) {
   const [menuGroup, setMenuGroup] = useState({
     headTitlecolor: '#ededed',
     height: '50',
-    color: 'var(--primaryTextColor)',
+    color: 'var(--secondaryTextColor)',
     colorHover: '#fff',
     activeBackground: 'var(--primaryColor)',
     headBackground: '#0000',
@@ -28,7 +28,7 @@ export default function Header({ categories }) {
       targetLocator: 'courseslocator',
       structure: 'mega singletab',
       name: 'Courses',
-      color: 'var(--primaryTextColor)',
+      color: 'var(--secondaryTextColor)',
       activeColor: 'var(--primaryColor)',
       activeBg: 'var(--secondaryColor)',
       subtrigger: 'click',
@@ -60,7 +60,7 @@ export default function Header({ categories }) {
       style={{
         boxShadow: '0px 0px 20px -7px rgb(0 0 0)',
       }}
-      className={'primary_bg container horizontal horizontalTabletBreak padding_l0 widePadding_l1'}>
+      className={'transition primary_bg container horizontal horizontalTabletBreak padding_l0 widePadding_l1'}>
       <section className={'subcontainer horizontal horizontalTabletBreak fitWidth'}>
         <Logo
           src={'/logo.png'}
@@ -89,7 +89,7 @@ export default function Header({ categories }) {
         searchquerynames={['name1', 'name2']}
         searchquerylinks={['link1', 'link2']}
       />
-      <div id={'continue_to_article'}>
+      {/* <div>
         <Button
           text={'Sign In'}
           innerclasses={'widePadding_l3 round_l3'}
@@ -99,7 +99,7 @@ export default function Header({ categories }) {
           link={'/login'}
           textclasses={'transition tertiary_color font_l3'}
         />
-      </div>
+      </div> */}
     </section>
     <section className="ax_elements" nomain="true">
       {menuItems.map((item, key) => (

@@ -5,7 +5,7 @@ const Text = dynamic(() => import('../../axg-react/Text2'), {ssr: false})
 
 export default function Posts({link, title, svg, children}) {
     return (
-        <section className={'container vertical primary_bg'}>
+        <section className={'transition container vertical primary_bg'}>
             <section className={'subcontainer horizontal'}>
                 <Text
                     text={title}
