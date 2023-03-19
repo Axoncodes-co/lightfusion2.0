@@ -1,3 +1,5 @@
+
+import style from './style.module.css'
 import dynamic from 'next/dynamic'
 import Link from 'next/link'
 import { useState } from 'react'
@@ -18,10 +20,12 @@ export default function Header({ categories }) {
     headBackground: '#0000',
     headBackgroundHover: '#575757',
     text: {
-      text: 'Menu',
-      textclasses: ''
+      dev: 'staging',
+      text: 'Menu2',
+      textclasses: 'weight_l3 font_l4 secondary_font nomargin secondary_color primary_color_hover',
+      customclasses: 'secondary_bg_hover widePadding_l1',
     },
-    background: '#ededed',
+    background: 'var(--primaryColor)',
     subOpening: 'sub',
     subTrigger: 'click',
     dropdownid: 'mainHeaderGroup',
@@ -31,30 +35,41 @@ export default function Header({ categories }) {
     {
       dev: 'staging',
       text: {
+        dev: 'staging',
         text: 'Courses',
-        textclasses: 'weight_l3 font_l4 secondary_font'
+        textclasses: 'weight_l3 font_l3 secondary_font nomargin secondary_color primary_color_hover',
+        customclasses: 'secondary_bg_hover widePadding_l1'
       },
       targetLocator: 'courseslocator',
       structure: 'mega singletab',
-      color: 'var(--secondaryTextColor)',
-      activeColor: 'var(--primaryColor)',
-      activeBg: 'var(--secondaryColor)',
       subtrigger: 'click',
       subopening: 'sub',
       background: 'var(--tertiaryColor)',
       exit: '1',
+      listclasses: 'container wrap',
       options: categories.map(category => ({
+        listclasses: 'vertical centerOnTablet lefty',
         text: {
           text: category.title,
           link: `/${category.slug}`,
-          textclasses: 'font_l7 tertinary_color'
+          textclasses: 'font_l7 tertiary_color',
+          icon: {
+            svg: category.svg,
+            customclasses: style.title
+          },
+          customclasses: 'centerOnTablet colgap_l2',
         },
         level: 'undertab',
         content: category.courses.map(course => ({
           text: {
             text: course.title,
             link: `/${category.slug}/${course.slug}`,
-            textclasses: 'font_l4 primary_color'
+            textclasses: 'font_l4 primary_color',
+            customclasses: 'colgap_l2',
+            icon: {
+              svg: course.svg,
+              customclasses: style.course
+            },
           },
           level: 'undertab',
         }))
@@ -62,25 +77,29 @@ export default function Header({ categories }) {
     },
     {
       structure: 'link',
-      name: 'About Us',
-      link: '/about',
-      color: 'var(--secondaryTextColor)',
-      activeColor: 'var(--primaryColor)',
-      activeBg: 'var(--secondaryColor)',
+      dev: 'staging',
+      text: {
+        dev: 'staging',
+        text: 'About Us',
+        link: '/about',
+        textclasses: 'weight_l3 font_l3 secondary_font nomargin secondary_color primary_color_hover',
+        customclasses: 'secondary_bg_hover widePadding_l1',
+      },
       subtrigger: 'click',
       subopening: 'sub',
-      background: 'var(--tertiaryColor)',
     },
     {
       structure: 'link',
-      name: 'Contact Us',
-      link: '/contact',
-      color: 'var(--secondaryTextColor)',
-      activeColor: 'var(--primaryColor)',
-      activeBg: 'var(--secondaryColor)',
+      dev: 'staging',
+      text: {
+        dev: 'staging',
+        text: 'Contact Us',
+        link: '/contact',
+        textclasses: 'weight_l3 font_l3 secondary_font nomargin secondary_color primary_color_hover',
+        customclasses: 'secondary_bg_hover widePadding_l1',
+      },
       subtrigger: 'click',
       subopening: 'sub',
-      background: 'var(--tertiaryColor)',
     },
   ])
   return (
@@ -90,7 +109,7 @@ export default function Header({ categories }) {
         boxShadow: '0px 0px 20px -7px rgb(0 0 0)',
       }}
       className={'transition primary_bg container horizontal horizontalTabletBreak padding_l0 widePadding_l1'}>
-      <section className={'subcontainer horizontal horizontalTabletBreak fitWidth'}>
+      <section style={{position: 'unset'}} className={'subcontainer horizontal horizontalTabletBreak fitWidth'}>
         <Logo
           src={'/logo.png'}
           width={'10vw'}
@@ -136,6 +155,7 @@ export default function Header({ categories }) {
           dev={'staging'}
           key={key}
           mode={'dropdown_body_v4'}
+          listclasses={item.listclasses}
           exit={item.exit}
           text={JSON.stringify(item.text)}
           headTitle={item.headTitle}

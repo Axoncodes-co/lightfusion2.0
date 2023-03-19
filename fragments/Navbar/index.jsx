@@ -8,7 +8,7 @@ export default function Navbar({data, current_slug}) {
             style={{
                 position: 'sticky',
                 top: 0,
-                zIndex: 20,
+                zIndex: 4,
             }}
             className={'topy subcontainer horizontal horizontalTabletBreak tertiary_bg colgap_l0'}
         >
