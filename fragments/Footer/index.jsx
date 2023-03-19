@@ -51,7 +51,7 @@ export default function Footer() {
             </section>
         </section>
         <div className={'round_l5'} style={{backgroundColor: '#000000d4', width: '100%', height: '1px', margin: '22px 0'}} />
-        <section className={'subcontainer horizontal spread'}>
+        <section className={'subcontainer horizontal spread fitWidthOnMobile'}>
             <div className={'subcontainer horizontal horizontalTabletBreak fitWidth lefty'}>
                 <Link href={'https://www.instagram.com/homapilot/'}>
                     <Image alt={'socialmedia'} src={'/instagram.svg'} width={20} height={20} />
@@ -75,7 +75,7 @@ export default function Footer() {
                     <Image alt={'socialmedia'} src={'/instagram.svg'} width={20} height={20} />
                 </Link>
             </div>
-            <Text customclasses={'primary_color righty centerOnMobile'}>
+            <Text customclasses={'primary_color righty centerOnMobile fitWidth'}>
                 by <Link href={'https://axoncodes.com'} className={'tertiary_color'} >Axoncodes</Link>
             </Text>
         </section>
