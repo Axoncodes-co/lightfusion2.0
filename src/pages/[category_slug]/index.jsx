@@ -20,10 +20,10 @@ export default function Archive({ categories, category }) {
 		<>
 			<Header categories={categories} />
 			<Navbar data={categories} />
-			<section className={'container vertical'} style={{minHeight: '600px'}}>
+			<section className={'primary_bg container vertical'} style={{minHeight: '600px'}}>
 				<SectionTitle
 					title={category.title}
-					textclasses={'font_l7 weight_l3 nomargin secondary_font'}
+					textclasses={'font_l7 weight_l3 nomargin secondary_color secondary_font'}
 				/>
 				<section className={'subcontainer horizontal topy verticalTabletBreak'}>
 					<Filter
@@ -32,8 +32,8 @@ export default function Archive({ categories, category }) {
 						filterPlacement="itemplacement"
 						elementId="iconsFilter"
 						elements={[
-							{ name: 'Level', items: levels.map(level => ({ type: 'checkbox', tag: 'input', name: level.toLowerCase().replaceAll(' ', '_'), label: level }))},
-							{ name: 'Paid', items: paids.map(paid => ({ type: 'checkbox', tag: 'input', name: paid.toLowerCase().replaceAll(' ', '_'), label: paid }))},
+							{ classes: 'secondary_color', name: 'Level', items: levels.map(level => ({ inputColor:'var(--secondaryTextColor)', type: 'checkbox', tag: 'input', name: level.toLowerCase().replaceAll(' ', '_'), label: level }))},
+							{ classes: 'secondary_color', name: 'Paid', items: paids.map(paid => ({ inputColor:'var(--secondaryTextColor)', type: 'checkbox', tag: 'input', name: paid.toLowerCase().replaceAll(' ', '_'), label: paid }))},
 						]}
 					/>
 					<section className={'subcontainer wrap rowgap_l3 colgap_l1 center topy'} id={'mainitemslist'}>

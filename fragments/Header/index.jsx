@@ -5,7 +5,7 @@ const Searchbar = dynamic(() => import('../../axg-react/Searchbar3'), {ssr: fals
 const Logo = dynamic(() => import('../../axg-react/Logo'), {ssr: false})
 const Text = dynamic(() => import('../../axg-react/Text2'), {ssr: false})
 const Menu = dynamic(() => import('../../axg-react/Menu'), {ssr: false})
-const DropdownBody = dynamic(() => import('../../axg-react/DropdownBody'), {ssr: false})
+const DropdownBody = dynamic(() => import('../../axg-react/DropdownBody5'), {ssr: false})
 const Button = dynamic(() => import('../../axg-react/Button'), {ssr: false})
 export default function Header({ categories }) {
 
@@ -13,21 +13,29 @@ export default function Header({ categories }) {
     headTitlecolor: '#ededed',
     height: '50',
     color: 'var(--secondaryTextColor)',
-    colorHover: '#fff',
+    colorHover: 'var(--tertiaryTextColor)',
     activeBackground: 'var(--primaryColor)',
     headBackground: '#0000',
     headBackgroundHover: '#575757',
-    title: 'Courses',
+    text: {
+      text: 'Menu',
+      textclasses: ''
+    },
     background: '#ededed',
     subOpening: 'sub',
     subTrigger: 'click',
     dropdownid: 'mainHeaderGroup',
+    dev: 'staging',
   })
   const [menuItems, setMenuItems] = useState([
     {
+      dev: 'staging',
+      text: {
+        text: 'Courses',
+        textclasses: 'weight_l3 font_l4 secondary_font'
+      },
       targetLocator: 'courseslocator',
       structure: 'mega singletab',
-      name: 'Courses',
       color: 'var(--secondaryTextColor)',
       activeColor: 'var(--primaryColor)',
       activeBg: 'var(--secondaryColor)',
@@ -36,18 +44,20 @@ export default function Header({ categories }) {
       background: 'var(--tertiaryColor)',
       exit: '1',
       options: categories.map(category => ({
-          title: category.title,
-          url: `/${category.slug}`,
+        text: {
+          text: category.title,
+          link: `/${category.slug}`,
+          textclasses: 'font_l7 tertinary_color'
+        },
+        level: 'undertab',
+        content: category.courses.map(course => ({
+          text: {
+            text: course.title,
+            link: `/${category.slug}/${course.slug}`,
+            textclasses: 'font_l4 primary_color'
+          },
           level: 'undertab',
-          color: 'var(--tertiaryTextColor)',
-          fontsize: 'var(--l7-text-fontSize)',
-          content: category.courses.map(course => ({
-            title: course.title,
-            url: `/${category.slug}/${course.slug}`,
-            level: 'undertab',
-            color: 'var(--primaryTextColor)',
-            fontsize: 'var(--l4-text-fontSize)',
-          }))
+        }))
       }))
     },
     {
@@ -127,6 +137,7 @@ export default function Header({ categories }) {
           key={key}
           mode={'dropdown_body_v4'}
           exit={item.exit}
+          text={JSON.stringify(item.text)}
           headTitle={item.headTitle}
           headTitlecolor={item.headTitlecolor}
           height={item.height}

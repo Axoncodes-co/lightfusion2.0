@@ -12,10 +12,10 @@ export default function Archive({ category_slug, course_slug, course, categories
 		<>
 			<Header categories={categories} />
 			<Navbar data={categories} current_slug={course_slug} />
-			<section className={'container vertical'} style={{minHeight: '600px'}}>
+			<section className={'container vertical primary_bg'} style={{minHeight: '600px'}}>
 				<SectionTitle
 					title={course.title}
-					textclasses={'font_l7 secondary_font'}
+					textclasses={'font_l7 secondary_font secondary_color'}
 				/>
 				<section className={'subcontainer horizontal topy verticalTabletBreak'}>
 					<section className={'subcontainer horizontal wrap rowgap_l3 colgap_l3 center'} id={'mainitemslist'}>
