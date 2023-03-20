@@ -1,30 +1,44 @@
 import dynamic from 'next/dynamic'
 import fetchup from '../../../../../lib/fetch'
 const SectionTitle = dynamic(() => import('../../../../../axg-react/SectionTitle'), {ssr: false})
+const Text = dynamic(() => import('../../../../../axg-react/Text2'), {ssr: false})
 import Header from '../../../../../fragments/Header'
 import Navbar from '../../../../../fragments/Navbar'
 import Breadcrumb from '../../../../../components/Breadcrumb'
+import Author from '../../../../../components/Author'
 
 export default function Post({ categories, course_slug, category, course, lesson }) {
     return (
         <>
             <Header categories={categories} />
 			<Navbar data={categories} current_slug={course_slug} />
-            <section style={{height: '25vw'}}>
-                <Breadcrumb
-                    categories={categories}
-                    category={category}
-                    course={course}
-                />
-                <div
-                    style={{
-                        height: '25vw',
-                        backgroundImage: `url(${lesson.thumbnail})`,
-                        backgroundSize: 'cover',
-                        backgroundRepeat: 'no-repeat',
-                        backgroundPosition: 'center',
-                    }}
-                ></div>
+            <section className={'container primary_bg vertical'}>
+                <section id={'content_nav'} className={'wide subcontainer'}>
+                    {/* On mobile, set the long texts ... and highlight the current item in the list */}
+                    <Breadcrumb
+                        categories={categories}
+                        category={category}
+                        course={course}
+                    />
+                </section>
+                <div style={{width: '100%'}}>
+                    <div
+                        style={{
+                            height: '25vw',
+                            backgroundImage: `url(${lesson.thumbnail_url})`,
+                            backgroundSize: 'cover',
+                            backgroundRepeat: 'no-repeat',
+                            backgroundPosition: 'center',
+                        }}
+                    ></div>
+                </div>
+                <section className={'subcontainer'}>
+                    <Author
+                        name={lesson.author_name}
+                        avatar_url={lesson.author_avatar}
+                        date={lesson.updateDate || lesson.publishDate}
+                    />
+                </section>
             </section>
             <section className={'container'}>
                 <SectionTitle

@@ -1,0 +1,6 @@
+.avatar {
+    width: 70px!important;
+    height: auto;
+    outline: 2px solid var(--secondaryColor);
+    border: 2px solid #0000;
+}
