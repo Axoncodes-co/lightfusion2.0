@@ -91,60 +91,12 @@ export async function getStaticPaths() {
 }
   
 export const getStaticProps = async ({params}) => {
-    // const svgjson = require('svgjson')
 
 	const { category_slug, course_slug, lesson_slug } = params
     const categories = await fetchup()
     const category = categories.filter(category => category.slug == category_slug)[0]
     const course = category.courses.filter(course => course.slug == course_slug)[0]
     const lesson = course.lessons.filter(lesson => lesson.slug == lesson_slug)[0]
-    // lesson.content = svgjson.parseJson(lesson.content)
-    // .map(tag => {
-    //     function reversethejson(item) {
-    //         let maincontent = '';
-    //         let content = '';
-    //         if (item.tag == '!--!') content = `${item.content}`;
-    //         else content = attachCommonTag(item);
-    //         maincontent += content;
-    //         return maincontent;
-    //       }
-    //       function attachAttributes(data) {
-    //         if (!data || data.length == 0)
-    //           throw "Invalid DATA";
-    //         let content = '';
-    //         Object.keys(data).forEach(item => {
-    //           if(data[item]) content += ` ${item}="${data[item]}"`;
-    //         });
-    //         return content;
-    //       }
-          
-    //       function attachstyles(styles) {
-    //         let content = ''
-    //         Object.entries(styles).forEach(iclass => {
-    //           content += `${iclass[0]} {`
-    //           let styleContext = iclass[1]
-    //           // check if the second part of this array element is
-    //           if (!Array.isArray(iclass[1])) styleContext = Object.entries(iclass[1])
-    //           styleContext.forEach(style => {
-    //             content += `${style[0]}: ${style[1]};`
-    //           })
-    //           content += `}\n`
-    //         })
-    //         return content
-    //       }
-          
-    //       function attachCommonTag(data) {
-    //         let content = `<${data.tag}`;
-    //         if (data.attributes) content += attachAttributes(data.attributes);
-    //         content += data.selfClosing?'/>':'>';
-    //         if (data.style) content += attachstyles(data.style);
-    //         if (data.content) content += data.content;
-    //         return content;
-    //       }
-    //     return reversethejson(tag)
-    //     // tag.attrLess = tag.attrLess || null
-    //     // return tag
-    // })
     return ({
         props: {
             categories,
