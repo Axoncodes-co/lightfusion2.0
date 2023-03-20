@@ -44,7 +44,6 @@ export default function Navbar({data, current_slug}) {
             {/* Dark mode switch */}
             {/* light */}
             <Text
-                dev={'staging'}
                 onClick={'toggletheme()'}
                 id={'lightmode'}
                 icon={JSON.stringify({
@@ -55,7 +54,6 @@ export default function Navbar({data, current_slug}) {
             />
             {/* dark */}
             <Text
-                dev={'staging'}
                 onClick={'toggletheme()'}
                 id={'darkmode'}
                 icon={JSON.stringify({

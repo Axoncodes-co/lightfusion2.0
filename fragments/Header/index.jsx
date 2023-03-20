@@ -20,7 +20,6 @@ export default function Header({ categories }) {
     headBackground: '#0000',
     headBackgroundHover: '#575757',
     text: {
-      dev: 'staging',
       text: 'Menu2',
       textclasses: 'weight_l3 font_l4 secondary_font nomargin secondary_color primary_color_hover',
       customclasses: 'secondary_bg_hover widePadding_l1',
@@ -29,13 +28,10 @@ export default function Header({ categories }) {
     subOpening: 'sub',
     subTrigger: 'click',
     dropdownid: 'mainHeaderGroup',
-    dev: 'staging',
   })
   const [menuItems, setMenuItems] = useState([
     {
-      dev: 'staging',
       text: {
-        dev: 'staging',
         text: 'Courses',
         textclasses: 'weight_l3 font_l3 secondary_font nomargin secondary_color primary_color_hover',
         customclasses: 'secondary_bg_hover widePadding_l1'
@@ -77,9 +73,7 @@ export default function Header({ categories }) {
     },
     {
       structure: 'link',
-      dev: 'staging',
       text: {
-        dev: 'staging',
         text: 'About Us',
         link: '/about',
         textclasses: 'weight_l3 font_l3 secondary_font nomargin secondary_color primary_color_hover',
@@ -90,9 +84,7 @@ export default function Header({ categories }) {
     },
     {
       structure: 'link',
-      dev: 'staging',
       text: {
-        dev: 'staging',
         text: 'Contact Us',
         link: '/contact',
         textclasses: 'weight_l3 font_l3 secondary_font nomargin secondary_color primary_color_hover',
@@ -152,7 +144,6 @@ export default function Header({ categories }) {
     <section className="ax_elements" nomain="true">
       {menuItems.map((item, key) => (
         <DropdownBody
-          dev={'staging'}
           key={key}
           mode={'dropdown_body_v4'}
           listclasses={item.listclasses}
