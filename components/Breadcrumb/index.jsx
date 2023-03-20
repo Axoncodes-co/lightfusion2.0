@@ -7,16 +7,18 @@ export default function Breadcrumb({
     course
 }) {
     return <AxgBreadcrumb
+        dev={'staging'}
+        customclasses={'horizontalTabletBreak'}
         primaryText={{
             text: 'Home',
             link: '/',
-            textclasses: 'weight_l3 font_l3 secondary_font nomargin secondary_color tertiary_color_hover',
+            textclasses: 'weight_l3 font_l2 secondary_font nomargin secondary_color tertiary_color_hover',
             customclasses: 'fitWidth',
         }}
         dropdownone_head={{
             text: {
                 text: category.title,
-                textclasses: 'weight_l3 font_l3 secondary_font nomargin secondary_color tertiary_color_hover',
+                textclasses: 'weight_l3 font_l2 secondary_font nomargin secondary_color tertiary_color_hover',
             },
             structure: 'simple',
             dropdownid: 'breadcrumb_category_id',
@@ -25,12 +27,12 @@ export default function Breadcrumb({
             subopening: 'sub',
             listclasses: 'tertiary_bg fitWidth round_l2 padding_l1',
             bodyclasses: 'fitWidth',
-            options: categories.map(category => ({
+            options: categories.map(thiscategory => ({
                 level: 'undertab',
                 text: {
-                    text: category.title,
-                    link: `/${category.slug}`,
-                    textclasses: 'weight_l3 font_l3 secondary_font nomargin primary_color tertiary_color_hover',
+                    text: thiscategory.title,
+                    link: `/${thiscategory.slug}`,
+                    textclasses: `${thiscategory.slug == category.slug ? 'secondary_bg secondary_color' : 'primary_color tertiary_color_hover'} round_l1 widePadding_l1 weight_l3 font_l2 secondary_font nomargin`,
                 },
             })),
         }}
@@ -44,7 +46,7 @@ export default function Breadcrumb({
         dropdowntwo_head={{
             text: {
                 text: course.title,
-                textclasses: 'weight_l3 font_l3 secondary_font nomargin secondary_color tertiary_color_hover',
+                textclasses: 'weight_l3 font_l2 secondary_font nomargin secondary_color tertiary_color_hover',
             },
             structure: 'simple',
             dropdownid: 'breadcrumb_course_id',
@@ -53,12 +55,12 @@ export default function Breadcrumb({
             subopening: 'sub',
             listclasses: 'tertiary_bg fitWidth round_l2 padding_l1',
             bodyclasses: 'fitWidth',
-            options: category.courses.map(course => ({
+            options: category.courses.map(thiscourse => ({
                 level: 'undertab',
                 text: {
-                    text: course.title,
-                    link: `/${category.slug}/${course.slug}`,
-                    textclasses: 'weight_l3 font_l3 secondary_font nomargin primary_color tertiary_color_hover',
+                    text: thiscourse.title,
+                    link: `/${category.slug}/${thiscourse.slug}`,
+                    textclasses: `${thiscourse.slug == course.slug ? 'secondary_bg secondary_color' : 'primary_color tertiary_color_hover'} round_l1 widePadding_l1 weight_l3 font_l2 secondary_font nomargin primary_color tertiary_color_hover`,
                 },
             })),
         }}
