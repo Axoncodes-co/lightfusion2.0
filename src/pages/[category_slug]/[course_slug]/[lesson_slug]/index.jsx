@@ -5,6 +5,7 @@ import Header from '../../../../../fragments/Header'
 import Navbar from '../../../../../fragments/Navbar'
 import Breadcrumb from '../../../../../components/Breadcrumb'
 import Author from '../../../../../components/Author'
+import Nextprev from '../../../../../components/Nextprev'
 
 export default function Post({ categories, course_slug, category, course, lesson }) {
     const postIntro = (color) => (<>
@@ -32,6 +33,10 @@ export default function Post({ categories, course_slug, category, course, lesson
                         course={course}
                     />
                 </section>
+                <Nextprev
+                    nextlink={lesson.next_slug ? `/${category.slug}/${course.slug}/${lesson.next_slug}` : ''}
+                    prevlink={lesson.prev_slug ? `/${category.slug}/${course.slug}/${lesson.prev_slug}` : ''}
+                />
                 <div style={{width: '100%'}}>
                     <section
                         style={{
@@ -41,12 +46,12 @@ export default function Post({ categories, course_slug, category, course, lesson
                             backgroundRepeat: 'no-repeat',
                             backgroundPosition: 'center',
                         }}
-                        className={'subcontainer vertical padding_l3 widePadding_l6 round_l3'}
+                        className={'lefty subcontainer vertical padding_l3 widePadding_l6 round_l3'}
                     >
                         <div className={'hideOnTablet'}>{postIntro('primary_color')}</div>
                     </section>
                 </div>
-                <div className={'hide visibleOnTablet'}>{postIntro('secondary_color')}</div>
+                <div className={'hide visibleOnTablet wide lefty'}>{postIntro('secondary_color')}</div>
             </section>
         </>
     )
