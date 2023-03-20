@@ -14,7 +14,6 @@ export default function Post({ categories, course_slug, category, course, lesson
 			<Navbar data={categories} current_slug={course_slug} />
             <section className={'container primary_bg vertical'}>
                 <section id={'content_nav'} className={'wide subcontainer'}>
-                    {/* On mobile, set the long texts ... and highlight the current item in the list */}
                     <Breadcrumb
                         categories={categories}
                         category={category}
