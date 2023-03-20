@@ -1,4 +1,5 @@
 import dynamic from 'next/dynamic'
+import style from './style.module.css'
 import fetchup from '../../../../../lib/fetch'
 const Text = dynamic(() => import('../../../../../axg-react/Text2'), {ssr: false})
 import Header from '../../../../../fragments/Header'
@@ -6,6 +7,7 @@ import Navbar from '../../../../../fragments/Navbar'
 import Breadcrumb from '../../../../../components/Breadcrumb'
 import Author from '../../../../../components/Author'
 import Nextprev from '../../../../../components/Nextprev'
+const Stringtohtml = dynamic(() => import('../../../../../axg-react/Stringtohtml'), {ssr: false})
 
 export default function Post({ categories, course_slug, category, course, lesson }) {
     const postIntro = (color) => (<>
@@ -52,6 +54,15 @@ export default function Post({ categories, course_slug, category, course, lesson
                     </section>
                 </div>
                 <div className={'hide visibleOnTablet wide lefty'}>{postIntro('secondary_color')}</div>
+                <Text
+                    text={lesson.excerpt}
+                    textclasses={`${style.excerpt} font_l4 weight_l2`}
+                />
+                <article id='content' className={`${style.contentimg} subcontainer vertical lefty`}>
+                    <Stringtohtml
+                        html={lesson.content}
+                    />
+                </article>
             </section>
         </>
     )
@@ -80,20 +91,69 @@ export async function getStaticPaths() {
 }
   
 export const getStaticProps = async ({params}) => {
+    // const svgjson = require('svgjson')
+
 	const { category_slug, course_slug, lesson_slug } = params
     const categories = await fetchup()
     const category = categories.filter(category => category.slug == category_slug)[0]
     const course = category.courses.filter(course => course.slug == course_slug)[0]
     const lesson = course.lessons.filter(lesson => lesson.slug == lesson_slug)[0]
+    // lesson.content = svgjson.parseJson(lesson.content)
+    // .map(tag => {
+    //     function reversethejson(item) {
+    //         let maincontent = '';
+    //         let content = '';
+    //         if (item.tag == '!--!') content = `${item.content}`;
+    //         else content = attachCommonTag(item);
+    //         maincontent += content;
+    //         return maincontent;
+    //       }
+    //       function attachAttributes(data) {
+    //         if (!data || data.length == 0)
+    //           throw "Invalid DATA";
+    //         let content = '';
+    //         Object.keys(data).forEach(item => {
+    //           if(data[item]) content += ` ${item}="${data[item]}"`;
+    //         });
+    //         return content;
+    //       }
+          
+    //       function attachstyles(styles) {
+    //         let content = ''
+    //         Object.entries(styles).forEach(iclass => {
+    //           content += `${iclass[0]} {`
+    //           let styleContext = iclass[1]
+    //           // check if the second part of this array element is
+    //           if (!Array.isArray(iclass[1])) styleContext = Object.entries(iclass[1])
+    //           styleContext.forEach(style => {
+    //             content += `${style[0]}: ${style[1]};`
+    //           })
+    //           content += `}\n`
+    //         })
+    //         return content
+    //       }
+          
+    //       function attachCommonTag(data) {
+    //         let content = `<${data.tag}`;
+    //         if (data.attributes) content += attachAttributes(data.attributes);
+    //         content += data.selfClosing?'/>':'>';
+    //         if (data.style) content += attachstyles(data.style);
+    //         if (data.content) content += data.content;
+    //         return content;
+    //       }
+    //     return reversethejson(tag)
+    //     // tag.attrLess = tag.attrLess || null
+    //     // return tag
+    // })
     return ({
         props: {
             categories,
             category,
-			lesson,
+            lesson,
             course,
             category_slug,
             course_slug,
             lesson_slug,
-		}
+        }
     })
 }
