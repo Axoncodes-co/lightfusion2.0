@@ -24,6 +24,8 @@
     --secondaryColor: #008353;
     --tertiaryColor: #0d1721;
     --primaryTextColor: #e2e2e2;
+    --secondaryTextColor: #ffffff;
+    --tertiaryTextColor: #008353;
   }
 }
 .primary_bg {
@@ -107,9 +109,6 @@ a {
 }
 .searchbarheight {
   height: 40px;
-}
-.dropdown .dropdownBody.open > .menu .listHead:hover a {
-  color: #fff;
 }
 @media screen and (max-width: 1500px) and (min-width: 1000px) {
   .hideonlargetablet {
