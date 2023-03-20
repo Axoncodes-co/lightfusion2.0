@@ -32,7 +32,7 @@ export default function Home({categories}) {
 				key={key}
 				data={lesson}
 				customclasses={key == 2 ? 'hideonlargetablet' : ''}
-				link={`/${categories[0].slug}/${categories[0].courses[1].slug}/${lesson.slug}`}
+				link={`/${categories[0].slug}/${categories[0].courses[0].slug}/${lesson.slug}`}
 			/> : null).filter(item => item)}
 		</Posts>
 
