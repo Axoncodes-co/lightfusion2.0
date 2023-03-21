@@ -56,9 +56,9 @@ export default function Post({ categories, course_slug, category, course, lesson
                 <div className={'hide visibleOnTablet wide lefty'}>{postIntro('secondary_color')}</div>
                 <Text
                     text={lesson.excerpt}
-                    textclasses={`${style.excerpt} font_l4 weight_l2`}
+                    textclasses={`${style.excerpt} font_l4 weight_l3 secondary_color`}
                 />
-                <article id='content' className={`${style.contentimg} subcontainer vertical lefty`}>
+                <article id='content' className={`${style.content}`}>
                     <Stringtohtml
                         html={lesson.content}
                     />
