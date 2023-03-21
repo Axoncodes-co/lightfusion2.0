@@ -20,7 +20,7 @@ export default function Header({ categories }) {
     headBackground: '#0000',
     headBackgroundHover: '#575757',
     text: {
-      text: 'Menu2',
+      text: 'Menu',
       textclasses: 'weight_l3 font_l4 secondary_font nomargin secondary_color primary_color_hover',
       customclasses: 'secondary_bg_hover widePadding_l1',
     },
