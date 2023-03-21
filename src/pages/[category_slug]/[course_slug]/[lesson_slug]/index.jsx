@@ -8,7 +8,6 @@ import Breadcrumb from '../../../../../components/Breadcrumb'
 import Author from '../../../../../components/Author'
 import Nextprev from '../../../../../components/Nextprev'
 const Stringtohtml = dynamic(() => import('../../../../../axg-react/Stringtohtml'), {ssr: false})
-const Axg = dynamic(() => import('../../../../../axg-react/Run'), {ssr: false})
 
 export default function Post({ categories, course_slug, category, course, lesson }) {
     const postIntro = (color) => (<>
@@ -65,7 +64,6 @@ export default function Post({ categories, course_slug, category, course, lesson
                     />
                 </article>
             </section>
-            <Axg />
         </>
     )
 }

@@ -33,8 +33,8 @@ export default function Archive({ categories, category }) {
 						filterPlacement="itemplacement"
 						elementId="iconsFilter"
 						elements={[
-							{ classes: 'secondary_color', name: 'Level', items: levels.map(level => ({ inputColor:'var(--secondaryTextColor)', type: 'checkbox', tag: 'input', name: level.toLowerCase().replaceAll(' ', '_'), label: level }))},
-							{ classes: 'secondary_color', name: 'Paid', items: paids.map(paid => ({ inputColor:'var(--secondaryTextColor)', type: 'checkbox', tag: 'input', name: paid.toLowerCase().replaceAll(' ', '_'), label: paid }))},
+							{ textclasses: 'secondary_color', customclasses: 'fitHeight', name: 'Level', items: levels.map(level => ({ inputColor:'var(--secondaryTextColor)', type: 'checkbox', tag: 'input', name: level.toLowerCase().replaceAll(' ', '_'), label: level }))},
+							{ textclasses: 'secondary_color', customclasses: 'fitHeight', name: 'Paid', items: paids.map(paid => ({ inputColor:'var(--secondaryTextColor)', type: 'checkbox', tag: 'input', name: paid.toLowerCase().replaceAll(' ', '_'), label: paid }))},
 						]}
 					/>
 					<section className={'subcontainer wrap rowgap_l3 colgap_l1 center topy'} id={'mainitemslist'}>

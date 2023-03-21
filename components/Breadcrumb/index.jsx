@@ -7,7 +7,6 @@ export default function Breadcrumb({
     course
 }) {
     return <AxgBreadcrumb
-        dev={'staging'}
         customclasses={'horizontalTabletBreak'}
         primaryText={{
             text: 'Home',
@@ -25,7 +24,7 @@ export default function Breadcrumb({
             targetLocator: 'breadcrumb_category',
             subtrigger: 'click',
             subopening: 'sub',
-            listclasses: 'tertiary_bg fitWidth round_l2 padding_l1',
+            listclasses: 'tertiary_bg fitWidth round_l2 padding_l1 subcontainer vertical lefty rowgap_l0 verticalTabletBreak',
             bodyclasses: 'fitWidth',
             options: categories.map(thiscategory => ({
                 level: 'undertab',
@@ -53,14 +52,14 @@ export default function Breadcrumb({
             targetLocator: 'breadcrumb_course',
             subtrigger: 'click',
             subopening: 'sub',
-            listclasses: 'tertiary_bg fitWidth round_l2 padding_l1',
+            listclasses: 'tertiary_bg fitWidth round_l2 padding_l1 subcontainer vertical lefty rowgap_l0 verticalTabletBreak',
             bodyclasses: 'fitWidth',
             options: category.courses.map(thiscourse => ({
                 level: 'undertab',
                 text: {
                     text: thiscourse.title,
                     link: `/${category.slug}/${thiscourse.slug}`,
-                    textclasses: `${thiscourse.slug == course.slug ? 'secondary_bg secondary_color' : 'primary_color tertiary_color_hover'} round_l1 widePadding_l1 weight_l3 font_l2 secondary_font nomargin primary_color tertiary_color_hover`,
+                    textclasses: `${thiscourse.slug == course.slug ? 'secondary_bg secondary_color' : 'primary_color tertiary_color_hover'} round_l1 widePadding_l1 weight_l3 font_l2 secondary_font nomargin`,
                 },
             })),
         }}

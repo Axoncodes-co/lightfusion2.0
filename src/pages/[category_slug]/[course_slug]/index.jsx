@@ -6,14 +6,20 @@ import style from './style.module.css'
 import fetchup from '../../../../lib/fetch'
 import Header from '../../../../fragments/Header'
 import Navbar from '../../../../fragments/Navbar'
+import Breadcrumb from '../../../../components/Breadcrumb'
 const Axg = dynamic(() => import('../../../../axg-react/Run'), {ssr: false})
 
-export default function Archive({ category_slug, course_slug, course, categories }) {
+export default function Archive({ category_slug, category, course_slug, course, categories }) {
 	return (
 		<>
 			<Header categories={categories} />
 			<Navbar data={categories} current_slug={course_slug} />
 			<section className={'container vertical primary_bg'} style={{minHeight: '600px'}}>
+				<Breadcrumb
+					categories={categories}
+					category={category}
+					course={course}
+				/>
 				<SectionTitle
 					title={course.title}
 					textclasses={'font_l7 secondary_font secondary_color'}
@@ -61,6 +67,7 @@ export const getStaticProps = async ({params}) => {
 	return ({
 		props: {
 			course,
+			category,
 			category_slug,
 			course_slug,
 			categories
