@@ -2,7 +2,27 @@
     text-align: justify;
     line-height: 1;
 }
-.contentimg img {
+.content img {
     max-width: 100%;
     height: auto;
+    display: flex;
+    justify-content: center;
+    margin: 0 auto;
+}
+
+.content * {
+    text-align: left;
+    color: var(--secondaryTextColor);
+}
+.content h2 {
+    font-weight: var(--weight_l4);
+    font-size: var(--l6-text-fontSize);
+}
+.content p {
+    font-weight: var(--weight_l3);
+}
+
+.content strong {
+    font-weight: var(--weight_l5);
+    font-family: 'Secondary_Font';
 }
