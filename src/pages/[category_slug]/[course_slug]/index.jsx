@@ -6,6 +6,7 @@ import style from './style.module.css'
 import fetchup from '../../../../lib/fetch'
 import Header from '../../../../fragments/Header'
 import Navbar from '../../../../fragments/Navbar'
+const Axg = dynamic(() => import('../../../../axg-react/Run'), {ssr: false})
 
 export default function Archive({ category_slug, course_slug, course, categories }) {
 	return (
@@ -28,6 +29,7 @@ export default function Archive({ category_slug, course_slug, course, categories
 					</section>
 				</section>
 			</section>
+			<Axg />
 		</>
     )
 }

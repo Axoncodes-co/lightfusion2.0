@@ -6,6 +6,8 @@ import Posts from '../../fragments/Posts'
 import fetchup from '../../lib/fetch'
 import Header from '../../fragments/Header'
 import Navbar from '../../fragments/Navbar'
+import dynamic from 'next/dynamic'
+const Axg = dynamic(() => import('../../axg-react/Run'), {ssr: false})
 
 export default function Home({categories}) {
 	return (<>
@@ -37,6 +39,7 @@ export default function Home({categories}) {
 		</Posts>
 
 		{/* TODO: Add the fun facts section */}
+		<Axg />
 	</>)
 }
 

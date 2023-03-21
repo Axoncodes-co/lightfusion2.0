@@ -6,6 +6,7 @@ const Filter = dynamic(() => import('../../../axg-react/Filter'), {ssr: false})
 const CourseBox = dynamic(() => import('../../../components/CourseBox'), {ssr: false})
 import Header from '../../../fragments/Header'
 import Navbar from '../../../fragments/Navbar'
+const Axg = dynamic(() => import('../../../axg-react/Run'), {ssr: false})
 
 export default function Archive({ categories, category }) {
 
@@ -52,6 +53,7 @@ export default function Archive({ categories, category }) {
 					</section>
 				</section>
 			</section>
+			<Axg />
 		</>
     )
 }
