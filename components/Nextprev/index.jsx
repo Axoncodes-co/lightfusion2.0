@@ -8,7 +8,7 @@ export default function Nextprev({
 }) {
     return (<section className={'subcontainer horizontal horizontalTabletBreak'}>
 
-        {prevlink ? <Text
+        <div>{prevlink ? <Text
             text={'Previous'}
             link={prevlink}
             icon={JSON.stringify({
@@ -16,8 +16,8 @@ export default function Nextprev({
             })}
             textclasses={'nomargin font_l4 weight_l3 widePadding_l1 primary_color'}
             customclasses={'fitWidth secondary_bg round_l2 padding'}
-        /> : ''}
-        {nextlink ? <Text
+        /> : ''}</div>
+        <div>{nextlink ? <Text
             text={'Next'}
             link={nextlink}
             icon={JSON.stringify({
@@ -25,6 +25,6 @@ export default function Nextprev({
             })}
             textclasses={'nomargin font_l4 weight_l3 widePadding_l1 primary_color'}
             customclasses={'rtl fitWidth secondary_bg round_l2 padding'}
-        /> : ''}
+        /> : ''}</div>
     </section>)
 }
