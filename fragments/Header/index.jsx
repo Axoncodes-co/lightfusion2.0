@@ -48,7 +48,7 @@ export default function Header({ categories }) {
         text: {
           text: category.title,
           link: `/${category.slug}`,
-          textclasses: 'font_l7 tertiary_color',
+          textclasses: 'font_l7 tertiary_color nomargin',
           icon: {
             svg: category.svg,
             customclasses: style.title
@@ -60,8 +60,8 @@ export default function Header({ categories }) {
           text: {
             text: course.title,
             link: `/${category.slug}/${course.slug}`,
-            textclasses: 'font_l4 primary_color',
-            customclasses: 'colgap_l2',
+            textclasses: 'nomargin font_l4 primary_color secondary_color_hover weight_l3',
+            customclasses: 'round_l2 widePadding_l1 colgap_l2',
             icon: {
               svg: course.svg,
               customclasses: style.course

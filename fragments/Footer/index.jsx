@@ -56,23 +56,29 @@ export default function Footer() {
                 <Link href={'https://www.instagram.com/homapilot/'}>
                     <Image alt={'socialmedia'} src={'/instagram.svg'} width={20} height={20} />
                 </Link>
-                <Link href={'https://www.instagram.com/homapilot/'}>
-                    <Image alt={'socialmedia'} src={'/instagram.svg'} width={20} height={20} />
-                </Link>
-                <Link href={'https://www.instagram.com/homapilot/'}>
-                    <Image alt={'socialmedia'} src={'/instagram.svg'} width={20} height={20} />
-                </Link>
-                <Link href={'https://www.instagram.com/homapilot/'}>
-                    <Image alt={'socialmedia'} src={'/instagram.svg'} width={20} height={20} />
-                </Link>
-                <Link href={'https://www.instagram.com/homapilot/'}>
-                    <Image alt={'socialmedia'} src={'/instagram.svg'} width={20} height={20} />
-                </Link>
-                <Link href={'https://www.instagram.com/homapilot/'}>
+                <Link href={'https://www.facebook.com/homapilot/'}>
                     <Image alt={'socialmedia'} src={'/facebook.svg'} width={20} height={20} />
                 </Link>
-                <Link href={'https://www.instagram.com/homapilot/'}>
-                    <Image alt={'socialmedia'} src={'/instagram.svg'} width={20} height={20} />
+                <Link href={'https://twitter.com/HomaPilot'}>
+                    <Image alt={'socialmedia'} src={'/twitter.svg'} width={20} height={20} />
+                </Link>
+                <Link href={'https://www.linkedin.com/company/homapilot'}>
+                    <Image alt={'socialmedia'} src={'/linkedin.svg'} width={20} height={20} />
+                </Link>
+                <Link href={'https://www.youtube.com/channel/UCp6GlZFBs0lRyrsXZa8hVGA/'}>
+                    <Image alt={'socialmedia'} src={'/youtube.svg'} width={20} height={20} />
+                </Link>
+                <Link href={'https://t.me/homa_pilot'}>
+                    <Image alt={'socialmedia'} src={'/telegram.svg'} width={20} height={20} />
+                </Link>
+                <Link href={'https://www.pinterest.com/homapilot'}>
+                    <Image alt={'socialmedia'} src={'/pinterest.svg'} width={20} height={20} />
+                </Link>
+                <Link href={'https://vk.com/homapilot'}>
+                    <Image alt={'socialmedia'} src={'/vk.svg'} width={20} height={20} />
+                </Link>
+                <Link href={'mailto:homapilot@gmail.com'}>
+                    <Image alt={'socialmedia'} src={'/email.svg'} width={20} height={20} />
                 </Link>
             </div>
             <Text customclasses={'primary_color righty centerOnMobile fitWidth'}>

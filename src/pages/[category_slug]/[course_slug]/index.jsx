@@ -32,8 +32,8 @@ export default function Archive({ category_slug, category, course_slug, course, 
 					course={course}
 				/>
 				<SectionTitle
-					title={course.title}
-					textclasses={'font_l7 secondary_font secondary_color'}
+					title={`Course: ${course.title}`}
+					textclasses={'weight_l3 font_l7 secondary_font secondary_color'}
 				/>
 				<section className={'subcontainer horizontal topy verticalTabletBreak'}>
 					<section className={'subcontainer horizontal wrap rowgap_l3 colgap_l3 center'} id={'mainitemslist'}>
