@@ -12,7 +12,6 @@ const Axg = dynamic(() => import('../../axg-react/Run'), {ssr: false})
 export default function Home({categories}) {
 	return (<>
 		<Header categories={categories} />
-      	<Navbar data={categories} current_slug={'home'} />
 		<section className={'relative'}>
 			<div style={{
 				filter: 'brightness(0.5)',

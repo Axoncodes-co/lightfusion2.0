@@ -10,9 +10,9 @@ export default function Hero() {
         <section className={`container vertical verticalLargeTabletBreak`}>
             <section className={'subcontainer'}>
                 <Text
-                    text={'A LARGE TEXT SHALL GO HERE AS TITLE TO WEBSITE'}
+                    text={'HOMA PILOT'}
                     textclasses={`primary_color secondary_font font_l8 textleft textcenteronTablet nomargin weight_l3`}
-                    subtext={'And some description here shall be written by Sir Amir ollah Amiri'}
+                    subtext={'Online Free Flight Training Courses, Pilot Exams and CFI Tools'}
                     subtextclasses={`primary_color font_l4 lato textleft textcenteronTablet nomargin weight_l4`}
                     subtextalign={'centerOnTablet'}
                     innercustomclasses={'norowgapOnMobile nocolgap vertical verticalOnTablet'}
