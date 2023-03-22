@@ -8,10 +8,21 @@ import Header from '../../../../fragments/Header'
 import Navbar from '../../../../fragments/Navbar'
 import Breadcrumb from '../../../../components/Breadcrumb'
 const Axg = dynamic(() => import('../../../../axg-react/Run'), {ssr: false})
+import Head from 'next/head'
+import MetaTags from '../../../../axg-react/MetaTags'
 
 export default function Archive({ category_slug, category, course_slug, course, categories }) {
 	return (
 		<>
+			<Head>
+				<title>{course.title} - Online Aviation Courses and Exams By Homa Pilot</title>
+				<MetaTags
+					title={course.title}
+					description={course.description}
+					href={`https://homapilot.com/${category.slug}/${course.slug}`}
+					ico={'/ico.png'}
+				/>
+			</Head>
 			<Header categories={categories} />
 			<Navbar data={categories} current_slug={course_slug} />
 			<section className={'container vertical primary_bg'} style={{minHeight: '600px'}}>

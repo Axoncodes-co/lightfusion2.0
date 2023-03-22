@@ -34,7 +34,7 @@ export default function Navbar({data, current_slug}) {
                                 link={`/${category.slug}/${course.slug}`}
                                 textclasses={`
                                     ${current_slug == course.slug ? 'secondary_bg secondary_color' : 'primary_color tertiary_color_hover'}
-                                    transition fitWidth padding_l1 weight_l3 font_l2
+                                    transition fitWidth padding_l1 weight_l3 font_l2 nomargin
                                 `}
                             />
                         )

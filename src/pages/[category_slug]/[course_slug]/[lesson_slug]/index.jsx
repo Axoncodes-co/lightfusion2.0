@@ -7,7 +7,10 @@ import Navbar from '../../../../../fragments/Navbar'
 import Breadcrumb from '../../../../../components/Breadcrumb'
 import Author from '../../../../../components/Author'
 import Nextprev from '../../../../../components/Nextprev'
+import MetaTags from '../../../../../axg-react/MetaTags'
 const Stringtohtml = dynamic(() => import('../../../../../axg-react/Stringtohtml'), {ssr: false})
+import Head from 'next/head'
+const Axg = dynamic(() => import('../../../../../axg-react/Run'), {ssr: false})
 
 export default function Post({ categories, course_slug, category, course, lesson }) {
     const postIntro = (color) => (<>
@@ -25,6 +28,15 @@ export default function Post({ categories, course_slug, category, course, lesson
     </>)
     return (
         <>
+            <Head>
+				<title>{lesson.title} - Homa Pilot</title>
+				<MetaTags
+					title={lesson.title}
+					description={lesson.excerpt}
+					href={`https://homapilot.com/${category.slug}/${course.slug}/${lesson.slug}`}
+					ico={'/ico.png'}
+				/>
+			</Head>
             <Header categories={categories} />
 			<Navbar data={categories} current_slug={course_slug} />
             <section className={'container primary_bg vertical'}>
@@ -64,6 +76,7 @@ export default function Post({ categories, course_slug, category, course, lesson
                     />
                 </article>
             </section>
+            <Axg />
         </>
     )
 }

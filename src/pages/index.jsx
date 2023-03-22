@@ -5,12 +5,22 @@ import LessonBox from '../../components/LessonBox'
 import Posts from '../../fragments/Posts'
 import fetchup from '../../lib/fetch'
 import Header from '../../fragments/Header'
-import Navbar from '../../fragments/Navbar'
 import dynamic from 'next/dynamic'
+import Head from 'next/head'
+import MetaTags from '../../axg-react/MetaTags'
 const Axg = dynamic(() => import('../../axg-react/Run'), {ssr: false})
 
 export default function Home({categories}) {
 	return (<>
+		<Head>
+			<title>Online Aviation Courses and Exams By Homa Pilot</title>
+			<MetaTags
+				title={'Online Aviation Courses and Exams By Homa Pilot'}
+				description={'Homa Pilot offers aviation and flight training courses such as PPL, CPL, IR, and ATPL. We also offer online piloting exams.'}
+				href={'https://homapilot.com/'}
+				ico={'/ico.png'}
+				/>
+		</Head>
 		<Header categories={categories} />
 		<section className={'relative'}>
 			<div style={{

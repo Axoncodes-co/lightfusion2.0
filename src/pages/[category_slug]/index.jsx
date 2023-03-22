@@ -6,7 +6,9 @@ const Filter = dynamic(() => import('../../../axg-react/Filter'), {ssr: false})
 const CourseBox = dynamic(() => import('../../../components/CourseBox'), {ssr: false})
 import Header from '../../../fragments/Header'
 import Navbar from '../../../fragments/Navbar'
+import MetaTags from '../../../axg-react/MetaTags'
 const Axg = dynamic(() => import('../../../axg-react/Run'), {ssr: false})
+import Head from 'next/head'
 
 export default function Archive({ categories, category }) {
 
@@ -19,6 +21,15 @@ export default function Archive({ categories, category }) {
 
 	return (
 		<>
+			<Head>
+				<title>{category.title} - Online Aviation Courses and Exams By Homa Pilot</title>
+				<MetaTags
+					title={category.title}
+					description={category.description}
+					href={`https://homapilot.com/${category.slug}`}
+					ico={'/ico.png'}
+				/>
+			</Head>
 			<Header categories={categories} />
 			<Navbar data={categories} />
 			<section className={'primary_bg container vertical'} style={{minHeight: '600px'}}>
