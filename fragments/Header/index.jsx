@@ -74,7 +74,7 @@ export default function Header({ categories }) {
     {
       structure: 'link',
       text: {
-        text: 'About Us',
+        text: 'About',
         link: '/about',
         textclasses: 'weight_l3 font_l3 secondary_font nomargin secondary_color primary_color_hover',
         customclasses: 'secondary_bg_hover widePadding_l1',
@@ -85,7 +85,7 @@ export default function Header({ categories }) {
     {
       structure: 'link',
       text: {
-        text: 'Contact Us',
+        text: 'Contact',
         link: '/contact',
         textclasses: 'weight_l3 font_l3 secondary_font nomargin secondary_color primary_color_hover',
         customclasses: 'secondary_bg_hover widePadding_l1',
@@ -119,7 +119,7 @@ export default function Header({ categories }) {
         customclasses={'searchbarheight wide'}
         bg={'#c1c1c1a3'}
         color={'#000'}
-        placeholder={'Search whatever the fuck you need...'}
+        placeholder={'Search...'}
         queryid={'mainsearchquery'}
         collapseonmobile={'1'}
         labelclasses={'subcontainer lefty hoversearchcoverlabel'}

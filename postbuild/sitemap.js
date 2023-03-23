@@ -16,10 +16,20 @@ categories.forEach(category => {
   category.courses.forEach(course => {
     urls.push({url: `/${category.slug}/${course.slug}`, changefreq: 'monthly', priority: 0.4})
     course.lessons.forEach(lesson => {
-      urls.push({url: `/${category.slug}/${course.slug}/${lesson.slug}`, changefreq: 'monthly', priority: 0.3})
+      urls.push({url: `/${category.slug}/${lesson.slug}`, changefreq: 'monthly', priority: 0.3})
     })
   })
 })
+
+// categories.forEach(category => {
+//   urls.push({url: `/${category.slug}`, changefreq: 'monthly', priority: 0.5})
+//   category.courses.forEach(course => {
+//     urls.push({url: `/${category.slug}/${course.slug}`, changefreq: 'monthly', priority: 0.4})
+//     course.lessons.forEach(lesson => {
+//       urls.push({url: `/${category.slug}/${course.slug}/${lesson.slug}`, changefreq: 'monthly', priority: 0.3})
+//     })
+//   })
+// })
 
 
 let xmlContent = `<?xml version="1.0" encoding="UTF-8"?>

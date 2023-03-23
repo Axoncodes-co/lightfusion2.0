@@ -11,7 +11,7 @@ export default function Hero() {
             <section className={'subcontainer'}>
                 <Text
                     text={'HOMA PILOT'}
-                    textclasses={`primary_color secondary_font font_l8 textleft textcenteronTablet nomargin weight_l3`}
+                    textclasses={`wide primary_color secondary_font font_l8 textleft textcenteronTablet nomargin weight_l3`}
                     subtext={'Online Free Flight Training Courses, Pilot Exams and CFI Tools'}
                     subtextclasses={`primary_color font_l4 lato textleft textcenteronTablet nomargin weight_l4`}
                     subtextalign={'centerOnTablet'}
