@@ -1,4 +1,3 @@
-const { createSitemap } = require('sitemap');
 const fs = require('fs');
 const path = require('path');
 

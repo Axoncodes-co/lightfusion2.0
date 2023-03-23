@@ -89,7 +89,6 @@ export async function getStaticPaths() {
                 .map(lesson => ({
                     params: {
                         category_slug: category.slug,
-                        // course_slug: course.slug,
                         lesson_slug: lesson.slug
                     }
                 }))
