@@ -6,7 +6,7 @@ import Newssubscriber from '../Newssubscriber'
 
 const Text = dynamic(() => import('../../axg-react/Text2'), {ssr: false})
 
-export default function Footer() {
+export default function Footer({categories}) {
 
     const headsclasses = 'primary_color font_l2_min weight_l6 fitWidth'
     const itemsclasses = 'primary_color font_l2_max nomargin weight_l4 fitWidth tertiary_color_hover'
@@ -21,31 +21,19 @@ export default function Footer() {
                     text={'Homa Pilot was founded in 2020 and the purpose of this complex is to provide digital aviation and piloting courses for free and online so that all students of piloting and aviation.'}
                 />
             </section>
-            <section className={'subcontainer horizontal topy center'}>
+            <section className={'subcontainer horizontal topy righty'}>
                 <section className={'subcontainer fitWidth topy'}>
                     <Text text={'Categories'} textclasses={headsclasses} />
                     <div className={'subcontainer vertical'}>
-                        <Text text={'General'} link={'/'} textclasses={itemsclasses} />
-                        <Text text={'ATPL'} link={'/'} textclasses={itemsclasses} />
-                        <Text text={'DIY'} link={'/'} textclasses={itemsclasses} />
-                    </div>
-                </section>
-                <section className={'subcontainer fitWidth topy'}>
-                    <Text text={'Subjects'} textclasses={headsclasses} />
-                    <div className={'subcontainer vertical'}>
-                        <Text text={'Subjects One'} link={'/'} textclasses={itemsclasses} />
-                        <Text text={'Subjects Two'} link={'/'} textclasses={itemsclasses} />
-                        <Text text={'Subjects Three'} link={'/'} textclasses={itemsclasses} />
-                        <Text text={'Subjects Four'} link={'/'} textclasses={itemsclasses} />
+                        {categories.map(category => <Text text={category.title} link={`/${category.slug}`} textclasses={itemsclasses} />)}
                     </div>
                 </section>
                 <section className={'subcontainer fitWidth topy'}>
                     <Text text={'Main Sectors'} textclasses={headsclasses} />
                     <div className={'subcontainer vertical'}>
-                        <Text text={'Subjects'} link={'/'} textclasses={itemsclasses} />
-                        <Text text={'Subjects'} link={'/'} textclasses={itemsclasses} />
-                        <Text text={'Subjects'} link={'/'} textclasses={itemsclasses} />
-                        <Text text={'Subjects'} link={'/'} textclasses={itemsclasses} />
+                        <Text text={'Home'} link={'/'} textclasses={itemsclasses} />
+                        <Text text={'Contact'} link={'/contact'} textclasses={itemsclasses} />
+                        <Text text={'About'} link={'/about'} textclasses={itemsclasses} />
                     </div>
                 </section>
             </section>
@@ -68,21 +56,15 @@ export default function Footer() {
                 <Link href={'https://www.youtube.com/channel/UCp6GlZFBs0lRyrsXZa8hVGA/'}>
                     <Image alt={'socialmedia'} src={'/youtube.svg'} width={20} height={20} />
                 </Link>
-                <Link href={'https://t.me/homa_pilot'}>
-                    <Image alt={'socialmedia'} src={'/telegram.svg'} width={20} height={20} />
-                </Link>
                 <Link href={'https://www.pinterest.com/homapilot'}>
                     <Image alt={'socialmedia'} src={'/pinterest.svg'} width={20} height={20} />
-                </Link>
-                <Link href={'https://vk.com/homapilot'}>
-                    <Image alt={'socialmedia'} src={'/vk.svg'} width={20} height={20} />
                 </Link>
                 <Link href={'mailto:homapilot@gmail.com'}>
                     <Image alt={'socialmedia'} src={'/email.svg'} width={20} height={20} />
                 </Link>
             </div>
             <Text customclasses={'primary_color righty centerOnMobile fitWidth'}>
-                by <Link href={'https://axoncodes.com'} className={'tertiary_color'} >Axoncodes</Link>
+                Made by love and partnership with<Link target={'_blank'} href={'https://axoncodes.com'} className={'tertiary_color'}> Axoncodes</Link>
             </Text>
         </section>
     </footer>)

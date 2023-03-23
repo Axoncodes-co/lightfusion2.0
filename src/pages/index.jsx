@@ -8,6 +8,7 @@ import Header from '../../fragments/Header'
 import dynamic from 'next/dynamic'
 import Head from 'next/head'
 import MetaTags from '../../axg-react/MetaTags'
+import Footer from '../../fragments/Footer'
 const Axg = dynamic(() => import('../../axg-react/Run'), {ssr: false})
 
 export default function Home({categories}) {
@@ -48,6 +49,7 @@ export default function Home({categories}) {
 		</Posts>
 
 		{/* TODO: Add the fun facts section */}
+		<Footer categories={categories} />
 		<Axg />
 	</>)
 }

@@ -10,6 +10,7 @@ import Breadcrumb from '../../../../components/Breadcrumb'
 const Axg = dynamic(() => import('../../../../axg-react/Run'), {ssr: false})
 import Head from 'next/head'
 import MetaTags from '../../../../axg-react/MetaTags'
+import Footer from '../../../../fragments/Footer'
 
 export default function Archive({ category_slug, category, course_slug, course, categories }) {
 	return (
@@ -46,6 +47,7 @@ export default function Archive({ category_slug, category, course_slug, course, 
 					</section>
 				</section>
 			</section>
+			<Footer categories={categories} />
 			<Axg />
 		</>
     )

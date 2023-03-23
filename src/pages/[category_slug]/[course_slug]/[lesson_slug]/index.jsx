@@ -10,6 +10,7 @@ import Nextprev from '../../../../../components/Nextprev'
 import MetaTags from '../../../../../axg-react/MetaTags'
 const Stringtohtml = dynamic(() => import('../../../../../axg-react/Stringtohtml'), {ssr: false})
 import Head from 'next/head'
+import Footer from '../../../../../fragments/Footer'
 const Axg = dynamic(() => import('../../../../../axg-react/Run'), {ssr: false})
 
 export default function Post({ categories, course_slug, category, course, lesson }) {
@@ -76,6 +77,7 @@ export default function Post({ categories, course_slug, category, course, lesson
                     />
                 </article>
             </section>
+            <Footer categories={categories} />
             <Axg />
         </>
     )
