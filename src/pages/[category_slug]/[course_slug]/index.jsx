@@ -2,7 +2,7 @@
 import dynamic from 'next/dynamic'
 const SectionTitle = dynamic(() => import('../../../../axg-react/SectionTitle'), {ssr: false})
 const LessonBox = dynamic(() => import('../../../../components/LessonBox'), {ssr: false})
-import style from './style.module.css'
+import style from './course.module.css'
 import fetchup from '../../../../lib/fetch'
 import Header from '../../../../fragments/Header'
 import Navbar from '../../../../fragments/Navbar'

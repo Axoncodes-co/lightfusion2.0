@@ -15,7 +15,7 @@ categories.forEach(category => {
   category.courses.forEach(course => {
     urls.push({url: `/${category.slug}/${course.slug}`, changefreq: 'monthly', priority: 0.4})
     course.lessons.forEach(lesson => {
-      urls.push({url: `/${category.slug}/${lesson.slug}`, changefreq: 'monthly', priority: 0.3})
+      urls.push({url: `/${category.slug}/${course.slug}/${lesson.slug}`, changefreq: 'monthly', priority: 0.3, redirect: `/${category.slug}/${lesson.slug}`})
     })
   })
 })
@@ -36,12 +36,12 @@ let xmlContent = `<?xml version="1.0" encoding="UTF-8"?>
 
 `
 // pages
-urls.forEach(file => {
-  const link = `https://www.homapilot.com${file.url}`
-  xmlContent += `<url>
-    <loc>${link}</loc>
-  </url>
-  `
+urls.forEach(url => {
+  const link = `https://www.homapilot.com${url.redirect || url.url}`
+  xmlContent += `<url>\n`
+  xmlContent += `<loc>${link}</loc>\n`
+  xmlContent += url.redirect ? `<xhtml:link rel="canonical" href="https://www.homapilot.com${url.url}" />\n` : ''
+  xmlContent += `</url>\n`
 })
 
 xmlContent += `</urlset>`

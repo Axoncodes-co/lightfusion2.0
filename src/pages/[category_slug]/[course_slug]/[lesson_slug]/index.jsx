@@ -1,16 +1,16 @@
 import dynamic from 'next/dynamic'
 import style from './lesson.module.css'
-import fetchup from '../../../lib/fetch'
-const Text = dynamic(() => import('../../../axg-react/Text2'), {ssr: false})
-import Header from '../../../fragments/Header'
-import Navbar from '../../../fragments/Navbar'
-import Breadcrumb from '../../../components/Breadcrumb'
-import Author from '../../../components/Author'
-import Nextprev from '../../../components/Nextprev'
-import MetaTags from '../../../axg-react/MetaTags'
-const Stringtohtml = dynamic(() => import('../../../axg-react/Stringtohtml'), {ssr: false})
+import fetchup from '../../../../../lib/fetch'
+const Text = dynamic(() => import('../../../../../axg-react/Text2'), {ssr: false})
+import Header from '../../../../../fragments/Header'
+import Navbar from '../../../../../fragments/Navbar'
+import Breadcrumb from '../../../../../components/Breadcrumb'
+import Author from '../../../../../components/Author'
+import Nextprev from '../../../../../components/Nextprev'
+import MetaTags from '../../../../../axg-react/MetaTags'
+const Stringtohtml = dynamic(() => import('../../../../../axg-react/Stringtohtml'), {ssr: false})
 import Head from 'next/head'
-const Axg = dynamic(() => import('../../../axg-react/Run'), {ssr: false})
+const Axg = dynamic(() => import('../../../../../axg-react/Run'), {ssr: false})
 
 export default function Post({ categories, course_slug, category, course, lesson }) {
     const postIntro = (color) => (<>
@@ -89,6 +89,7 @@ export async function getStaticPaths() {
                 .map(lesson => ({
                     params: {
                         category_slug: category.slug,
+                        course_slug: course.slug,
                         lesson_slug: lesson.slug
                     }
                 }))
@@ -104,15 +105,15 @@ export async function getStaticPaths() {
   
 export const getStaticProps = async ({params}) => {
 
-	const { category_slug, lesson_slug } = params
+	const { category_slug, course_slug, lesson_slug } = params
     const categories = await fetchup()
     const category = categories.filter(category => category.slug == category_slug)[0]
-    const lesson = category.courses.map(course => {
-        const foundlessons = course.lessons.map(lesson => lesson.slug == lesson_slug ? lesson : null).filter(item => item)
-        return foundlessons.length>0 ? foundlessons[0] : null
-    }).filter(item => item)[0]
-    const course = category.courses.filter(course => course.slug == lesson.course_slug)[0]
-    // const lesson = course.lessons.filter(lesson => lesson.slug == lesson_slug)[0]
+    // const lesson = category.courses.map(course => {
+    //     const foundlessons = course.lessons.map(lesson => lesson.slug == lesson_slug ? lesson : null).filter(item => item)
+    //     return foundlessons.length>0 ? foundlessons[0] : null
+    // }).filter(item => item)[0]
+    const course = category.courses.filter(course => course.slug == course_slug)[0]
+    const lesson = course.lessons.filter(lesson => lesson.slug == lesson_slug)[0]
     return ({
         props: {
             categories,
