@@ -1,5 +1,5 @@
 import dynamic from 'next/dynamic'
-import style from './style.module.css'
+import style from './lesson.module.css'
 import fetchup from '../../../lib/fetch'
 const Text = dynamic(() => import('../../../axg-react/Text2'), {ssr: false})
 import Header from '../../../fragments/Header'
