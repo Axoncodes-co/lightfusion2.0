@@ -3,7 +3,7 @@ import dynamic from 'next/dynamic'
 import Image from 'next/image'
 import Link from 'next/link'
 import Newssubscriber from '../Newssubscriber'
-
+import style from './style.module.css'
 const Text = dynamic(() => import('../../axg-react/Text2'), {ssr: false})
 
 export default function Footer({categories}) {
@@ -25,7 +25,7 @@ export default function Footer({categories}) {
                 <section className={'subcontainer fitWidth topy'}>
                     <Text text={'Categories'} textclasses={headsclasses} />
                     <div className={'subcontainer vertical'}>
-                        {categories.map(category => <Text text={category.title} link={`/${category.slug}`} textclasses={itemsclasses} />)}
+                        {categories.map((category, key) => <Text key={key} text={category.title} link={`/${category.slug}`} textclasses={itemsclasses} />)}
                     </div>
                 </section>
                 <section className={'subcontainer fitWidth topy'}>
@@ -64,7 +64,7 @@ export default function Footer({categories}) {
                 </Link>
             </div>
             <Text customclasses={'primary_color righty centerOnMobile fitWidth'}>
-                Made by love and partnership with<Link target={'_blank'} href={'https://axoncodes.com'} className={'tertiary_color'}> Axoncodes</Link>
+                <p className={`font_l3 weight_l3`}>© 2020–2023 HomaPilot & <Link target={'_blank'} href={'https://axoncodes.com'} className={'tertiary_color'}>Axoncodes</Link> LLC - Made with <svg className={style.hearticon} xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 96 960 960" fill="#AD1457"><path d="m439 900-53-49Q262 736 171 631.5T80 413q0-90 60.5-150.5T290 202q51 0 101 24.5t89 80.5q44-56 91-80.5t99-24.5q89 0 149.5 60.5T880 413q0 114-91 218.5T574 851l-53 49q-17 16-41 16t-41-16Z"/></svg> in Tehran</p>
             </Text>
         </section>
     </footer>)
