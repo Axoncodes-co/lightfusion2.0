@@ -29,6 +29,7 @@ export default function Header({ categories }) {
     subTrigger: 'click',
     dropdownid: 'mainHeaderGroup',
   })
+  // subcontainer righty
   const [menuItems, setMenuItems] = useState([
     {
       text: {
@@ -114,19 +115,21 @@ export default function Header({ categories }) {
     <section
       style={{
         boxShadow: '0px 0px 20px -7px rgb(0 0 0)',
+        display: 'grid',
+        justifyItems: 'center',
+        justifyContent: 'center',
+        gridTemplateColumns: '30vw 17vw 30vw',
       }}
-      className={'transition primary_bg container horizontal horizontalTabletBreak padding_l0 widePadding_l1'}>
-      <section style={{position: 'unset'}} className={'subcontainer horizontal horizontalTabletBreak fitWidth'}>
-        <Logo
-          src={'/logo.png'}
-          width={'10vw'}
-          minWidth={'60px'}
-        />
-        <Menu
-          menuGroup={menuGroup}
-          menuItems={menuItems}
-        />
-      </section>
+      className={'transition primary_bg container horizontal horizontalTabletBreak padding_l0 colgap_l0'}>
+      <Menu
+        menuGroup={menuGroup}
+        menuItems={menuItems}
+      />
+      <Logo
+        src={'/logo.png'}
+        width={'10vw'}
+        minWidth={'90px'}
+      />
       <Searchbar
         id={'main_searchbar'}
         name={'main_searchbar'}
@@ -144,17 +147,6 @@ export default function Header({ categories }) {
         searchquerynames={names}
         searchquerylinks={links}
       />
-      {/* <div>
-        <Button
-          text={'Sign In'}
-          innerclasses={'widePadding_l3 round_l3'}
-          bg={'var(--secondaryColor)'}
-          height={'40px'}
-          plane={'1'}
-          link={'/login'}
-          textclasses={'transition tertiary_color font_l3'}
-        />
-      </div> */}
     </section>
     <section className="ax_elements" nomain="true">
       {menuItems.map((item, key) => (

@@ -88,19 +88,6 @@
 .tertiary_fill_hover:hover svg {
   fill: var(--tertiaryTextColor);
 }
-#main_searchbar {
-  width: 40vw!important;
-}
-@media screen and (max-width: 600px) {
-  #main_searchbar {
-    width: fit-content !important;
-  }
-}
-@media screen and (max-width: 600px) {
-  #main_searchbar.axg_active {
-    width: 100vw !important;
-  }
-}
 a {
   text-decoration: none;
 }
@@ -134,4 +121,7 @@ html[theme-preference="light"] .hidesublighttheme {
 }
 html[theme-preference="dark"] .hidesubdarktheme {
   display: none !important;
+}
+a {
+  color: var(--links_colors);
 }
