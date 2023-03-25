@@ -94,6 +94,21 @@ export default function Header({ categories }) {
       subopening: 'sub',
     },
   ])
+
+  const links = []
+  const names = []
+  categories.forEach(cat => {
+    links.push(`/${cat.slug}`)
+    names.push(cat.title)
+    cat.courses.forEach(course => {
+      links.push(`/${cat.slug}/${course.slug}`)
+      names.push(course.title)
+      course.lessons.forEach(lesson => {
+        links.push(`/${cat.slug}/${course.slug}/${lesson.slug}`)
+        names.push(lesson.title)
+      })
+    })
+  })
   return (
     <>
     <section
@@ -124,10 +139,10 @@ export default function Header({ categories }) {
         collapseonmobile={'1'}
         labelclasses={'subcontainer lefty hoversearchcoverlabel'}
         inputcovercustomclasses={'subcontainer vertical'}
-        reslistcustomclasses={'boxshadow darker rtl'}
+        reslistcustomclasses={'boxshadow darker'}
         outformclasses={'searchbarsizes'}
-        searchquerynames={['name1', 'name2']}
-        searchquerylinks={['link1', 'link2']}
+        searchquerynames={names}
+        searchquerylinks={links}
       />
       {/* <div>
         <Button
