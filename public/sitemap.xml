@@ -1,103 +1,103 @@
 <?xml version="1.0" encoding="UTF-8"?>
-  <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
 
 <url>
-<loc>https://www.homapilot.com/</loc>
+ <loc>https://www.homapilot.com/</loc>
 </url>
 <url>
-<loc>https://www.homapilot.com/about</loc>
+ <loc>https://www.homapilot.com/about</loc>
 </url>
 <url>
-<loc>https://www.homapilot.com/contact</loc>
+ <loc>https://www.homapilot.com/contact</loc>
 </url>
 <url>
-<loc>https://www.homapilot.com/general</loc>
+ <loc>https://www.homapilot.com/general</loc>
 </url>
 <url>
-<loc>https://www.homapilot.com/general/principles-of-flight</loc>
+ <loc>https://www.homapilot.com/general/principles-of-flight</loc>
 </url>
 <url>
-<loc>https://www.homapilot.com/general/stall</loc>
-<xhtml:link rel="canonical" href="https://www.homapilot.com/general/principles-of-flight/stall" />
+ <loc>https://www.homapilot.com/general/stall</loc>
+  <xhtml:link rel="canonical" href="https://www.homapilot.com/general/principles-of-flight/stall" />
 </url>
 <url>
-<loc>https://www.homapilot.com/general/angle-of-attack</loc>
-<xhtml:link rel="canonical" href="https://www.homapilot.com/general/principles-of-flight/angle-of-attack" />
+ <loc>https://www.homapilot.com/general/angle-of-attack</loc>
+  <xhtml:link rel="canonical" href="https://www.homapilot.com/general/principles-of-flight/angle-of-attack" />
 </url>
 <url>
-<loc>https://www.homapilot.com/general/relative-wind</loc>
-<xhtml:link rel="canonical" href="https://www.homapilot.com/general/principles-of-flight/relative-wind" />
+ <loc>https://www.homapilot.com/general/relative-wind</loc>
+  <xhtml:link rel="canonical" href="https://www.homapilot.com/general/principles-of-flight/relative-wind" />
 </url>
 <url>
-<loc>https://www.homapilot.com/general/four-forces-of-flight</loc>
-<xhtml:link rel="canonical" href="https://www.homapilot.com/general/principles-of-flight/four-forces-of-flight" />
+ <loc>https://www.homapilot.com/general/four-forces-of-flight</loc>
+  <xhtml:link rel="canonical" href="https://www.homapilot.com/general/principles-of-flight/four-forces-of-flight" />
 </url>
 <url>
-<loc>https://www.homapilot.com/general/main-structure-of-airplanes</loc>
-<xhtml:link rel="canonical" href="https://www.homapilot.com/general/principles-of-flight/main-structure-of-airplanes" />
+ <loc>https://www.homapilot.com/general/main-structure-of-airplanes</loc>
+  <xhtml:link rel="canonical" href="https://www.homapilot.com/general/principles-of-flight/main-structure-of-airplanes" />
 </url>
 <url>
-<loc>https://www.homapilot.com/general/meteorology</loc>
+ <loc>https://www.homapilot.com/general/meteorology</loc>
 </url>
 <url>
-<loc>https://www.homapilot.com/general/temperature-inversion</loc>
-<xhtml:link rel="canonical" href="https://www.homapilot.com/general/meteorology/temperature-inversion" />
+ <loc>https://www.homapilot.com/general/temperature-inversion</loc>
+  <xhtml:link rel="canonical" href="https://www.homapilot.com/general/meteorology/temperature-inversion" />
 </url>
 <url>
-<loc>https://www.homapilot.com/general/lapse-rate</loc>
-<xhtml:link rel="canonical" href="https://www.homapilot.com/general/meteorology/lapse-rate" />
+ <loc>https://www.homapilot.com/general/lapse-rate</loc>
+  <xhtml:link rel="canonical" href="https://www.homapilot.com/general/meteorology/lapse-rate" />
 </url>
 <url>
-<loc>https://www.homapilot.com/general/temperature</loc>
-<xhtml:link rel="canonical" href="https://www.homapilot.com/general/meteorology/temperature" />
+ <loc>https://www.homapilot.com/general/temperature</loc>
+  <xhtml:link rel="canonical" href="https://www.homapilot.com/general/meteorology/temperature" />
 </url>
 <url>
-<loc>https://www.homapilot.com/general/earth-atmosphere-composition-and-structure</loc>
-<xhtml:link rel="canonical" href="https://www.homapilot.com/general/meteorology/earth-atmosphere-composition-and-structure" />
+ <loc>https://www.homapilot.com/general/earth-atmosphere-composition-and-structure</loc>
+  <xhtml:link rel="canonical" href="https://www.homapilot.com/general/meteorology/earth-atmosphere-composition-and-structure" />
 </url>
 <url>
-<loc>https://www.homapilot.com/general/airframes-systems</loc>
+ <loc>https://www.homapilot.com/general/airframes-systems</loc>
 </url>
 <url>
-<loc>https://www.homapilot.com/general/communication</loc>
+ <loc>https://www.homapilot.com/general/communication</loc>
 </url>
 <url>
-<loc>https://www.homapilot.com/general/electrics</loc>
+ <loc>https://www.homapilot.com/general/electrics</loc>
 </url>
 <url>
-<loc>https://www.homapilot.com/general/flight-computer</loc>
+ <loc>https://www.homapilot.com/general/flight-computer</loc>
 </url>
 <url>
-<loc>https://www.homapilot.com/general/general-navigation</loc>
+ <loc>https://www.homapilot.com/general/general-navigation</loc>
 </url>
 <url>
-<loc>https://www.homapilot.com/general/human-performance</loc>
+ <loc>https://www.homapilot.com/general/human-performance</loc>
 </url>
 <url>
-<loc>https://www.homapilot.com/general/instruments</loc>
+ <loc>https://www.homapilot.com/general/instruments</loc>
 </url>
 <url>
-<loc>https://www.homapilot.com/general/mass-balance</loc>
+ <loc>https://www.homapilot.com/general/mass-balance</loc>
 </url>
 <url>
-<loc>https://www.homapilot.com/general/power-plant</loc>
+ <loc>https://www.homapilot.com/general/power-plant</loc>
 </url>
 <url>
-<loc>https://www.homapilot.com/general/radio-navigation</loc>
+ <loc>https://www.homapilot.com/general/radio-navigation</loc>
 </url>
 <url>
-<loc>https://www.homapilot.com/atpl</loc>
+ <loc>https://www.homapilot.com/atpl</loc>
 </url>
 <url>
-<loc>https://www.homapilot.com/diy-aircraft</loc>
+ <loc>https://www.homapilot.com/diy-aircraft</loc>
 </url>
 <url>
-<loc>https://www.homapilot.com/diy-aircraft/how-to-make-paper-airplanes</loc>
+ <loc>https://www.homapilot.com/diy-aircraft/how-to-make-paper-airplanes</loc>
 </url>
 <url>
-<loc>https://www.homapilot.com/diy-aircraft/rc-aircraft</loc>
+ <loc>https://www.homapilot.com/diy-aircraft/rc-aircraft</loc>
 </url>
 <url>
-<loc>https://www.homapilot.com/articles</loc>
+ <loc>https://www.homapilot.com/articles</loc>
 </url>
 </urlset>
