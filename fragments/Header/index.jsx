@@ -28,6 +28,8 @@ export default function Header({ categories }) {
     subOpening: 'sub',
     subTrigger: 'click',
     dropdownid: 'mainHeaderGroup',
+    customclasses: 'subcontainer righty',
+    dev: 'staging',
   })
   // subcontainer righty
   const [menuItems, setMenuItems] = useState([
@@ -120,7 +122,7 @@ export default function Header({ categories }) {
         justifyContent: 'center',
         gridTemplateColumns: '30vw 17vw 30vw',
       }}
-      className={'transition primary_bg container horizontal horizontalTabletBreak padding_l0 colgap_l0'}>
+      className={'transition primary_bg container horizontal horizontalTabletBreak padding_l0'}>
       <Menu
         menuGroup={menuGroup}
         menuItems={menuItems}
@@ -130,23 +132,25 @@ export default function Header({ categories }) {
         width={'10vw'}
         minWidth={'90px'}
       />
-      <Searchbar
-        id={'main_searchbar'}
-        name={'main_searchbar'}
-        inputcustomclasses={'searchbarheight font_l1 wide padding_l3 noborder round_l3'}
-        customclasses={'searchbarheight wide'}
-        bg={'#c1c1c1a3'}
-        color={'#000'}
-        placeholder={'Search...'}
-        queryid={'mainsearchquery'}
-        collapseonmobile={'1'}
-        labelclasses={'subcontainer lefty hoversearchcoverlabel'}
-        inputcovercustomclasses={'subcontainer vertical'}
-        reslistcustomclasses={'boxshadow darker'}
-        outformclasses={'searchbarsizes'}
-        searchquerynames={names}
-        searchquerylinks={links}
-      />
+      <div className={'subcontainer lefty'}>
+        <Searchbar
+          id={'main_searchbar'}
+          name={'main_searchbar'}
+          inputcustomclasses={'searchbarheight font_l1 wide padding_l3 noborder round_l3'}
+          customclasses={'searchbarheight wide'}
+          bg={'#c1c1c1a3'}
+          color={'#000'}
+          placeholder={'Search...'}
+          queryid={'mainsearchquery'}
+          collapseonmobile={'1'}
+          labelclasses={'subcontainer lefty hoversearchcoverlabel'}
+          inputcovercustomclasses={'subcontainer vertical'}
+          reslistcustomclasses={'boxshadow darker'}
+          outformclasses={'searchbarsizes'}
+          searchquerynames={names}
+          searchquerylinks={links}
+        />
+      </div>
     </section>
     <section className="ax_elements" nomain="true">
       {menuItems.map((item, key) => (
