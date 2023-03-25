@@ -26,7 +26,7 @@ export default function Hero() {
                         bg={'var(--secondaryColor)'}
                         height={'48px'}
                         plane={'1'}
-                        link={'/shop'}
+                        link={'/general'}
                         textclasses={'transition primary_color secondary_font font_l4'}
                     />
                     <Button
@@ -36,7 +36,7 @@ export default function Hero() {
                         bg={'#0000'}
                         height={'48px'}
                         plane={'1'}
-                        link={'/shop'}
+                        link={'/diy'}
                         textclasses={'transition primary_color font_l4'}
                         hoverbg={'var(--secondaryColor)'}
                     />
