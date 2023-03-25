@@ -41,11 +41,11 @@ export default function Post({ categories, course_slug, category, course, lesson
 			</Head>
             <Header categories={categories} />
 			<Navbar data={categories} current_slug={course_slug} />
-            <section className={'subcontainer horizontal widePadding_l0 topy colgap_l0'}>
+            <section className={'primary_bg subcontainer horizontal widePadding_l0 topy colgap_l0'}>
                 <aside className={'hideOnMobile'}>
                     <p style={{visibility: 'hidden'}}>sidebar</p>
                 </aside>
-                <section className={'subcontainer padding_l3 primary_bg vertical'}>
+                <section className={'subcontainer padding_l3 vertical'}>
                     <section id={'content_nav'} className={'wide subcontainer'}>
                         <Breadcrumb
                             categories={categories}
