@@ -11,6 +11,7 @@ import MetaTags from '../../../../../axg-react/MetaTags'
 const Stringtohtml = dynamic(() => import('../../../../../axg-react/Stringtohtml'), {ssr: false})
 import Head from 'next/head'
 import Footer from '../../../../../fragments/Footer'
+import Image from 'next/image'
 const Axg = dynamic(() => import('../../../../../axg-react/Run'), {ssr: false})
 
 export default function Post({ categories, course_slug, category, course, lesson }) {
@@ -40,42 +41,54 @@ export default function Post({ categories, course_slug, category, course, lesson
 			</Head>
             <Header categories={categories} />
 			<Navbar data={categories} current_slug={course_slug} />
-            <section className={'container primary_bg vertical'}>
-                <section id={'content_nav'} className={'wide subcontainer'}>
-                    <Breadcrumb
-                        categories={categories}
-                        category={category}
-                        course={course}
-                    />
-                </section>
-                <Nextprev
-                    nextlink={lesson.next_slug ? `/${category.slug}/${course.slug}/${lesson.next_slug}` : ''}
-                    prevlink={lesson.prev_slug ? `/${category.slug}/${course.slug}/${lesson.prev_slug}` : ''}
-                />
-                <div style={{width: '100%'}}>
-                    <section
-                        style={{
-                            height: '25vw',
-                            backgroundImage: `linear-gradient(0deg, #0002, #0000001f, #00000057, #00000087, #000000ba), url(${lesson.thumbnail_url})`,
-                            backgroundSize: 'cover',
-                            backgroundRepeat: 'no-repeat',
-                            backgroundPosition: 'center',
-                        }}
-                        className={'lefty subcontainer vertical padding_l3 widePadding_l6 round_l3'}
-                    >
-                        <div className={'hideOnTablet'}>{postIntro('primary_color')}</div>
+            <section className={'subcontainer horizontal widePadding_l0 topy colgap_l0'}>
+                <aside className={'hideOnMobile'}>
+                    <p style={{visibility: 'hidden'}}>sidebar</p>
+                </aside>
+                <section className={'subcontainer padding_l3 primary_bg vertical'}>
+                    <section id={'content_nav'} className={'wide subcontainer'}>
+                        <Breadcrumb
+                            categories={categories}
+                            category={category}
+                            course={course}
+                        />
                     </section>
-                </div>
-                <div className={'hide visibleOnTablet wide lefty'}>{postIntro('secondary_color')}</div>
-                <Text
-                    text={lesson.excerpt}
-                    textclasses={`${style.excerpt} font_l4 weight_l3 secondary_color`}
-                />
-                <article id='content' className={`${style.content}`}>
-                    <Stringtohtml
-                        html={lesson.content}
+                    <Nextprev
+                        nextlink={lesson.next_slug ? `/${category.slug}/${course.slug}/${lesson.next_slug}` : ''}
+                        prevlink={lesson.prev_slug ? `/${category.slug}/${course.slug}/${lesson.prev_slug}` : ''}
                     />
-                </article>
+                    <div style={{width: '100%'}}>
+                        <section
+                            style={{
+                                height: '25vw',
+                                backgroundImage: `linear-gradient(0deg, #0002, #0000001f, #00000057, #00000087, #000000ba), url(${lesson.thumbnail_url})`,
+                                backgroundSize: 'cover',
+                                backgroundRepeat: 'no-repeat',
+                                backgroundPosition: 'center',
+                            }}
+                            className={'lefty subcontainer vertical padding_l3 widePadding_l6 round_l3'}
+                        >
+                            <div className={'hideOnTablet'}>{postIntro('primary_color')}</div>
+                        </section>
+                    </div>
+                    <div className={'hide visibleOnTablet wide lefty'}>{postIntro('secondary_color')}</div>
+                    <Text
+                        text={lesson.excerpt}
+                        textclasses={`${style.excerpt} font_l4 weight_l3 secondary_color`}
+                    />
+                    <article id='content' className={`${style.content}`}>
+                        <Stringtohtml
+                            html={lesson.content}
+                        />
+                    </article>
+                </section>
+                <aside className={'subcontainer fitWidth padding_l1 topy centerImgOnmobileBreakpoint'}>
+                    <Image
+                        src={'/testad.png'}
+                        width={'130'}
+                        height={'500'}
+                    />
+                </aside>
             </section>
             <Footer categories={categories} />
             <Axg />
@@ -110,10 +123,6 @@ export const getStaticProps = async ({params}) => {
 	const { category_slug, course_slug, lesson_slug } = params
     const categories = await fetchup()
     const category = categories.filter(category => category.slug == category_slug)[0]
-    // const lesson = category.courses.map(course => {
-    //     const foundlessons = course.lessons.map(lesson => lesson.slug == lesson_slug ? lesson : null).filter(item => item)
-    //     return foundlessons.length>0 ? foundlessons[0] : null
-    // }).filter(item => item)[0]
     const course = category.courses.filter(course => course.slug == course_slug)[0]
     const lesson = course.lessons.filter(lesson => lesson.slug == lesson_slug)[0]
     return ({
