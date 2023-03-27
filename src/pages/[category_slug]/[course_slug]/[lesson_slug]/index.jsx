@@ -11,9 +11,8 @@ import MetaTags from '../../../../../axg-react/MetaTags'
 const Stringtohtml = dynamic(() => import('../../../../../axg-react/Stringtohtml'), {ssr: false})
 import Head from 'next/head'
 import Footer from '../../../../../fragments/Footer'
-import Image from 'next/image'
 const Axg = dynamic(() => import('../../../../../axg-react/Run'), {ssr: false})
-
+import Script from 'next/script'
 export default function Post({ categories, course_slug, category, course, lesson }) {
     const postIntro = (color) => (<>
         <Text
@@ -46,6 +45,13 @@ export default function Post({ categories, course_slug, category, course, lesson
                     <p style={{visibility: 'hidden'}}>sidebar</p>
                 </aside>
                 <section className={'subcontainer padding_l3 vertical'}>
+                    {/* <div style={{minHeight: '100px', width: '100%'}}>
+                        <ins className="adsbygoogle"
+                            style={{display:'inline-block', width:'600px', height:'90px'}}
+                            data-ad-client="ca-pub-5146054383186265"
+                            data-ad-slot="8430915906"
+                        ></ins>
+                    </div> */}
                     <section id={'content_nav'} className={'wide subcontainer'}>
                         <Breadcrumb
                             categories={categories}
@@ -81,17 +87,27 @@ export default function Post({ categories, course_slug, category, course, lesson
                             html={lesson.content}
                         />
                     </article>
+                    <ins className="adsbygoogle"
+                        style={{display:'block'}}
+                        data-ad-client="ca-pub-5146054383186265"
+                        data-ad-slot="8969756356"
+                        data-ad-format="auto"
+                        data-full-width-responsive="true"
+                    ></ins>
                 </section>
-                <aside className={'subcontainer fitWidth padding_l1 topy centerImgOnmobileBreakpoint'}>
-                    <Image
-                        src={'/testad.png'}
-                        width={'130'}
-                        height={'500'}
-                    />
+                <aside style={{width: '270px', minHeight: '100vh'}} className={'hideOnMobile subcontainer padding_l1 topy'}>
+                    <ins className="adsbygoogle"
+                        style={{display:'inline-block',width:'250px',height:'500px'}}
+                        data-ad-client="ca-pub-5146054383186265"
+                        data-ad-slot="6515199005"
+                    ></ins>
                 </aside>
             </section>
             <Footer categories={categories} />
             <Axg />
+            <Script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5146054383186265" crossorigin="anonymous"></Script>
+            <Script id={'sidebar_ads'}>(adsbygoogle = window.adsbygoogle || []).push({});</Script>
+            
         </>
     )
 }

@@ -10,7 +10,8 @@
     "store": "node storecategories.js",
     "sitemap": "node ./postbuild/sitemap.js",
     "robotstxt": "node ./postbuild/robotstxt.js",
-    "htaccess": "node ./postbuild/htaccess.js"
+    "htaccess": "node ./postbuild/htaccess.js",
+    "ads": "node ./postbuild/ads.js"
   },
   "dependencies": {
     "@axoncodes/xjs": "^1.1.0",

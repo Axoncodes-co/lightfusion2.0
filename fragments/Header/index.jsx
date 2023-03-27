@@ -46,6 +46,7 @@ export default function Header({ categories }) {
       background: 'var(--tertiaryColor)',
       exit: '1',
       listclasses: 'container wrap',
+      customclasses: 'wide righty subcontainer',
       options: categories.map(category => ({
         listclasses: 'vertical centerOnTablet lefty',
         text: {
@@ -132,25 +133,23 @@ export default function Header({ categories }) {
         width={'10vw'}
         minWidth={'90px'}
       />
-      <div className={'subcontainer lefty'}>
-        <Searchbar
-          id={'main_searchbar'}
-          name={'main_searchbar'}
-          inputcustomclasses={'searchbarheight font_l1 wide padding_l3 noborder round_l3'}
-          customclasses={'searchbarheight wide'}
-          bg={'#c1c1c1a3'}
-          color={'#000'}
-          placeholder={'Search...'}
-          queryid={'mainsearchquery'}
-          collapseonmobile={'1'}
-          labelclasses={'subcontainer lefty hoversearchcoverlabel'}
-          inputcovercustomclasses={'subcontainer vertical'}
-          reslistcustomclasses={'boxshadow darker'}
-          outformclasses={'searchbarsizes'}
-          searchquerynames={names}
-          searchquerylinks={links}
-        />
-      </div>
+      <Searchbar
+        id={'main_searchbar'}
+        name={'main_searchbar'}
+        inputcustomclasses={'searchbarheight font_l1 wide padding_l3 noborder round_l3'}
+        customclasses={'searchbarheight wide'}
+        bg={'#c1c1c1a3'}
+        color={'#000'}
+        placeholder={'Search...'}
+        queryid={'mainsearchquery'}
+        collapseonmobile={'1'}
+        labelclasses={'subcontainer lefty hoversearchcoverlabel'}
+        inputcovercustomclasses={'subcontainer vertical'}
+        reslistcustomclasses={'boxshadow darker'}
+        outformclasses={'searchbarsizes'}
+        searchquerynames={names}
+        searchquerylinks={links}
+      />
     </section>
     <section className="ax_elements" nomain="true">
       {menuItems.map((item, key) => (
