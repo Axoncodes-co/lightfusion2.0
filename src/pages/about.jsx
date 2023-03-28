@@ -31,7 +31,7 @@ export default function About({categories}) {
 			}}></div>
 			<Text customclasses={'center'} textclasses={'primary_color font_l9 weight_l4 secondary_font'} text={'About Homa Pilot'} />
 		</section>
-		<section className={'primary_bg container vertical verticalTabletBreak'} style={{minHeight: '300px'}}>
+		<section className={'primary_bg container vertical verticalTabletBreak'} style={{minHeight: '350px'}}>
 			<Text textclasses={'secondary_color font_l4 weight_l3'} text={'Homa Pilot Complex was founded in 2020 by pilot Benyamin Amiri. The purpose of this complex is to provide aviation and piloting courses that are available online for free to pilot students and all those who are interested in this industry.'} />
 			<Text textclasses={'secondary_color font_l4 weight_l3'} text={'At <a href="/">Homa Pilot</a>, an attempt has been made to provide all courses with a high level of educational standard, which will lead to better student learning. In addition, there is an exam at the end of each course for the students to assess what they have learned.'} />
 		</section>
