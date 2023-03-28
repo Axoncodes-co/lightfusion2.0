@@ -23,7 +23,7 @@ export default function Home({categories}) {
 				/>
 		</Head>
 		<Header categories={categories} />
-		<section className={'relative'}>
+		<section className={'horizontal subcontainer verticalLargeTabletBreak spread'}>
 			<div style={{
 				filter: 'brightness(0.5)',
 				background: 'url(/1.jpg) center no-repeat',

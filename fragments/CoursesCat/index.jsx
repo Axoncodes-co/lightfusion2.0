@@ -3,7 +3,7 @@ import CategoryBox from '../../components/CategoryBox'
 
 export default function CoursesCat({categories}) {
     return (
-        <section className={'norowgap centerMarge centerMargen container horizontal verticalTabletBreak nocolgap wide'}>
+        <section style={{paddingLeft: '0'}} className={'widePadding_l6 centerMarge centerMargen container horizontal nocolgap norowgap verticalTabletBreak wide'}>
             {categories.map((category, key) => <CategoryBox
                 key={key}
                 title={category.title}

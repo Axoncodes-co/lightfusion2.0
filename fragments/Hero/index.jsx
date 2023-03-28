@@ -7,11 +7,11 @@ const Button = dynamic(() => import('../../axg-react/Button'), {ssr: false})
 export default function Hero() {
 
     return (
-        <section className={`container vertical verticalLargeTabletBreak`}>
+        <section className={`widePadding_l6 container vertical verticalLargeTabletBreak`} style={{paddingRight: '0'}}>
             <section className={'subcontainer'}>
                 <Text
                     text={'HOMA PILOT'}
-                    textclasses={`wide primary_color secondary_font font_l8 textleft textcenteronTablet weight_l3`}
+                    textclasses={`nomargin wide primary_color secondary_font font_l8 textleft textcenteronTablet weight_l3`}
                     subtext={'Online Free Flight Training Courses, Pilot Exams and CFI Tools'}
                     subtextclasses={`primary_color font_l4 lato textleft textcenteronTablet nomargin weight_l4`}
                     subtextalign={'centerOnTablet'}
