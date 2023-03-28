@@ -123,5 +123,5 @@ html[theme-preference="dark"] .hidesubdarktheme {
   display: none !important;
 }
 a {
-  color: var(--links_colors);
+  color: var(--links_colors) !important;
 }
