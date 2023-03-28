@@ -33,16 +33,16 @@ export default function Contact({categories}) {
 		</section>
 		<section className={'primary_bg container horizontal topy spread verticalTabletBreak'} style={{minHeight: '300px'}}>
 			<div className={'subcontainer wide centerOnTablet'}>
-				<Text customclasses={'centerOnTablet'} textclasses={'nomargin font_l4 weight_l3'} text={'Contact Homa Pilot'} />
+				<Text customclasses={'centerOnTablet'} textclasses={'secondary_color nomargin font_l4 weight_l3'} text={'Contact Homa Pilot'} />
 				<Text customclasses={'centerOnTablet'} textclasses={'nomargin font_l3 weight_l3'} link={'mailto:info@homapilot.com'} text={'info@homapilot.com'} />
 				<Text customclasses={'centerOnTablet'} textclasses={'nomargin font_l3 weight_l3'} link={'mailto:homapilot@gmail.com'} text={'homapilot@gmail.com'} />
 			</div>
 			<div className={'subcontainer wide'}>
-				<Text customclasses={'centerOnTablet'} textclasses={'nomargin font_l4 weight_l3'} text={'Contact the support team'} />
+				<Text customclasses={'centerOnTablet'} textclasses={'secondary_color nomargin font_l4 weight_l3'} text={'Contact the support team'} />
 				<Text customclasses={'centerOnTablet'} textclasses={'nomargin font_l3 weight_l3'} link={'mailto:support@homapilot.com'} text={'support@homapilot.com'} />
 			</div>
 			<div className={'subcontainer wide'}>
-				<Text customclasses={'centerOnTablet'} textclasses={'nomargin font_l4 weight_l3'} text={'Contact the advertising department'} />
+				<Text customclasses={'centerOnTablet'} textclasses={'secondary_color nomargin font_l4 weight_l3'} text={'Contact the advertising department'} />
 				<Text customclasses={'centerOnTablet'} textclasses={'nomargin font_l3 weight_l3'} link={'mailto:ad@homapilot.com'} text={'ad@homapilot.com'} />
 			</div>
 		</section>
