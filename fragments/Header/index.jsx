@@ -34,6 +34,17 @@ export default function Header({ categories }) {
   // subcontainer righty
   const [menuItems, setMenuItems] = useState([
     {
+      structure: 'link',
+      text: {
+        text: 'Home',
+        link: '/',
+        textclasses: 'weight_l3 font_l3 secondary_font nomargin secondary_color primary_color_hover',
+        customclasses: 'secondary_bg_hover widePadding_l1',
+      },
+      subtrigger: 'click',
+      subopening: 'sub',
+    },
+    {
       text: {
         text: 'Courses',
         textclasses: 'weight_l3 font_l3 secondary_font nomargin secondary_color primary_color_hover',
