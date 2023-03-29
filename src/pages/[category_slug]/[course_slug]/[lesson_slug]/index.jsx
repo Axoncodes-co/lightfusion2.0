@@ -30,10 +30,10 @@ export default function Post({ categories, course_slug, category, course, lesson
     return (
         <>
             <Head>
-				<title>{lesson.title} - Homa Pilot</title>
+				<title>{lesson.metatags.title || lesson.title}</title>
 				<MetaTags
-					title={lesson.title}
-					description={lesson.excerpt}
+					title={lesson.metatags.title || lesson.title}
+					description={lesson.metatags.metadesc}
 					href={`https://homapilot.com/${category.slug}/${course.slug}/${lesson.slug}`}
 					ico={'/ico.png'}
 				/>
