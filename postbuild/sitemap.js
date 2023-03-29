@@ -32,15 +32,16 @@ categories.forEach(category => {
 
 
 let xmlContent = `<?xml version="1.0" encoding="UTF-8"?>
-  <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 `
 // pages
 urls.forEach(url => {
-  const link = `https://www.homapilot.com${url.redirect || url.url}`
+  // const link = `https://www.homapilot.com${url.redirect || url.url}`
+  const link = `https://www.homapilot.com${url.url}`
   xmlContent += `<url>\n`
   xmlContent += ` <loc>${link}</loc>\n`
-  xmlContent += url.redirect ? `  <xhtml:link rel="canonical" href="https://www.homapilot.com${url.url}" />\n` : ''
+  // xmlContent += url.redirect ? `  <xhtml:link rel="canonical" href="https://www.homapilot.com${url.url}" />\n` : ''
   xmlContent += `</url>\n`
 })
 
