@@ -31,7 +31,19 @@ urls.forEach(url => {
 const jsonMedia = fs.readFileSync(path.join(process.cwd(), 'public/data/media/info.json'), 'utf-8')
 const medias = JSON.parse(jsonMedia)
 
+// { 
+//   "source": "/view-source",
+//   "destination": "https://github.com/vercel/vercel", 
+//   "statusCode": 301
+// }
+const redirects = []
 medias.forEach(media => {
-  xmlContent += `Redirect 301 /data/media${media.url.slice(media.url.lastIndexOf('/'))} https://${media.url.slice(media.url.indexOf('blog.')+5)}\n`
+  redirects.push({ 
+    "source": `https://${media.url.slice(media.url.indexOf('blog.')+5)}`,
+    "destination": `https://homapilot.com/data/media${media.url.slice(media.url.lastIndexOf('/'))}`, 
+    "statusCode": 301
+  })
+  // `Redirect 301 /data/media${media.url.slice(media.url.lastIndexOf('/'))} https://${media.url.slice(media.url.indexOf('blog.')+5)}\n`
 })
 fs.writeFileSync('./public/.htaccess', xmlContent)
+fs.writeFileSync('./public/redirects.json', JSON.stringify(redirects))
