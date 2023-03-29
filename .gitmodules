@@ -1,0 +1,3 @@
+[submodule "axg-react"]
+	path = axg-react
+	url = https://github.com/Axoncodes/axg-react.git
