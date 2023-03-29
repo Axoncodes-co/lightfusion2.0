@@ -11,11 +11,11 @@ const urls = [
 const jsonData = fs.readFileSync(path.join(process.cwd(), 'public/data/categories.json'), 'utf-8')
 const categories = JSON.parse(jsonData)
 categories.forEach(category => {
-  urls.push({url: `/${category.slug}`, changefreq: 'monthly', priority: 0.5})
+  urls.push({url: `/${category.slug}`, changefreq: 'monthly', priority: 0.8})
   category.courses.forEach(course => {
-    urls.push({url: `/${category.slug}/${course.slug}`, changefreq: 'monthly', priority: 0.4})
+    urls.push({url: `/${category.slug}/${course.slug}`, changefreq: 'monthly', priority: 0.8})
     course.lessons.forEach(lesson => {
-      urls.push({url: `/${category.slug}/${course.slug}/${lesson.slug}`, changefreq: 'monthly', priority: 0.3, redirect: `/${category.slug}/${lesson.slug}`})
+      urls.push({url: `/${category.slug}/${course.slug}/${lesson.slug}`, changefreq: 'monthly', priority: 0.8, redirect: `/${category.slug}/${lesson.slug}`})
     })
   })
 })
@@ -31,17 +31,13 @@ categories.forEach(category => {
 // })
 
 
-let xmlContent = `<?xml version="1.0" encoding="UTF-8"?>
-  <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-
-`
+let xmlContent = `<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">`
 // pages
 urls.forEach(url => {
-  // const link = `https://www.homapilot.com${url.redirect || url.url}`
   const link = `https://www.homapilot.com${url.url}`
   xmlContent += `<url>\n`
   xmlContent += ` <loc>${link}</loc>\n`
-  // xmlContent += url.redirect ? `  <xhtml:link rel="canonical" href="https://www.homapilot.com${url.url}" />\n` : ''
+  xmlContent += ` <priority>${url.priority}</priority>\n`
   xmlContent += `</url>\n`
 })
 
