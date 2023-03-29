@@ -26,4 +26,12 @@ let xmlContent = ''
 urls.forEach(url => {
   xmlContent += url.redirect ? `Redirect 301 ${url.redirect} https://www.homapilot.com${url.url}\n` : ''
 })
+
+
+const jsonMedia = fs.readFileSync(path.join(process.cwd(), 'public/data/media/info.json'), 'utf-8')
+const medias = JSON.parse(jsonMedia)
+
+medias.forEach(media => {
+  xmlContent += `Redirect 301 /data/media${media.url.slice(media.url.lastIndexOf('/'))} https://${media.url.slice(media.url.indexOf('blog.')+5)}\n`
+})
 fs.writeFileSync('./public/.htaccess', xmlContent)
