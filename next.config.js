@@ -15,7 +15,6 @@ const nextConfig = {
       {"source": "/general/lapse-rate", "destination": "/general/meteorology/lapse-rate","statusCode":301},
       {"source": "/general/temperature", "destination": "/general/meteorology/temperature","statusCode":301},
       {"source": "/general/earth-atmosphere-composition-and-structure", "destination": "/general/meteorology/earth-atmosphere-composition-and-structure","statusCode":301},
-    
     ]
   }
 }
