@@ -129,7 +129,7 @@ export default function Post({ categories, course_slug, category, course, lesson
             <Footer categories={categories} />
             <Axg />
             <Script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5146054383186265" crossorigin="anonymous"></Script>
-            {/* <Script id={'sidebar_ads'}>(adsbygoogle = window.adsbygoogle || []).push({});</Script> */}
+            <Script id={'sidebar_ads'}>(adsbygoogle = window.adsbygoogle || []).push({});</Script>
             
         </>
     )

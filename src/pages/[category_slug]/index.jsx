@@ -113,8 +113,8 @@ export const getStaticProps = async ({params}) => {
 			categories,
 			category,
 			metatags: {
-                title: category.title,
-                description: category.description,
+                title: `${category.metatags.title} - Online Aviation Courses and Exams By Homa Pilot`,
+                description: category.metatags.description,
                 href: `https://homapilot.com/${category.slug}`,
                 ico: '/ico.png'
             }

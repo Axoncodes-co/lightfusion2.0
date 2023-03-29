@@ -107,8 +107,8 @@ export const getStaticProps = async ({params}) => {
 			course_slug,
 			categories,
 			metatags: {
-                title: course.title,
-                description: course.description,
+                title: course.metatags.title,
+                description: course.metatags.description,
                 href: `https://homapilot.com/${category.slug}/${course.slug}`,
                 ico: '/ico.png'
             }
