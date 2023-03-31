@@ -28,8 +28,7 @@ export default function Header({ categories }) {
     subOpening: 'sub',
     subTrigger: 'click',
     dropdownid: 'mainHeaderGroup',
-    customclasses: 'subcontainer righty',
-    dev: 'staging',
+    customclasses: 'subcontainer righty unsetPos',
   })
   // subcontainer righty
   const [menuItems, setMenuItems] = useState([
