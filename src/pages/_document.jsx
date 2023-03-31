@@ -6,7 +6,7 @@ export default function Document() {
       <Head>
         <link rel='stylesheet' href='/styles/globals.css' />
         <link rel='stylesheet' href='/styles/fonts.css' />
-        <link rel='stylesheet' href='https://api.rexfont.com/rexfontIcons/font/all.css' />
+        {/* <link rel='stylesheet' href='https://api.rexfont.com/rexfontIcons/font/all.css' /> */}
       </Head>
       <body>
         <Main />
