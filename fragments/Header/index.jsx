@@ -30,7 +30,7 @@ export default function Header({ categories }) {
     dropdownid: 'mainHeaderGroup',
     customclasses: 'subcontainer righty unsetPos',
   })
-  // subcontainer righty
+
   const [menuItems, setMenuItems] = useState([
     {
       structure: 'link',
