@@ -5,4 +5,4 @@ User-agent: *
 Disallow: /node_modules
 
 User-agent: *
-Disallow: _next
+Disallow: /_next
