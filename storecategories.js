@@ -72,6 +72,9 @@ async function writeToFile(data, address) {
 
 (async function() {
   const data = await fetchData('https://blog.homapilot.com/api-media')
-  data.forEach(item => downloadImage(item.url, `./public/data/media/${item.url.slice(item.url.lastIndexOf('/')+1)}`))
+  data.forEach(item => {
+    console.log(item.url);
+    downloadImage(item.url, `./public/data/media/${item.url.slice(item.url.lastIndexOf('/')+1)}`)
+  })
   fs.writeFileSync('./public/data/media/info.json', JSON.stringify(data))
 })();
