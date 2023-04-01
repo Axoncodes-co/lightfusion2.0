@@ -18,7 +18,7 @@ export default function Navbar({data, current_slug}) {
                 icon={JSON.stringify({
                     svg: '<svg fill="#e2e2e2" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" height="20"><path d="M11 42q-1.25 0-2.125-.875T8 39V19.5q0-.7.325-1.35.325-.65.875-1.05l13-9.75q.4-.3.85-.45.45-.15.95-.15.5 0 .95.15.45.15.85.45l13 9.75q.55.4.875 1.05.325.65.325 1.35V39q0 1.25-.875 2.125T37 42h-9V28h-8v14Z"/></svg>',
                 })}
-                name={'Home'}
+                arialabel={'Home'}
                 textclasses={`primary_color secondary_color_hover transition fitWidth padding_l1 weight_l3 font_l2`}
             />
             <section
