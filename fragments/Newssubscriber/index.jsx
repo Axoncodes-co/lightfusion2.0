@@ -20,7 +20,7 @@ export default function Newssubscriber() {
                     className={'primary_color padding_l2 round_l2 tertiary_bg'}
                     style={{border: '1px solid var(--primaryColor)', width: '25vw', minWidth: '140px'}}
                 />
-                <input type="submit" value={'Subscribe'} className={'padding_l2 round_l2 secondary_bg'} style={{border: '1px solid var(--secondaryColor)', cursor: 'pointer'}} />
+                <input type="submit" value={'Subscribe'} className={'primary_color padding_l2 round_l2 secondary_bg'} style={{border: '1px solid var(--secondaryColor)', cursor: 'pointer'}} />
             </form>
         </section>
     </section>)
