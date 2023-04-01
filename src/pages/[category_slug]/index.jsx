@@ -95,6 +95,7 @@ export default function Archive({ categories, category, metatags }) {
 
 export async function getStaticPaths() {
 	return fetchup()
+	.then(categories => categories.filter(cat => cat.slug != 'articles'))
 	.then(categories => categories.map(category => ({
 		params: {category_slug: category.slug}
 	})))

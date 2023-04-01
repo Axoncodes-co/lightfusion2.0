@@ -138,6 +138,7 @@ export default function Post({ categories, course_slug, category, course, lesson
 
 export async function getStaticPaths() {
 	return fetchup()
+    .then(categories => categories.filter(cat => cat.slug != 'articles'))
 	.then(categories => categories
 		.map(category => category.courses
 			.map(course => course.lessons

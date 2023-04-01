@@ -77,6 +77,7 @@ export default function Archive({ category_slug, category, course_slug, course, 
 
 export async function getStaticPaths() {
 	return fetchup()
+	.then(categories => categories.filter(cat => cat.slug != 'articles'))
 	.then(categories => categories
 		.map(category => category.courses
 			.map(course => ({
