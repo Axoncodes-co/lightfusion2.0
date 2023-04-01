@@ -59,7 +59,7 @@ export default function Footer({categories}) {
                 <Link href={'https://www.pinterest.com/homapilot'}>
                     <Image alt={'socialmedia'} src={'/pinterest.svg'} width={20} height={20} />
                 </Link>
-                <Link href={'/contact'}>
+                <Link href={'mailto:info@homapilot.com'}>
                     <Image alt={'socialmedia'} src={'/email.svg'} width={20} height={20} />
                 </Link>
             </div>
