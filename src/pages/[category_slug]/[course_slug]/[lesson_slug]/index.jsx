@@ -82,6 +82,7 @@ export default function Post({ categories, course_slug, category, course, lesson
                             course={course}
                         />
                     </section>
+                    <hr />
                     <Nextprev
                         nextlink={lesson.next_slug ? `/${category.slug}/${course.slug}/${lesson.next_slug}` : ''}
                         prevlink={lesson.prev_slug ? `/${category.slug}/${course.slug}/${lesson.prev_slug}` : ''}
