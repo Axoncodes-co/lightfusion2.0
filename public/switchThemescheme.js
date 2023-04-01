@@ -13,6 +13,7 @@ function switchThemeDark() {
     root.style.setProperty('--primaryTextColor', 'var(--darkprimaryTextColor)');
     root.style.setProperty('--secondaryTextColor', 'var(--darksecondaryTextColor)');
     root.style.setProperty('--tertiaryTextColor', 'var(--darktertiaryTextColor)');
+    root.style.setProperty('--linkColor', 'var(--darklinkColor)');
 }
 
 function switchThemeLight() {
@@ -25,6 +26,7 @@ function switchThemeLight() {
     root.style.setProperty('--primaryTextColor', 'var(--originalprimaryTextColor)');
     root.style.setProperty('--secondaryTextColor', 'var(--originalsecondaryTextColor)');
     root.style.setProperty('--tertiaryTextColor', 'var(--originaltertiaryTextColor)');
+    root.style.setProperty('--linkColor', 'var(--originallinkColor)');
 }
 
 function toggletheme(scheme) {

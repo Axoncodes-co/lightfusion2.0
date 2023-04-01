@@ -26,3 +26,8 @@
     font-weight: var(--weight_l5);
     font-family: 'Secondary_Font';
 }
+
+.content a {
+    color: var(--linkColor)!important;
+    text-decoration: underline;
+}
