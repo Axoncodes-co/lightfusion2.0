@@ -7,6 +7,7 @@ export default function Breadcrumb({
     course
 }) {
     return <AxgBreadcrumb
+        dev={'staging'}
         customclasses={'horizontalTabletBreak'}
         primaryText={{
             text: 'Home',
@@ -42,7 +43,7 @@ export default function Breadcrumb({
             subtrigger: 'click',
             subopening: 'sub',
         }}
-        dropdowntwo_head={{
+        dropdowntwo_head={course ? {
             text: {
                 text: course.title,
                 textclasses: 'weight_l3 font_l2 secondary_font nomargin secondary_color tertiary_color_hover',
@@ -62,13 +63,13 @@ export default function Breadcrumb({
                     textclasses: `${thiscourse.slug == course.slug ? 'secondary_bg secondary_color' : 'primary_color tertiary_color_hover'} round_l1 widePadding_l1 weight_l3 font_l2 secondary_font nomargin`,
                 },
             })),
-        }}
-        dropdowntwo_body={{
+        } : null}
+        dropdowntwo_body={course ? {
             structure: 'simple',
             dropdownid: 'breadcrumb_course_id',
             targetLocator: 'breadcrumb_course',
             subtrigger: 'click',
             subopening: 'sub',
-        }}
+        } : null}
     />
 }
