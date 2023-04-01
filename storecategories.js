@@ -2,7 +2,10 @@
 const fs = require('fs')
 
 async function downloadImage(imageUrl, imagePath) {
-  return fetch(imageUrl)
+  return fetch(imageUrl, {
+    method: 'GET',
+    timeout: 100000
+  })
   .then(response => response.arrayBuffer())
   .then(buffer => fs.promises.writeFile(imagePath, Buffer.from(buffer)))
 }
@@ -50,7 +53,10 @@ async function storeimages(categories) {
 }
 
 async function fetchData(url) {
-  const response = await fetch(url);
+  const response = await fetch(url, {
+    method: 'GET',
+    timeout: 100000
+  });
   const data = await response.json();
   return data;
 }
