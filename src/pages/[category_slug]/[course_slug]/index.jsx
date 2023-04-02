@@ -11,6 +11,7 @@ const Axg = dynamic(() => import('../../../../axg-react/Run'), {ssr: false})
 import Head from 'next/head'
 import MetaTags from '../../../../axg-react/MetaTags'
 import Footer from '../../../../fragments/Footer'
+import Script from 'next/script'
 
 export default function Archive({ category_slug, category, course_slug, course, categories, metatags }) {
 	return (
