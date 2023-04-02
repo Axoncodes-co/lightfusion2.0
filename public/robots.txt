@@ -1,8 +1,2 @@
 User-agent: *
 Allow: /
-
-User-agent: *
-Disallow: /node_modules
-
-User-agent: *
-Disallow: /_next
