@@ -2,7 +2,7 @@ const fs = require('fs');
 const path = require('path');
 
 const urls = [
-  { url: '/', changefreq: 'weekly', priority: 1 },
+  { url: '', changefreq: 'weekly', priority: 1 },
   { url: '/about', changefreq: 'monthly', priority: 0.8 },
   { url: '/contact', changefreq: 'monthly', priority: 0.8 },
   // Add more URLs as needed
@@ -34,7 +34,7 @@ categories.forEach(category => {
 let xmlContent = `<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">`
 // pages
 urls.forEach(url => {
-  const link = `https://www.homapilot.com${url.url}`
+  const link = `https://homapilot.com${url.url}/`
   xmlContent += `<url>\n`
   xmlContent += ` <loc>${link}</loc>\n`
   xmlContent += ` <priority>${url.priority}</priority>\n`
