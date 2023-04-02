@@ -70,7 +70,7 @@ export default function Archive({ category_slug, category, course_slug, course, 
 					</section>
 				</section>
 			</section>
-			<Script type="application/ld+json">
+			<Script id={'course_snippet'} type="application/ld+json">
 				{{
 					"@context": "https://schema.org",
 					"@type": "Course",
