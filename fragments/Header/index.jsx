@@ -125,17 +125,15 @@ export default function Header({ categories }) {
     <>
     <section
       style={{
-        boxShadow: '0px 0px 20px -7px rgb(0 0 0)',
-        display: 'grid',
-        justifyItems: 'center',
-        justifyContent: 'center',
-        gridTemplateColumns: '30vw 17vw 30vw',
+        // boxShadow: '0px 0px 20px -7px rgb(0 0 0)',
+        // display: 'grid',
+        // justifyItems: 'center',
+        // justifyContent: 'center',
+        // gridTemplateColumns: '30vw 17vw 30vw',
+        justifyContent: 'flex-start'
       }}
-      className={'transition primary_bg container horizontal horizontalTabletBreak padding_l0'}>
-      <Menu
-        menuGroup={menuGroup}
-        menuItems={menuItems}
-      />
+      className={'transition primary_bg container horizontal horizontalTabletBreak padding_l0'}
+    >
       <Link href={'/'}>
         <Image
           alt={'Logo'}
@@ -145,6 +143,10 @@ export default function Header({ categories }) {
           style={{minWidth: 90}}
         />
       </Link>
+      <Menu
+        menuGroup={menuGroup}
+        menuItems={menuItems}
+      />
       {/* <Searchbar
         id={'main_searchbar'}
         name={'main_searchbar'}
