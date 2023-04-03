@@ -1,5 +1,10 @@
 /** @type {import('next').NextConfig} */
-const nextConfig = {
+const withLess = require('@zeit/next-less')
+
+const nextConfig = withLess({
+  lessLoaderOptions: {
+    javascriptEnabled: true,
+  },
   trailingSlash: true,
   reactStrictMode: true,
   async redirects() {
@@ -17,6 +22,6 @@ const nextConfig = {
       {"source": "/general/earth-atmosphere-composition-and-structure", "destination": "/general/meteorology/earth-atmosphere-composition-and-structure","statusCode":301},
     ]
   }
-}
+})
 
 module.exports = nextConfig

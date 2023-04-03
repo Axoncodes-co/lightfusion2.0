@@ -1,193 +1,178 @@
 
 import style from './style.module.css'
-import dynamic from 'next/dynamic'
-import Link from 'next/link'
+import Link from '@mui/joy/Link'
 import { useState } from 'react'
-const Searchbar = dynamic(() => import('../../axg-react/Searchbar3'), {ssr: false})
-const Logo = dynamic(() => import('../../axg-react/Logo'), {ssr: false})
-const Text = dynamic(() => import('../../axg-react/Text2'), {ssr: false})
-const Menu = dynamic(() => import('../../axg-react/Menu'), {ssr: false})
-const DropdownBody = dynamic(() => import('../../axg-react/DropdownBody5'), {ssr: false})
-const Button = dynamic(() => import('../../axg-react/Button'), {ssr: false})
+import MegaMenu from '../../custom-mui/MegaMenu'
+import { Stack } from '@mui/joy'
+import Menu from '@mui/material/Menu';
+import SearchBar from '../../custom-mui/Searchbar'
+import Image from 'next/image'
+
 export default function Header({ categories }) {
+  // const main_searchqueryItems = []
+  // categories.forEach(cat => {
+  //   main_searchqueryItems.push({
+  //     link: `/${cat.slug}`,
+  //     text: cat.title
+  //   })
+  //   cat.courses.forEach(course => {
+  //     main_searchqueryItems.push({
+  //       link: `/${cat.slug}/${course.slug}`,
+  //       text: course.title
+  //     })
+  //     course.lessons.forEach(lesson => {
+  //       main_searchqueryItems.push({
+  //         link: `/${cat.slug}/${course.slug}/${lesson.slug}`,
+  //         text: lesson.title
+  //       })
+  //     })
+  //   })
+  // })
 
-  const [menuGroup, setMenuGroup] = useState({
-    headTitlecolor: '#ededed',
-    height: '50',
-    color: 'var(--secondaryTextColor)',
-    colorHover: 'var(--tertiaryTextColor)',
-    activeBackground: 'var(--primaryColor)',
-    headBackground: '#0000',
-    headBackgroundHover: '#575757',
-    text: {
-      text: 'Menu',
-      textclasses: 'weight_l3 font_l4 secondary_font nomargin secondary_color primary_color_hover',
-      customclasses: 'secondary_bg_hover widePadding_l1',
-    },
-    background: 'var(--primaryColor)',
-    subOpening: 'sub',
-    subTrigger: 'click',
-    dropdownid: 'mainHeaderGroup',
-    customclasses: 'subcontainer righty unsetPos',
-  })
+  const [menuanchorEl, setMenuAnchorEl] = useState(null);
 
-  const [menuItems, setMenuItems] = useState([
-    {
-      structure: 'link',
-      text: {
-        text: 'Home',
-        link: '/',
-        textclasses: 'weight_l3 font_l3 secondary_font nomargin secondary_color primary_color_hover',
-        customclasses: 'secondary_bg_hover widePadding_l1',
-      },
-      subtrigger: 'click',
-      subopening: 'sub',
-    },
-    {
-      text: {
-        text: 'Courses',
-        textclasses: 'weight_l3 font_l3 secondary_font nomargin secondary_color primary_color_hover',
-        customclasses: 'secondary_bg_hover widePadding_l1'
-      },
-      targetLocator: 'courseslocator',
-      structure: 'mega singletab',
-      subtrigger: 'click',
-      subopening: 'sub',
-      background: 'var(--tertiaryColor)',
-      exit: '1',
-      listclasses: 'container wrap',
-      customclasses: 'wide righty subcontainer',
-      options: categories.map(category => ({
-        listclasses: 'vertical centerOnTablet lefty',
-        text: {
-          text: category.title,
-          link: `/${category.slug}`,
-          textclasses: 'font_l7 tertiary_color nomargin',
-          icon: {
-            svg: category.svg,
-            customclasses: style.title
-          },
-          customclasses: 'centerOnTablet colgap_l2',
+  const handleMenuClick = (event) => {
+    setMenuAnchorEl(event.currentTarget);
+  };
+
+  const handleMenuClose = () => {
+    setMenuAnchorEl(null);
+  };
+
+  const themenu = (<>
+    <Link
+      color="var(--secondaryTextColor)"
+      background="var(--primaryColor)"
+      disabled={false}
+      level="body1"
+      underline="none"
+      variant="plain"
+      href="/"
+      sx={{
+        '&:hover': {
+          backgroundColor: 'var(--secondaryColor)',
+          color: 'var(--primaryColor)',
+        }
+      }}
+    >Home</Link>
+    <MegaMenu menuItems={{
+      text: 'Courses',
+      color: 'var(--secondaryTextColor)',
+      hovercolor: 'var(--primaryColor)',
+      hoverbackground: 'var(--secondaryColor)',
+      background: 'var(--primaryColor)',
+      options: categories.filter(cat => cat.slug != 'articles').map(category => ({
+        text: category.title,
+        link: `/${category.slug}`,
+        icon: {
+          svg: category.svg,
+          customclasses: style.title
         },
-        level: 'undertab',
-        content: category.courses.map(course => ({
-          text: {
-            text: course.title,
-            link: `/${category.slug}/${course.slug}`,
-            textclasses: 'nomargin font_l4 primary_color secondary_color_hover weight_l3',
-            customclasses: 'round_l2 widePadding_l1 colgap_l2',
-            icon: {
-              svg: course.svg,
-              customclasses: style.course
-            },
+        subitems: category.courses.map(course => ({
+          text: course.title,
+          link: `/${category.slug}/${course.slug}`,
+          icon: {
+            svg: course.svg,
+            customclasses: style.course
           },
-          level: 'undertab',
         }))
       }))
-    },
-    {
-      structure: 'link',
-      text: {
-        text: 'About',
-        link: '/about',
-        textclasses: 'weight_l3 font_l3 secondary_font nomargin secondary_color primary_color_hover',
-        customclasses: 'secondary_bg_hover widePadding_l1',
-      },
-      subtrigger: 'click',
-      subopening: 'sub',
-    },
-    {
-      structure: 'link',
-      text: {
-        text: 'Contact',
-        link: '/contact',
-        textclasses: 'weight_l3 font_l3 secondary_font nomargin secondary_color primary_color_hover',
-        customclasses: 'secondary_bg_hover widePadding_l1',
-      },
-      subtrigger: 'click',
-      subopening: 'sub',
-    },
-  ])
+    }} />
+    <Link
+      color="var(--secondaryTextColor)"
+      background="var(--primaryColor)"
+      disabled={false}
+      level="body1"
+      underline="none"
+      variant="plain"
+      href="/about"
+      sx={{
+        '&:hover': {
+          backgroundColor: 'var(--secondaryColor)',
+          color: 'var(--primaryColor)',
+        }
+      }}
+    >About</Link>
+    <Link
+      color="var(--secondaryTextColor)"
+      background="var(--primaryColor)"
+      disabled={false}
+      level="body1"
+      underline="none"
+      variant="plain"
+      href="/contact"
+      sx={{
+        '&:hover': {
+          backgroundColor: 'var(--secondaryColor)',
+          color: 'var(--primaryColor)',
+        }
+      }}
+    >Contact</Link>
+  </>)
 
-  const links = []
-  const names = []
-  categories.forEach(cat => {
-    links.push(`/${cat.slug}`)
-    names.push(cat.title)
-    cat.courses.forEach(course => {
-      links.push(`/${cat.slug}/${course.slug}`)
-      names.push(course.title)
-      course.lessons.forEach(lesson => {
-        links.push(`/${cat.slug}/${course.slug}/${lesson.slug}`)
-        names.push(lesson.title)
-      })
-    })
-  })
   return (
     <>
     <section
-      style={{
-        boxShadow: '0px 0px 20px -7px rgb(0 0 0)',
-        display: 'grid',
-        justifyItems: 'center',
-        justifyContent: 'center',
-        gridTemplateColumns: '30vw 17vw 30vw',
-      }}
-      className={'transition primary_bg container horizontal horizontalTabletBreak padding_l0'}>
-      <Menu
-        menuGroup={menuGroup}
-        menuItems={menuItems}
-      />
-      <Logo
+      className={'widePadding_l3 fitWidth transition primary_bg container horizontal horizontalTabletBreak padding_l0'}
+    >
+      <Image
         src={'/logo.png'}
-        width={'10vw'}
-        minWidth={'90px'}
+        alt={'homapilot logo'}
+        width={120}
+        height={49}
       />
-      <Searchbar
-        id={'main_searchbar'}
-        name={'main_searchbar'}
-        inputcustomclasses={'searchbarheight font_l1 wide padding_l3 noborder round_l3'}
-        customclasses={'searchbarheight wide'}
-        bg={'#c1c1c1a3'}
-        color={'#000'}
-        placeholder={'Search...'}
-        queryid={'mainsearchquery'}
-        collapseonmobile={'1'}
-        labelclasses={'subcontainer lefty hoversearchcoverlabel'}
-        inputcovercustomclasses={'subcontainer vertical'}
-        reslistcustomclasses={'boxshadow darker'}
-        outformclasses={'searchbarsizes'}
-        searchquerynames={names}
-        searchquerylinks={links}
-      />
-    </section>
-    <section className="ax_elements" nomain="true">
-      {menuItems.map((item, key) => (
-        <DropdownBody
-          key={key}
-          mode={'dropdown_body_v4'}
-          listclasses={item.listclasses}
-          exit={item.exit}
-          text={JSON.stringify(item.text)}
-          headTitle={item.headTitle}
-          headTitlecolor={item.headTitlecolor}
-          height={item.height}
-          color={item.color}
-          colorHover={item.colorHover}
-          activeBackground={item.activeBackground}
-          headBackground={item.headBackground}
-          headBackgroundHover={item.headBackgroundHover}
-          structure={item.structure}
-          fontsize={item.fontsize}
-          title={item.title}
-          background={item.background}
-          targetLocator={item.targetLocator}
-          subOpening={item.subopening}
-          options={item.options}
-          optionsApi={item.optionsApi}
-          dropdownid={key}
-        />
-      ))}
+      <Link
+        color="var(--secondaryTextColor)"
+        background="var(--primaryColor)"
+        disabled={false}
+        level="body1"
+        underline="none"
+        variant="plain"
+        onClick={handleMenuClick}
+        sx={{
+          '&:hover': {
+            backgroundColor: 'var(--secondaryColor)',
+            color: 'var(--primaryColor)',
+          },
+          '@media (min-width: 901px)': {
+            display: 'none',
+          },
+        }}
+      >Menu</Link>
+      <Menu
+        id="header-menu"
+        anchorEl={menuanchorEl}
+        open={Boolean(menuanchorEl)}
+        onClose={handleMenuClose}
+        MenuListProps={{
+          'aria-labelledby': 'header-menu',
+          sx: {
+            gap: 1,
+            display: 'flex',
+            p: 1,
+            flexWrap: 'wrap',
+            backgroundColor: 'var(--primaryColor)',
+            justifyContent: 'flex-start',
+            '@media (min-width: 901px)': {
+              display: 'none',
+            },
+          },
+        }}
+      >{themenu}</Menu>
+      <Stack
+        direction="row"
+        spacing={2}
+        justifyContent="center"
+        sx={{
+          width: '100%',
+          '@media (max-width: 900px)': {
+            display: 'none',
+          },
+        }}
+      >
+        {themenu}
+      </Stack>
+      {/* <SearchBar items={main_searchqueryItems} /> */}
     </section>
   </>
   )
