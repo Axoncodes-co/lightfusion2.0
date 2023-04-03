@@ -1,0 +1,116 @@
+.axg_searchbar_segment.axg_searchbar {
+  place-content: center;
+  position: relative;
+  width: 100%;
+}
+.axg_searchbar_segment.axg_searchbar label {
+  transform: translateX(0px);
+  position: absolute;
+  opacity: 0;
+  user-select: none;
+}
+.axg_searchbar_segment.axg_searchform {
+  position: relative;
+  width: 100%;
+  display: inline-grid;
+  z-index: 1;
+  transition: all 0.3s;
+}
+.axg_searchbar_segment.axg_isearch {
+  padding: 14px;
+  padding-left: 37px;
+  font-size: 17px;
+  border: none;
+  transition: all 0.3s;
+  -webkit-transition: all 0.3s;
+  background-color: var(--ax_head_search_bg);
+  color: var(--txt1);
+  border-radius: 1.3em;
+  outline: none;
+  width: 100%;
+}
+.axg_searchbar_segment.axg_searchform_button {
+  width: 40px;
+  height: 100%;
+  place-items: center;
+  padding: 0 9px 0 14px;
+  border: none;
+  display: grid;
+  background-color: 0;
+  border-radius: 2em;
+  border-top-right-radius: 2em;
+  border-bottom-right-radius: 2em;
+  z-index: 9;
+  transition: all 0.3s;
+  -webkit-transition: all 0.3s;
+  cursor: pointer;
+  position: absolute;
+}
+.axg_searchbar_segment.axg_searchform_button svg {
+  width: auto;
+  height: auto;
+  place-content: center;
+  margin: 0 auto;
+  transition: all 0.3s;
+  -webkit-transition: all 0.3s;
+  fill: var(--ax_head_search_span);
+}
+.axg_searchbar_segment.reslistCover {
+  background-color: var(--ax_head_search_bg);
+  transition: all 0.3s;
+  height: 0;
+  z-index: -1;
+  width: 100%;
+  position: relative;
+  top: 0;
+}
+.axg_searchbar_segment.reslist {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  background-color: var(--ax_head_search_bg);
+  border-radius: 1.3em;
+  width: 0;
+  height: 0;
+  overflow: hidden;
+}
+.axg_searchbar_segment.reslist a {
+  color: var(--txt1);
+  text-decoration: none;
+}
+.axg_searchbar_segment.reslist li {
+  padding: 8px 3vw;
+}
+.axg_searchbar_segment.reslist li:hover {
+  background-color: var(--search_hover);
+}
+.axg_searchbar_segment.reslist li:active {
+  background-color: var(--search_active);
+}
+.axg_searchbar_segment.reslist li:focus {
+  background-color: var(--ax_confer_placeholder);
+  outline: none;
+}
+.axg_isearch[type="search"]::placeholder {
+  color: var(--ax_head_search_txt);
+}
+.axg_searchbar_segment.axg_active {
+  z-index: 2;
+}
+.axg_searchbar_segment.axg_active .axg_searchbar_segment.axg_isearch {
+  border-radius: 1.3em;
+}
+.axg_searchbar:not(.axg_active) {
+  overflow: hidden;
+}
+.axg_searchbar_segment.axg_active .axg_searchbar_segment.reslist {
+  width: unset;
+  height: unset;
+  overflow-y: scroll;
+  max-height: 60vh;
+}
+.axg_searchbar_segment.axg_hide {
+  width: 0;
+  margin: 0;
+  overflow: hidden;
+}
