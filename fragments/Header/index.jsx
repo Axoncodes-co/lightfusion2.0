@@ -1,19 +1,17 @@
 
 import style from './style.module.css'
-import dynamic from 'next/dynamic'
-import Link from 'next/link'
 import { useState } from 'react'
-const Searchbar = dynamic(() => import('../../axg-react/Searchbar3'), {ssr: false})
-const Logo = dynamic(() => import('../../axg-react/Logo'), {ssr: false})
-const Text = dynamic(() => import('../../axg-react/Text2'), {ssr: false})
-const Menu = dynamic(() => import('../../axg-react/Menu'), {ssr: false})
-const DropdownBody = dynamic(() => import('../../axg-react/DropdownBody5'), {ssr: false})
-const Button = dynamic(() => import('../../axg-react/Button'), {ssr: false})
+import Menu from '../../builtin-axg/Menu'
+import { DropdownTemplateHandlerBody } from '../../builtin-axg/dropdown/v5'
+import Image from 'next/image'
+import Link from 'next/link'
+// const Searchbar = dynamic(() => import('../../axg-react/Searchbar3'), {ssr: false})
+// const Logo = dynamic(() => import('../../axg-react/Logo'), {ssr: false})
 export default function Header({ categories }) {
 
   const [menuGroup, setMenuGroup] = useState({
     headTitlecolor: '#ededed',
-    height: '50',
+    height: '50px',
     color: 'var(--secondaryTextColor)',
     colorHover: 'var(--tertiaryTextColor)',
     activeBackground: 'var(--primaryColor)',
@@ -57,16 +55,16 @@ export default function Header({ categories }) {
       exit: '1',
       listclasses: 'container wrap',
       customclasses: 'wide righty subcontainer',
-      options: categories.map(category => ({
+      options: categories.filter(cat => cat.slug != 'articles').map(category => ({
         listclasses: 'vertical centerOnTablet lefty',
         text: {
           text: category.title,
           link: `/${category.slug}`,
           textclasses: 'font_l7 tertiary_color nomargin',
-          icon: {
-            svg: category.svg,
-            customclasses: style.title
-          },
+          // icon: {
+          //   svg: category.svg,
+          //   customclasses: style.title
+          // },
           customclasses: 'centerOnTablet colgap_l2',
         },
         level: 'undertab',
@@ -74,12 +72,12 @@ export default function Header({ categories }) {
           text: {
             text: course.title,
             link: `/${category.slug}/${course.slug}`,
-            textclasses: 'nomargin font_l4 primary_color secondary_color_hover weight_l3',
-            customclasses: 'round_l2 widePadding_l1 colgap_l2',
-            icon: {
-              svg: course.svg,
-              customclasses: style.course
-            },
+            textclasses: 'nomargin widePadding_l1 font_l4 primary_color secondary_color_hover weight_l3',
+            customclasses: 'round_l2 colgap_l2',
+            // icon: {
+            //   svg: course.svg,
+            //   customclasses: style.course
+            // },
           },
           level: 'undertab',
         }))
@@ -138,12 +136,16 @@ export default function Header({ categories }) {
         menuGroup={menuGroup}
         menuItems={menuItems}
       />
-      <Logo
-        src={'/logo.png'}
-        width={'10vw'}
-        minWidth={'90px'}
-      />
-      <Searchbar
+      <Link href={'/'}>
+        <Image
+          alt={'Logo'}
+          src={'/logo.png'}
+          width={120}
+          height={48}
+          style={{minWidth: 90}}
+        />
+      </Link>
+      {/* <Searchbar
         id={'main_searchbar'}
         name={'main_searchbar'}
         inputcustomclasses={'searchbarheight font_l1 wide padding_l3 noborder round_l3'}
@@ -159,16 +161,15 @@ export default function Header({ categories }) {
         outformclasses={'searchbarsizes'}
         searchquerynames={names}
         searchquerylinks={links}
-      />
+      /> */}
     </section>
     <section className="ax_elements" nomain="true">
       {menuItems.map((item, key) => (
-        <DropdownBody
+        <DropdownTemplateHandlerBody
           key={key}
-          mode={'dropdown_body_v4'}
           listclasses={item.listclasses}
           exit={item.exit}
-          text={JSON.stringify(item.text)}
+          text={item.text}
           headTitle={item.headTitle}
           headTitlecolor={item.headTitlecolor}
           height={item.height}
