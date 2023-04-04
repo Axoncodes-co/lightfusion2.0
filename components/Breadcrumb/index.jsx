@@ -1,6 +1,7 @@
 import dynamic from 'next/dynamic'
-
 const AxgBreadcrumb = dynamic(() => import('../../axg-react/Breadcrumb'), {ssr: false})
+
+
 export default function Breadcrumb({
     categories,
     category,

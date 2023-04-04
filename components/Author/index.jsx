@@ -1,7 +1,6 @@
 
-import dynamic from 'next/dynamic'
-const Text = dynamic(() => import('../../axg-react/Text2'), {ssr: false})
 import style from './style.module.css'
+import Text from '../../builtin-axg/text/v2'
 
 export default function Author({
     name, avatar_url, date, color

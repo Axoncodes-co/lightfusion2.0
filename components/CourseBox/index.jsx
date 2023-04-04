@@ -1,8 +1,7 @@
 
-import dynamic from 'next/dynamic'
 import Link from 'next/link'
 import style from './style.module.css'
-const Text = dynamic(() => import('../../axg-react/Text2'), {ssr: false})
+import Text from '../../builtin-axg/text/v2'
 
 export default function CourseBox({
     svg,

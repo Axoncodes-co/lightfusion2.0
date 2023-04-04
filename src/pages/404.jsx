@@ -1,12 +1,9 @@
 
-const Text = dynamic(() => import('../../axg-react/Text2'), {ssr: false})
-import dynamic from 'next/dynamic'
 import Header from '../../fragments/Header'
 import Head from 'next/head'
 import fetchup from '../../lib/fetch'
-import MetaTags from '../../axg-react/MetaTags'
 import Footer from '../../fragments/Footer'
-const Axg = dynamic(() => import('../../axg-react/Run'), {ssr: false})
+import Text from '../../builtin-axg/text/v2'
 
 export default function Notfound({categories, metatags}) {
     const headsclasses = 'secondary_color font_l2_min weight_l6 fitWidth'
@@ -76,7 +73,6 @@ export default function Notfound({categories, metatags}) {
             </section>
         </section>
 		<Footer categories={categories} />
-		<Axg />
     </>)
 }
 

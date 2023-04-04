@@ -1,13 +1,10 @@
 
-import dynamic from 'next/dynamic'
-const SectionTitle = dynamic(() => import('../../../axg-react/SectionTitle'), {ssr: false})
-const LessonBox = dynamic(() => import('../../../components/LessonBox'), {ssr: false})
+import SectionTitle from '../../../axg-react/SectionTitle'
+import LessonBox from '../../../components/LessonBox'
 import style from './course.module.css'
 import fetchup from '../../../lib/fetch'
 import Header from '../../../fragments/Header'
 import Navbar from '../../../fragments/Navbar'
-import Breadcrumb from '../../../components/Breadcrumb'
-const Axg = dynamic(() => import('../../../axg-react/Run'), {ssr: false})
 import Head from 'next/head'
 import Footer from '../../../fragments/Footer'
 
@@ -64,7 +61,6 @@ export default function Articles({ categories, course, metatags }) {
 				</section>
 			</section>
 			<Footer categories={categories} />
-			<Axg />
 		</>
     )
 }

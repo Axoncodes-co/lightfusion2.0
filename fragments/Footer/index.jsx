@@ -1,11 +1,9 @@
 
-// import dynamic from 'next/dynamic'
 import Image from 'next/image'
 import Link from 'next/link'
 import Newssubscriber from '../Newssubscriber'
 import style from './style.module.css'
 import Text from '../../builtin-axg/text/v2'
-// const Text = dynamic(() => import('../../axg-react/Text2'), {ssr: false})
 
 export default function Footer({categories}) {
 
@@ -17,7 +15,7 @@ export default function Footer({categories}) {
         <section className={'subcontainer horizontal allLefty verticalTabletBreak'}>
             <section className={'subcontainer centerOnTablet'}>
                 <Text
-                    inlinestyle={'width: 90%'}
+                    inlinestyle={{width: '90%'}}
                     textclasses={'weight_l4 font_l3 textcenteronTablet primary_color'}
                     text={'Homa Pilot was founded in 2020 and the purpose of this complex is to provide digital aviation and piloting courses for free and online so that all students of piloting and aviation.'}
                 />

@@ -1,18 +1,15 @@
-import dynamic from 'next/dynamic'
 import style from './lesson.module.css'
 import fetchup from '../../../../../lib/fetch'
-const Text = dynamic(() => import('../../../../../axg-react/Text2'), {ssr: false})
 import Header from '../../../../../fragments/Header'
 import Navbar from '../../../../../fragments/Navbar'
 import Breadcrumb from '../../../../../components/Breadcrumb'
 import Author from '../../../../../components/Author'
 import Nextprev from '../../../../../components/Nextprev'
-import MetaTags from '../../../../../axg-react/MetaTags'
-const Stringtohtml = dynamic(() => import('../../../../../axg-react/Stringtohtml'), {ssr: false})
 import Head from 'next/head'
 import Footer from '../../../../../fragments/Footer'
-const Axg = dynamic(() => import('../../../../../axg-react/Run'), {ssr: false})
 import Script from 'next/script'
+import Text from '../../../../../builtin-axg/text/v2'
+
 export default function Post({ categories, course_slug, category, course, lesson, metatags }) {
     const postIntro = (color) => (<>
         <Text
@@ -106,11 +103,7 @@ export default function Post({ categories, course_slug, category, course, lesson
                         text={lesson.excerpt}
                         textclasses={`${style.excerpt} font_l4 weight_l3 secondary_color`}
                     />
-                    <article id='content' className={`${style.content}`}>
-                        <Stringtohtml
-                            html={lesson.content}
-                        />
-                    </article>
+                    <main id='content' className={`${style.content}`} dangerouslySetInnerHTML={{__html: lesson.content}}></main>
                     <ins className="adsbygoogle"
                         style={{display:'block'}}
                         data-ad-client="ca-pub-5146054383186265"
@@ -128,7 +121,6 @@ export default function Post({ categories, course_slug, category, course, lesson
                 </aside>
             </section>
             <Footer categories={categories} />
-            <Axg />
             <Script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5146054383186265" crossorigin="anonymous"></Script>
             <Script id={'sidebar_ads'}>(adsbygoogle = window.adsbygoogle || []).push({});</Script>
             

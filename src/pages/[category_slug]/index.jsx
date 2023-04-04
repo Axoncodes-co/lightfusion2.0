@@ -1,13 +1,10 @@
 
-import dynamic from 'next/dynamic'
 import fetchup from '../../../lib/fetch'
-const SectionTitle = dynamic(() => import('../../../axg-react/SectionTitle'), {ssr: false})
-const Filter = dynamic(() => import('../../../axg-react/Filter'), {ssr: false})
-const CourseBox = dynamic(() => import('../../../components/CourseBox'), {ssr: false})
+import SectionTitle from '../../../axg-react/SectionTitle'
+import Filter from '../../../axg-react/Filter'
+import CourseBox from '../../../components/CourseBox'
 import Header from '../../../fragments/Header'
 import Navbar from '../../../fragments/Navbar'
-import MetaTags from '../../../axg-react/MetaTags'
-const Axg = dynamic(() => import('../../../axg-react/Run'), {ssr: false})
 import Head from 'next/head'
 import Footer from '../../../fragments/Footer'
 
@@ -88,7 +85,6 @@ export default function Archive({ categories, category, metatags }) {
 				</section>
 			</section>
 			<Footer categories={categories} />
-			<Axg />
 		</>
     )
 }

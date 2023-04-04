@@ -1,7 +1,6 @@
 
-import dynamic from 'next/dynamic'
+import Text from '../../builtin-axg/text/v2'
 import style from './style.module.css'
-const Text = dynamic(() => import('../../axg-react/Text2'), {ssr: false})
 
 export default function Posts({link, title, svg, children}) {
     return (

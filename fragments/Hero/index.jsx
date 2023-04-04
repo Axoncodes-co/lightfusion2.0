@@ -1,9 +1,5 @@
 
-import dynamic from "next/dynamic"
 import Text from "../../builtin-axg/text/v2"
-
-// const Text = dynamic(() => import('../../axg-react/Text2'), {ssr: false})
-// const Button = dynamic(() => import('../../axg-react/Button'), {ssr: false})
 
 export default function Hero() {
 

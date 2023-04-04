@@ -5,11 +5,8 @@ import LessonBox from '../../components/LessonBox'
 import Posts from '../../fragments/Posts'
 import fetchup from '../../lib/fetch'
 import Header from '../../fragments/Header'
-// import dynamic from 'next/dynamic'
 import Head from 'next/head'
-// import MetaTags from '../../axg-react/MetaTags'
 import Footer from '../../fragments/Footer'
-// const Axg = dynamic(() => import('../../axg-react/Run'), {ssr: false})
 
 export default function Home({categories, metatags}) {
 	return (<>

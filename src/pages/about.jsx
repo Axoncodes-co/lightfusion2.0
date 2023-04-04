@@ -1,12 +1,9 @@
 
-const Text = dynamic(() => import('../../axg-react/Text2'), {ssr: false})
-import dynamic from 'next/dynamic'
 import Header from '../../fragments/Header'
 import Head from 'next/head'
 import fetchup from '../../lib/fetch'
-import MetaTags from '../../axg-react/MetaTags'
 import Footer from '../../fragments/Footer'
-const Axg = dynamic(() => import('../../axg-react/Run'), {ssr: false})
+import Text from '../../builtin-axg/text/v2'
 
 export default function About({categories, metatags}) {
     return (<>
@@ -58,7 +55,6 @@ export default function About({categories, metatags}) {
 			<Text textclasses={'secondary_color font_l4 weight_l3'} text={'At <a href="/">Homa Pilot</a>, an attempt has been made to provide all courses with a high level of educational standard, which will lead to better student learning. In addition, there is an exam at the end of each course for the students to assess what they have learned.'} />
 		</section>
 		<Footer categories={categories} />
-		<Axg />
     </>)
 }
 
