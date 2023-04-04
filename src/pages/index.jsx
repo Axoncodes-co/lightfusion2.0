@@ -69,7 +69,6 @@ export default function Home({categories, metatags}) {
 
 		{/* TODO: Add the fun facts section */}
 		<Footer categories={categories} />
-		{/* <Axg /> */}
 	</>)
 }
 

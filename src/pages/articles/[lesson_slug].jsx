@@ -77,7 +77,7 @@ export default function Post({ categories, category, lesson, metatags }) {
                             category={category}
                         />
                     </section>
-                    <hr />
+                    <div className={'subcontainer padding_l1'}></div>
                     <div style={{width: '100%'}}>
                         <section
                             style={{

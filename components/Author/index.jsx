@@ -13,13 +13,13 @@ export default function Author({
             subtextclasses={`${color} font_l2 weight_l2 nomargin`}
             customclasses={'fitHeight colgap_l2'}
             innercustomclasses={'rowgap_l0'}
-            icon={JSON.stringify({
+            icon={{
                 dev: 'stagin',
                 plane: true,
                 isfont: '0',
                 src: avatar_url,
                 customclasses: `${style.avatar} round`
-            })}
+            }}
         />
     )
 }

@@ -76,11 +76,11 @@ async function writeToFile(data, address) {
   await writeToFile(data, './public/data/categories.json')
 })();
 
-(async function() {
-  const data = await fetchData('https://blog.homapilot.com/api-media')
-  data.forEach(item => {
-    console.log(item.url);
-    downloadImage(item.url, `./public/data/media/${item.url.slice(item.url.lastIndexOf('/')+1)}`)
-  })
-  fs.writeFileSync('./public/data/media/info.json', JSON.stringify(data))
-})();
+// (async function() {
+//   const data = await fetchData('https://blog.homapilot.com/api-media')
+//   data.forEach(item => {
+//     console.log(item.url);
+//     downloadImage(item.url, `./public/data/media/${item.url.slice(item.url.lastIndexOf('/')+1)}`)
+//   })
+//   fs.writeFileSync('./public/data/media/info.json', JSON.stringify(data))
+// })();

@@ -8,7 +8,6 @@ export default function Breadcrumb({
     course
 }) {
     return <AxgBreadcrumb
-        dev={'staging'}
         customclasses={'horizontalTabletBreak'}
         primaryText={{
             text: 'Home',

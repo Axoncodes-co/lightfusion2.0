@@ -25,10 +25,10 @@ export default function CourseBox({
                     </div>
                     <section className={'subcontainer padding_l2 widePadding_l3'}>
                         <Text
-                            icon={JSON.stringify({
+                            icon={{
                                 svg,
                                 customclasses: style.icon
-                            })}
+                            }}
                             text={title}
                             textclasses={'horizontal primary_color font_l5_min nomargin weight_l4'}
                             customclasses={'straight horizontalTabletBreak padding_l0 horizontal fitWidth spread colgap_l3'}

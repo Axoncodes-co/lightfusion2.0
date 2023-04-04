@@ -98,7 +98,6 @@ export default function Axicon({
     margin,
     filterPlacement,
     boxshadow,
-    content,
     name,
     alt
   })

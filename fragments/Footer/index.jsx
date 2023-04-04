@@ -4,8 +4,13 @@ import Link from 'next/link'
 import Newssubscriber from '../Newssubscriber'
 import style from './style.module.css'
 import Text from '../../builtin-axg/text/v2'
+import { useEffect } from 'react'
 
 export default function Footer({categories}) {
+
+    useEffect(() => {
+        dropdownV5Handler()
+    })
 
     const headsclasses = 'primary_color font_l2_min weight_l6 fitWidth'
     const itemsclasses = 'primary_color font_l2_max nomargin weight_l4 fitWidth tertiary_color_hover'

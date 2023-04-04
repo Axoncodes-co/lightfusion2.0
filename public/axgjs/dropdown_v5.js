@@ -1,4 +1,4 @@
-// function dropdownV5Handler() {
+function dropdownV5Handler() {
   // dropdown handler
   const dropdowns = document.querySelectorAll(".ax_elements .dropdown")
   const dropdownHeaders = document.querySelectorAll(".ax_elements .dropdown .dropdownHead")
@@ -282,4 +282,4 @@
   }
   window.addEventListener("resize", megasizehandler)
   megasizehandler()
-// }
+}

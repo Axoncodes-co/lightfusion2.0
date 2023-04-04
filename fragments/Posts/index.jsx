@@ -10,10 +10,10 @@ export default function Posts({link, title, svg, children}) {
                     text={title}
                     textclasses={'font_l4 nomargin weight_l4 secondary_color'}
                     customclasses={'centerOnMobile allLefty horizontal'}
-                    icon={JSON.stringify({
+                    icon={{
                         svg,
                         customclasses: style.icon
-                    })}
+                    }}
                 />
 
                 <Text

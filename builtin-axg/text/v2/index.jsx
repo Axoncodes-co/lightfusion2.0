@@ -55,7 +55,6 @@ export default function Text({
     inlinestyle,
     nomargin,
     id,
-    onClick,
     allattr,
     attr,
     arialabel

@@ -14,10 +14,10 @@ export default function CategoryBox({
             <section className={`${style.head} straight vertical horizontalTabletBreak subcontainer vertical center`} style={{height: '100%'}}>
                 <Text
                     text={title}
-                    icon={JSON.stringify({
+                    icon={{
                         svg,
                         customclasses: style.icon
-                    })}
+                    }}
                     customclasses={`${style.title} fitWidthOnTablet fitminWidth textcenter center padding_l3 vertical horizontalTabletBreak`}
                     textclasses={'primary_color nomargin font_l6 weight_l6'}
                 />
