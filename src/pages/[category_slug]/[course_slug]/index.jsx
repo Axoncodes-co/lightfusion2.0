@@ -67,7 +67,22 @@ export default function Archive({ category_slug, category, course_slug, course, 
 					</section>
 				</section>
 			</section>
-			<Script id={'course_snippet'} type="application/ld+json">
+			<script
+				type="application/ld+json"
+				dangerouslySetInnerHTML={{
+				__html: JSON.stringify({
+					"@context": "https://schema.org",
+					"@type": "Course",
+					"name": metatags.title,
+					"description": metatags.description,
+					"provider": {
+						"@type": "Organization",
+						"name": "Homa Pilot",
+					}
+				})
+				}}
+			/>
+			{/* <Script id={'course_snippet'} type="application/ld+json">
 				{{
 					"@context": "https://schema.org",
 					"@type": "Course",
@@ -78,7 +93,7 @@ export default function Archive({ category_slug, category, course_slug, course, 
 						"name": "Homa Pilot",
 					}
 				}}
-			</Script>
+			</Script> */}
 			<Footer categories={categories} />
 		</>
     )
