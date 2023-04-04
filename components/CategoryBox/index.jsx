@@ -1,8 +1,7 @@
 
-import dynamic from 'next/dynamic'
 import style from './style.module.css'
 import Link from 'next/link'
-const Text = dynamic(() => import('../../axg-react/Text2'), {ssr: false})
+import Text from '../../builtin-axg/text/v2'
 
 export default function CategoryBox({
     title,

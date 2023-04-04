@@ -1,18 +1,18 @@
 
-// import Hero from '../../fragments/Hero'
-// import CoursesCat from '../../fragments/CoursesCat'
-// import LessonBox from '../../components/LessonBox'
-// import Posts from '../../fragments/Posts'
+import Hero from '../../fragments/Hero'
+import CoursesCat from '../../fragments/CoursesCat'
+import LessonBox from '../../components/LessonBox'
+import Posts from '../../fragments/Posts'
 import fetchup from '../../lib/fetch'
 import Header from '../../fragments/Header'
 // import dynamic from 'next/dynamic'
 import Head from 'next/head'
 // import MetaTags from '../../axg-react/MetaTags'
-// import Footer from '../../fragments/Footer'
+import Footer from '../../fragments/Footer'
 // const Axg = dynamic(() => import('../../axg-react/Run'), {ssr: false})
 
 export default function Home({categories, metatags}) {
-	return (<section style={{minHeight: 2000}}>
+	return (<>
 		<Head>
 			<title>{metatags.title}</title>
 			<meta name="description" content={metatags.description} key={"description"} />
@@ -45,7 +45,7 @@ export default function Home({categories, metatags}) {
 			<meta property="og:image:height" content="519" key={"og:image:height"} />
 		</Head>
 		<Header categories={categories} />
-		{/* <section className={'horizontal subcontainer verticalLargeTabletBreak spread'}>
+		<section className={'horizontal subcontainer verticalLargeTabletBreak spread'}>
 			<div style={{
 				filter: 'brightness(0.5)',
 				background: 'url(/1.jpg) center no-repeat',
@@ -56,8 +56,8 @@ export default function Home({categories, metatags}) {
 			}}></div>
 			<Hero />
 			<CoursesCat categories={categories} />
-		</section> */}
-		{/* <Posts
+		</section>
+		<Posts
 			link={`/${categories[0].slug}/${categories[0].courses[0].slug}`}
 			title={`${categories[0].courses[0].title} Popular Lessons`}
 			svg={categories[0].courses[0].svg}
@@ -68,12 +68,12 @@ export default function Home({categories, metatags}) {
 				customclasses={key == 2 ? 'hideonlargetablet' : ''}
 				link={`/${categories[0].slug}/${categories[0].courses[0].slug}/${lesson.slug}`}
 			/> : null).filter(item => item)}
-		</Posts> */}
+		</Posts>
 
 		{/* TODO: Add the fun facts section */}
-		{/* <Footer categories={categories} /> */}
+		<Footer categories={categories} />
 		{/* <Axg /> */}
-	</section>)
+	</>)
 }
 
 export const getStaticProps = async () => {

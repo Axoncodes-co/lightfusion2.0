@@ -1,8 +1,9 @@
 
-import dynamic from 'next/dynamic'
+// import dynamic from 'next/dynamic'
 import Link from 'next/link'
 import style from './style.module.css'
-const Text = dynamic(() => import('../../axg-react/Text2'), {ssr: false})
+import Text from '../../builtin-axg/text/v2'
+// const Text = dynamic(() => import('../../axg-react/Text2'), {ssr: false})
 
 export default function LessonBox({data, link, customclasses}) {
     return (
@@ -21,7 +22,7 @@ export default function LessonBox({data, link, customclasses}) {
                 >
                     {/* Tag */}
                     <section className={'subcontainer round_l2 rowgap_l1 colgap_l1'}>
-                        {data.tags.map((tag, key) => key > 1 ? '' : <Text key={key} link={`/tag/${tag.slug}`} text={tag.name} customclasses={`${style.opacity} tertiary_bg fitWidth round_l2`} textclasses={'secondary_font fitWidth primary_color font_l1 nomargin weight_l4 padding_slight'} />)}
+                        {data.tags.map((tag, key) => key > 1 ? '' : <Text key={key} /*link={`/tag/${tag.slug}`}*/ text={tag.name} customclasses={`${style.opacity} tertiary_bg fitWidth round_l2`} textclasses={'secondary_font fitWidth primary_color font_l1 nomargin weight_l4 padding_slight'} />)}
                     </section>
                     <section className={'subcontainer vertical norowgap lefty'}>
                         <div className={'subcontainer horizontal horizontalTabletBreak fitWidth'}>

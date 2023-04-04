@@ -1,7 +1,4 @@
-
-import dynamic from 'next/dynamic'
-
-const Text = dynamic(() => import('../../axg-react/Text2'), {ssr: false})
+import Text from "../../builtin-axg/text/v2";
 
 export default function Newssubscriber() {
     return (<section className={'subcontainer horizontal'}>

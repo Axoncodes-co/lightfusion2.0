@@ -1,14 +1,15 @@
 
 import dynamic from "next/dynamic"
+import Text from "../../builtin-axg/text/v2"
 
-const Text = dynamic(() => import('../../axg-react/Text2'), {ssr: false})
-const Button = dynamic(() => import('../../axg-react/Button'), {ssr: false})
+// const Text = dynamic(() => import('../../axg-react/Text2'), {ssr: false})
+// const Button = dynamic(() => import('../../axg-react/Button'), {ssr: false})
 
 export default function Hero() {
 
     return (
         <section className={`widePadding_l6 container vertical verticalLargeTabletBreak`} style={{paddingRight: '0'}}>
-            <section className={'subcontainer'}>
+            <section className={'subcontainer centerOnTablet'}>
                 <Text
                     text={'HOMA PILOT'}
                     textclasses={`nomargin wide primary_color secondary_font font_l8 textleft textcenteronTablet weight_l3`}
@@ -19,26 +20,23 @@ export default function Hero() {
                     orderdirection={'horizontal'}
                     customclasses={'wide centerOnTablet'}
                 />
-                <section className={'allLefty centerOnTablet horizontal horizontalTabletBreak padding_l3 subcontainer widePadding_l0'}>
-                    <Button
+                <section className={'fitWidth allLefty centerOnTablet horizontal horizontalTabletBreak padding_l3 subcontainer widePadding_l0'}>
+                    <Text
                         text={'Start Learning'}
-                        innerclasses={'padding_l4 widePadding_l3 round_l3'}
-                        bg={'var(--secondaryColor)'}
                         height={'48px'}
                         plane={'1'}
                         link={'/general'}
-                        textclasses={'transition primary_color secondary_font font_l4'}
+                        innercustomclasses={'fitWidth'}
+                        textclasses={'round_l3 secondary_bg padding_l4 widePadding_l3 transition primary_color secondary_font font_l4'}
                     />
-                    <Button
+                    <Text
                         text={'Start Building'}
                         customclasses={'nohovershadow'}
-                        innerclasses={'padding_l4 widePadding_l3 round_l3'}
-                        bg={'#0000'}
+                        innercustomclasses={'fitWidth'}
                         height={'48px'}
                         plane={'1'}
                         link={'/diy'}
-                        textclasses={'transition primary_color font_l4'}
-                        hoverbg={'var(--secondaryColor)'}
+                        textclasses={'padding_l4 widePadding_l3 round_l3 transition secondary_bg_hover primary_color font_l4'}
                     />
                 </section>
             </section>
