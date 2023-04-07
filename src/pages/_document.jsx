@@ -4,6 +4,15 @@ export default function Document() {
   return (
     <Html lang="en">
       <Head>
+        <script type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context" : "https://schema.org",
+              "@type" : "WebSite",
+              "name" : "Homa Pilot",
+              "alternateName" : "HP",
+              "url" : "https://homapilot.com/"
+        })}} />
       </Head>
       <body>
         <Main />
