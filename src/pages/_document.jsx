@@ -13,6 +13,14 @@ export default function Document() {
               "alternateName" : "HP",
               "url" : "https://homapilot.com/"
         })}} />
+        <script type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Organization",
+              "url": "https://homapilot.com",
+              "logo": "https://homapilot.com/logo.png"
+        })}} />
       </Head>
       <body>
         <Main />
