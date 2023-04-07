@@ -14,8 +14,15 @@ export default function App({ Component, pageProps }) {
       <ActivationHandler />
       <Script src={'/activationhandlerutils.js'} strategy={"beforeInteractive"}></Script>
       <Script async src={"https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5146054383186265"} crossorigin={"anonymous"}></Script>
+      {/* <!-- Google tag (gtag.js) --> */}
+      <Script async src="https://www.googletagmanager.com/gtag/js?id=UA-210092720-1"></Script>
+      <Script id={'google_analytics'}>
+        {window.dataLayer = window.dataLayer || []}
+        {function gtag(){dataLayer.push(arguments)}}
+        {gtag('js', new Date())}
+        {gtag('config', 'UA-210092720-1')}
+      </Script>
 
-      <Script src={'/axgjs/dropdown_v5.js'} strategy={"beforeInteractive"}></Script>
     </>
   )
 }
