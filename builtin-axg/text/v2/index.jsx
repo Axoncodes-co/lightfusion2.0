@@ -104,8 +104,8 @@ function artificialChild({
   righticon
 }) {
   const Tag = tag
-  const iconStruct = icon ? <Axicon {...icon} /> : ''
-  const righticonStruct = righticon ? <Axicon {...righticon} /> : ''
+  const iconStruct = icon ? <Axicon allattr={allattr} {...icon} /> : ''
+  const righticonStruct = righticon ? <Axicon allattr={allattr} {...righticon} /> : ''
   const textStruct = text && text.length > 0 ? <Tag {...strAttr(allattr)} style={{height: '100%'}}  className={`axgText ${textclasses}`}>{text}</Tag> : ''
   const subTextStruct = subtext ? <p {...strAttr(allattr)} className={`axgText ${subtextclasses}`}>{subtext}</p> : ''
   return <>

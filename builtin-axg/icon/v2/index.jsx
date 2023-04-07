@@ -1,5 +1,6 @@
 import Image from "next/image"
 import Link from "next/link"
+import { strAttr } from "../../helpers/attribute"
 
 function handleIcon({
   iconclasses,
@@ -19,6 +20,7 @@ function handleIcon({
   boxshadow,
   content,
   name,
+  allattr,
   alt
 }) {
   /**
@@ -36,7 +38,7 @@ function handleIcon({
   const compiledboxshadow = boxshadow ? 'boxshadow' : ''
   const compiledname = name ? 'split' : 'center'
   
-  const compiledContent = classes => <span dangerouslySetInnerHTML={{__html: svg}}></span> || content || imgOrIcon(classes)
+  const compiledContent = classes => <span {...strAttr(allattr)} dangerouslySetInnerHTML={{__html: svg}}></span> || content || imgOrIcon(classes)
   const compiledClasses = classes => `subcontainer ${rootclass} ${compiledmidactive} ${compiledfilterPlacement} ${compiledTags} ${classes}`
   const ahrefHandler = (content, classes) => url ? <Link href={url} className={`subcontainer ${compiledClasses(classes)}`} style={{...compiledColor}}>{content}</Link> : ''
   const imgHandler = () => src ? <Image width={20} height={20} src={src} alt={alt} className={`subcontainer ${rootclass} ${customclasses}`} /> : ''
@@ -53,7 +55,7 @@ function handleIcon({
       plane
         ? (contentInstant || '')
         : (contentInstant
-            ? <div {...compiledTags} className={`${customclasses} subcontainer fitWidth ${compiledClasses(classes)}`}>{contentInstant}</div>
+            ? <div {...compiledTags} {...strAttr(allattr)} className={`${customclasses} subcontainer fitWidth ${compiledClasses(classes)}`}>{contentInstant}</div>
             : ''
         )
     )
@@ -79,6 +81,7 @@ export default function Axicon({
   filterPlacement='filterPlacement',
   boxshadow,
   alt,
+  allattr,
   children
 }) {
 
@@ -99,6 +102,7 @@ export default function Axicon({
     filterPlacement,
     boxshadow,
     name,
+    allattr,
     alt
   })
 
@@ -131,6 +135,7 @@ export default function Axicon({
     boxshadow,
     content,
     name,
+    allattr,
     alt
   }, content)
   

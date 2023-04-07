@@ -4,6 +4,7 @@ import Head from 'next/head'
 import fetchup from '../../lib/fetch'
 import Footer from '../../fragments/Footer'
 import Text from '../../builtin-axg/text/v2'
+import Link from 'next/link'
 
 export default function Notfound({categories, metatags}) {
     const headsclasses = 'secondary_color font_l2_min weight_l6 fitWidth'
@@ -54,7 +55,7 @@ export default function Notfound({categories, metatags}) {
 			<Text customclasses={'center'} textclasses={'primary_color font_l9 weight_l4 secondary_font'} text={'404'} />
 		</section>
 		<section className={'primary_bg container vertical verticalTabletBreak'} style={{minHeight: '300px'}}>
-			<Text customclasses={'center'} textclasses={'textcenter secondary_color font_l6 weight_l3 secondary_font'} text={'Looks like you are lost, you can go back or hump to <a href="/">Home</a> page or choose from the list below'} />
+			<Text customclasses={'center'}><p className={'textcenter secondary_color font_l6 weight_l3 secondary_font'}>Looks like you are lost, you can go back or hump to <Link href="/">Home</Link> page or choose from the list below </p></Text>
             <section className={'subcontainer horizontal topy center'}>
                 <section className={'subcontainer fitWidth topy'}>
                     <Text text={'Categories'} textclasses={headsclasses} />
