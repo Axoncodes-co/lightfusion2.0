@@ -82,18 +82,6 @@ export default function Archive({ category_slug, category, course_slug, course, 
 				})
 				}}
 			/>
-			{/* <Script id={'course_snippet'} type="application/ld+json">
-				{{
-					"@context": "https://schema.org",
-					"@type": "Course",
-					"name": metatags.title,
-					"description": metatags.description,
-					"provider": {
-						"@type": "Organization",
-						"name": "Homa Pilot",
-					}
-				}}
-			</Script> */}
 			<Footer categories={categories} />
 		</>
     )

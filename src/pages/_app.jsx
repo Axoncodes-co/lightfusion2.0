@@ -8,6 +8,7 @@ import '../../builtin-axg/fontVars.css'
 import '../styles/globals.css'
 import '../styles/fonts.css'
 import { useEffect } from 'react'
+import Head from 'next/head'
 
 export default function App({ Component, pageProps }) {
   useEffect(() => {
@@ -19,6 +20,17 @@ export default function App({ Component, pageProps }) {
     // </Script>
   })
   return (<>
+      <Head>
+        <script type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context" : "https://schema.org",
+              "@type" : "WebSite",
+              "name" : "Homa Pilot",
+              "alternateName" : "HP",
+              "url" : "https://homapilot.com/"
+        })}} />
+      </Head>
       <Component {...pageProps} />
       <ActivationHandler />
       <Script src={'/activationhandlerutils.js'} strategy={"beforeInteractive"}></Script>
