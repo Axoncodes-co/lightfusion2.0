@@ -16,8 +16,8 @@ export default function Menu({dir, menuGroup, menuItems}) {
       headBackgroundHover={menuGroup.headBackgroundHover}
       title={menuGroup.title}
       background={menuGroup.background}
-      subOpening={menuGroup.subOpening}
-      subTrigger={menuGroup.subTrigger}
+      subopening={menuGroup.subopening}
+      subtrigger={menuGroup.subtrigger}
       dropdownid={menuGroup.dropdownid}
       dir={dir}
       customclasses={menuGroup.customclasses}

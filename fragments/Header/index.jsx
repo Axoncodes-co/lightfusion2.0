@@ -23,8 +23,8 @@ export default function Header({ categories }) {
       customclasses: 'secondary_bg_hover widePadding_l1',
     },
     background: 'var(--primaryColor)',
-    subOpening: 'sub',
-    subTrigger: 'click',
+    subopening: 'sub',
+    subtrigger: 'click',
     dropdownid: 'mainHeaderGroup',
     customclasses: 'subcontainer righty unsetPos',
   })

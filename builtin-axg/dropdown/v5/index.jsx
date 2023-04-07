@@ -19,7 +19,7 @@ export function AxCustomDropdown({
   exit,
   headtitle,
   headtitlecolor,
-  subtrigger,
+  subtrigger='',
   subopening,
   background,
   dir,
@@ -56,7 +56,7 @@ export function AxCustomDropdown({
     >
       <Text
         {...text}
-        allattr={childmode}
+        allattr={`${childmode} ${subtrigger ? `subtrigger=${subtrigger}` : ''}`.trim()}
         textclasses={`${text ? text.textclasses || '' : ''} subcontainer`}
         customclasses={`${text ? text.customclasses || '' : ''} inner colgap_l1`}
         {...righticon}
