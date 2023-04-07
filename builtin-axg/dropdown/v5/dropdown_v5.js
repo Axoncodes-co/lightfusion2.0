@@ -28,8 +28,10 @@ export function dropdownV5Handler() {
   document.querySelectorAll(".ax_elements .dropdown li[subtrigger='hover']").forEach(element => {
     document.querySelectorAll(".ax_elements .dropdown li[subtrigger='hover'] li").forEach(subElement => {
       const dropdownv5clickawayhandler = () => {if (subElement.classList.contains("subopen")) subElement.classList.remove("subopen")}
-      subElement.removeEventListener("mouseleave", dropdownv5clickawayhandler)
-      subElement.addEventListener("mouseleave", dropdownv5clickawayhandler)
+      if (!elementsevents.filter(item => item.element == subElement && item.func.name == dropdownv5clickawayhandler.name).length) {
+        elementsevents.push({element: subElement, func: dropdownv5clickawayhandler})
+        subElement.addEventListener("mouseleave", dropdownv5clickawayhandler)
+      }
     })
   })
   // click:
@@ -68,8 +70,10 @@ export function dropdownV5Handler() {
         })
     }
   }
-  window.removeEventListener("click", dropdownv5clickhandler)
-  window.addEventListener("click", dropdownv5clickhandler)
+  if (!elementsevents.filter(item => item.element == window && item.func.name == dropdownv5clickhandler.name).length) {
+    elementsevents.push({element: window, func: dropdownv5clickhandler})
+    window.addEventListener("click", dropdownv5clickhandler)
+  }
 
 
   function isDescendant(parent, child) {
@@ -97,10 +101,14 @@ export function dropdownV5Handler() {
       currentmenu.forEach(element1 => { element1.classList.remove("subopen")})
       dropdownHandler(element.getAttribute('childmodeid'))
     }
-    element.removeEventListener("mouseenter", dropdownv5mouseentertrigger)
-    element.addEventListener("mouseenter", dropdownv5mouseentertrigger)
-    element.removeEventListener("mouseleave", dropdownv5mouseleavetrigger)
-    element.addEventListener("mouseleave", dropdownv5mouseleavetrigger)
+    if (!elementsevents.filter(item => item.element == element && item.func.name == dropdownv5mouseentertrigger.name).length) {
+      elementsevents.push({element, func: dropdownv5mouseentertrigger})
+      element.addEventListener("mouseenter", dropdownv5mouseentertrigger)
+    }
+    if (!elementsevents.filter(item => item.element == element && item.func.name == dropdownv5mouseleavetrigger.name).length) {
+      elementsevents.push({element, func: dropdownv5mouseleavetrigger})
+      element.addEventListener("mouseleave", dropdownv5mouseleavetrigger)
+    }
   }
 
   function dropdownClickTrigger(element) {
@@ -115,8 +123,10 @@ export function dropdownV5Handler() {
     const dropdownv5dropdownmegafunc = () => {
       element.querySelector(".dropdownHeadTitle").style.opacity = element.scrollTop === 0 ? 1 : 1-((element.scrollTop)/56)
     }
-    element.removeEventListener("scroll", dropdownv5dropdownmegafunc)
-    element.addEventListener("scroll", dropdownv5dropdownmegafunc)
+    if (!elementsevents.filter(item => item.element == element && item.func.name == dropdownv5dropdownmegafunc.name).length) {
+      elementsevents.push({element: element, func: dropdownv5dropdownmegafunc})
+      element.addEventListener("scroll", dropdownv5dropdownmegafunc)
+    }
   })
 
 
@@ -143,8 +153,10 @@ export function dropdownV5Handler() {
         
       }
     }
-    element.removeEventListener("mouseover", dropdownv5mouseoverstylehandleron)
-    element.addEventListener("mouseover", dropdownv5mouseoverstylehandleron)
+    if (!elementsevents.filter(item => item.element == element && item.func.name == dropdownv5mouseoverstylehandleron.name).length) {
+      elementsevents.push({element: element, func: dropdownv5mouseoverstylehandleron})
+      element.addEventListener("mouseover", dropdownv5mouseoverstylehandleron)
+    }
 
     const dropdownv5mouseoverstylehandleroff = () => {
       if (!element.classList.contains("open")) {
@@ -156,8 +168,10 @@ export function dropdownV5Handler() {
         inner.style.color = inner.getAttribute("color")
       }
     }
-    element.removeEventListener("mouseout", dropdownv5mouseoverstylehandleroff)
-    element.addEventListener("mouseout", dropdownv5mouseoverstylehandleroff)
+    if (!elementsevents.filter(item => item.element == element && item.func.name == dropdownv5mouseoverstylehandleroff.name).length) {
+      elementsevents.push({element: element, func: dropdownv5mouseoverstylehandleroff})
+      element.addEventListener("mouseout", dropdownv5mouseoverstylehandleroff)
+    }
   })
 
 
@@ -295,7 +309,9 @@ export function dropdownV5Handler() {
       }
     })
   }
-  window.removeEventListener("resize", dropdownv5megasizehandler)
-  window.addEventListener("resize", dropdownv5megasizehandler)
+  if (!elementsevents.filter(item => item.element == window && item.func.name == dropdownv5megasizehandler.name).length) {
+    elementsevents.push({element: window, func: dropdownv5megasizehandler})
+    window.addEventListener("resize", dropdownv5megasizehandler)
+  }
   dropdownv5megasizehandler()
 }
