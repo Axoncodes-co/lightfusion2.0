@@ -1,5 +1,7 @@
 import Text from "../../text/v2";
 import { strAttr } from "../../helpers/attribute"
+import { useEffect } from "react";
+import { dropdownV5Handler } from "./dropdown_v5";
 
 export function AxCustomDropdown({
   dev,
@@ -29,6 +31,18 @@ export function AxCustomDropdown({
   listclasses,
   children
 }) {
+
+  useEffect(() => {
+    // registerFunctions('dropdownV5Handler')
+    console.log('dropdownV5Handler');
+    dropdownV5Handler()
+    return () => {
+      console.log('dropdownV5Unmount');
+      // dropdownV5Unmount()
+    }
+  }, [])
+  
+
   const rootClass = 'axg_dropdown_head'
   const childmode = `childmode="dropdown" childmodeid="${dropdownid}" `
   const righticon = structure.indexOf('link') < 0 ? {righticon: {

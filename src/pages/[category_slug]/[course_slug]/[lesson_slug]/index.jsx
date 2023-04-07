@@ -9,6 +9,7 @@ import Head from 'next/head'
 import Footer from '../../../../../fragments/Footer'
 import Script from 'next/script'
 import Text from '../../../../../builtin-axg/text/v2'
+import { useEffect } from 'react'
 
 export default function Post({ categories, course_slug, category, course, lesson, metatags }) {
     const postIntro = (color) => (<>

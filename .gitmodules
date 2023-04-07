@@ -1,3 +1,6 @@
 [submodule "axg-react"]
 	path = axg-react
 	url = https://github.com/Axoncodes/axg-react.git
+[submodule "builtin-axg"]
+	path = builtin-axg
+	url = https://github.com/Axoncodes/builtin-axg.git

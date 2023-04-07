@@ -11,6 +11,7 @@ import Footer from '../../fragments/Footer'
 export default function Home({categories, metatags}) {
 	return (<>
 		<Head>
+			{/* <script defer src={'/axgjs/dropdown_v5.js'} /> */}
 			<title>{metatags.title}</title>
 			<meta name="description" content={metatags.description} key={"description"} />
 			<meta name="robots" content="max-snippet:-1, max-image-preview:large, max-video-preview:-1" key={"robots"} />
@@ -69,6 +70,8 @@ export default function Home({categories, metatags}) {
 
 		{/* TODO: Add the fun facts section */}
 		<Footer categories={categories} />
+		{/* <Script async src={"/axgjs/dropdown_v5.js"} strategy={'afterInteractive'}></Script> */}
+
 	</>)
 }
 

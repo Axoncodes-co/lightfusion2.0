@@ -4,10 +4,16 @@ import Head from 'next/head'
 import fetchup from '../../lib/fetch'
 import Footer from '../../fragments/Footer'
 import Text from '../../builtin-axg/text/v2'
+import Script from 'next/script'
+import dynamic from 'next/dynamic'
+import { useEffect } from 'react'
+// const MyScript = dynamic(() => import('../../builtin-axg/dropdown/v5/dropdown_v5'), { ssr: false });
 
 export default function Contact({categories, metatags}) {
+
     return (<>
 		<Head>
+			{/* <script defer src={'/axgjs/dropdown_v5.js'} /> */}
 			<title>{metatags.title}</title>
 			<meta name="description" content={metatags.description} key={"description"} />
 			<meta name="robots" content="max-snippet:-1, max-image-preview:large, max-video-preview:-1" key={"robots"} />
@@ -66,6 +72,8 @@ export default function Contact({categories, metatags}) {
 			</div>
 		</section>
 		<Footer categories={categories} />
+		{/* <Script src={"/axgjs/dropdown_v5.js"} strategy={'lazyOnload'}></Script> */}
+
     </>)
 }
 

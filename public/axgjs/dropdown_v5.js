@@ -1,4 +1,8 @@
-function dropdownV5Handler() {
+// import { getEventListeners } from "events"
+
+import { getEventListeners } from "stream"
+
+export function dropdownV5Handler() {
   // dropdown handler
   const dropdowns = document.querySelectorAll(".ax_elements .dropdown")
   const dropdownHeaders = document.querySelectorAll(".ax_elements .dropdown .dropdownHead")
@@ -22,53 +26,53 @@ function dropdownV5Handler() {
       element.getAttribute('childmodeid')
     )
   })
-
   // click away handler
   // hover:
   document.querySelectorAll(".ax_elements .dropdown li[subtrigger='hover']").forEach(element => {
     document.querySelectorAll(".ax_elements .dropdown li[subtrigger='hover'] li").forEach(subElement => {
-      subElement.addEventListener("mouseleave", () => {
-        if (subElement.classList.contains("subopen")) subElement.classList.remove("subopen")
-      })
+      const dropdownv5clickawayhandler = () => {if (subElement.classList.contains("subopen")) subElement.classList.remove("subopen")}
+      if (!getEventListeners(subElement).mouseleave.filter(({listener}) => listener.name == "dropdownv5clickawayhandler").length)
+        subElement.addEventListener("mouseleave", dropdownv5clickawayhandler)
     })
   })
   // click:
-  window.addEventListener("click", event => {
-
-    const dropdownHeaders = document.querySelectorAll(".ax_elements .dropdown .dropdownHead")
-    // if the click is on a dropdown
-    let triggerOnDropdown = false
-    if (event.target.getAttribute("childmode") == "dropdown" ) triggerOnDropdown = true
-
-    if (!triggerOnDropdown) {
-      dropdownHeaders.forEach(dom => {
-        const currentmenu = document.querySelectorAll(`.ax_elements .dropdown .dropdown[childmodeid='${dom.getAttribute('childmodeid')}'] .dropdownBody .menu li[subtrigger='click'].subopen`)
-        currentmenu.forEach(element => element.classList.remove("subopen"))
-        if (document.querySelector(`.ax_elements .dropdown[childmodeid='${dom.getAttribute('childmodeid')}'] .dropdownBody`))
-          closeDom(
-            document.querySelectorAll(`.ax_elements .dropdown[childmodeid='${dom.getAttribute('childmodeid')}']`), 
-            document.querySelector(`.ax_elements .dropdown[childmodeid='${dom.getAttribute('childmodeid')}'] .dropdownBody`), 
-            document.querySelector(`.ax_elements .dropdown[childmodeid='${dom.getAttribute('childmodeid')}'] .dropdownHead`), 
-            document.querySelector(`.ax_elements .dropdown[childmodeid='${dom.getAttribute('childmodeid')}'] .dropdownBody .menu`),
-          )
-      })
-    } else {
-      dropdownHeaders.forEach(dom => {
-        if (event.target.getAttribute("childmodeid") == dom.getAttribute("childmodeid") && document.querySelector(`.ax_elements .dropdown[childmodeid='${dom.getAttribute('childmodeid')}'] .dropdownBody`) && document.querySelector(`.ax_elements .dropdown[childmodeid='${dom.getAttribute('childmodeid')}'] .dropdownBody`).length>=0) {
-          const currentmenu = document.querySelectorAll(`.ax_elements .dropdown[childmodeid='${dom.getAttribute('childmodeid')}'] .dropdownBody .menu li[subtrigger='click'].subopen`)
-          currentmenu.forEach(element => {
-            if (!isDescendant(element, event.target)) element.classList.remove("subopen")
-          })
-          closeDom(
-            document.querySelectorAll(`.ax_elements .dropdown[childmodeid='${dom.getAttribute('childmodeid')}']`), 
-            document.querySelector(`.ax_elements .dropdown[childmodeid='${dom.getAttribute('childmodeid')}'] .dropdownBody`), 
-            document.querySelector(`.ax_elements .dropdown[childmodeid='${dom.getAttribute('childmodeid')}'] .dropdownHead`), 
-            document.querySelector(`.ax_elements .dropdown[childmodeid='${dom.getAttribute('childmodeid')}'] .dropdownBody .menu`),
-          )
-        }
-      })
+  const dropdownv5clickhandler = event => {
+      const dropdownHeaders = document.querySelectorAll(".ax_elements .dropdown .dropdownHead")
+      // if the click is on a dropdown
+      let triggerOnDropdown = false
+      if (event.target.getAttribute("childmode") == "dropdown" ) triggerOnDropdown = true
+  
+      if (!triggerOnDropdown) {
+        dropdownHeaders.forEach(dom => {
+          const currentmenu = document.querySelectorAll(`.ax_elements .dropdown .dropdown[childmodeid='${dom.getAttribute('childmodeid')}'] .dropdownBody .menu li[subtrigger='click'].subopen`)
+          currentmenu.forEach(element => element.classList.remove("subopen"))
+          if (document.querySelector(`.ax_elements .dropdown[childmodeid='${dom.getAttribute('childmodeid')}'] .dropdownBody`))
+            closeDom(
+              document.querySelectorAll(`.ax_elements .dropdown[childmodeid='${dom.getAttribute('childmodeid')}']`), 
+              document.querySelector(`.ax_elements .dropdown[childmodeid='${dom.getAttribute('childmodeid')}'] .dropdownBody`), 
+              document.querySelector(`.ax_elements .dropdown[childmodeid='${dom.getAttribute('childmodeid')}'] .dropdownHead`), 
+              document.querySelector(`.ax_elements .dropdown[childmodeid='${dom.getAttribute('childmodeid')}'] .dropdownBody .menu`),
+            )
+        })
+      } else {
+        dropdownHeaders.forEach(dom => {
+          if (event.target.getAttribute("childmodeid") == dom.getAttribute("childmodeid") && document.querySelector(`.ax_elements .dropdown[childmodeid='${dom.getAttribute('childmodeid')}'] .dropdownBody`) && document.querySelector(`.ax_elements .dropdown[childmodeid='${dom.getAttribute('childmodeid')}'] .dropdownBody`).length>=0) {
+            const currentmenu = document.querySelectorAll(`.ax_elements .dropdown[childmodeid='${dom.getAttribute('childmodeid')}'] .dropdownBody .menu li[subtrigger='click'].subopen`)
+            currentmenu.forEach(element => {
+              if (!isDescendant(element, event.target)) element.classList.remove("subopen")
+            })
+            closeDom(
+              document.querySelectorAll(`.ax_elements .dropdown[childmodeid='${dom.getAttribute('childmodeid')}']`), 
+              document.querySelector(`.ax_elements .dropdown[childmodeid='${dom.getAttribute('childmodeid')}'] .dropdownBody`), 
+              document.querySelector(`.ax_elements .dropdown[childmodeid='${dom.getAttribute('childmodeid')}'] .dropdownHead`), 
+              document.querySelector(`.ax_elements .dropdown[childmodeid='${dom.getAttribute('childmodeid')}'] .dropdownBody .menu`),
+            )
+          }
+        })
     }
-  })
+  }
+  if (!getEventListeners(window).click.filter(({listener}) => listener.name == "dropdownv5clickhandler").length)
+    window.addEventListener("click", dropdownv5clickhandler)
 
 
   function isDescendant(parent, child) {
@@ -90,22 +94,32 @@ function dropdownV5Handler() {
   }
 
   function dropdownHoverTrigger(element) {
-    element.addEventListener("mouseenter", () => { dropdownHandler(element.getAttribute('childmodeid')) })
-    element.addEventListener("mouseleave", () => {
+    const dropdownv5mouseentertrigger = () => { dropdownHandler(element.getAttribute('childmodeid')) }
+    const dropdownv5mouseleavetrigger = () => {
       const currentmenu = document.querySelectorAll(`.ax_elements .dropdown[childmodeid='${element.getAttribute('childmodeid')}'] .dropdownBody .menu li[subtrigger='click'].subopen`)
       currentmenu.forEach(element1 => { element1.classList.remove("subopen")})
       dropdownHandler(element.getAttribute('childmodeid'))
-    })
+    }
+    if (!getEventListeners(element).mouseenter.filter(({listener}) => listener.name == "dropdownv5mouseentertrigger").length)
+      element.addEventListener("mouseenter", dropdownv5mouseentertrigger)
+    if (!getEventListeners(element).mouseleave.filter(({listener}) => listener.name == "dropdownv5mouseleavetrigger").length)
+      element.addEventListener("mouseleave", dropdownv5mouseleavetrigger)
   }
 
   function dropdownClickTrigger(element) {
-    element.addEventListener("click", () => { dropdownHandler(element.getAttribute('childmodeid')) })
+    const dropdownv5dropdownClickTriggerfunc = () => { dropdownHandler(element.getAttribute('childmodeid')) }
+    console.log(getEventListeners(element));
+    debugger
+    if (!(!getEventListeners(element) && !getEventListeners(element).click.filter(({listener}) => listener.name == "dropdownv5dropdownClickTriggerfunc").length))
+      element.addEventListener("click", dropdownv5dropdownClickTriggerfunc)
   }
 
-  document.querySelectorAll(".dropdown.mega .dropdownBody .menu").forEach(element=>{
-    element.addEventListener("scroll", () => {
+  document.querySelectorAll(".dropdown.mega .dropdownBody .menu").forEach(element => {
+    const dropdownv5dropdownmegafunc = () => {
       element.querySelector(".dropdownHeadTitle").style.opacity = element.scrollTop === 0 ? 1 : 1-((element.scrollTop)/56)
-    })
+    }
+    if (!getEventListeners(element).scroll.filter(({listener}) => listener.name == "dropdownv5dropdownmegafunc").length)
+      element.addEventListener("scroll", dropdownv5dropdownmegafunc)
   })
 
 
@@ -121,7 +135,7 @@ function dropdownV5Handler() {
   // style on hover
   document.querySelectorAll(`.ax_elements:not([nomain="true"]) > section.dropdown`).forEach((element) => {
     const inner = element.querySelector(".dropdownHead .inner")
-    element.addEventListener("mouseover", () => {
+    const dropdownv5mouseoverstylehandleron = () => {
       if (!element.classList.contains("open")) {
         if (element.querySelector(".dropdownHead .inner .dropicon")) {
           element.querySelector(".dropdownHead .inner .dropicon.whitedown").classList.remove('off')
@@ -131,9 +145,11 @@ function dropdownV5Handler() {
         inner.style.color = inner.getAttribute("colorhover")
         
       }
-    })
+    }
+    if (!getEventListeners(element).mouseover.filter(({listener}) => listener.name == "dropdownv5mouseoverstylehandleron").length)
+      element.addEventListener("mouseover", dropdownv5mouseoverstylehandleron)
 
-    element.addEventListener("mouseout", () => {
+    const dropdownv5mouseoverstylehandleroff = () => {
       if (!element.classList.contains("open")) {
         if (element.querySelector(".dropdownHead .inner .dropicon")) {
           element.querySelector(".dropdownHead .inner .dropicon.whitedown").classList.add('off')
@@ -142,7 +158,9 @@ function dropdownV5Handler() {
         inner.style.backgroundColor = inner.getAttribute("headbackground")
         inner.style.color = inner.getAttribute("color")
       }
-    })
+    }
+    if (!getEventListeners(element).mouseout.filter(({listener}) => listener.name == "dropdownv5mouseoverstylehandleroff").length)
+      element.addEventListener("mouseout", dropdownv5mouseoverstylehandleroff)
   })
 
 
@@ -255,7 +273,7 @@ function dropdownV5Handler() {
 
 
   // active megadropdown size handler
-  function megasizehandler() {
+  function dropdownv5megasizehandler() {
     document.querySelectorAll('.dropdown.open').forEach(element => {
       if (element.getAttribute("mode") && element.getAttribute("mode").indexOf("mega") >= 0) {
         var body
@@ -280,6 +298,7 @@ function dropdownV5Handler() {
       }
     })
   }
-  window.addEventListener("resize", megasizehandler)
-  megasizehandler()
+  if (!getEventListeners(window).resize.filter(({listener}) => listener.name == "dropdownv5megasizehandler").length)
+    window.addEventListener("resize", dropdownv5megasizehandler)
+  dropdownv5megasizehandler()
 }
