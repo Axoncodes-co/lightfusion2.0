@@ -23,6 +23,7 @@ export default function App({ Component, pageProps }) {
         {gtag('config', 'UA-187520717-1')}
       </Script>
 
+
     </>
   )
 }
