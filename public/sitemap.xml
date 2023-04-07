@@ -1,4 +1,4 @@
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd"><url>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"><url>
  <loc>https://homapilot.com/</loc>
  <priority>1</priority>
 </url>
@@ -21,22 +21,134 @@
 <url>
  <loc>https://homapilot.com/general/principles-of-flight/stall/</loc>
  <priority>0.8</priority>
+
+        <image:image>
+          <image:loc>https://homapilot.com</image:loc>
+        </image:image>
 </url>
 <url>
  <loc>https://homapilot.com/general/principles-of-flight/angle-of-attack/</loc>
  <priority>0.8</priority>
+
+        <image:image>
+          <image:loc>https://homapilot.com/data/media/AOA.jpg</image:loc>
+        </image:image>
+
+        <image:image>
+          <image:loc>https://homapilot.com/data/media/angle-of-attack.png</image:loc>
+        </image:image>
+
+        <image:image>
+          <image:loc>https://homapilot.com/data/media/critical-angle-of-attack-stall.png</image:loc>
+        </image:image>
 </url>
 <url>
  <loc>https://homapilot.com/general/principles-of-flight/relative-wind/</loc>
  <priority>0.8</priority>
+
+        <image:image>
+          <image:loc>https://homapilot.com/data/media/Relative-wind-aeronautics.jpg</image:loc>
+        </image:image>
+
+        <image:image>
+          <image:loc>https://homapilot.com/data/media/Relative-wind-definition.png</image:loc>
+        </image:image>
+
+        <image:image>
+          <image:loc>https://homapilot.com/data/media/What-is-relative-wind.png</image:loc>
+        </image:image>
+
+        <image:image>
+          <image:loc>https://homapilot.com/data/media/Relative-Wind.png</image:loc>
+        </image:image>
+
+        <image:image>
+          <image:loc>https://homapilot.com/data/media/Relative-wind-and-flight-path.png</image:loc>
+        </image:image>
+
+        <image:image>
+          <image:loc>https://homapilot.com/data/media/flight-attitude-and-relative-wind.png</image:loc>
+        </image:image>
 </url>
 <url>
  <loc>https://homapilot.com/general/principles-of-flight/four-forces-of-flight/</loc>
  <priority>0.8</priority>
+
+        <image:image>
+          <image:loc>https://homapilot.com/data/media/4-forces-of-flight.jpg</image:loc>
+        </image:image>
+
+        <image:image>
+          <image:loc>https://homapilot.com/data/media/Four-forces-of-flight.png</image:loc>
+        </image:image>
+
+        <image:image>
+          <image:loc>https://homapilot.com/data/media/Venturi-tube.png</image:loc>
+        </image:image>
+
+        <image:image>
+          <image:loc>https://homapilot.com/data/media/Four-forces-of-flight-1.png</image:loc>
+        </image:image>
+
+        <image:image>
+          <image:loc>https://homapilot.com/data/media/wing.png</image:loc>
+        </image:image>
 </url>
 <url>
  <loc>https://homapilot.com/general/principles-of-flight/main-structure-of-airplanes/</loc>
  <priority>0.8</priority>
+
+        <image:image>
+          <image:loc>https://homapilot.com/data/media/The-main-Structure-of-airplanes.jpg</image:loc>
+        </image:image>
+
+        <image:image>
+          <image:loc>https://homapilot.com/data/media/Fuselage.jpg</image:loc>
+        </image:image>
+
+        <image:image>
+          <image:loc>https://homapilot.com/data/media/Wing.jpg</image:loc>
+        </image:image>
+
+        <image:image>
+          <image:loc>https://homapilot.com/data/media/Aileron.jpg</image:loc>
+        </image:image>
+
+        <image:image>
+          <image:loc>https://homapilot.com/data/media/Flap.jpg</image:loc>
+        </image:image>
+
+        <image:image>
+          <image:loc>https://homapilot.com/data/media/Empennage.jpg</image:loc>
+        </image:image>
+
+        <image:image>
+          <image:loc>https://homapilot.com/data/media/Vertical-Stabilizer.jpg</image:loc>
+        </image:image>
+
+        <image:image>
+          <image:loc>https://homapilot.com/data/media/Horizontal-Stabilizer.jpg</image:loc>
+        </image:image>
+
+        <image:image>
+          <image:loc>https://homapilot.com/data/media/Rudder.jpg</image:loc>
+        </image:image>
+
+        <image:image>
+          <image:loc>https://homapilot.com/data/media/Elevator.jpg</image:loc>
+        </image:image>
+
+        <image:image>
+          <image:loc>https://homapilot.com/data/media/Landing-Gear.jpg</image:loc>
+        </image:image>
+
+        <image:image>
+          <image:loc>https://homapilot.com/data/media/Shock-Strut-and-Brake.jpg</image:loc>
+        </image:image>
+
+        <image:image>
+          <image:loc>https://homapilot.com/data/media/airplane-engine.jpg</image:loc>
+        </image:image>
 </url>
 <url>
  <loc>https://homapilot.com/general/meteorology/</loc>
@@ -45,18 +157,62 @@
 <url>
  <loc>https://homapilot.com/general/meteorology/temperature-inversion/</loc>
  <priority>0.8</priority>
+
+        <image:image>
+          <image:loc>https://homapilot.com</image:loc>
+        </image:image>
 </url>
 <url>
  <loc>https://homapilot.com/general/meteorology/lapse-rate/</loc>
  <priority>0.8</priority>
+
+        <image:image>
+          <image:loc>https://homapilot.com</image:loc>
+        </image:image>
 </url>
 <url>
  <loc>https://homapilot.com/general/meteorology/temperature/</loc>
  <priority>0.8</priority>
+
+        <image:image>
+          <image:loc>https://homapilot.com/data/media/Temperature.jpg</image:loc>
+        </image:image>
+
+        <image:image>
+          <image:loc>https://homapilot.com/data/media/Wavelengths-of-visible-and-non-visible-light.png</image:loc>
+        </image:image>
+
+        <image:image>
+          <image:loc>https://homapilot.com/data/media/Radiation-Convection-conduction.png</image:loc>
+        </image:image>
+
+        <image:image>
+          <image:loc>https://homapilot.com/data/media/Advection.png</image:loc>
+        </image:image>
 </url>
 <url>
  <loc>https://homapilot.com/general/meteorology/earth-atmosphere-composition-and-structure/</loc>
  <priority>0.8</priority>
+
+        <image:image>
+          <image:loc>https://homapilot.com/data/media/Earth-Atmosphere-Composition-and-Structure.jpg</image:loc>
+        </image:image>
+
+        <image:image>
+          <image:loc>https://homapilot.com/data/media/Composition-of-atmosphere.png</image:loc>
+        </image:image>
+
+        <image:image>
+          <image:loc>https://homapilot.com/data/media/Tropical-and-Polar-Tropopause.png</image:loc>
+        </image:image>
+
+        <image:image>
+          <image:loc>https://homapilot.com/data/media/Summer-and-Winter-Tropopause.png</image:loc>
+        </image:image>
+
+        <image:image>
+          <image:loc>https://homapilot.com/data/media/Structure-of-the-Atmosphere.png</image:loc>
+        </image:image>
 </url>
 <url>
  <loc>https://homapilot.com/general/airframes-systems/</loc>
