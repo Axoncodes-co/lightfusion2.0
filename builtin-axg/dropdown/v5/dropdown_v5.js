@@ -1,7 +1,7 @@
 // import { getEventListeners } from "events"
 
-import { getEventListeners } from "stream"
-
+// import { getEventListeners } from "stream"
+const elementsevents = []
 export function dropdownV5Handler() {
   // dropdown handler
   const dropdowns = document.querySelectorAll(".ax_elements .dropdown")
@@ -111,12 +111,11 @@ export function dropdownV5Handler() {
   }
 
   function dropdownClickTrigger(element) {
-    const dropdownv5dropdownClickTriggerfunc = () => { dropdownHandler(element.getAttribute('childmodeid')) }
-    // console.log(getEventListeners(element));
-    // debugger
-    // if (!(!getEventListeners(element) && !getEventListeners(element).click.filter(({listener}) => listener.name == "dropdownv5dropdownClickTriggerfunc").length))
-    element.removeEventListener("click", dropdownv5dropdownClickTriggerfunc)
-    element.addEventListener("click", dropdownv5dropdownClickTriggerfunc)
+    function dropdownv5dropdownClickTriggerfunc() { dropdownHandler(element.getAttribute('childmodeid')) }
+    if (!elementsevents.filter(item => item.element == element && item.func.name == dropdownv5dropdownClickTriggerfunc.name).length) {
+      elementsevents.push({element, func: dropdownv5dropdownClickTriggerfunc})
+      element.addEventListener("click", dropdownv5dropdownClickTriggerfunc)
+    }
   }
 
   document.querySelectorAll(".dropdown.mega .dropdownBody .menu").forEach(element => {
