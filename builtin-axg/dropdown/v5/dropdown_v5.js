@@ -1,6 +1,3 @@
-// import { getEventListeners } from "events"
-
-// import { getEventListeners } from "stream"
 const elementsevents = []
 export function dropdownV5Handler() {
   // dropdown handler
@@ -31,7 +28,6 @@ export function dropdownV5Handler() {
   document.querySelectorAll(".ax_elements .dropdown li[subtrigger='hover']").forEach(element => {
     document.querySelectorAll(".ax_elements .dropdown li[subtrigger='hover'] li").forEach(subElement => {
       const dropdownv5clickawayhandler = () => {if (subElement.classList.contains("subopen")) subElement.classList.remove("subopen")}
-      // if (!getEventListeners(subElement).mouseleave.filter(({listener}) => listener.name == "dropdownv5clickawayhandler").length)
       subElement.removeEventListener("mouseleave", dropdownv5clickawayhandler)
       subElement.addEventListener("mouseleave", dropdownv5clickawayhandler)
     })
@@ -72,7 +68,6 @@ export function dropdownV5Handler() {
         })
     }
   }
-  // if (!getEventListeners(window).click.filter(({listener}) => listener.name == "dropdownv5clickhandler").length)
   window.removeEventListener("click", dropdownv5clickhandler)
   window.addEventListener("click", dropdownv5clickhandler)
 
@@ -102,10 +97,8 @@ export function dropdownV5Handler() {
       currentmenu.forEach(element1 => { element1.classList.remove("subopen")})
       dropdownHandler(element.getAttribute('childmodeid'))
     }
-    // if (!getEventListeners(element).mouseenter.filter(({listener}) => listener.name == "dropdownv5mouseentertrigger").length)
     element.removeEventListener("mouseenter", dropdownv5mouseentertrigger)
     element.addEventListener("mouseenter", dropdownv5mouseentertrigger)
-    // if (!getEventListeners(element).mouseleave.filter(({listener}) => listener.name == "dropdownv5mouseleavetrigger").length)
     element.removeEventListener("mouseleave", dropdownv5mouseleavetrigger)
     element.addEventListener("mouseleave", dropdownv5mouseleavetrigger)
   }
@@ -122,7 +115,6 @@ export function dropdownV5Handler() {
     const dropdownv5dropdownmegafunc = () => {
       element.querySelector(".dropdownHeadTitle").style.opacity = element.scrollTop === 0 ? 1 : 1-((element.scrollTop)/56)
     }
-    // if (!getEventListeners(element).scroll.filter(({listener}) => listener.name == "dropdownv5dropdownmegafunc").length)
     element.removeEventListener("scroll", dropdownv5dropdownmegafunc)
     element.addEventListener("scroll", dropdownv5dropdownmegafunc)
   })
@@ -151,7 +143,6 @@ export function dropdownV5Handler() {
         
       }
     }
-    // if (!getEventListeners(element).mouseover.filter(({listener}) => listener.name == "dropdownv5mouseoverstylehandleron").length)
     element.removeEventListener("mouseover", dropdownv5mouseoverstylehandleron)
     element.addEventListener("mouseover", dropdownv5mouseoverstylehandleron)
 
@@ -165,7 +156,6 @@ export function dropdownV5Handler() {
         inner.style.color = inner.getAttribute("color")
       }
     }
-    // if (!getEventListeners(element).mouseout.filter(({listener}) => listener.name == "dropdownv5mouseoverstylehandleroff").length)
     element.removeEventListener("mouseout", dropdownv5mouseoverstylehandleroff)
     element.addEventListener("mouseout", dropdownv5mouseoverstylehandleroff)
   })
@@ -305,7 +295,6 @@ export function dropdownV5Handler() {
       }
     })
   }
-  // if (!getEventListeners(window).resize.filter(({listener}) => listener.name == "dropdownv5megasizehandler").length)
   window.removeEventListener("resize", dropdownv5megasizehandler)
   window.addEventListener("resize", dropdownv5megasizehandler)
   dropdownv5megasizehandler()

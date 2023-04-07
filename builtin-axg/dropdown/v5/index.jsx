@@ -33,13 +33,7 @@ export function AxCustomDropdown({
 }) {
 
   useEffect(() => {
-    // registerFunctions('dropdownV5Handler')
-    console.log('dropdownV5Handler');
     dropdownV5Handler()
-    return () => {
-      console.log('dropdownV5Unmount');
-      // dropdownV5Unmount()
-    }
   }, [])
   
 
