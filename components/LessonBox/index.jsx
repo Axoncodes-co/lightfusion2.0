@@ -12,7 +12,7 @@ export default function LessonBox({data, link, customclasses}) {
             >
                 <section className={`${style.inner} transition round_l3 subcontainer spread padding_l3`}
                     style={{
-                        backgroundImage: `linear-gradient(0deg, #000000ba, #00000066, #0001, #0002), url(${data.thumbnail_url})`,
+                        backgroundImage: `linear-gradient(0deg, #000000ba, #00000066, #0001, #0002), url(${data.thumbnail_url || ''})`,
                         backgroundSize: 'cover',
                         backgroundRepeat: 'no-repeat',
                         backgroundPosition: 'center',
