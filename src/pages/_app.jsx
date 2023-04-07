@@ -21,7 +21,7 @@ export default function App({ Component, pageProps }) {
   })
   return (<>
       <Head>
-        <script type="application/ld+json"
+        {/* <script type="application/ld+json"
           dangerouslySetInnerHTML={{
             __html: JSON.stringify({
               "@context" : "https://schema.org",
@@ -29,7 +29,7 @@ export default function App({ Component, pageProps }) {
               "name" : "Homa Pilot",
               "alternateName" : "HP",
               "url" : "https://homapilot.com/"
-        })}} />
+        })}} /> */}
       </Head>
       <Component {...pageProps} />
       <ActivationHandler />
