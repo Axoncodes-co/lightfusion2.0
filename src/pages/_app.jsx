@@ -20,7 +20,7 @@ export default function App({ Component, pageProps }) {
     // </Script>
   })
   return (<>
-      <Head>
+      {/* <Head> */}
         {/* <script type="application/ld+json"
           dangerouslySetInnerHTML={{
             __html: JSON.stringify({
@@ -30,7 +30,7 @@ export default function App({ Component, pageProps }) {
               "alternateName" : "HP",
               "url" : "https://homapilot.com/"
         })}} /> */}
-      </Head>
+      {/* </Head> */}
       <Component {...pageProps} />
       <ActivationHandler />
       <Script src={'/activationhandlerutils.js'} strategy={"beforeInteractive"}></Script>
