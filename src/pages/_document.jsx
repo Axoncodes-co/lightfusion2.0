@@ -22,7 +22,7 @@ export default function Document() {
               "url": "https://homapilot.com",
               "logo": "https://homapilot.com/logo.png"
         })}} />
-        <Script async src="https://securepubads.g.doubleclick.net/tag/js/gpt.js"></Script>
+        <Script strategy={'beforeInteractive'} async src="https://securepubads.g.doubleclick.net/tag/js/gpt.js"></Script>
         <script dangerouslySetInnerHTML={{
           __html: `window.googletag = window.googletag || {cmd: []};
           googletag.cmd.push(function() {
