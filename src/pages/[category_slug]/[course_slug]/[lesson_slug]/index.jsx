@@ -95,18 +95,18 @@ export default function Post({ categories, course_slug, category, course, lesson
                     />
                     <main id='content' className={`${style.content}`} dangerouslySetInnerHTML={{__html: lesson.content}}></main>
                     {/* <!-- /22901649087/contentButtom --> */}
-                    <div id='div-gpt-ad-1680990353679-0' style={{minWidth: '120px', minHeight: '20px'}}>
+                    <div id='div-gpt-ad-1680990353679-0' style={{minWidth: '120px', minHeight: '20px', maxWidth: '100vw'}}>
                         <script dangerouslySetInnerHTML={{__html: `googletag.cmd.push(function() { googletag.display('div-gpt-ad-1680990353679-0'); });`}} />
                     </div>
                 </section>
                 <aside>
                     {/* <!-- /22901649087/sidebar --> */}
-                    <div id='div-gpt-ad-1680993896350-0' style={{minWidth: '200px', minHeight: '360px'}}>
-                        <script dangerouslySetInnerHTML={{__html: `googletag.cmd.push(function() { googletag.display('div-gpt-ad-1680993896350-0'); });`}} />
+                    <div id='div-gpt-ad-1680994203642-0' style={{minWidth: '120px', minHeight: '240px'}}>
+                        <script dangerouslySetInnerHTML={{__html: `googletag.cmd.push(function() { googletag.display('div-gpt-ad-1680994203642-0'); });`}} />
                     </div>
                     {/* <!-- /22901649087/sidebar2 --> */}
-                    <div id='div-gpt-ad-1680992412944-0' style={{minWidth: '200px', minHeight: '360px'}}>
-                        <script dangerouslySetInnerHTML={{__html: `googletag.cmd.push(function() { googletag.display('div-gpt-ad-1680992412944-0'); });`}} />                        
+                    <div id='div-gpt-ad-1680994309478-0' style={{minWidth: '120px', minHeight: '240px'}}>
+                        <script dangerouslySetInnerHTML={{__html: `googletag.cmd.push(function() { googletag.display('div-gpt-ad-1680994309478-0'); });`}} />                        
                     </div>
                 </aside>
             </section>
