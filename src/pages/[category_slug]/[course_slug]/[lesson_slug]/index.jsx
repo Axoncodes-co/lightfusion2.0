@@ -69,29 +69,11 @@ export default function Post({ categories, course_slug, category, course, lesson
                     googletag.enableServices();
                 });`
             }} />
-            {/* <Script id={'setup_sidebar_ad1'}>window.googletag = window.googletag || {{cmd: []}}</Script>
-            <Script id={'setup_sidebar_ad2'}>{
-                googletag.cmd.push(function() {
-                    googletag.defineSlot('/22901649087/sidebar', [120, 240], 'div-gpt-ad-1680936805702-0').addService(googletag.pubads())
-                    googletag.pubads().enableSingleRequest()
-                    googletag.enableServices()
-                })
-            }</Script> */}
 
             <Header categories={categories} />
 			<Navbar data={categories} current_slug={course_slug} />
             <section className={'primary_bg subcontainer horizontal widePadding_l0 topy colgap_l0'}>
-                <aside className={'hideOnMobile'}>
-                    <p style={{visibility: 'hidden'}}>sidebar</p>
-                </aside>
                 <section className={'subcontainer padding_l3 vertical'}>
-                    {/* <div style={{minHeight: '100px', width: '100%'}}>
-                        <ins className="adsbygoogle"
-                            style={{display:'inline-block', width:'600px', height:'90px'}}
-                            data-ad-client="ca-pub-5146054383186265"
-                            data-ad-slot="8430915906"
-                        ></ins>
-                    </div> */}
                     <section id={'content_nav'} className={'wide subcontainer'}>
                         <Breadcrumb
                             categories={categories}
@@ -124,31 +106,10 @@ export default function Post({ categories, course_slug, category, course, lesson
                         textclasses={`${style.excerpt} font_l4 weight_l3 secondary_color`}
                     />
                     <main id='content' className={`${style.content}`} dangerouslySetInnerHTML={{__html: lesson.content}}></main>
-                    <ins className="adsbygoogle"
-                        style={{display:'block'}}
-                        data-ad-client="ca-pub-5146054383186265"
-                        data-ad-slot="8969756356"
-                        data-ad-format="auto"
-                        data-full-width-responsive="true"
-                    ></ins>
                 </section>
-                <aside style={{width: '270px', minHeight: '100vh'}} className={'hideOnMobile subcontainer padding_l1 topy'}>
-                    {/* <ins className="adsbygoogle"
-                        style={{display:'inline-block',width:'250px',height:'500px'}}
-                        data-ad-client="ca-pub-5146054383186265"
-                        data-ad-slot="6515199005"
-                    ></ins> */}
-                    {/* <!-- /22901649087/sidebar --> */}
-                    <div id='div-gpt-ad-1680936805702-0' style={{minWidth: '120px', minHeight: '240px'}}>
-                        <script dangerouslySetInnerHTML={{__html: `googletag.cmd.push(function() { googletag.display('div-gpt-ad-1680936805702-0')})`}} />
-                    </div>
-                </aside>
             </section>
             <Footer categories={categories} />
-            {/* <Script strategy={'beforeInteractive'} async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5146054383186265" crossorigin="anonymous"></Script> */}
-            {/* <script dangerouslySetInnerHTML={{__html: `(adsbygoogle = window.adsbygoogle || []).push({});`}} /> */}
-            <Script strategy={'beforeInteractive'} async src="https://securepubads.g.doubleclick.net/tag/js/gpt.js"></Script>
-            
+            <Script strategy={'beforeInteractive'} async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5146054383186265" crossorigin="anonymous"></Script>
         </>
     )
 }

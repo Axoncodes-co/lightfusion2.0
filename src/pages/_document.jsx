@@ -22,7 +22,15 @@ export default function Document() {
               "url": "https://homapilot.com",
               "logo": "https://homapilot.com/logo.png"
         })}} />
-        
+        {/* <!-- Google tag (gtag.js) --> */}
+        <Script async src="https://www.googletagmanager.com/gtag/js?id=UA-187520717-1"></Script>
+        <script dangerouslySetInnerHTML={{__html: `
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+
+          gtag('config', 'UA-187520717-1');
+        `}} />
       </Head>
       <body>
         <Main />
