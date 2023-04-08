@@ -94,6 +94,10 @@ export default function Post({ categories, course_slug, category, course, lesson
                         textclasses={`${style.excerpt} font_l4 weight_l3 secondary_color`}
                     />
                     <main id='content' className={`${style.content}`} dangerouslySetInnerHTML={{__html: lesson.content}}></main>
+                    {/* <!-- /22901649087/contentButtom --> */}
+                    <div id='div-gpt-ad-1680942148076-0' style={{minWidth: '320px', minHeight: '50px'}}>
+                        <script dangerouslySetInnerHTML={{__html: `googletag.cmd.push(function() { googletag.display('div-gpt-ad-1680942148076-0'); });`}} />
+                    </div>
                 </section>
                 <aside>
                     <div id='div-gpt-ad-1680941918815-0' style='min-width: 120px; min-height: 125px;'>
