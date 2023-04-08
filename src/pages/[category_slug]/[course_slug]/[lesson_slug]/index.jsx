@@ -76,6 +76,8 @@ export default function Post({ categories, course_slug, category, course, lesson
                     googletag.enableServices()
                 })
             }</Script>
+            <Script id={'sidebar_ads_actual'}>{googletag.cmd.push(function() { googletag.display('div-gpt-ad-1680936805702-0')})}</Script>
+
             <Header categories={categories} />
 			<Navbar data={categories} current_slug={course_slug} />
             <section className={'primary_bg subcontainer horizontal widePadding_l0 topy colgap_l0'}>
@@ -138,7 +140,6 @@ export default function Post({ categories, course_slug, category, course, lesson
                     ></ins> */}
                     {/* <!-- /22901649087/sidebar --> */}
                     <div id='div-gpt-ad-1680936805702-0' style='min-width: 120px; min-height: 240px;'>
-                        <Script id={'sidebar_ads_actual'}>googletag.cmd.push(function() { googletag.display('div-gpt-ad-1680936805702-0')});</Script>
                     </div>
                 </aside>
             </section>
