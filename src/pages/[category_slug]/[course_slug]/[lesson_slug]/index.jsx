@@ -60,14 +60,22 @@ export default function Post({ categories, course_slug, category, course, lesson
                 <meta property="og:image:width" content="1280" key={"og:image:width"} />
                 <meta property="og:image:height" content="519" key={"og:image:height"} />
             </Head>
-            <script dangerouslySetInnerHTML={{
+            {/* <script dangerouslySetInnerHTML={{
             __html: `window.googletag = window.googletag || {cmd: []};
             googletag.cmd.push(function() {
                 googletag.defineSlot('/22901649087/sidebar', [120, 240], 'div-gpt-ad-1680936805702-0').addService(googletag.pubads());
                 googletag.pubads().enableSingleRequest();
                 googletag.enableServices();
             });`
-            }} />
+            }} /> */}
+            <Script id={'setup_sidebar_ad1'}>{window.googletag = (window.googletag || {cmd: []})}</Script>
+            <Script id={'setup_sidebar_ad2'}>{
+                googletag.cmd.push(function() {
+                    googletag.defineSlot('/22901649087/sidebar', [120, 240], 'div-gpt-ad-1680936805702-0').addService(googletag.pubads())
+                    googletag.pubads().enableSingleRequest()
+                    googletag.enableServices()
+                })
+            }</Script>
             <Header categories={categories} />
 			<Navbar data={categories} current_slug={course_slug} />
             <section className={'primary_bg subcontainer horizontal widePadding_l0 topy colgap_l0'}>
