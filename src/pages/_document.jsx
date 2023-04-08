@@ -36,18 +36,12 @@ export default function Document() {
         <script dangerouslySetInnerHTML={{__html:`
           window.googletag = window.googletag || {cmd: []};
           googletag.cmd.push(function() {
-            googletag.defineSlot('/22901649087/sidebar', [[120, 240], [125, 125], [120, 600], [160, 600]], 'div-gpt-ad-1680941918815-0').addService(googletag.pubads());
-            googletag.defineSlot('/22901649087/contentButtom', [[320, 480], [980, 120], [320, 50], [980, 90], [468, 60], [480, 320], [320, 100]], 'div-gpt-ad-1680942148076-0').addService(googletag.pubads());
+            googletag.defineSlot('/22901649087/sidebar', [[120, 240], [125, 125], [180, 150], [200, 446], [120, 600], [320, 480], [300, 600], [160, 600]], 'div-gpt-ad-1680990636926-0').addService(googletag.pubads());
+            googletag.defineSlot('/22901649087/contentButtom', [[980, 120], [120, 20], [980, 90], [320, 100], [300, 75], [728, 90], [480, 320], [320, 50], [468, 60], [970, 90]], 'div-gpt-ad-1680990353679-0').addService(googletag.pubads());
             googletag.pubads().enableSingleRequest();
             googletag.enableServices();
           });
         `}} />
-        {/* <script dangerouslySetInnerHTML={{__html:`
-          googletag.cmd.push(function() {
-            googletag.pubads().enableSingleRequest();
-            googletag.enableServices();
-          });
-        `}} /> */}
       </Head>
       <body>
         <Main />
