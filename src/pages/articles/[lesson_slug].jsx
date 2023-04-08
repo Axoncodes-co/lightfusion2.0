@@ -105,8 +105,8 @@ export default function Post({ categories, category, lesson, metatags }) {
                 </section>
                 <aside>
                     {/* <!-- /22901649087/sidebar --> */}
-                    <div id='div-gpt-ad-1680990636926-0' style={{minWidth: '120px', minHeight: '125px'}}>
-                        <script dangerouslySetInnerHTML={{__html: `googletag.cmd.push(function() { googletag.display('div-gpt-ad-1680990636926-0'); });`}} />
+                    <div id='div-gpt-ad-1680990636926-0' style={{minWidth: '200px', minHeight: '360px'}}>
+                        <script dangerouslySetInnerHTML={{__html: `googletag.cmd.push(function() { googletag.display('div-gpt-ad-1680991700517-0'); });`}} />
                     </div>
                 </aside>
             </section>
