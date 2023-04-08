@@ -7,9 +7,7 @@ import Author from '../../../../../components/Author'
 import Nextprev from '../../../../../components/Nextprev'
 import Head from 'next/head'
 import Footer from '../../../../../fragments/Footer'
-import Script from 'next/script'
 import Text from '../../../../../builtin-axg/text/v2'
-import { useEffect } from 'react'
 
 export default function Post({ categories, course_slug, category, course, lesson, metatags }) {
     const postIntro = (color) => (<>
@@ -60,16 +58,6 @@ export default function Post({ categories, course_slug, category, course, lesson
                 <meta property="og:image:width" content="1280" key={"og:image:width"} />
                 <meta property="og:image:height" content="519" key={"og:image:height"} />
             </Head>
-            <script dangerouslySetInnerHTML={{
-            __html: `
-                window.googletag = window.googletag || {cmd: []};
-                googletag.cmd.push(function() {
-                    googletag.defineSlot('/22901649087/sidebar', [120, 240], 'div-gpt-ad-1680936805702-0').addService(googletag.pubads());
-                    googletag.pubads().enableSingleRequest();
-                    googletag.enableServices();
-                });`
-            }} />
-
             <Header categories={categories} />
 			<Navbar data={categories} current_slug={course_slug} />
             <section className={'primary_bg subcontainer horizontal widePadding_l0 topy colgap_l0'}>
@@ -106,10 +94,15 @@ export default function Post({ categories, course_slug, category, course, lesson
                         textclasses={`${style.excerpt} font_l4 weight_l3 secondary_color`}
                     />
                     <main id='content' className={`${style.content}`} dangerouslySetInnerHTML={{__html: lesson.content}}></main>
+                    <aside>
+                        {/* <!-- /22901649087/sidebar --> */}
+                        <div id='div-gpt-ad-1680941339242-0' style={{minWidth: '120px', minHeight: '240px'}}>
+                        <script dangerouslySetInnerHTML={{__html: `googletag.cmd.push(function() { googletag.display('div-gpt-ad-1680941339242-0'); });`}} />
+                        </div>
+                    </aside>
                 </section>
             </section>
             <Footer categories={categories} />
-            <Script strategy={'beforeInteractive'} async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5146054383186265" crossorigin="anonymous"></Script>
         </>
     )
 }

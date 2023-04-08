@@ -31,6 +31,17 @@ export default function Document() {
 
           gtag('config', 'UA-187520717-1');
         `}} />
+        <Script strategy={'beforeInteractive'} async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5146054383186265" crossorigin="anonymous"></Script>
+        <Script strategy={'beforeInteractive'} async src="https://securepubads.g.doubleclick.net/tag/js/gpt.js"></Script>
+        <script dangerouslySetInnerHTML={{__html:`
+          window.googletag = window.googletag || {cmd: []};
+          googletag.cmd.push(function() {
+            googletag.defineSlot('/22901649087/sidebar', [120, 240], 'div-gpt-ad-1680941339242-0').addService(googletag.pubads());
+            googletag.pubads().enableSingleRequest();
+            googletag.pubads().collapseEmptyDivs();
+            googletag.enableServices();
+          });
+        `}} />
       </Head>
       <body>
         <Main />
