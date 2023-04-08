@@ -104,6 +104,10 @@ export default function Post({ categories, course_slug, category, course, lesson
                     <div id='div-gpt-ad-1680990636926-0' style={{minWidth: '200px', minHeight: '360px'}}>
                         <script dangerouslySetInnerHTML={{__html: `googletag.cmd.push(function() { googletag.display('div-gpt-ad-1680991700517-0'); });`}} />
                     </div>
+                    {/* <!-- /22901649087/sidebar --> */}
+                    <div id='div-gpt-ad-1680991895475-0' style={{minWidth: '200px', minHeight: '360px'}}>
+                        <script dangerouslySetInnerHTML={{__html: `googletag.cmd.push(function() { googletag.display('div-gpt-ad-1680991895475-0'); });`}} />
+                    </div>
                 </aside>
             </section>
             <script
