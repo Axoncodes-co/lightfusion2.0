@@ -96,9 +96,8 @@ export default function Post({ categories, course_slug, category, course, lesson
                     <main id='content' className={`${style.content}`} dangerouslySetInnerHTML={{__html: lesson.content}}></main>
                 </section>
                 <aside>
-                    {/* <!-- /22901649087/sidebar --> */}
-                    <div id='div-gpt-ad-1680941339242-0' style={{minWidth: '120px', minHeight: '240px'}}>
-                    <script dangerouslySetInnerHTML={{__html: `googletag.cmd.push(function() { googletag.display('div-gpt-ad-1680941339242-0'); });`}} />
+                    <div id='div-gpt-ad-1680941918815-0' style='min-width: 120px; min-height: 125px;'>
+                        <script dangerouslySetInnerHTML={{__html: `googletag.cmd.push(function() { googletag.display('div-gpt-ad-1680941918815-0'); });`}} />
                     </div>
                 </aside>
             </section>

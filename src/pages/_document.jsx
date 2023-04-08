@@ -36,9 +36,8 @@ export default function Document() {
         <script dangerouslySetInnerHTML={{__html:`
           window.googletag = window.googletag || {cmd: []};
           googletag.cmd.push(function() {
-            googletag.defineSlot('/22901649087/sidebar', [120, 240], 'div-gpt-ad-1680941339242-0').addService(googletag.pubads());
+            googletag.defineSlot('/22901649087/sidebar', [[120, 240], [125, 125], [120, 600], [160, 600]], 'div-gpt-ad-1680941918815-0').addService(googletag.pubads());
             googletag.pubads().enableSingleRequest();
-            googletag.pubads().collapseEmptyDivs();
             googletag.enableServices();
           });
         `}} />
