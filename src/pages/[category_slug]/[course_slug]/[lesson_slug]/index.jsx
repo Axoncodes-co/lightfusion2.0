@@ -105,6 +105,24 @@ export default function Post({ categories, course_slug, category, course, lesson
                     </div>
                 </aside>
             </section>
+            <script
+				type="application/ld+json"
+				dangerouslySetInnerHTML={{
+					__html: JSON.stringify({
+                        "@context": "https://schema.org",
+                        "@type": "NewsArticle",
+                        "headline": metatags.title,
+                        "image": lesson.imageslist.map(img => `https://homapilot.com${img}`),
+                        "datePublished": lesson.publishDate,
+                        "dateModified": lesson.updateDate,
+                        "author": [{
+                            "@type": "Person",
+                            "name": lesson.author_name,
+                            "url": "https://homapilot.com/about"
+                        }]
+                    })
+				}}
+			/>
             <Footer categories={categories} />
         </>
     )

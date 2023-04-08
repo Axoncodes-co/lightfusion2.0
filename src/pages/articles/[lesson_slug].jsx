@@ -98,26 +98,36 @@ export default function Post({ categories, category, lesson, metatags }) {
                         textclasses={`${style.excerpt} font_l4 weight_l3 secondary_color`}
                     />
                     <main id='content' className={`${style.content}`} dangerouslySetInnerHTML={{__html: lesson.content}}></main>
-
-                    <ins className="adsbygoogle"
-                        style={{display:'block'}}
-                        data-ad-client="ca-pub-5146054383186265"
-                        data-ad-slot="8969756356"
-                        data-ad-format="auto"
-                        data-full-width-responsive="true"
-                    ></ins>
+                    {/* <!-- /22901649087/contentButtom --> */}
+                    <div id='div-gpt-ad-1680942148076-0' style={{minWidth: '320px', minHeight: '50px'}}>
+                        <script dangerouslySetInnerHTML={{__html: `googletag.cmd.push(function() { googletag.display('div-gpt-ad-1680942148076-0'); });`}} />
+                    </div>
                 </section>
-                {/* <aside style={{width: '270px', minHeight: '100vh'}} className={'hideOnMobile subcontainer padding_l1 topy'}>
-                    <ins className="adsbygoogle"
-                        style={{display:'inline-block',width:'250px',height:'500px'}}
-                        data-ad-client="ca-pub-5146054383186265"
-                        data-ad-slot="6515199005"
-                    ></ins>
-                </aside> */}
+                <aside>
+                    <div id='div-gpt-ad-1680941918815-0' style={{minWidth: '120px', minHeight: '125px'}}>
+                        <script dangerouslySetInnerHTML={{__html: `googletag.cmd.push(function() { googletag.display('div-gpt-ad-1680941918815-0'); });`}} />
+                    </div>
+                </aside>
             </section>
             <Footer categories={categories} />
-            <Script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5146054383186265" crossorigin="anonymous"></Script>
-            <Script id={'sidebar_ads'}>(adsbygoogle = window.adsbygoogle || []).push({});</Script>
+            <script
+				type="application/ld+json"
+				dangerouslySetInnerHTML={{
+					__html: JSON.stringify({
+                        "@context": "https://schema.org",
+                        "@type": "NewsArticle",
+                        "headline": metatags.title,
+                        "image": lesson.imageslist.map(img => `https://homapilot.com${img}`),
+                        "datePublished": lesson.publishDate,
+                        "dateModified": lesson.updateDate,
+                        "author": [{
+                            "@type": "Person",
+                            "name": lesson.author_name,
+                            "url": "https://homapilot.com/about"
+                        }]
+                    })
+				}}
+			/>
             
         </>
     )

@@ -84,6 +84,20 @@ export default function Archive({ categories, category, metatags }) {
 					</section>
 				</section>
 			</section>
+			<script
+				type="application/ld+json"
+				dangerouslySetInnerHTML={{
+					__html: JSON.stringify({
+						"@context":"https://schema.org",
+						"@type":"ItemList",
+						"itemListElement": category.courses.map((course, key) => ({
+							"@type":"ListItem",
+							"position":key,
+							"url":`https://homapilot.com/${category.slug}/${course.slug}`
+						}))
+					})
+				}}
+			/>
 			<Footer categories={categories} />
 		</>
     )
