@@ -115,11 +115,15 @@ export default function Post({ categories, course_slug, category, course, lesson
                     ></ins>
                 </section>
                 <aside style={{width: '270px', minHeight: '100vh'}} className={'hideOnMobile subcontainer padding_l1 topy'}>
-                    <ins className="adsbygoogle"
-                        style={{display:'inline-block'}}
+                    {/* <ins className="adsbygoogle"
+                        style={{display:'inline-block',width:'250px',height:'500px'}}
                         data-ad-client="ca-pub-5146054383186265"
                         data-ad-slot="22900044279"
-                    ></ins>
+                    ></ins> */}
+                    {/* <!-- /22901649087/sidebar --> */}
+                    <div id='div-gpt-ad-1680936805702-0' style='min-width: 120px; min-height: 240px;'>
+                        <script dangerouslySetInnerHTML={{__html: `googletag.cmd.push(function() { googletag.display('div-gpt-ad-1680936805702-0'); });`}} />
+                    </div>
                 </aside>
             </section>
             <Footer categories={categories} />
