@@ -100,7 +100,7 @@ export default function Post({ categories, course_slug, category, course, lesson
                     </div>
                 </section>
                 <aside>
-                    <div id='div-gpt-ad-1680941918815-0' style='min-width: 120px; min-height: 125px;'>
+                    <div id='div-gpt-ad-1680941918815-0' style={{minWidth: '120px', minHeight: '125px'}}>
                         <script dangerouslySetInnerHTML={{__html: `googletag.cmd.push(function() { googletag.display('div-gpt-ad-1680941918815-0'); });`}} />
                     </div>
                 </aside>
