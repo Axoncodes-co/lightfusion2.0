@@ -101,8 +101,8 @@ export default function Post({ categories, course_slug, category, course, lesson
                 </section>
                 <aside>
                     {/* <!-- /22901649087/sidebar --> */}
-                    <div id='div-gpt-ad-1680992761853-0' style={{minWidth: '200px', minHeight: '360px'}}>
-                        <script dangerouslySetInnerHTML={{__html: `googletag.cmd.push(function() { googletag.display('div-gpt-ad-1680991895475-0'); });`}} />
+                    <div id='div-gpt-ad-1680993896350-0' style={{minWidth: '200px', minHeight: '360px'}}>
+                        <script dangerouslySetInnerHTML={{__html: `googletag.cmd.push(function() { googletag.display('div-gpt-ad-1680993896350-0'); });`}} />
                     </div>
                     {/* <!-- /22901649087/sidebar2 --> */}
                     <div id='div-gpt-ad-1680992412944-0' style={{minWidth: '200px', minHeight: '360px'}}>
