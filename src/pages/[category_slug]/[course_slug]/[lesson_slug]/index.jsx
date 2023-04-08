@@ -60,22 +60,23 @@ export default function Post({ categories, course_slug, category, course, lesson
                 <meta property="og:image:width" content="1280" key={"og:image:width"} />
                 <meta property="og:image:height" content="519" key={"og:image:height"} />
             </Head>
-            {/* <script dangerouslySetInnerHTML={{
-            __html: `window.googletag = window.googletag || {cmd: []};
-            googletag.cmd.push(function() {
-                googletag.defineSlot('/22901649087/sidebar', [120, 240], 'div-gpt-ad-1680936805702-0').addService(googletag.pubads());
-                googletag.pubads().enableSingleRequest();
-                googletag.enableServices();
-            });`
-            }} /> */}
-            <Script id={'setup_sidebar_ad1'}>window.googletag = window.googletag || {{cmd: []}}</Script>
+            <script dangerouslySetInnerHTML={{
+            __html: `
+                window.googletag = window.googletag || {cmd: []};
+                googletag.cmd.push(function() {
+                    googletag.defineSlot('/22901649087/sidebar', [120, 240], 'div-gpt-ad-1680936805702-0').addService(googletag.pubads());
+                    googletag.pubads().enableSingleRequest();
+                    googletag.enableServices();
+                });`
+            }} />
+            {/* <Script id={'setup_sidebar_ad1'}>window.googletag = window.googletag || {{cmd: []}}</Script>
             <Script id={'setup_sidebar_ad2'}>{
                 googletag.cmd.push(function() {
                     googletag.defineSlot('/22901649087/sidebar', [120, 240], 'div-gpt-ad-1680936805702-0').addService(googletag.pubads())
                     googletag.pubads().enableSingleRequest()
                     googletag.enableServices()
                 })
-            }</Script>
+            }</Script> */}
             <Script id={'sidebar_ads_actual'}>{googletag.cmd.push(function() { googletag.display('div-gpt-ad-1680936805702-0')})}</Script>
 
             <Header categories={categories} />
