@@ -105,7 +105,7 @@ export default function Post({ categories, category, lesson, metatags }) {
                 </section>
                 <aside>
                     {/* <!-- /22901649087/sidebar --> */}
-                    <div id='div-gpt-ad-1680991895475-0' style={{minWidth: '200px', minHeight: '360px'}}>
+                    <div id='div-gpt-ad-1680992761853-0' style={{minWidth: '200px', minHeight: '360px'}}>
                         <script dangerouslySetInnerHTML={{__html: `googletag.cmd.push(function() { googletag.display('div-gpt-ad-1680991895475-0'); });`}} />
                     </div>
                     {/* <!-- /22901649087/sidebar2 --> */}
