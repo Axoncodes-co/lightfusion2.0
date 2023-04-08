@@ -68,7 +68,7 @@ export default function Post({ categories, course_slug, category, course, lesson
                 googletag.enableServices();
             });`
             }} /> */}
-            <Script id={'setup_sidebar_ad1'}>{window.googletag = (window.googletag || {cmd: []})}</Script>
+            <Script id={'setup_sidebar_ad1'}>window.googletag = window.googletag || {{cmd: []}}</Script>
             <Script id={'setup_sidebar_ad2'}>{
                 googletag.cmd.push(function() {
                     googletag.defineSlot('/22901649087/sidebar', [120, 240], 'div-gpt-ad-1680936805702-0').addService(googletag.pubads())
