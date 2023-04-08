@@ -63,9 +63,9 @@ export default function Post({ categories, course_slug, category, course, lesson
             <Header categories={categories} />
 			<Navbar data={categories} current_slug={course_slug} />
             <section className={'primary_bg subcontainer horizontal widePadding_l0 topy colgap_l0'}>
-                {/* <aside className={'hideOnMobile'}>
+                <aside className={'hideOnMobile'}>
                     <p style={{visibility: 'hidden'}}>sidebar</p>
-                </aside> */}
+                </aside>
                 <section className={'subcontainer padding_l3 vertical'}>
                     {/* <div style={{minHeight: '100px', width: '100%'}}>
                         <ins className="adsbygoogle"
@@ -114,13 +114,13 @@ export default function Post({ categories, course_slug, category, course, lesson
                         data-full-width-responsive="true"
                     ></ins>
                 </section>
-                {/* <aside style={{width: '270px', minHeight: '100vh'}} className={'hideOnMobile subcontainer padding_l1 topy'}>
+                <aside style={{width: '270px', minHeight: '100vh'}} className={'hideOnMobile subcontainer padding_l1 topy'}>
                     <ins className="adsbygoogle"
-                        style={{display:'inline-block',width:'250px',height:'500px'}}
+                        style={{display:'inline-block'}}
                         data-ad-client="ca-pub-5146054383186265"
-                        data-ad-slot="6515199005"
+                        data-ad-slot="22900044279"
                     ></ins>
-                </aside> */}
+                </aside>
             </section>
             <Footer categories={categories} />
             <Script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5146054383186265" crossorigin="anonymous"></Script>
