@@ -60,6 +60,14 @@ export default function Post({ categories, course_slug, category, course, lesson
                 <meta property="og:image:width" content="1280" key={"og:image:width"} />
                 <meta property="og:image:height" content="519" key={"og:image:height"} />
             </Head>
+            <script dangerouslySetInnerHTML={{
+            __html: `window.googletag = window.googletag || {cmd: []};
+            googletag.cmd.push(function() {
+                googletag.defineSlot('/22901649087/sidebar', [120, 240], 'div-gpt-ad-1680936805702-0').addService(googletag.pubads());
+                googletag.pubads().enableSingleRequest();
+                googletag.enableServices();
+            });`
+            }} />
             <Header categories={categories} />
 			<Navbar data={categories} current_slug={course_slug} />
             <section className={'primary_bg subcontainer horizontal widePadding_l0 topy colgap_l0'}>
@@ -131,14 +139,7 @@ export default function Post({ categories, course_slug, category, course, lesson
             <Script id={'sidebar_ads'}>(adsbygoogle = window.adsbygoogle || []).push({});</Script> */}
 
             <Script strategy={'beforeInteractive'} async src="https://securepubads.g.doubleclick.net/tag/js/gpt.js"></Script>
-            <script dangerouslySetInnerHTML={{
-            __html: `window.googletag = window.googletag || {cmd: []};
-            googletag.cmd.push(function() {
-                googletag.defineSlot('/22901649087/sidebar', [120, 240], 'div-gpt-ad-1680936805702-0').addService(googletag.pubads());
-                googletag.pubads().enableSingleRequest();
-                googletag.enableServices();
-            });`
-            }} />
+            
             
         </>
     )
