@@ -122,7 +122,7 @@ export const getStaticProps = async ({params}) => {
 			metatags: {
                 title: course.metatags.title,
                 description: course.metatags.description,
-                href: `https://homapilot.com/${category.slug}/${course.slug}`,
+                href: `https://homapilot.com/${category.slug}/${course.slug}/`,
                 ico: '/ico.png'
             }
 		}

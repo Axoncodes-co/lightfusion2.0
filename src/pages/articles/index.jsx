@@ -76,7 +76,7 @@ export const getStaticProps = async ({params}) => {
 			metatags: {
                 title: article_cat.metatags.title,
                 description: article_cat.metatags.description,
-                href: `https://homapilot.com/${article_cat.slug}`,
+                href: `https://homapilot.com/${article_cat.slug}/`,
                 ico: '/ico.png'
             }
 		}

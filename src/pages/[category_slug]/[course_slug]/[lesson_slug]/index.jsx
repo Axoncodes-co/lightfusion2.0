@@ -129,7 +129,7 @@ export default function Post({ categories, course_slug, category, course, lesson
                         "author": [{
                             "@type": "Person",
                             "name": lesson.author_name,
-                            "url": "https://homapilot.com/about"
+                            "url": "https://homapilot.com/about/"
                         }]
                     })
 				}}
@@ -181,7 +181,7 @@ export const getStaticProps = async ({params}) => {
             metatags: {
                 title: lesson.metatags.title[0] || lesson.title,
                 description: lesson.metatags.metadesc[0],
-                href: `https://homapilot.com/${category.slug}/${course.slug}/${lesson.slug}`,
+                href: `https://homapilot.com/${category.slug}/${course.slug}/${lesson.slug}/`,
                 ico: '/ico.png'
             }
         }
