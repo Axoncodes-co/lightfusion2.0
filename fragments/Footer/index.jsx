@@ -21,7 +21,7 @@ export default function Footer({categories}) {
                     text={'Homa Pilot was founded in 2020 and the purpose of this complex is to provide digital aviation and piloting courses for free and online so that all students of piloting and aviation.'}
                 />
             </section>
-            <section className={'subcontainer horizontal topy righty'}>
+            <section className={'centerOnTablet horizontal horizontalTabletBreak righty subcontainer topy'}>
                 <section className={'subcontainer fitWidth topy'}>
                     <Text text={'Categories'} textclasses={headsclasses} />
                     <div className={'subcontainer vertical'}>
@@ -40,7 +40,7 @@ export default function Footer({categories}) {
         </section>
         <div className={'round_l5'} style={{backgroundColor: '#000000d4', width: '100%', height: '1px', margin: '22px 0'}} />
         <section className={'subcontainer horizontal spread'}>
-            <div className={'subcontainer horizontal horizontalTabletBreak fitWidth lefty'}>
+            <div className={'centerOnTablet fitWidth horizontal horizontalTabletBreak lefty subcontainer wideonTablet'}>
                 <Link href={'https://www.instagram.com/homapilot/'}>
                     <Image alt={'socialmedia'} src={'/instagram.svg'} width={20} height={20} />
                 </Link>
@@ -63,7 +63,7 @@ export default function Footer({categories}) {
                     <Image alt={'socialmedia'} src={'/email.svg'} width={20} height={20} />
                 </Link>
             </div>
-            <p className={'font_l2_min weight_l3 primary_color righty centerOnMobile'}>© 2020–2023 HomaPilot LLC & <a target="_blank" href="https://axoncodes.com" className="tertiary_color">Axoncodes</a> - Made with <svg className={style.hearticon} xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 96 960 960" fill="#AD1457"><path d="m439 900-53-49Q262 736 171 631.5T80 413q0-90 60.5-150.5T290 202q51 0 101 24.5t89 80.5q44-56 91-80.5t99-24.5q89 0 149.5 60.5T880 413q0 114-91 218.5T574 851l-53 49q-17 16-41 16t-41-16Z"/></svg> in Arizona</p>
+            <p className={'centerOnTablet font_l2_min primary_color righty weight_l3 wideonTablet'}>© 2020–2023 HomaPilot LLC & <a target="_blank" href="https://axoncodes.com" className="tertiary_color">Axoncodes</a> - Made with <svg className={style.hearticon} xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 96 960 960" fill="#AD1457"><path d="m439 900-53-49Q262 736 171 631.5T80 413q0-90 60.5-150.5T290 202q51 0 101 24.5t89 80.5q44-56 91-80.5t99-24.5q89 0 149.5 60.5T880 413q0 114-91 218.5T574 851l-53 49q-17 16-41 16t-41-16Z"/></svg> in Arizona</p>
         </section>
     </footer>)
 }
