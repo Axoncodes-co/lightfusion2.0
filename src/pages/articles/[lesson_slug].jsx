@@ -98,7 +98,7 @@ export default function Post({ categories, category, lesson, metatags }) {
                         textclasses={`${style.excerpt} font_l4 weight_l3 secondary_color`}
                     />
                     <main id='content' className={`${style.content}`} dangerouslySetInnerHTML={{__html: lesson.content}}></main>
-                    <section id='belowads' className={'subcontainer vertical center padding_l3 verticalTabletBreak'}>
+                    <section id='belowads' className={'subcontainer horizontal center padding_l3 verticalTabletBreak'}>
                         {/* <!-- /22901649087/contentButtom --> */}
                         <div id='div-gpt-ad-1680990353679-0' style={{minWidth: '120px', minHeight: '20px', maxWidth: '100vw'}}>
                             <script dangerouslySetInnerHTML={{__html: `googletag.cmd.push(function() { googletag.display('div-gpt-ad-1680990353679-0'); });`}} />
