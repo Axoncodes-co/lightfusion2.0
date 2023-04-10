@@ -84,7 +84,7 @@ export const getStaticProps = async () => {
 				title: "Online Aviation Courses and Exams By Homa Pilot",
 				description: "Homa Pilot offers aviation and flight training courses such as PPL, CPL, IR, and ATPL. We also offer online piloting exams.",
 				href: "https://homapilot.com/",
-                ico: '/ico.png'
+                ico: '/favicon.ico'
 			}
 		}
 	}))

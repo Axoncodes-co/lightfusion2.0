@@ -176,7 +176,7 @@ export const getStaticProps = async ({params}) => {
                 title: lesson.metatags.title[0] || lesson.title,
                 description: lesson.metatags.metadesc[0],
                 href: `https://homapilot.com/${articles_cat.slug}/${lesson.slug}/`,
-                ico: '/ico.png'
+                ico: '/favicon.ico'
             }
         }
     })

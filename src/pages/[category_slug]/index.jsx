@@ -127,7 +127,7 @@ export const getStaticProps = async ({params}) => {
                 title: `${category.metatags.title} - Online Aviation Courses and Exams By Homa Pilot`,
                 description: category.metatags.description,
                 href: `https://homapilot.com/${category.slug}/`,
-                ico: '/ico.png'
+                ico: '/favicon.ico'
             }
 		}
 	})

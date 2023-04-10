@@ -77,7 +77,7 @@ export const getStaticProps = async ({params}) => {
                 title: article_cat.metatags.title,
                 description: article_cat.metatags.description,
                 href: `https://homapilot.com/${article_cat.slug}/`,
-                ico: '/ico.png'
+                ico: '/favicon.ico'
             }
 		}
 	})
