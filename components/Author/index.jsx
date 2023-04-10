@@ -14,7 +14,6 @@ export default function Author({
             customclasses={'fitHeight colgap_l2'}
             innercustomclasses={'rowgap_l0'}
             icon={{
-                dev: 'stagin',
                 plane: true,
                 isfont: '0',
                 src: avatar_url,
