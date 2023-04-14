@@ -31,7 +31,7 @@ export default function Document() {
 
           gtag('config', 'UA-187520717-1');
         `}} />
-        <Script strategy={'beforeInteractive'} async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5146054383186265" crossorigin="anonymous"></Script>
+        <Script strategy={'beforeInteractive'} async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5146054383186265" crossOrigin="anonymous"></Script>
         <Script strategy={'beforeInteractive'} async src="https://securepubads.g.doubleclick.net/tag/js/gpt.js"></Script>
         <script dangerouslySetInnerHTML={{__html:`
           window.googletag = window.googletag || {cmd: []};
