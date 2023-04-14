@@ -20,7 +20,7 @@ export function AxgBreadcrumb({
   dropdownone_head.text.textclasses = `${dropdownone_head.text.textclasses || ''} nomargin shortenonmobile_full`
   dropdownone_head.text.innercustomclasses = `${dropdownone_head.text.innercustomclasses || ''} rowgap_l0 shortenonmobile`
 
-  if (dropdowntwo_head != 'null') {
+  if (dropdowntwo_head && dropdowntwo_head.length) {
     dropdowntwo_head.text.subtext = `${dropdowntwo_head.text.text.slice(0, 3)}...`
     dropdowntwo_head.text.subtextclasses = `${dropdowntwo_head.text.textclasses || ''} ${dropdowntwo_head.text.subtextclasses || ''} secondary_color tertiary_color_hover nomargin shortenonmobile_short`
     dropdowntwo_head.text.textclasses = `${dropdowntwo_head.text.textclasses || ''} nomargin shortenonmobile_full`
