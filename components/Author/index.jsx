@@ -17,7 +17,8 @@ export default function Author({
                 plane: true,
                 isfont: '0',
                 src: avatar_url,
-                customclasses: `${style.avatar} round`
+                customclasses: `${style.avatar} round`,
+                alt: 'Author'
             }}
         />
     )

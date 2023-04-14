@@ -1,5 +1,4 @@
-import dynamic from 'next/dynamic'
-const AxgBreadcrumb = dynamic(() => import('../../axg-react/Breadcrumb'), {ssr: false})
+import { AxgBreadcrumb } from '../../builtin-axg/Breadcrumb/v1'
 
 
 export default function Breadcrumb({
@@ -63,13 +62,13 @@ export default function Breadcrumb({
                     textclasses: `${thiscourse.slug == course.slug ? 'secondary_bg secondary_color' : 'primary_color tertiary_color_hover'} round_l1 widePadding_l1 weight_l3 font_l2 secondary_font nomargin`,
                 },
             })),
-        } : null}
+        } : {}}
         dropdowntwo_body={course ? {
             structure: 'simple',
             dropdownid: 'breadcrumb_course_id',
             targetLocator: 'breadcrumb_course',
             subtrigger: 'click',
             subopening: 'sub',
-        } : null}
+        } : {}}
     />
 }
