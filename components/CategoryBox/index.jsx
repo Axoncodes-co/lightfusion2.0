@@ -31,7 +31,7 @@ export default function CategoryBox({
                 />
                 <section className={'subcontainer center horizontal padding_l3 verticalTabletBreak fitminWidth'}>
                     <div className={'subcontainer horizontal center'}>
-                        <Text text={courses_count} customclasses={'center'} textclasses={'primary_color nomargin font_l1 weight_l6'} />
+                        <Text text={`${courses_count}`} customclasses={'center'} textclasses={'primary_color nomargin font_l1 weight_l6'} />
                         <Text text={'Courses'} customclasses={''} textclasses={'primary_color nomargin font_l1 weight_l6'} />
                     </div>
                 </section>

@@ -7,7 +7,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 // const Searchbar = dynamic(() => import('../../axg-react/Searchbar3'), {ssr: false})
 // const Logo = dynamic(() => import('../../axg-react/Logo'), {ssr: false})
-export default function Header({ categories }) {
+export default function Header({ categories, courses }) {
 
   const [menuGroup, setMenuGroup] = useState({
     headTitlecolor: '#ededed',
@@ -55,11 +55,11 @@ export default function Header({ categories }) {
       exit: '1',
       listclasses: 'container wrap',
       customclasses: 'wide righty subcontainer',
-      options: categories.filter(cat => cat.slug != 'articles').map(category => ({
+      options: categories.filter(({slug}) => slug != 'articles').map(({title, slug: catslug }) => ({
         listclasses: 'vertical centerOnTablet lefty',
         text: {
-          text: category.title,
-          link: `/${category.slug}`,
+          text: title,
+          link: `/${catslug}`,
           textclasses: 'font_l7 tertiary_color nomargin',
           // icon: {
           //   svg: category.svg,
@@ -68,10 +68,10 @@ export default function Header({ categories }) {
           customclasses: 'centerOnTablet colgap_l2',
         },
         level: 'undertab',
-        content: category.courses.map(course => ({
+        content: courses[catslug].map(({title, slug: courseslug}) => ({
           text: {
-            text: course.title,
-            link: `/${category.slug}/${course.slug}`,
+            text: title,
+            link: `/${catslug}/${courseslug}`,
             textclasses: 'nomargin widePadding_l1 font_l4 primary_color secondary_color_hover weight_l3',
             customclasses: 'round_l2 colgap_l2',
             // icon: {
@@ -107,20 +107,21 @@ export default function Header({ categories }) {
     },
   ])
 
-  const links = []
-  const names = []
-  categories.forEach(cat => {
-    links.push(`/${cat.slug}`)
-    names.push(cat.title)
-    cat.courses.forEach(course => {
-      links.push(`/${cat.slug}/${course.slug}`)
-      names.push(course.title)
-      course.lessons.forEach(lesson => {
-        links.push(`/${cat.slug}/${course.slug}/${lesson.slug}`)
-        names.push(lesson.title)
-      })
-    })
-  })
+  // const links = []
+  // const names = []
+  // Object.entries(categories).map(item => item[1]).forEach(cat => {
+  //   links.push(`/${cat.slug}`)
+  //   names.push(cat.title)
+  //   cat.courses.forEach(course => {
+  //     links.push(`/${cat.slug}/${course.slug}`)
+  //     names.push(course.title)
+  //     course.lessons.forEach(lesson => {
+  //       links.push(`/${cat.slug}/${course.slug}/${lesson.slug}`)
+  //       names.push(lesson.title)
+  //     })
+  //   })
+  // })
+
   return (
     <>
     <section
