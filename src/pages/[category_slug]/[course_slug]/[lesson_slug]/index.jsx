@@ -27,7 +27,7 @@ export default function Post({ categories, course_slug, category, course, lesson
     return (
         <>
             <Head>
-                <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+                <meta httpEquiv="content-type" content="text/html; charset=UTF-8" />
                 <title>{metatags.title}</title>
                 <meta name="description" content={metatags.description} key={"description"} />
                 <meta name="robots" content="max-snippet:-1, max-image-preview:large, max-video-preview:-1" key={"robots"} />
