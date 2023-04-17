@@ -799,33 +799,33 @@ body {
 }
 .hide {
   visibility: hidden!important;
-  height: 0;
+  height: 0 !important;
 }
 @media screen and (max-width: 768px) {
   .hideOnTablet {
     visibility: hidden!important;
-    height: 0;
+    height: 0 !important;
   }
 }
 @media screen and (max-width: 600px) {
   .hideOnMobile {
     visibility: hidden!important;
-    height: 0;
+    height: 0 !important;
   }
 }
 .visible {
   visibility: visible!important;
-  height: auto;
+  height: auto !important;
 }
 @media screen and (max-width: 768px) {
   .visibleOnTablet {
     visibility: visible!important;
-    height: auto;
+    height: auto !important;
   }
 }
 @media screen and (max-width: 600px) {
   .visibleOnMobile {
     visibility: visible!important;
-    height: auto;
+    height: auto !important;
   }
 }

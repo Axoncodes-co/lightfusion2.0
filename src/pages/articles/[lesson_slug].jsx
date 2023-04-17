@@ -60,17 +60,7 @@ export default function Post({ categories, category, lesson, metatags }) {
             <Header categories={categories} />
 			<Navbar data={categories} />
             <section className={'primary_bg subcontainer horizontal widePadding_l0 topy colgap_l0'}>
-                {/* <aside className={'hideOnMobile'}>
-                    <p style={{visibility: 'hidden'}}>sidebar</p>
-                </aside> */}
                 <section className={'subcontainer padding_l3 vertical'}>
-                    {/* <div style={{minHeight: '100px', width: '100%'}}>
-                        <ins className="adsbygoogle"
-                            style={{display:'inline-block', width:'600px', height:'90px'}}
-                            data-ad-client="ca-pub-5146054383186265"
-                            data-ad-slot="8430915906"
-                        ></ins>
-                    </div> */}
                     <section id={'content_nav'} className={'wide subcontainer'}>
                         <Breadcrumb
                             categories={categories}
@@ -134,7 +124,7 @@ export default function Post({ categories, category, lesson, metatags }) {
                         "author": [{
                             "@type": "Person",
                             "name": lesson.author_name,
-                            "url": "https://homapilot.com/about"
+                            "url": "https://homapilot.com/about/"
                         }]
                     })
 				}}
