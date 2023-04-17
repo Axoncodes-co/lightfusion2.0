@@ -16,6 +16,6 @@ export default function Input_template({
     type="search"
     name={name || `search`}
     pattern={regExp}
-    class={customclasses || ''}
+    className={customclasses || ''}
   />
 }

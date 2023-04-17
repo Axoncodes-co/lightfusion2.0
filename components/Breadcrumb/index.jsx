@@ -41,6 +41,24 @@ export default function Breadcrumb({
             targetLocator: 'breadcrumb_category',
             subtrigger: 'click',
             subopening: 'sub',
+            text: {
+                text: category.title,
+                textclasses: 'weight_l3 font_l2 secondary_font nomargin secondary_color tertiary_color_hover',
+            },
+            dropdownid: 'breadcrumb_category_id',
+            targetLocator: 'breadcrumb_category',
+            subtrigger: 'click',
+            subopening: 'sub',
+            listclasses: 'tertiary_bg fitWidth round_l2 padding_l1 subcontainer vertical lefty rowgap_l0 verticalTabletBreak',
+            bodyclasses: 'fitWidth',
+            options: categories.map(thiscategory => ({
+                level: 'undertab',
+                text: {
+                    text: thiscategory.title,
+                    link: `/${thiscategory.slug}`,
+                    textclasses: `${thiscategory.slug == category.slug ? 'secondary_bg secondary_color' : 'primary_color tertiary_color_hover'} round_l1 widePadding_l1 weight_l3 font_l2 secondary_font nomargin`,
+                },
+            })),
         }}
         dropdowntwo_head={course ? {
             text: {
@@ -69,6 +87,24 @@ export default function Breadcrumb({
             targetLocator: 'breadcrumb_course',
             subtrigger: 'click',
             subopening: 'sub',
+            text: {
+                text: course.title,
+                textclasses: 'weight_l3 font_l2 secondary_font nomargin secondary_color tertiary_color_hover',
+            },
+            dropdownid: 'breadcrumb_course_id',
+            targetLocator: 'breadcrumb_course',
+            subtrigger: 'click',
+            subopening: 'sub',
+            listclasses: 'tertiary_bg fitWidth round_l2 padding_l1 subcontainer vertical lefty rowgap_l0 verticalTabletBreak',
+            bodyclasses: 'fitWidth',
+            options: category.courses.map(thiscourse => ({
+                level: 'undertab',
+                text: {
+                    text: thiscourse.title,
+                    link: `/${category.slug}/${thiscourse.slug}`,
+                    textclasses: `${thiscourse.slug == course.slug ? 'secondary_bg secondary_color' : 'primary_color tertiary_color_hover'} round_l1 widePadding_l1 weight_l3 font_l2 secondary_font nomargin`,
+                },
+            })),
         } : {}}
     />
 }

@@ -38,7 +38,11 @@ function handleIcon({
   const compiledboxshadow = boxshadow ? 'boxshadow' : ''
   const compiledname = name ? 'split' : 'center'
   
-  const compiledContent = classes => content || imgOrIcon(classes) || <span {...strAttr(allattr)} dangerouslySetInnerHTML={{__html: svg}}></span>
+  const compiledContent = classes => {
+    if (svg) return <span {...strAttr(allattr)} dangerouslySetInnerHTML={{__html: svg}}></span>
+    else if (src) return imgOrIcon(classes)
+    else content
+  }
   const compiledClasses = classes => `subcontainer ${rootclass} ${compiledmidactive} ${compiledfilterPlacement} ${compiledTags} ${classes}`
   const ahrefHandler = (content, classes) => url ? <Link href={url} className={`subcontainer ${compiledClasses(classes)}`} style={{...compiledColor}}>{content}</Link> : ''
   const imgHandler = () => src ? <Image width={20} height={20} src={src} alt={alt} className={`subcontainer ${rootclass} ${customclasses}`} /> : ''

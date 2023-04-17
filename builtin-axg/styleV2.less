@@ -657,18 +657,18 @@ body {
   .wrapOnMobileBreak {flex-wrap: wrap!important}
 }
 
-.hide {visibility: hidden!important; height: 0}
+.hide {visibility: hidden!important; height: 0!important}
 @media screen and (max-width: @tabletBreakpoint) {
-  .hideOnTablet {visibility: hidden!important; height: 0}
+  .hideOnTablet {visibility: hidden!important; height: 0!important}
 }
 @media screen and (max-width: @mobileBreakpoint) {
-  .hideOnMobile {visibility: hidden!important; height: 0}
+  .hideOnMobile {visibility: hidden!important; height: 0!important}
 }
 
-.visible {visibility: visible!important; height: auto}
+.visible {visibility: visible!important; height: auto!important}
 @media screen and (max-width: @tabletBreakpoint) {
-  .visibleOnTablet {visibility: visible!important; height: auto}
+  .visibleOnTablet {visibility: visible!important; height: auto!important}
 }
 @media screen and (max-width: @mobileBreakpoint) {
-  .visibleOnMobile {visibility: visible!important; height: auto}
+  .visibleOnMobile {visibility: visible!important; height: auto!important}
 }
