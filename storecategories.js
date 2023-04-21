@@ -2,7 +2,7 @@
 const fs = require('fs')
 
 var myHeaders = new Headers();
-myHeaders.append("Authorization", "Bearer 9a0da8bf89da11a2f159d8e452e110965f2faf24c69f10b282dec0089a5ae55a8597d8885857b4c8c8626918b91961d4de596060a73a8f5e9a2e4149df5c59315fe594057c1d6f912f8ed95d77645724c7acd57fdcaf41040ad6a60048cb9e150bcc86ea2ef410ba1a9ce98ede47f99646d76798094b4a8768ad89bdbfc0fe0e");
+myHeaders.append("Authorization", "Bearer 84612300e4ffafbe106562197ff575ee38e978118c33507f5ac9d320b1b1c52e8d694438cba4f20f66e23587551a1572652a9751276950a50d0c86ce9601bd4c5b98f1571ba1f9dcf03c10d7bc3fa21ee8c5158ea06121181ef6c4cd4620fdc7984c12e765e1a25d305de56d854b94092bd7ddd9c1e410c8f2d8811c1300bcb2");
 
 const requestOptions = {
   method: 'GET',
@@ -93,19 +93,25 @@ async function writeToFile(data, address) {
 //   fs.writeFileSync('./public/data/media/info.json', JSON.stringify(data))
 // })();
 
-
+const baseurl = 'http://localhost:1337';
 
 (async function() {
-  const data = await fetchData('http://localhost:1337/api/category-configs?populate=SEO.metaImage')
+  const data = await fetchData(baseurl+'/api/upload/files')
+  await writeToFile(data, './public/data/media.json')
+  data.forEach(file => downloadImage(baseurl+file.url, './public/data/media/'+file.hash+file.ext))
+})();
+
+(async function() {
+  const data = await fetchData(baseurl+'/api/category-configs?populate=SEO.metaImage')
   await writeToFile(data, './public/data/categories.json')
 })();
 
 (async function() {
-  const data = await fetchData('http://localhost:1337/api/courses?populate=SEO.metaImage&populate=category&populate=category.SEO.metaImage')
+  const data = await fetchData(baseurl+'/api/courses?populate=SEO.metaImage&populate=category&populate=category.SEO.metaImage')
   await writeToFile(data, './public/data/courses.json')
 })();
 
 (async function() {
-  const data = await fetchData('http://localhost:1337/api/lessons?populate=course.category.SEO&populate=course.SEO&populate=SEO&populate=users_permissions_user&populate=SEO.metaImage')
+  const data = await fetchData(baseurl+'/api/lessons?populate=course.category.SEO&populate=course.SEO&populate=SEO&populate=users_permissions_user&populate=SEO.metaImage')
   await writeToFile(data, './public/data/lessons.json')
 })();
