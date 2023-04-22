@@ -1,10 +1,10 @@
 
 import Header from '../../fragments/Header'
 import Head from 'next/head'
-import fetchup from '../../lib/fetch'
 import Footer from '../../fragments/Footer'
 import Text from '../../builtin-axg/text/v2'
 import Link from 'next/link'
+import { getCategoriesBasics } from '../../lib/fetch/category'
 
 export default function Notfound({categories, metatags}) {
     const headsclasses = 'secondary_color font_l2_min weight_l6 fitWidth'
@@ -78,7 +78,7 @@ export default function Notfound({categories, metatags}) {
 }
 
 export const getStaticProps = async () => {
-	return fetchup()
+	return getCategoriesBasics()
 	.then(categories => ({
 		props: {
 			categories,

@@ -3,10 +3,12 @@ import Hero from '../../fragments/Hero'
 import CoursesCat from '../../fragments/CoursesCat'
 import LessonBox from '../../components/LessonBox'
 import Posts from '../../fragments/Posts'
-import { getCategoriesBasic, getCategoryCoursesBasic, getCourseLessonsBasic } from '../../lib/fetch'
 import Header from '../../fragments/Header'
 import Head from 'next/head'
 import Footer from '../../fragments/Footer'
+import { getCategoriesBasics } from '../../lib/fetch/category'
+import { getCoursesByCategories } from '../../lib/fetch/course'
+import { getLessonsBasics } from '../../lib/fetch/lesson'
 
 export default function Home({categories, courses, lessons1, metatags}) {
 	return (<>
@@ -55,9 +57,9 @@ export default function Home({categories, courses, lessons1, metatags}) {
 			<CoursesCat categories={categories} />
 		</section>
 		<Posts
-			link={`/${categories[0].slug}/${courses[categories[0].slug][0].slug}`}
-			title={`${courses[categories[0].slug][0].title} Popular Lessons`}
-			svg={courses[categories[0].slug][0].svg}
+			link={`/${categories[0].slug}/${courses[categories[0].slug].courses[1].slug}`}
+			title={`${courses[categories[0].slug].courses[1].title} Popular Lessons`}
+			svg={courses[categories[0].slug].courses[1].svg}
 		>
 			{lessons1.map((lesson, key) => key < 3 ? <LessonBox
 				key={key}
@@ -67,27 +69,26 @@ export default function Home({categories, courses, lessons1, metatags}) {
 				title={lesson.title}
 				publishDate={lesson.publishDate}
 				customclasses={key == 2 ? 'hideonlargetablet' : ''}
-				link={`/${categories[0].slug}/${courses[categories[0].slug][0].slug}/${lesson.slug}`}
+				link={`/${categories[0].slug}/${courses[categories[0].slug].courses[1].slug}/${lesson.slug}`}
 			/> : null).filter(item => item)}
 		</Posts>
 
 		{/* TODO: Add the fun facts section */}
-		{/* <Footer categories={categories} /> */}
-		{/* <Script async src={"/axgjs/dropdown_v5.js"} strategy={'afterInteractive'}></Script> */}
+		<Footer categories={categories} />
 
 	</>)
 }
 
 export const getStaticProps = async () => {
-	return getCategoriesBasic()
+	return getCategoriesBasics()
 	.then(async categories => {
-		const categorieslist = {}
-		await Promise.all(categories.map(async ({slug}) => categorieslist[slug] = await getCategoryCoursesBasic(slug)))
+		const courses = await getCoursesByCategories()
+		const lessons1 = await getLessonsBasics(courses[categories[0].slug].courses[1].slug)
 		return ({
 			props: {
 				categories,
-				courses: categorieslist,
-				lessons1: await getCourseLessonsBasic(categorieslist[categories[0].slug][1].slug),
+				courses,
+				lessons1,
 				metatags: {
 					title: "Online Aviation Courses and Exams By Homa Pilot",
 					description: "Homa Pilot offers aviation and flight training courses such as PPL, CPL, IR, and ATPL. We also offer online piloting exams.",

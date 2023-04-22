@@ -1,7 +1,7 @@
 import Text from "../../builtin-axg/text/v2";
 import toggletheme from "../../builtin-axg/switchThemescheme";
 
-export default function Navbar({data, current_slug}) {
+export default function Navbar({categories, courses, current_slug}) {
     return (
         <nav
             style={{
@@ -24,7 +24,21 @@ export default function Navbar({data, current_slug}) {
                 style={{overflowX: 'scroll'}}
                 className={'subcontainer horizontal horizontalTabletBreak tertiary_bg colgap_l0'}
             >
-                {data
+                {categories.filter(({slug}) => slug != 'articles').map(({slug: catslug }) => (
+                    courses[catslug].courses.map(({title, slug: courseslug}, key) => (
+                        <Text
+                            key={key}
+                            customclasses={'fitWidth'}
+                            text={title}
+                            link={`/${catslug}/${courseslug}`}
+                            textclasses={`
+                                ${current_slug == courseslug ? 'secondary_bg primary_color' : 'primary_color tertiary_color_hover'}
+                                transition fitWidth padding_l1 weight_l3 font_l2 nomargin
+                            `}
+                        />
+                    ))
+                ))}
+                {/* {data
                     .map(category => category.courses
                         .map((course, key) => 
                             <Text
@@ -39,7 +53,7 @@ export default function Navbar({data, current_slug}) {
                             />
                         )
                     )
-                }
+                } */}
             </section>
             {/* Dark mode switch */}
             {/* light */}
