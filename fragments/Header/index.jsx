@@ -61,14 +61,14 @@ export default function Header({ categories, courses }) {
           text: title,
           link: `/${catslug}`,
           textclasses: 'font_l7 tertiary_color nomargin',
+          customclasses: 'centerOnTablet colgap_l2',
           // icon: {
           //   svg: category.svg,
           //   customclasses: style.title
           // },
-          customclasses: 'centerOnTablet colgap_l2',
         },
         level: 'undertab',
-        content: courses[catslug].map(({title, slug: courseslug}) => ({
+        content: courses[catslug]?.courses?.map(({title, slug: courseslug}) => ({
           text: {
             text: title,
             link: `/${catslug}/${courseslug}`,

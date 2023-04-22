@@ -1,5 +1,4 @@
 
-import fetchup from '../../../lib/fetch'
 import SectionTitle from '../../../axg-react/SectionTitle'
 import Filter from '../../../axg-react/Filter'
 import CourseBox from '../../../components/CourseBox'
@@ -7,16 +6,12 @@ import Header from '../../../fragments/Header'
 import Navbar from '../../../fragments/Navbar'
 import Head from 'next/head'
 import Footer from '../../../fragments/Footer'
+import { getCategoriesBasics } from '../../../lib/fetch/category'
+import { getCoursesBasics, getCoursesByCategories } from '../../../lib/fetch/course'
+import { readLevels } from '../../../lib/fetch/level'
+import { readPaids } from '../../../lib/fetch/paid'
 
-export default function Archive({ categories, category, metatags }) {
-
-	category.courses = category.courses.map(course => ({
-		...course,
-		paid: course.paid == true ? "Paid Course" : "Free Course"
-	}))
-	const levels = category.courses.map(course => course.level).length > 0 ? [...new Set(category.courses.map(course => course.level))] : []
-	const paids = category.courses.map(course => course.paid).length > 0 ? [...new Set(category.courses.map(course => course.paid))] : []
-
+export default function Archive({ levels, paids, categories, category, courses, metatags, categoryCourses }) {
 	return (
 		<>
 			<Head>
@@ -50,8 +45,8 @@ export default function Archive({ categories, category, metatags }) {
                 <meta property="og:image:width" content="1280" key={"og:image:width"} />
                 <meta property="og:image:height" content="519" key={"og:image:height"} />
             </Head>
-			<Header categories={categories} />
-			<Navbar data={categories} />
+			<Header categories={categories} courses={courses} />
+			<Navbar categories={categories} courses={courses} />
 			<section className={'primary_bg container vertical'} style={{minHeight: '600px'}}>
 				<SectionTitle
 					title={category.title}
@@ -64,22 +59,43 @@ export default function Archive({ categories, category, metatags }) {
 						filterPlacement="itemplacement"
 						elementId="iconsFilter"
 						elements={[
-							{ textclasses: 'secondary_color', customclasses: 'fitHeight', name: 'Level', items: levels.map(level => ({ inputColor:'var(--secondaryTextColor)', type: 'checkbox', tag: 'input', name: level.toLowerCase().replaceAll(' ', '_'), label: level }))},
-							{ textclasses: 'secondary_color', customclasses: 'fitHeight', name: 'Paid', items: paids.map(paid => ({ inputColor:'var(--secondaryTextColor)', type: 'checkbox', tag: 'input', name: paid.toLowerCase().replaceAll(' ', '_'), label: paid }))},
+							{
+								textclasses: 'secondary_color',
+								customclasses: 'fitHeight',
+								name: 'Level',
+								items: levels.map(level => ({
+									inputColor:'var(--secondaryTextColor)',
+									type: 'checkbox',
+									tag: 'input',
+									name: level.attributes.Slug,
+									label: level.attributes.Title
+								}))
+							},
+							{
+								textclasses: 'secondary_color',
+								customclasses: 'fitHeight',
+								name: 'Paid',
+								items: paids.map(paid => ({
+									inputColor:'var(--secondaryTextColor)',
+									type: 'checkbox',
+									tag: 'input',
+									name: paid.attributes.Slug,
+									label: paid.attributes.Title
+								}))
+							},
 						]}
 					/>
 					<section className={'subcontainer wrap rowgap_l3 colgap_l1 center topy'} id={'mainitemslist'}>
-						{category.courses.map((course, key) => <CourseBox
+						{categoryCourses.map((course, key) => <CourseBox
 							key={key}
 							svg={course.svg}
 							title={course.title}
-							paid={course.paid}
-							level={course.level}
+							paid={course.paid.data.attributes.Title}
+							level={course.level.data.attributes.Title}
 							description={course.description}
 							link={`/${category.slug}/${course.slug}`}
 							lessons_count={course.lessons_count}
-							courseAttitude={course.courseAttitude}
-							// customclasses={`filter_${course.level.replaceAll(' ', '_').toLowerCase()} filter_${course.paid.replaceAll(' ', '_').toLowerCase()} itemplacement`}
+							customclasses={`filter_${course.level.data.attributes.Slug} filter_${course.paid.data.attributes.Slug} itemplacement`}
 						/>)}
 					</section>
 				</section>
@@ -90,7 +106,7 @@ export default function Archive({ categories, category, metatags }) {
 					__html: JSON.stringify({
 						"@context":"https://schema.org",
 						"@type":"ItemList",
-						"itemListElement": category.courses.map((course, key) => ({
+						"itemListElement": categoryCourses.map((course, key) => ({
 							"@type":"ListItem",
 							"position":key,
 							"url":`https://homapilot.com/${category.slug}/${course.slug}`
@@ -104,25 +120,26 @@ export default function Archive({ categories, category, metatags }) {
 }
 
 export async function getStaticPaths() {
-	return fetchup()
-	.then(categories => categories.filter(cat => cat.slug != 'articles'))
-	.then(categories => categories.map(category => ({
-		params: {category_slug: category.slug}
-	})))
-	.then(paths => ({
-		paths,
-		fallback: false
-	}))
+	return getCategoriesBasics()
+	.then(async categories => categories.map(category => ({params: {category_slug: category.slug}})))
+	.then(paths => ({ paths, fallback: false }))
 }
   
 export const getStaticProps = async ({params}) => {
 	const { category_slug } = params
-	const categories = await fetchup()
-	const category = categories.filter(category => category.slug == category_slug)[0]
+	const categories = await getCategoriesBasics()
+	const {courses:categoryCourses, category} = await getCoursesBasics(category_slug)
+	const courses = await getCoursesByCategories()
+	const levels = await readLevels()
+	const paids = await readPaids()
 	return ({
 		props: {
 			categories,
 			category,
+			courses,
+			categoryCourses,
+			paids,
+			levels,
 			metatags: {
                 title: `${category.metatags.title} - Online Aviation Courses and Exams By Homa Pilot`,
                 description: category.metatags.description,

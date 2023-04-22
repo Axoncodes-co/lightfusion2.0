@@ -2,7 +2,7 @@
 const fs = require('fs')
 
 var myHeaders = new Headers();
-myHeaders.append("Authorization", "Bearer 84612300e4ffafbe106562197ff575ee38e978118c33507f5ac9d320b1b1c52e8d694438cba4f20f66e23587551a1572652a9751276950a50d0c86ce9601bd4c5b98f1571ba1f9dcf03c10d7bc3fa21ee8c5158ea06121181ef6c4cd4620fdc7984c12e765e1a25d305de56d854b94092bd7ddd9c1e410c8f2d8811c1300bcb2");
+myHeaders.append("Authorization", "Bearer 18b93ddbd65129e43ae32bd82fde679f73f3d8b358047ca44a7fcf7bd1263cf6b6284e6370fe76900a7de8dea4181a43977bce3c53732d5924be3cb6b012ad223851e44f38cec48e815e7b1053ebe163db212c69315b08a6b42db6561e0657ac1427ebd3dd064e0eeaef77276e9054e54cdb91fb88ed4eb893f2620632422fbf");
 
 const requestOptions = {
   method: 'GET',
@@ -107,11 +107,21 @@ const baseurl = 'http://localhost:1337';
 })();
 
 (async function() {
-  const data = await fetchData(baseurl+'/api/courses?populate=SEO.metaImage&populate=category&populate=category.SEO.metaImage')
+  const data = await fetchData(baseurl+'/api/courses?populate=SEO.metaImage&populate=category&populate=category.SEO.metaImage&populate=level,paid')
   await writeToFile(data, './public/data/courses.json')
 })();
 
 (async function() {
   const data = await fetchData(baseurl+'/api/lessons?populate=course.category.SEO&populate=course.SEO&populate=SEO&populate=users_permissions_user&populate=SEO.metaImage')
   await writeToFile(data, './public/data/lessons.json')
+})();
+
+(async function() {
+  const data = await fetchData(baseurl+'/api/paids')
+  await writeToFile(data, './public/data/paids.json')
+})();
+
+(async function() {
+  const data = await fetchData(baseurl+'/api/levels')
+  await writeToFile(data, './public/data/levels.json')
 })();
