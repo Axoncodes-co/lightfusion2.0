@@ -112,7 +112,7 @@ const baseurl = 'http://localhost:1337';
 })();
 
 (async function() {
-  const data = await fetchData(baseurl+'/api/lessons?populate=course.category.SEO&populate=course.SEO&populate=SEO&populate=users_permissions_user&populate=SEO.metaImage')
+  const data = await fetchData(baseurl+'/api/lessons?populate=course.category.SEO&populate=course.SEO&populate=SEO&populate=users_permissions_user&populate=SEO.metaImage&populate=Previous,Next&populate=users_permissions_user.Avatar')
   await writeToFile(data, './public/data/lessons.json')
 })();
 
