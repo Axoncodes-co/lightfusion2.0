@@ -4,8 +4,29 @@ import { AxgBreadcrumb } from '../../builtin-axg/Breadcrumb/v1'
 export default function Breadcrumb({
     categories,
     category,
-    course
+    course,
+    courses,
 }) {
+
+    const dropdownone_options = category ? categories.map(thiscategory => ({
+        level: 'undertab',
+        text: {
+            text: thiscategory.title,
+            link: `/${thiscategory.slug}`,
+            textclasses: `${thiscategory.slug == category.slug ? 'secondary_bg secondary_color' : 'primary_color tertiary_color_hover'} round_l1 widePadding_l1 weight_l3 font_l2 secondary_font nomargin`,
+        },
+    })) : null
+
+    const dropdowntwo_options = category ? courses.map(thiscourse => ({
+        level: 'undertab',
+        text: {
+            text: thiscourse.title,
+            link: `/${thiscourse.category_slug}/${thiscourse.course_slug}`,
+            textclasses: `${thiscourse.course_slug == course.attributes.Slug ? 'secondary_bg secondary_color' : 'primary_color tertiary_color_hover'} round_l1 widePadding_l1 weight_l3 font_l2 secondary_font nomargin`,
+        },
+    })) : null
+
+
     return <AxgBreadcrumb
         customclasses={'horizontalTabletBreak'}
         primaryText={{
@@ -14,7 +35,7 @@ export default function Breadcrumb({
             textclasses: 'weight_l3 font_l2 secondary_font nomargin secondary_color tertiary_color_hover',
             customclasses: 'fitWidth',
         }}
-        dropdownone_head={{
+        dropdownone_head={category ? {
             text: {
                 text: category.title,
                 textclasses: 'weight_l3 font_l2 secondary_font nomargin secondary_color tertiary_color_hover',
@@ -26,16 +47,9 @@ export default function Breadcrumb({
             subopening: 'sub',
             listclasses: 'tertiary_bg fitWidth round_l2 padding_l1 subcontainer vertical lefty rowgap_l0 verticalTabletBreak',
             bodyclasses: 'fitWidth',
-            options: categories.map(thiscategory => ({
-                level: 'undertab',
-                text: {
-                    text: thiscategory.title,
-                    link: `/${thiscategory.slug}`,
-                    textclasses: `${thiscategory.slug == category.slug ? 'secondary_bg secondary_color' : 'primary_color tertiary_color_hover'} round_l1 widePadding_l1 weight_l3 font_l2 secondary_font nomargin`,
-                },
-            })),
-        }}
-        dropdownone_body={{
+            options: dropdownone_options,
+        } : {}}
+        dropdownone_body={category ? {
             structure: 'simple',
             dropdownid: 'breadcrumb_category_id',
             targetLocator: 'breadcrumb_category',
@@ -51,18 +65,11 @@ export default function Breadcrumb({
             subopening: 'sub',
             listclasses: 'tertiary_bg fitWidth round_l2 padding_l1 subcontainer vertical lefty rowgap_l0 verticalTabletBreak',
             bodyclasses: 'fitWidth',
-            options: categories.map(thiscategory => ({
-                level: 'undertab',
-                text: {
-                    text: thiscategory.title,
-                    link: `/${thiscategory.slug}`,
-                    textclasses: `${thiscategory.slug == category.slug ? 'secondary_bg secondary_color' : 'primary_color tertiary_color_hover'} round_l1 widePadding_l1 weight_l3 font_l2 secondary_font nomargin`,
-                },
-            })),
-        }}
+            options: dropdownone_options,
+        } : {}}
         dropdowntwo_head={course ? {
             text: {
-                text: course.title,
+                text: course.attributes.Title,
                 textclasses: 'weight_l3 font_l2 secondary_font nomargin secondary_color tertiary_color_hover',
             },
             structure: 'simple',
@@ -72,14 +79,7 @@ export default function Breadcrumb({
             subopening: 'sub',
             listclasses: 'tertiary_bg fitWidth round_l2 padding_l1 subcontainer vertical lefty rowgap_l0 verticalTabletBreak',
             bodyclasses: 'fitWidth',
-            options: category.courses.map(thiscourse => ({
-                level: 'undertab',
-                text: {
-                    text: thiscourse.title,
-                    link: `/${category.slug}/${thiscourse.slug}`,
-                    textclasses: `${thiscourse.slug == course.slug ? 'secondary_bg secondary_color' : 'primary_color tertiary_color_hover'} round_l1 widePadding_l1 weight_l3 font_l2 secondary_font nomargin`,
-                },
-            })),
+            options: dropdowntwo_options
         } : {}}
         dropdowntwo_body={course ? {
             structure: 'simple',
@@ -88,7 +88,7 @@ export default function Breadcrumb({
             subtrigger: 'click',
             subopening: 'sub',
             text: {
-                text: course.title,
+                text: course.attributes.Title,
                 textclasses: 'weight_l3 font_l2 secondary_font nomargin secondary_color tertiary_color_hover',
             },
             dropdownid: 'breadcrumb_course_id',
@@ -97,14 +97,7 @@ export default function Breadcrumb({
             subopening: 'sub',
             listclasses: 'tertiary_bg fitWidth round_l2 padding_l1 subcontainer vertical lefty rowgap_l0 verticalTabletBreak',
             bodyclasses: 'fitWidth',
-            options: category.courses.map(thiscourse => ({
-                level: 'undertab',
-                text: {
-                    text: thiscourse.title,
-                    link: `/${category.slug}/${thiscourse.slug}`,
-                    textclasses: `${thiscourse.slug == course.slug ? 'secondary_bg secondary_color' : 'primary_color tertiary_color_hover'} round_l1 widePadding_l1 weight_l3 font_l2 secondary_font nomargin`,
-                },
-            })),
+            options: dropdowntwo_options,
         } : {}}
     />
 }

@@ -6,22 +6,24 @@ import Header from '../../../fragments/Header'
 import Navbar from '../../../fragments/Navbar'
 import Head from 'next/head'
 import Footer from '../../../fragments/Footer'
-import { getCategoriesBasics } from '../../../lib/fetch/category'
+import { getCategoriesBasics, getCategory } from '../../../lib/fetch/category'
 import { getCoursesBasics, getCoursesByCategories } from '../../../lib/fetch/course'
 import { readLevels } from '../../../lib/fetch/level'
 import { readPaids } from '../../../lib/fetch/paid'
 
-export default function Archive({ levels, paids, categories, category, courses, metatags, categoryCourses }) {
+export default function Archive({ category_slug, levels, paids, categories, category, courses, metatags, categoryCourses }) {
 	return (
 		<>
 			<Head>
-                <title>{metatags.title}</title>
-                <meta name="description" content={metatags.description} key={"description"} />
+                <title>{category.attributes.SEO.metaTitle}</title>
+                <meta name="description" content={category.attributes.SEO.metaDescription} key={"description"} />
                 <meta name="robots" content="max-snippet:-1, max-image-preview:large, max-video-preview:-1" key={"robots"} />
                 <meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" key={"googlebot"} />
                 <meta name="bingbot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" key={"bingbot"} />
                 <link rel="canonical" href={metatags.href} key={"canonical"} />
-                        
+				<meta name="keywords" content={category.attributes.SEO.keywords}/>
+                <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+
                 {/* icon */}
                 <link rel="icon" href={metatags.ico} key={"icon"} />
                 <link rel="icon" href={metatags.ico} sizes="32x32" key={"icon32"} />
@@ -93,7 +95,7 @@ export default function Archive({ levels, paids, categories, category, courses, 
 							paid={course.paid.data.attributes.Title}
 							level={course.level.data.attributes.Title}
 							description={course.description}
-							link={`/${category.slug}/${course.slug}`}
+							link={`/${category_slug}/${course.slug}`}
 							lessons_count={course.lessons_count}
 							customclasses={`filter_${course.level.data.attributes.Slug} filter_${course.paid.data.attributes.Slug} itemplacement`}
 						/>)}
@@ -109,7 +111,7 @@ export default function Archive({ levels, paids, categories, category, courses, 
 						"itemListElement": categoryCourses.map((course, key) => ({
 							"@type":"ListItem",
 							"position":key,
-							"url":`https://homapilot.com/${category.slug}/${course.slug}`
+							"url":`https://homapilot.com/${category_slug}/${course.slug}`
 						}))
 					})
 				}}
@@ -121,14 +123,15 @@ export default function Archive({ levels, paids, categories, category, courses, 
 
 export async function getStaticPaths() {
 	return getCategoriesBasics()
-	.then(async categories => categories.map(category => ({params: {category_slug: category.slug}})))
+	.then(categories => categories.map(category => ({params: {category_slug: category.slug}})))
 	.then(paths => ({ paths, fallback: false }))
 }
   
 export const getStaticProps = async ({params}) => {
 	const { category_slug } = params
 	const categories = await getCategoriesBasics()
-	const {courses:categoryCourses, category} = await getCoursesBasics(category_slug)
+	const {courses:categoryCourses} = await getCoursesBasics(category_slug)
+	const category = await getCategory(category_slug)
 	const courses = await getCoursesByCategories()
 	const levels = await readLevels()
 	const paids = await readPaids()
@@ -140,10 +143,9 @@ export const getStaticProps = async ({params}) => {
 			categoryCourses,
 			paids,
 			levels,
+			category_slug,
 			metatags: {
-                title: `${category.metatags.title} - Online Aviation Courses and Exams By Homa Pilot`,
-                description: category.metatags.description,
-                href: `https://homapilot.com/${category.slug}/`,
+                href: `https://homapilot.com/${category_slug}/`,
                 ico: '/favicon.ico'
             }
 		}

@@ -98,7 +98,7 @@ const baseurl = 'http://localhost:1337';
 (async function() {
   const data = await fetchData(baseurl+'/api/upload/files')
   await writeToFile(data, './public/data/media.json')
-  data.forEach(file => downloadImage(baseurl+file.url, './public/data/media/'+file.hash+file.ext))
+  data.forEach(file => downloadImage(baseurl+file.url, './public/data/media/'+file.name))
 })();
 
 (async function() {

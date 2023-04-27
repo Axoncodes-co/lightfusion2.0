@@ -2,25 +2,29 @@
 import SectionTitle from '../../../../axg-react/SectionTitle'
 import LessonBox from '../../../../components/LessonBox'
 import style from './course.module.css'
-import fetchup from '../../../../lib/fetch'
 import Header from '../../../../fragments/Header'
 import Navbar from '../../../../fragments/Navbar'
 import Breadcrumb from '../../../../components/Breadcrumb'
 import Head from 'next/head'
 import Footer from '../../../../fragments/Footer'
-import Script from 'next/script'
+import { getAllCoursesBasics, getCourse, getCoursesByCategories } from '../../../../lib/fetch/course'
+import { getCategoriesBasics, getCategoryBasics } from '../../../../lib/fetch/category'
+import { getLessonsBasics } from '../../../../lib/fetch/lesson'
 
-export default function Archive({ category_slug, category, course_slug, course, categories, metatags }) {
+export default function Archive({ category_slug, courseslist, category, courses, lessons, course_slug, course, categories, metatags }) {
 	return (
 		<>
 			<Head>
-                <title>{metatags.title}</title>
-                <meta name="description" content={metatags.description} key={"description"} />
+				<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+                <title>{course.attributes.SEO.metaTitle}</title>
+                <meta name="description" content={course.attributes.SEO.metaDescription} key={"description"} />
                 <meta name="robots" content="max-snippet:-1, max-image-preview:large, max-video-preview:-1" key={"robots"} />
                 <meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" key={"googlebot"} />
                 <meta name="bingbot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" key={"bingbot"} />
                 <link rel="canonical" href={metatags.href} key={"canonical"} />
-                        
+				<meta name="keywords" content={course.attributes.SEO.keywords}/>
+                <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+
                 {/* icon */}
                 <link rel="icon" href={metatags.ico} key={"icon"} />
                 <link rel="icon" href={metatags.ico} sizes="32x32" key={"icon32"} />
@@ -44,25 +48,30 @@ export default function Archive({ category_slug, category, course_slug, course, 
                 <meta property="og:image:width" content="1280" key={"og:image:width"} />
                 <meta property="og:image:height" content="519" key={"og:image:height"} />
             </Head>
-			<Header categories={categories} />
-			<Navbar data={categories} current_slug={course_slug} />
+			<Header categories={categories} courses={courses} />
+			<Navbar categories={categories} courses={courses} current_slug={course_slug} />
 			<section className={'container vertical primary_bg'} style={{minHeight: '600px'}}>
 				<Breadcrumb
 					categories={categories}
+					courses={courseslist}
 					category={category}
 					course={course}
 				/>
 				<SectionTitle
-					title={`Course: ${course.title}`}
+					title={`Course: ${course.attributes.Title}`}
 					textclasses={'weight_l3 font_l7 secondary_font secondary_color'}
 				/>
 				<section className={'subcontainer horizontal topy verticalTabletBreak'}>
 					<section className={'subcontainer horizontal wrap rowgap_l3 colgap_l3 center'} id={'mainitemslist'}>
-						{course.lessons.map((lesson, key) => <LessonBox
+						{lessons.map((lesson, key) => <LessonBox
 							key={key}
-							data={lesson}
+							thumbnail_url={`/data/media/${lesson.thumbnail_url}`}
+							tags={lesson.tags}
+							updateDate={lesson.updateDate}
+							title={lesson.title}
+							publishDate={lesson.publishDate}
 							customclasses={`wideonLargeTablet ${style.lessonwidth}`}
-							link={`/${category_slug}/${course.slug}/${lesson.slug}`}
+							link={`/${category_slug}/${course_slug}/${lesson.slug}`}
 						/>)}
 					</section>
 				</section>
@@ -88,29 +97,22 @@ export default function Archive({ category_slug, category, course_slug, course, 
 }
 
 export async function getStaticPaths() {
-	return fetchup()
-	.then(categories => categories.filter(cat => cat.slug != 'articles'))
-	.then(categories => categories
-		.map(category => category.courses
-			.map(course => ({
-				params: {
-					category_slug: category.slug,
-					course_slug: course.slug
-				}
-			}))
-		)
-	)
-	.then(paths => ({
-		paths: paths.flat(),
-		fallback: false
-	}))
+	return getAllCoursesBasics()
+	.then(courses => courses.filter(({course_slug}) => course_slug != 'articles')
+	.map(({ category_slug, course_slug }) => ({
+		params: { category_slug, course_slug }})
+	))
+	.then(paths => ({ paths, fallback: false }))
 }
   
 export const getStaticProps = async ({params}) => {
 	const { category_slug, course_slug } = params
-	const categories = await fetchup()
-	const category = categories.filter(category => category.slug == category_slug)[0]
-	const course = category.courses.filter(course => course.slug == course_slug)[0]
+	const categories = await getCategoriesBasics()
+	const courses = await getCoursesByCategories()
+	const category = await getCategoryBasics(category_slug)
+	const course = await getCourse(course_slug)
+	const lessons = await getLessonsBasics(course_slug)
+	const courseslist = await getAllCoursesBasics()
 
 	return ({
 		props: {
@@ -119,10 +121,11 @@ export const getStaticProps = async ({params}) => {
 			category_slug,
 			course_slug,
 			categories,
+			courses,
+			courseslist,
+			lessons,
 			metatags: {
-                title: course.metatags.title,
-                description: course.metatags.description,
-                href: `https://homapilot.com/${category.slug}/${course.slug}/`,
+                href: `https://homapilot.com/${category_slug}/${course_slug}/`,
                 ico: '/favicon.ico'
             }
 		}
