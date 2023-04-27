@@ -60,15 +60,15 @@ export default function Notfound({categories, metatags}) {
                 <section className={'subcontainer fitWidth topy'}>
                     <Text text={'Categories'} textclasses={headsclasses} />
                     <div className={'subcontainer vertical'}>
-                        {categories.map((category, key) => <Text key={key} text={category.title} link={`/${category.slug}`} textclasses={itemsclasses} />)}
+                        {categories.map((category, key) => <Text key={key} text={category.title} link={category.href} textclasses={itemsclasses} />)}
                     </div>
                 </section>
                 <section className={'subcontainer fitWidth topy'}>
                     <Text text={'Main Sectors'} textclasses={headsclasses} />
                     <div className={'subcontainer vertical'}>
                         <Text text={'Home'} link={'/'} textclasses={itemsclasses} />
-                        <Text text={'Contact'} link={'/contact'} textclasses={itemsclasses} />
-                        <Text text={'About'} link={'/about'} textclasses={itemsclasses} />
+                        <Text text={'Contact'} link={'/contact/'} textclasses={itemsclasses} />
+                        <Text text={'About'} link={'/about/'} textclasses={itemsclasses} />
                     </div>
                 </section>
             </section>

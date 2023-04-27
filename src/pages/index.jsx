@@ -80,16 +80,16 @@ export default function Home({
 				title={lesson.title}
 				publishDate={lesson.publishDate}
 				customclasses={key == 2 ? 'hideonlargetablet' : ''}
-				link={`/articles/${lesson.slug}`}
+				link={lesson.href}
 			/> : null).filter(item => item)}
 		</Posts>
 
-		{/* <Posts
+		<Posts
 			link={`/blog/`}
-			title={`Blog`}
-			svg={blogCourse.svg}
+			title={`Latest Publishments`}
+			svg={articleCourse.svg}
 		>
-			{bloglessons.map((lesson, key) => key < 3 ? <LessonBox
+			{articlelessons.map((lesson, key) => key < 3 ? <LessonBox
 				key={key}
 				thumbnail_url={`/data/media/${lesson.thumbnail_url}`}
 				tags={lesson.tags}
@@ -97,9 +97,9 @@ export default function Home({
 				title={lesson.title}
 				publishDate={lesson.publishDate}
 				customclasses={key == 2 ? 'hideonlargetablet' : ''}
-				link={`/blog/${lesson.slug}`}
+				link={lesson.href}
 			/> : null).filter(item => item)}
-		</Posts> */}
+		</Posts>
 
 		{/* TODO: Add the fun facts section */}
 		<Footer categories={categories} />
