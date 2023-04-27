@@ -71,7 +71,7 @@ export default function Archive({ category_slug, courseslist, category, courses,
 							title={lesson.title}
 							publishDate={lesson.publishDate}
 							customclasses={`wideonLargeTablet ${style.lessonwidth}`}
-							link={`/${category_slug}/${course_slug}/${lesson.slug}`}
+							link={lesson.href}
 						/>)}
 					</section>
 				</section>

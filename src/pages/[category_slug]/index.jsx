@@ -95,7 +95,7 @@ export default function Archive({ category_slug, levels, paids, categories, cate
 							paid={course.paid.data.attributes.Title}
 							level={course.level.data.attributes.Title}
 							description={course.description}
-							link={`/${category_slug}/${course.slug}`}
+							link={course.href}
 							lessons_count={course.lessons_count}
 							customclasses={`filter_${course.level.data.attributes.Slug} filter_${course.paid.data.attributes.Slug} itemplacement`}
 						/>)}

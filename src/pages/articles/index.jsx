@@ -63,7 +63,7 @@ export default function Articles({ categories, courses, course, lessons, metatag
                             title={lesson.title}
                             publishDate={lesson.publishDate}
                             customclasses={`wideonLargeTablet ${style.lessonwidth}`}
-                            link={`/articles/${lesson.slug}`}
+                            link={lesson.href}
                         />)}
 					</section>
 				</section>
