@@ -7,10 +7,18 @@ import Header from '../../fragments/Header'
 import Head from 'next/head'
 import Footer from '../../fragments/Footer'
 import { getCategoriesBasics } from '../../lib/fetch/category'
-import { getCoursesByCategories } from '../../lib/fetch/course'
+import { getCourseBasics, getCoursesByCategories } from '../../lib/fetch/course'
 import { getLessonsBasics } from '../../lib/fetch/lesson'
 
-export default function Home({categories, courses, lessons1, metatags}) {
+export default function Home({
+	categories,
+	courses,
+	articleCourse,
+	blogCourse,
+	articlelessons,
+	bloglessons,
+	metatags
+}) {
 	return (<>
 		<Head>
 			<title>{metatags.title}</title>
@@ -19,7 +27,9 @@ export default function Home({categories, courses, lessons1, metatags}) {
 			<meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" key={"googlebot"} />
 			<meta name="bingbot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" key={"bingbot"} />
 			<link rel="canonical" href={metatags.href} key={"canonical"} />
-					
+			<meta name="keywords" content={metatags.keywords}/>
+			<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+
 			{/* icon */}
 			<link rel="icon" href={metatags.ico} key={"icon"} />
 			<link rel="icon" href={metatags.ico} sizes="32x32" key={"icon32"} />
@@ -56,26 +66,43 @@ export default function Home({categories, courses, lessons1, metatags}) {
 			<Hero />
 			<CoursesCat categories={categories} />
 		</section>
+		
 		<Posts
-			link={`/${categories[0].slug}/${courses[categories[0].slug].courses[1].slug}`}
-			title={`${courses[categories[0].slug].courses[1].title} Popular Lessons`}
-			svg={courses[categories[0].slug].courses[1].svg}
+			link={`/articles/`}
+			title={`Articles`}
+			svg={articleCourse.svg}
 		>
-			{lessons1.map((lesson, key) => key < 3 ? <LessonBox
+			{articlelessons.map((lesson, key) => key < 3 ? <LessonBox
 				key={key}
-				thumbnail_url={lesson.thumbnail_url}
+				thumbnail_url={`/data/media/${lesson.thumbnail_url}`}
 				tags={lesson.tags}
 				updateDate={lesson.updateDate}
 				title={lesson.title}
 				publishDate={lesson.publishDate}
 				customclasses={key == 2 ? 'hideonlargetablet' : ''}
-				link={`/${categories[0].slug}/${courses[categories[0].slug].courses[1].slug}/${lesson.slug}`}
+				link={`/articles/${lesson.slug}`}
 			/> : null).filter(item => item)}
 		</Posts>
 
+		{/* <Posts
+			link={`/blog/`}
+			title={`Blog`}
+			svg={blogCourse.svg}
+		>
+			{bloglessons.map((lesson, key) => key < 3 ? <LessonBox
+				key={key}
+				thumbnail_url={`/data/media/${lesson.thumbnail_url}`}
+				tags={lesson.tags}
+				updateDate={lesson.updateDate}
+				title={lesson.title}
+				publishDate={lesson.publishDate}
+				customclasses={key == 2 ? 'hideonlargetablet' : ''}
+				link={`/blog/${lesson.slug}`}
+			/> : null).filter(item => item)}
+		</Posts> */}
+
 		{/* TODO: Add the fun facts section */}
 		<Footer categories={categories} />
-
 	</>)
 }
 
@@ -83,17 +110,27 @@ export const getStaticProps = async () => {
 	return getCategoriesBasics()
 	.then(async categories => {
 		const courses = await getCoursesByCategories()
-		const lessons1 = await getLessonsBasics(courses[categories[0].slug].courses[1].slug)
+
+		const articleCourse = await getCourseBasics('articles')
+		const blogCourse = await getCourseBasics('articles')
+
+		const articlelessons = await getLessonsBasics('articles')
+		const bloglessons = await getLessonsBasics('articles')
+		
 		return ({
 			props: {
 				categories,
 				courses,
-				lessons1,
+				articleCourse,
+				blogCourse,
+				articlelessons,
+				bloglessons,
 				metatags: {
 					title: "Online Aviation Courses and Exams By Homa Pilot",
 					description: "Homa Pilot offers aviation and flight training courses such as PPL, CPL, IR, and ATPL. We also offer online piloting exams.",
 					href: "https://homapilot.com/",
-					ico: '/favicon.ico'
+					ico: '/favicon.ico',
+					keywords: '',
 				}
 			}
 		})

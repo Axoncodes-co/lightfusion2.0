@@ -24,7 +24,7 @@ export default function Navbar({categories, courses, current_slug}) {
                 style={{overflowX: 'scroll'}}
                 className={'subcontainer horizontal horizontalTabletBreak tertiary_bg colgap_l0'}
             >
-                {categories.filter(({slug}) => slug != 'articles').map(({slug: catslug }) => (
+                {categories.map(({slug: catslug }) => (
                     courses[catslug].courses.map(({title, slug: courseslug}, key) => (
                         <Text
                             key={key}

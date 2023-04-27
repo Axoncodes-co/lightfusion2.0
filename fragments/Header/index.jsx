@@ -1,12 +1,11 @@
 
-import style from './style.module.css'
 import { useState } from 'react'
 import Menu from '../../builtin-axg/Menu'
 import { DropdownTemplateHandlerBody } from '../../builtin-axg/dropdown/v5'
 import Image from 'next/image'
 import Link from 'next/link'
-// const Searchbar = dynamic(() => import('../../axg-react/Searchbar3'), {ssr: false})
-// const Logo = dynamic(() => import('../../axg-react/Logo'), {ssr: false})
+
+
 export default function Header({ categories, courses }) {
 
   const [menuGroup, setMenuGroup] = useState({
@@ -55,7 +54,7 @@ export default function Header({ categories, courses }) {
       exit: '1',
       listclasses: 'container wrap',
       customclasses: 'wide righty subcontainer',
-      options: categories.filter(({slug}) => slug != 'articles').map(({title, slug: catslug }) => ({
+      options: categories.map(({title, slug: catslug }) => ({
         listclasses: 'vertical centerOnTablet lefty',
         text: {
           text: title,

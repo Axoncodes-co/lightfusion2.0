@@ -125,3 +125,6 @@ html[theme-preference="light"] .hidesublighttheme {
 html[theme-preference="dark"] .hidesubdarktheme {
   display: none !important;
 }
+html[theme-preference="dark"] main#content img {
+  filter: brightness(0.7);
+}

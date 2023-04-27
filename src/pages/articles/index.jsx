@@ -2,23 +2,27 @@
 import SectionTitle from '../../../axg-react/SectionTitle'
 import LessonBox from '../../../components/LessonBox'
 import style from './course.module.css'
-import fetchup from '../../../lib/fetch'
 import Header from '../../../fragments/Header'
 import Navbar from '../../../fragments/Navbar'
 import Head from 'next/head'
 import Footer from '../../../fragments/Footer'
+import { getCategoriesBasics } from '../../../lib/fetch/category'
+import { getCourse, getCoursesByCategories } from '../../../lib/fetch/course'
+import { getLessonsBasics } from '../../../lib/fetch/lesson'
 
-export default function Articles({ categories, course, metatags }) {
+export default function Articles({ categories, courses, course, lessons, metatags }) {
 	return (
 		<>
 			<Head>
-                <title>{metatags.title}</title>
-                <meta name="description" content={metatags.description} key={"description"} />
+                <title>{course.attributes.SEO.metaTitle}</title>
+                <meta name="description" content={course.attributes.SEO.metaDescription} key={"description"} />
                 <meta name="robots" content="max-snippet:-1, max-image-preview:large, max-video-preview:-1" key={"robots"} />
                 <meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" key={"googlebot"} />
                 <meta name="bingbot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" key={"bingbot"} />
                 <link rel="canonical" href={metatags.href} key={"canonical"} />
-                        
+                <meta name="keywords" content={course.attributes.SEO.keywords}/>
+                <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+ 
                 {/* icon */}
                 <link rel="icon" href={metatags.ico} key={"icon"} />
                 <link rel="icon" href={metatags.ico} sizes="32x32" key={"icon32"} />
@@ -42,8 +46,8 @@ export default function Articles({ categories, course, metatags }) {
                 <meta property="og:image:width" content="1280" key={"og:image:width"} />
                 <meta property="og:image:height" content="519" key={"og:image:height"} />
             </Head>
-			<Header categories={categories} />
-			<Navbar data={categories} current_slug={course.slug} />
+            <Header categories={categories} courses={courses} />
+			<Navbar categories={categories} courses={courses} current_slug={'articles'} />
 			<section className={'container vertical primary_bg'} style={{minHeight: '600px'}}>
 				<SectionTitle
 					title={course.title}
@@ -51,32 +55,52 @@ export default function Articles({ categories, course, metatags }) {
 				/>
 				<section className={'subcontainer horizontal topy verticalTabletBreak'}>
 					<section className={'subcontainer horizontal wrap rowgap_l3 colgap_l3 center'} id={'mainitemslist'}>
-						{course.lessons.map((lesson, key) => <LessonBox
-							key={key}
-							data={lesson}
-							customclasses={`wideonLargeTablet ${style.lessonwidth}`}
-							link={`/${course.slug}/${lesson.slug}`}
-						/>)}
+						{lessons.map((lesson, key) => <LessonBox
+                            key={key}
+                            thumbnail_url={`/data/media/${lesson.thumbnail_url}`}
+                            tags={lesson.tags}
+                            updateDate={lesson.updateDate}
+                            title={lesson.title}
+                            publishDate={lesson.publishDate}
+                            customclasses={`wideonLargeTablet ${style.lessonwidth}`}
+                            link={`/articles/${lesson.slug}`}
+                        />)}
 					</section>
 				</section>
 			</section>
+            <script
+				type="application/ld+json"
+				dangerouslySetInnerHTML={{
+					__html: JSON.stringify({
+						"@context":"https://schema.org",
+						"@type":"ItemList",
+						"itemListElement": lessons.map((lesson, key) => ({
+							"@type":"ListItem",
+							"position":key,
+							"url":`https://homapilot.com/articles/${lesson.slug}`
+						}))
+					})
+				}}
+			/>
 			<Footer categories={categories} />
 		</>
     )
 }
   
-export const getStaticProps = async ({params}) => {
-	const categories = await fetchup()
-	const article_cat = categories.filter(cat => cat.slug == 'articles')[0]
-
+export const getStaticProps = async () => {
+	const categories = await getCategoriesBasics()
+    const courses = await getCoursesByCategories()
+	const course = await getCourse('articles')
+    const lessons = await getLessonsBasics('articles')
+	
 	return ({
 		props: {
-			course: article_cat,
-            categories,
+			categories,
+            courses,
+			course,
+            lessons,
 			metatags: {
-                title: article_cat.metatags.title,
-                description: article_cat.metatags.description,
-                href: `https://homapilot.com/${article_cat.slug}/`,
+                href: 'https://homapilot.com/articles/',
                 ico: '/favicon.ico'
             }
 		}
