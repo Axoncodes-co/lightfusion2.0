@@ -50,7 +50,7 @@ export default function Articles({ categories, courses, course, lessons, metatag
 			<Navbar categories={categories} courses={courses} current_slug={'articles'} />
 			<section className={'container vertical primary_bg'} style={{minHeight: '600px'}}>
 				<SectionTitle
-					title={course.title}
+					title={course.attributes.Title}
 					textclasses={'weight_l3 font_l7 secondary_font secondary_color'}
 				/>
 				<section className={'subcontainer horizontal topy verticalTabletBreak'}>

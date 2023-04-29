@@ -145,7 +145,8 @@ export default function Post({ courseslist, categories, category_slug, course_sl
 
 export async function getStaticPaths() {
     return getAllLessonsBasics()
-    .then(lessons => lessons.filter(({category_slug}) => category_slug != 'article'))
+    .then(lessons => lessons.filter(({course_slug}) => course_slug != 'article'))
+    .then(lessons => lessons.filter(({course_slug}) => course_slug != 'blog'))
 	.then(lessons => lessons.map(({category_slug, course_slug, lesson_slug}) => ({
         params: {category_slug, course_slug, lesson_slug}
     })))
