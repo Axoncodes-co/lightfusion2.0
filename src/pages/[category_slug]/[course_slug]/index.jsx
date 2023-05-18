@@ -99,6 +99,7 @@ export default function Archive({ category_slug, courseslist, category, courses,
 export async function getStaticPaths() {
 	return getAllCoursesBasics()
 	.then(courses => courses.filter(({course_slug}) => course_slug != 'articles'))
+	.then(courses => courses.filter(({course_slug}) => course_slug != 'news'))
 	.then(courses => courses.filter(({course_slug}) => course_slug != 'blog'))
 	.then(courses => courses.map(({ category_slug, course_slug }) => ({
 		params: { category_slug, course_slug }})
