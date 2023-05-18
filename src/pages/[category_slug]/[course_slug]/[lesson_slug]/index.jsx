@@ -78,14 +78,14 @@ export default function Post({ courseslist, categories, category_slug, course_sl
                     </section>
                     <div className={'subcontainer padding_l1'}></div>
                     <Nextprev
-                        nextlink={lesson.attributes.Next ? `/${category_slug}/${course_slug}/${lesson.attributes.Next.data.attributes.Slug}` : ''}
-                        prevlink={lesson.attributes.Previous ? `/${category_slug}/${course_slug}/${lesson.attributes.Previous.data.attributes.Slug}` : ''}
+                        nextlink={lesson.attributes.Next.data ? `/${category_slug}/${course_slug}/${lesson.attributes.Next.data.attributes.Slug}` : ''}
+                        prevlink={lesson.attributes.Previous.data ? `/${category_slug}/${course_slug}/${lesson.attributes.Previous.data.attributes.Slug}` : ''}
                     />
                     <div style={{width: '100%'}}>
                         <section
                             style={{
                                 height: '25vw',
-                                backgroundImage: `linear-gradient(0deg, #0002, #0000001f, #00000057, #00000087, #000000ba), url(/data/media/${lesson.attributes.SEO.metaImage.data.attributes.hash+lesson.attributes.SEO.metaImage.data.attributes.ext})`,
+                                backgroundImage: `linear-gradient(0deg, #0002, #0000001f, #00000057, #00000087, #000000ba), url(/data/media/${lesson.attributes.SEO.metaImage.data ? lesson.attributes.SEO.metaImage.data.attributes.hash+lesson.attributes.SEO.metaImage.data.attributes.ext : ''})`,
                                 backgroundSize: 'cover',
                                 backgroundRepeat: 'no-repeat',
                                 backgroundPosition: 'center',

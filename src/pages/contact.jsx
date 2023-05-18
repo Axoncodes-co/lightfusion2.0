@@ -1,26 +1,25 @@
 
 import Header from '../../fragments/Header'
 import Head from 'next/head'
-import fetchup from '../../lib/fetch'
 import Footer from '../../fragments/Footer'
 import Text from '../../builtin-axg/text/v2'
-import Script from 'next/script'
-import dynamic from 'next/dynamic'
-import { useEffect } from 'react'
-// const MyScript = dynamic(() => import('../../builtin-axg/dropdown/v5/dropdown_v5'), { ssr: false });
+import { getCategoriesBasics } from '../../lib/fetch/category'
+import { readContact } from '../../lib/fetch/contact'
+import { getCoursesByCategories } from '../../lib/fetch/course'
 
-export default function Contact({categories, metatags}) {
+export default function Contact({categories, courses, pageData, metatags}) {
 
     return (<>
 		<Head>
-			{/* <script defer src={'/axgjs/dropdown_v5.js'} /> */}
-			<title>{metatags.title}</title>
-			<meta name="description" content={metatags.description} key={"description"} />
+			<title>{pageData.attributes.SEO.metaTitle}</title>
+			<meta name="description" content={pageData.attributes.SEO.metaDescription} key={"description"} />
 			<meta name="robots" content="max-snippet:-1, max-image-preview:large, max-video-preview:-1" key={"robots"} />
 			<meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" key={"googlebot"} />
 			<meta name="bingbot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" key={"bingbot"} />
 			<link rel="canonical" href={metatags.href} key={"canonical"} />
-					
+			<meta name="keywords" content={pageData.attributes.SEO.keywords}/>
+			<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+
 			{/* icon */}
 			<link rel="icon" href={metatags.ico} key={"icon"} />
 			<link rel="icon" href={metatags.ico} sizes="32x32" key={"icon32"} />
@@ -44,20 +43,28 @@ export default function Contact({categories, metatags}) {
 			<meta property="og:image:width" content="1280" key={"og:image:width"} />
 			<meta property="og:image:height" content="519" key={"og:image:height"} />
 		</Head>
-        <Header categories={categories} />
+        <Header categories={categories} courses={courses} />
 		<section className={'subcontainer'}>
 			<div style={{
 				filter: 'brightness(0.5)',
-				background: 'url(/1.jpg) center no-repeat',
+				background: `url(/data/media/${pageData.attributes.hero_image.data[0].attributes.name}) center no-repeat`,
 				backgroundSize: 'cover',
 				position: 'absolute',
 				width: '100%',
 				height: '100%',
 			}}></div>
-			<Text customclasses={'center'} textclasses={'primary_color font_l9 weight_l4 secondary_font'} text={'Contact Homa Pilot'} />
+			<Text customclasses={'center'} textclasses={'primary_color font_l9 weight_l4 secondary_font'} text={pageData.attributes.hero_title} />
 		</section>
 		<section className={'primary_bg container horizontal topy spread verticalTabletBreak'} style={{minHeight: '350px'}}>
-			<div className={'subcontainer wide centerOnTablet'}>
+			{pageData.attributes.List.map((list, key) => (
+				<div key={key} className={'subcontainer wide centerOnTablet'}>
+					<Text customclasses={'centerOnTablet'} textclasses={'secondary_color nomargin font_l4 weight_l3'} text={list.List_Title} />
+					{list.Link.map((link, linkkey) => (
+						<Text key={linkkey} customclasses={'centerOnTablet'} textclasses={'nomargin font_l3 weight_l3'} link={link.Link} text={link.Name} />
+					))}
+				</div>
+			))}
+			{/* <div className={'subcontainer wide centerOnTablet'}>
 				<Text customclasses={'centerOnTablet'} textclasses={'secondary_color nomargin font_l4 weight_l3'} text={'Contact Homa Pilot'} />
 				<Text customclasses={'centerOnTablet'} textclasses={'nomargin font_l3 weight_l3'} link={'mailto:info@homapilot.com'} text={'info@homapilot.com'} />
 				<Text customclasses={'centerOnTablet'} textclasses={'nomargin font_l3 weight_l3'} link={'mailto:homapilot@gmail.com'} text={'homapilot@gmail.com'} />
@@ -69,7 +76,7 @@ export default function Contact({categories, metatags}) {
 			<div className={'subcontainer wide'}>
 				<Text customclasses={'centerOnTablet'} textclasses={'secondary_color nomargin font_l4 weight_l3'} text={'Contact the advertising department'} />
 				<Text customclasses={'centerOnTablet'} textclasses={'nomargin font_l3 weight_l3'} link={'mailto:ad@homapilot.com'} text={'ad@homapilot.com'} />
-			</div>
+			</div> */}
 		</section>
 		<Footer categories={categories} />
 		{/* <Script src={"/axgjs/dropdown_v5.js"} strategy={'lazyOnload'}></Script> */}
@@ -78,16 +85,18 @@ export default function Contact({categories, metatags}) {
 }
 
 export const getStaticProps = async () => {
-	return fetchup()
-	.then(categories => ({
+	const categories = await getCategoriesBasics()
+	const courses = await getCoursesByCategories()
+	const pageData = await readContact()
+	return ({
 		props: {
 			categories,
+			courses,
+			pageData,
 			metatags: {
-				title: "Contact - Online Aviation Courses and Exams By Homa Pilot",
-				description: "Homa Pilot offers aviation and flight training courses such as PPL, CPL, IR, and ATPL. We also offer online piloting exams.",
 				href: "https://homapilot.com/contact/",
-                ico: '/favicon.ico'
+				ico: '/favicon.ico'
 			}
 		}
-	}))
+	})
 }

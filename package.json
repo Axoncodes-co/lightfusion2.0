@@ -3,11 +3,11 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "READ_DATA=offline CMS_TOKEN=18b93ddbd65129e43ae32bd82fde679f73f3d8b358047ca44a7fcf7bd1263cf6b6284e6370fe76900a7de8dea4181a43977bce3c53732d5924be3cb6b012ad223851e44f38cec48e815e7b1053ebe163db212c69315b08a6b42db6561e0657ac1427ebd3dd064e0eeaef77276e9054e54cdb91fb88ed4eb893f2620632422fbf CMS_BASE_URL=http://localhost:1337 next dev",
+    "dev": "READ_DATA=offline CMS_TOKEN=18b93ddbd65129e43ae32bd82fde679f73f3d8b358047ca44a7fcf7bd1263cf6b6284e6370fe76900a7de8dea4181a43977bce3c53732d5924be3cb6b012ad223851e44f38cec48e815e7b1053ebe163db212c69315b08a6b42db6561e0657ac1427ebd3dd064e0eeaef77276e9054e54cdb91fb88ed4eb893f2620632422fbf CMS_BASE_URL=https://cms.homapilot.com/ next dev",
     "build": "next build && next export",
     "start": "next start",
     "lint": "next lint",
-    "store": "CMS_TOKEN=18b93ddbd65129e43ae32bd82fde679f73f3d8b358047ca44a7fcf7bd1263cf6b6284e6370fe76900a7de8dea4181a43977bce3c53732d5924be3cb6b012ad223851e44f38cec48e815e7b1053ebe163db212c69315b08a6b42db6561e0657ac1427ebd3dd064e0eeaef77276e9054e54cdb91fb88ed4eb893f2620632422fbf CMS_BASE_URL=http://localhost:1337 node ./lib/fetch/store_module.js",
+    "store": "CMS_TOKEN=18b93ddbd65129e43ae32bd82fde679f73f3d8b358047ca44a7fcf7bd1263cf6b6284e6370fe76900a7de8dea4181a43977bce3c53732d5924be3cb6b012ad223851e44f38cec48e815e7b1053ebe163db212c69315b08a6b42db6561e0657ac1427ebd3dd064e0eeaef77276e9054e54cdb91fb88ed4eb893f2620632422fbf CMS_BASE_URL=https://cms.homapilot.com/ node ./lib/fetch/store_module.js",
     "sitemap": "node ./postbuild/sitemap.js",
     "robotstxt": "node ./postbuild/robotstxt.js",
     "htaccess": "node ./postbuild/htaccess.js",
