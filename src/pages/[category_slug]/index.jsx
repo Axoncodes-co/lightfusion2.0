@@ -10,8 +10,9 @@ import { getCategoriesBasics, getCategory } from '../../../lib/fetch/category'
 import { getCoursesBasics, getCoursesByCategories } from '../../../lib/fetch/course'
 import { readLevels } from '../../../lib/fetch/level'
 import { readPaids } from '../../../lib/fetch/paid'
+import { readFooter } from '../../../lib/fetch/footer'
 
-export default function Archive({ category_slug, levels, paids, categories, category, courses, metatags, categoryCourses }) {
+export default function Archive({ footerData, category_slug, levels, paids, categories, category, courses, metatags, categoryCourses }) {
 	return (
 		<>
 			<Head>
@@ -116,7 +117,7 @@ export default function Archive({ category_slug, levels, paids, categories, cate
 					})
 				}}
 			/>
-			<Footer categories={categories} />
+			<Footer footerData={footerData} categories={categories} />
 		</>
     )
 }
@@ -135,6 +136,7 @@ export const getStaticProps = async ({params}) => {
 	const courses = await getCoursesByCategories()
 	const levels = await readLevels()
 	const paids = await readPaids()
+	const footerData = await readFooter()
 	return ({
 		props: {
 			categories,
@@ -144,6 +146,7 @@ export const getStaticProps = async ({params}) => {
 			paids,
 			levels,
 			category_slug,
+			footerData,
 			metatags: {
                 href: `https://homapilot.com/${category_slug}/`,
                 ico: '/favicon.ico'

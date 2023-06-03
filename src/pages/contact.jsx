@@ -6,8 +6,9 @@ import Text from '../../builtin-axg/text/v2'
 import { getCategoriesBasics } from '../../lib/fetch/category'
 import { readContact } from '../../lib/fetch/contact'
 import { getCoursesByCategories } from '../../lib/fetch/course'
+import { readFooter } from '../../lib/fetch/footer'
 
-export default function Contact({categories, courses, pageData, metatags}) {
+export default function Contact({categories, courses, pageData, footerData, metatags}) {
 
     return (<>
 		<Head>
@@ -60,27 +61,12 @@ export default function Contact({categories, courses, pageData, metatags}) {
 				<div key={key} className={'subcontainer wide centerOnTablet'}>
 					<Text customclasses={'centerOnTablet'} textclasses={'secondary_color nomargin font_l4 weight_l3'} text={list.List_Title} />
 					{list.Link.map((link, linkkey) => (
-						<Text key={linkkey} customclasses={'centerOnTablet'} textclasses={'nomargin font_l3 weight_l3'} link={link.Link} text={link.Name} />
+						<Text key={linkkey} customclasses={'centerOnTablet'} textclasses={'secondary_color nomargin font_l3 weight_l3'} link={link.Link} text={link.Name} />
 					))}
 				</div>
 			))}
-			{/* <div className={'subcontainer wide centerOnTablet'}>
-				<Text customclasses={'centerOnTablet'} textclasses={'secondary_color nomargin font_l4 weight_l3'} text={'Contact Homa Pilot'} />
-				<Text customclasses={'centerOnTablet'} textclasses={'nomargin font_l3 weight_l3'} link={'mailto:info@homapilot.com'} text={'info@homapilot.com'} />
-				<Text customclasses={'centerOnTablet'} textclasses={'nomargin font_l3 weight_l3'} link={'mailto:homapilot@gmail.com'} text={'homapilot@gmail.com'} />
-			</div>
-			<div className={'subcontainer wide'}>
-				<Text customclasses={'centerOnTablet'} textclasses={'secondary_color nomargin font_l4 weight_l3'} text={'Contact the support team'} />
-				<Text customclasses={'centerOnTablet'} textclasses={'nomargin font_l3 weight_l3'} link={'mailto:support@homapilot.com'} text={'support@homapilot.com'} />
-			</div>
-			<div className={'subcontainer wide'}>
-				<Text customclasses={'centerOnTablet'} textclasses={'secondary_color nomargin font_l4 weight_l3'} text={'Contact the advertising department'} />
-				<Text customclasses={'centerOnTablet'} textclasses={'nomargin font_l3 weight_l3'} link={'mailto:ad@homapilot.com'} text={'ad@homapilot.com'} />
-			</div> */}
 		</section>
-		<Footer categories={categories} />
-		{/* <Script src={"/axgjs/dropdown_v5.js"} strategy={'lazyOnload'}></Script> */}
-
+		<Footer footerData={footerData} categories={categories} />
     </>)
 }
 
@@ -88,9 +74,11 @@ export const getStaticProps = async () => {
 	const categories = await getCategoriesBasics()
 	const courses = await getCoursesByCategories()
 	const pageData = await readContact()
+	const footerData = await readFooter()
 	return ({
 		props: {
 			categories,
+			footerData,
 			courses,
 			pageData,
 			metatags: {

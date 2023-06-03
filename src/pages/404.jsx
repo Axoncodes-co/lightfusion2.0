@@ -7,8 +7,9 @@ import Link from 'next/link'
 import { getCategoriesBasics } from '../../lib/fetch/category'
 import { getCoursesByCategories } from '../../lib/fetch/course'
 import { read404 } from '../../lib/fetch/page404'
+import { readFooter } from '../../lib/fetch/footer'
 
-export default function Notfound({categories, courses, pageData, metatags}) {
+export default function Notfound({categories, courses, pageData, footerData, metatags}) {
     const headsclasses = 'secondary_color font_l2_min weight_l6 fitWidth'
     const itemsclasses = 'secondary_color font_l2_max nomargin weight_l4 fitWidth tertiary_color_hover'
 
@@ -77,7 +78,7 @@ export default function Notfound({categories, courses, pageData, metatags}) {
                 </section>
             </section>
         </section>
-		<Footer categories={categories} />
+		<Footer footerData={footerData} categories={categories} />
     </>)
 }
 
@@ -85,11 +86,13 @@ export const getStaticProps = async () => {
 	const categories = await getCategoriesBasics()
 	const courses = await getCoursesByCategories()
 	const pageData = await read404()
+	const footerData = await readFooter()
 	return ({
 		props: {
 			categories,
 			courses,
 			pageData,
+			footerData,
 			metatags: {
 				href: "https://homapilot.com/404/",
                 ico: '/favicon.ico'

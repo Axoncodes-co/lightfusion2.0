@@ -10,8 +10,9 @@ import Footer from '../../../../fragments/Footer'
 import { getAllCoursesBasics, getCourse, getCoursesByCategories } from '../../../../lib/fetch/course'
 import { getCategoriesBasics, getCategoryBasics } from '../../../../lib/fetch/category'
 import { getLessonsBasics } from '../../../../lib/fetch/lesson'
+import { readFooter } from '../../../../lib/fetch/footer'
 
-export default function Archive({ category_slug, courseslist, category, courses, lessons, course_slug, course, categories, metatags }) {
+export default function Archive({ footerData, category_slug, courseslist, category, courses, lessons, course_slug, course, categories, metatags }) {
 	return (
 		<>
 			<Head>
@@ -91,7 +92,7 @@ export default function Archive({ category_slug, courseslist, category, courses,
 				})
 				}}
 			/>
-			<Footer categories={categories} />
+			<Footer footerData={footerData} categories={categories} />
 		</>
     )
 }
@@ -115,6 +116,7 @@ export const getStaticProps = async ({params}) => {
 	const course = await getCourse(course_slug)
 	const lessons = await getLessonsBasics(course_slug)
 	const courseslist = await getAllCoursesBasics()
+	const footerData = await readFooter()
 
 	return ({
 		props: {
@@ -126,6 +128,7 @@ export const getStaticProps = async ({params}) => {
 			courses,
 			courseslist,
 			lessons,
+			footerData,
 			metatags: {
                 href: `https://homapilot.com/${category_slug}/${course_slug}/`,
                 ico: '/favicon.ico'

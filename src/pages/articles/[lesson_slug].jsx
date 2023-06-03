@@ -9,8 +9,9 @@ import Text from '../../../builtin-axg/text/v2'
 import { getAllLessonsBasics, getLesson } from '../../../lib/fetch/lesson'
 import { getAllCoursesBasics, getCourse, getCoursesByCategories } from '../../../lib/fetch/course'
 import { getCategoriesBasics } from '../../../lib/fetch/category'
+import { readFooter } from '../../../lib/fetch/footer'
 
-export default function Post({ courseslist, categories, lesson, course, courses, lesson_slug, metatags }) {
+export default function Post({ footerData, courseslist, categories, lesson, course, courses, lesson_slug, metatags }) {
     const postIntro = (color) => {
         const author_data = lesson.attributes.users_permissions_user.data.attributes
         return (<>
@@ -68,8 +69,8 @@ export default function Post({ courseslist, categories, lesson, course, courses,
             <section className={'primary_bg subcontainer horizontal widePadding_l0 topy colgap_l0'}>
                 <section className={'subcontainer padding_l3 vertical'}>
                     <div className={'subcontainer padding_l1'}></div>
-                    <div style={{width: '100%'}}>
-                        <section
+                    <section style={{width: '100%'}}>
+                        <div
                             style={{
                                 height: '25vw',
                                 backgroundImage: `linear-gradient(0deg, #0002, #0000001f, #00000057, #00000087, #000000ba), url(/data/media/${lesson.attributes.SEO.metaImage.data ? lesson.attributes.SEO.metaImage.data.attributes.hash+lesson.attributes.SEO.metaImage.data.attributes.ext : ''})`,
@@ -80,8 +81,8 @@ export default function Post({ courseslist, categories, lesson, course, courses,
                             className={'lefty subcontainer vertical padding_l3 widePadding_l6 round_l3'}
                         >
                             <div className={'hideOnTablet'}>{postIntro('primary_color')}</div>
-                        </section>
-                    </div>
+                        </div>
+                    </section>
                     <div className={'hide visibleOnTablet wide lefty'}>{postIntro('secondary_color')}</div>
                     <p className={`${style.excerpt} font_l4 weight_l3 secondary_color`} dangerouslySetInnerHTML={{__html: lesson.attributes.Excerpt}}></p>
                     <main id='content' className={`${style.content}`} dangerouslySetInnerHTML={{__html: lesson.attributes.Content}}></main>
@@ -107,7 +108,7 @@ export default function Post({ courseslist, categories, lesson, course, courses,
                     </div>
                 </aside>
             </section>
-            <Footer categories={categories} />
+            <Footer footerData={footerData} categories={categories} />
             <script
 				type="application/ld+json"
 				dangerouslySetInnerHTML={{
@@ -148,6 +149,7 @@ export const getStaticProps = async ({params}) => {
 	const course = await getCourse('articles')
     const lesson = await getLesson(lesson_slug)
     const courseslist = await getAllCoursesBasics()
+    const footerData = await readFooter()
 
     return ({
         props: {
@@ -157,6 +159,7 @@ export const getStaticProps = async ({params}) => {
             course,
             courses,
             lesson_slug,
+            footerData,
             metatags: {
                 href: `https://homapilot.com/articles/${lesson_slug}/`,
                 ico: '/favicon.ico'

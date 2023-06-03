@@ -10,8 +10,9 @@ import Text from '../../../../../builtin-axg/text/v2'
 import { getAllLessonsBasics, getLesson } from '../../../../../lib/fetch/lesson'
 import { getAllCoursesBasics, getCourse, getCoursesByCategories } from '../../../../../lib/fetch/course'
 import { getCategoriesBasics, getCategoryBasics } from '../../../../../lib/fetch/category'
+import { readFooter } from '../../../../../lib/fetch/footer'
 
-export default function Post({ courseslist, categories, category_slug, course_slug, category, courses, course, lesson, metatags }) {
+export default function Post({ footerData, courseslist, categories, category_slug, course_slug, category, courses, course, lesson, metatags }) {
     const postIntro = (color) => {
         const author_data = lesson.attributes.users_permissions_user.data.attributes
         return (<>
@@ -81,8 +82,8 @@ export default function Post({ courseslist, categories, category_slug, course_sl
                         nextlink={lesson.attributes.Next.data ? `/${category_slug}/${course_slug}/${lesson.attributes.Next.data.attributes.Slug}` : ''}
                         prevlink={lesson.attributes.Previous.data ? `/${category_slug}/${course_slug}/${lesson.attributes.Previous.data.attributes.Slug}` : ''}
                     />
-                    <div style={{width: '100%'}}>
-                        <section
+                    <section style={{width: '100%'}}>
+                        <div
                             style={{
                                 height: '25vw',
                                 backgroundImage: `linear-gradient(0deg, #0002, #0000001f, #00000057, #00000087, #000000ba), url(/data/media/${lesson.attributes.SEO.metaImage.data ? lesson.attributes.SEO.metaImage.data.attributes.hash+lesson.attributes.SEO.metaImage.data.attributes.ext : ''})`,
@@ -93,11 +94,11 @@ export default function Post({ courseslist, categories, category_slug, course_sl
                             className={'lefty subcontainer vertical padding_l3 widePadding_l6 round_l3'}
                         >
                             <div className={'hideOnTablet'}>{postIntro('primary_color')}</div>
-                        </section>
-                    </div>
+                        </div>
+                    </section>
                     <div className={'hide visibleOnTablet wide lefty'}>{postIntro('secondary_color')}</div>
                     <p className={`${style.excerpt} font_l4 weight_l3 secondary_color`} dangerouslySetInnerHTML={{__html: lesson.attributes.Excerpt}}></p>
-                    <main id='content' className={`${style.content}`} dangerouslySetInnerHTML={{__html: lesson.attributes.Content}}></main>
+                    <main id='content' className={`${style.content}`}><span dangerouslySetInnerHTML={{__html: lesson.attributes.Content}}></span></main>
                     <section id='belowads' className={'subcontainer horizontal center padding_l3 verticalTabletBreak'}>
                         {/* <!-- /22901649087/contentButtom --> */}
                         <div id='div-gpt-ad-1680994690027-0' style={{minWidth: '250px', minHeight: '250px'}}>
@@ -138,7 +139,7 @@ export default function Post({ courseslist, categories, category_slug, course_sl
                     })
 				}}
 			/>
-            <Footer categories={categories} />
+            <Footer footerData={footerData} categories={categories} />
         </>
     )
 }
@@ -161,6 +162,7 @@ export const getStaticProps = async ({params}) => {
 	const course = await getCourse(course_slug)
     const lesson = await getLesson(lesson_slug)
     const courseslist = await getAllCoursesBasics()
+    const footerData = await readFooter()
     return ({
         props: {
             courseslist,
@@ -172,6 +174,7 @@ export const getStaticProps = async ({params}) => {
             category_slug,
             course_slug,
             lesson_slug,
+            footerData,
             metatags: {
                 href: `https://homapilot.com/${category_slug}/${course_slug}/${lesson_slug}/`,
                 ico: '/favicon.ico'
