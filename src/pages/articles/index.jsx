@@ -9,8 +9,9 @@ import Footer from '../../../fragments/Footer'
 import { getCategoriesBasics } from '../../../lib/fetch/category'
 import { getCourse, getCoursesByCategories } from '../../../lib/fetch/course'
 import { getLessonsBasics } from '../../../lib/fetch/lesson'
+import { readFooter } from '../../../lib/fetch/footer'
 
-export default function Articles({ categories, courses, course, lessons, metatags }) {
+export default function Articles({ footerData, categories, courses, course, lessons, metatags }) {
 	return (
 		<>
 			<Head>
@@ -82,7 +83,7 @@ export default function Articles({ categories, courses, course, lessons, metatag
 					})
 				}}
 			/>
-			<Footer categories={categories} />
+			<Footer footerData={footerData} categories={categories} />
 		</>
     )
 }
@@ -92,13 +93,15 @@ export const getStaticProps = async () => {
     const courses = await getCoursesByCategories()
 	const course = await getCourse('articles')
     const lessons = await getLessonsBasics('articles')
-	
+	const footerData = await readFooter()
+
 	return ({
 		props: {
 			categories,
             courses,
 			course,
             lessons,
+            footerData,
 			metatags: {
                 href: 'https://homapilot.com/articles/',
                 ico: '/favicon.ico'

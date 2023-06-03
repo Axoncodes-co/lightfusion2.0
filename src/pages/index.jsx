@@ -10,9 +10,11 @@ import { getCategoriesBasics } from '../../lib/fetch/category'
 import { getCourseBasics, getCoursesByCategories } from '../../lib/fetch/course'
 import { getLessonsBasics } from '../../lib/fetch/lesson'
 import { readHome } from '../../lib/fetch/home'
+import { readFooter } from '../../lib/fetch/footer'
 
 export default function Home({
 	pageData,
+	footerData,
 	home_courses_preview,
 	categories,
 	courses,
@@ -91,8 +93,7 @@ export default function Home({
 				/> : null).filter(item => item)}
 			</Posts>
 		))}
-		{/* TODO: Add the fun facts section */}
-		<Footer categories={categories} />
+		<Footer footerData={footerData} categories={categories} />
 	</>)
 }
 
@@ -101,6 +102,7 @@ export const getStaticProps = async () => {
 	const courses = await getCoursesByCategories()
 
 	const pageData = await readHome()
+	const footerData = await readFooter()
 
 	const home_courses_preview = await Promise.all(pageData.attributes.home_courses_preview.data.map(async course => ({
 		course: await getCourseBasics(course.attributes.Slug),
@@ -110,6 +112,7 @@ export const getStaticProps = async () => {
 	return ({
 		props: {
 			pageData,
+			footerData,
 			home_courses_preview,
 			categories,
 			courses,

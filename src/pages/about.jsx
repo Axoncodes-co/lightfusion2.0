@@ -5,9 +5,10 @@ import Footer from '../../fragments/Footer'
 import Text from '../../builtin-axg/text/v2'
 import { getCategoriesBasics } from '../../lib/fetch/category'
 import { readAbout } from '../../lib/fetch/about'
+import { readFooter } from '../../lib/fetch/footer'
 import { getCoursesByCategories } from '../../lib/fetch/course'
 
-export default function About({categories, courses, pageData, metatags}) {
+export default function About({categories, courses, pageData, footerData, metatags}) {
     return (<>
 		<Head>
 			<title>{pageData.attributes.SEO.metaTitle}</title>
@@ -55,10 +56,9 @@ export default function About({categories, courses, pageData, metatags}) {
 			<Text customclasses={'center'} textclasses={'primary_color font_l9 weight_l4 secondary_font'} text={pageData.attributes.hero_title} />
 		</section>
 		<section className={'primary_bg container vertical verticalTabletBreak'} style={{minHeight: '350px'}}>
-			<p className={'secondary_color font_l4 weight_l3'} dangerouslySetInnerHTML={{__html: pageData.attributes.Content}}></p>
-			{/* <Text textclasses={'secondary_color font_l4 weight_l3'} text={'Homa Pilot Complex was founded in 2020 by pilot Benyamin Amiri. The purpose of this complex is to provide aviation and piloting courses that are available online for free to pilot students and all those who are interested in this industry.'} /> */}
+			<span className={'secondary_color font_l4 weight_l3'} dangerouslySetInnerHTML={{__html: pageData.attributes.Content}}></span>
 		</section>
-		<Footer categories={categories} />
+		<Footer footerData={footerData} categories={categories} />
     </>)
 }
 
@@ -66,11 +66,13 @@ export const getStaticProps = async () => {
 	const categories = await getCategoriesBasics()
 	const courses = await getCoursesByCategories()
 	const pageData = await readAbout()
+	const footerData = await readFooter()
 	return ({
 		props: {
 			categories,
 			courses,
 			pageData,
+			footerData,
 			metatags: {
 				href: "https://homapilot.com/about/",
 				ico: '/favicon.ico'

@@ -2,11 +2,9 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import Newssubscriber from '../Newssubscriber'
-import style from './style.module.css'
 import Text from '../../builtin-axg/text/v2'
-import Script from 'next/script'
 
-export default function Footer({categories}) {
+export default function Footer({ footerData, categories }) {
 
     const headsclasses = 'primary_color font_l2_min weight_l6 fitWidth'
     const itemsclasses = 'primary_color font_l2_max nomargin weight_l4 fitWidth tertiary_color_hover'
@@ -18,52 +16,32 @@ export default function Footer({categories}) {
                 <Text
                     inlinestyle={{width: '90%'}}
                     textclasses={'weight_l4 font_l3 textcenteronTablet primary_color'}
-                    text={'Homa Pilot was founded in 2020 and the purpose of this complex is to provide digital aviation and piloting courses for free and online so that all students of piloting and aviation.'}
+                    text={footerData.attributes.short_description}
                 />
             </section>
             <section className={'centerOnTablet horizontal horizontalTabletBreak righty subcontainer topy'}>
-                <section className={'subcontainer fitWidth topy'}>
-                    <Text text={'Categories'} textclasses={headsclasses} />
-                    <div className={'subcontainer vertical'}>
-                        {categories.map((category, key) => <Text key={key} text={category.title} link={`/${category.slug}`} textclasses={itemsclasses} />)}
-                    </div>
-                </section>
-                <section className={'subcontainer fitWidth topy'}>
-                    <Text text={'Main Sectors'} textclasses={headsclasses} />
-                    <div className={'subcontainer vertical'}>
-                        <Text text={'Home'} link={'/'} textclasses={itemsclasses} />
-                        <Text text={'Contact'} link={'/contact'} textclasses={itemsclasses} />
-                        <Text text={'About'} link={'/about'} textclasses={itemsclasses} />
-                    </div>
-                </section>
+                {footerData.attributes.Lists.map((list, key) => (
+                    <section key={key} className={'subcontainer fitWidth topy'}>
+                        <Text text={'Categories'} textclasses={headsclasses} />
+                        <div className={'subcontainer vertical'}>
+                            {list.Link.map((link, key) => <Text key={key} text={link.Name} link={`/${link.Link}`} textclasses={itemsclasses} />)}
+                        </div>
+                    </section>
+                ))}
             </section>
         </section>
         <div className={'round_l5'} style={{backgroundColor: '#000000d4', width: '100%', height: '1px', margin: '22px 0'}} />
         <section className={'subcontainer horizontal spread'}>
-            <div className={'centerOnTablet fitWidth horizontal horizontalTabletBreak lefty subcontainer wideonTablet'}>
-                <Link href={'https://www.instagram.com/homapilot/'}>
-                    <Image alt={'socialmedia'} src={'/instagram.svg'} width={20} height={20} />
-                </Link>
-                <Link href={'https://www.facebook.com/homapilot/'}>
-                    <Image alt={'socialmedia'} src={'/facebook.svg'} width={20} height={20} />
-                </Link>
-                <Link href={'https://twitter.com/HomaPilot'}>
-                    <Image alt={'socialmedia'} src={'/twitter.svg'} width={20} height={20} />
-                </Link>
-                <Link href={'https://www.linkedin.com/company/homapilot'}>
-                    <Image alt={'socialmedia'} src={'/linkedin.svg'} width={20} height={20} />
-                </Link>
-                <Link href={'https://www.youtube.com/channel/UCp6GlZFBs0lRyrsXZa8hVGA/'}>
-                    <Image alt={'socialmedia'} src={'/youtube.svg'} width={20} height={20} />
-                </Link>
-                <Link href={'https://www.pinterest.com/homapilot'}>
-                    <Image alt={'socialmedia'} src={'/pinterest.svg'} width={20} height={20} />
-                </Link>
-                <Link href={'mailto:info@homapilot.com'}>
-                    <Image alt={'socialmedia'} src={'/email.svg'} width={20} height={20} />
-                </Link>
-            </div>
-            <p className={'centerOnTablet font_l2_min primary_color righty weight_l3 wideonTablet'}>© 2020–2023 HomaPilot LLC & <Link target="_blank" href="https://axoncodes.com" className="tertiary_color">Axoncodes</Link> - Made with <svg className={style.hearticon} xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 96 960 960" fill="#AD1457"><path d="m439 900-53-49Q262 736 171 631.5T80 413q0-90 60.5-150.5T290 202q51 0 101 24.5t89 80.5q44-56 91-80.5t99-24.5q89 0 149.5 60.5T880 413q0 114-91 218.5T574 851l-53 49q-17 16-41 16t-41-16Z"/></svg> in Arizona</p>
+            {!footerData.attributes.socialmedia.Link ? '' : (
+                <div className={'centerOnTablet fitWidth horizontal horizontalTabletBreak lefty subcontainer wideonTablet'}>
+                    {footerData.attributes.socialmedia.Link.map((item, key) => (
+                        <Link key={key} href={item.Link}>
+                            <Image alt={item.Name} src={`/${item.Name}.svg`} width={20} height={20} />
+                        </Link>
+                    ))}
+                </div>
+            )}
+            <p className={'centerOnTablet font_l2_min primary_color righty weight_l3 wideonTablet'} dangerouslySetInnerHTML={{__html:footerData.attributes.socket}}></p>
         </section>
     </footer>)
 }

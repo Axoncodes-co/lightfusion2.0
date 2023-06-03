@@ -14,7 +14,8 @@ export default function Hero({
         <section className={`widePadding_l6 container vertical verticalLargeTabletBreak`} style={{paddingRight: '0'}}>
             <section className={'subcontainer centerOnTablet'}>
                 <h1 className="subcontainer nomargin wide primary_color secondary_font font_l8 textleft textcenteronTablet weight_l3" dangerouslySetInnerHTML={{__html: hero_title}}></h1>
-                <p className="subcontainer primary_color font_l4 lato textleft textcenteronTablet nomargin weight_l4" dangerouslySetInnerHTML={{__html: hero_description}}></p>
+                {/* <p className="subcontainer primary_color font_l4 lato textleft textcenteronTablet nomargin weight_l4" dangerouslySetInnerHTML={{__html: hero_description}}></p> */}
+                <p className="subcontainer primary_color font_l4 lato textleft textcenteronTablet nomargin weight_l4">{hero_description}</p>
                 <section className={'fitWidth allLefty centerOnTablet horizontal horizontalTabletBreak padding_l3 subcontainer widePadding_l0'}>
                     <Text
                         text={hero_button1_title}
