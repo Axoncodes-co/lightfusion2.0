@@ -10,6 +10,8 @@ import { getAllLessonsBasics, getLesson } from '../../../lib/fetch/lesson'
 import { getAllCoursesBasics, getCourse, getCoursesByCategories } from '../../../lib/fetch/course'
 import { getCategoriesBasics } from '../../../lib/fetch/category'
 import { readFooter } from '../../../lib/fetch/footer'
+import BottomAds from '../../../components/BottomAds'
+import SideAds from '../../../components/SideAds'
 
 export default function Post({ footerData, courseslist, categories, lesson, course, courses, lesson_slug, metatags }) {
     const postIntro = (color) => {
@@ -86,27 +88,9 @@ export default function Post({ footerData, courseslist, categories, lesson, cour
                     <div className={'hide visibleOnTablet wide lefty'}>{postIntro('secondary_color')}</div>
                     <p className={`${style.excerpt} font_l4 weight_l3 secondary_color`} dangerouslySetInnerHTML={{__html: lesson.attributes.Excerpt}}></p>
                     <main id='content' className={`${style.content}`} dangerouslySetInnerHTML={{__html: lesson.attributes.Content}}></main>
-                    <section id='belowads' className={'subcontainer horizontal center padding_l3 verticalTabletBreak'}>
-                        {/* <!-- /22901649087/contentButtom --> */}
-                        <div id='div-gpt-ad-1680994690027-0' style={{minWidth: '250px', minHeight: '250px'}}>
-                            <script dangerouslySetInnerHTML={{__html: `googletag.cmd.push(function() { googletag.display('div-gpt-ad-1680994690027-0'); });`}} />
-                        </div>
-                        {/* <!-- /22901649087/contentBottom2 --> */}
-                        <div id='div-gpt-ad-1681030185439-0' style={{minWidth: '250px', minHeight: '250px'}}>
-                            <script dangerouslySetInnerHTML={{__html: `googletag.cmd.push(function() { googletag.display('div-gpt-ad-1681030185439-0'); });`}} />
-                        </div>
-                    </section>
+                    <BottomAds />
                 </section>
-                <aside style={{position: 'sticky', top: '38px'}} className={'centerImgOnmobileBreakpoint fitWidth horizontalMobileBreak subcontainer vertical'}>
-                    {/* <!-- /22901649087/sidebar --> */}
-                    <div id='div-gpt-ad-1680994203642-0' style={{minWidth: '120px', minHeight: '240px'}}>
-                        <script dangerouslySetInnerHTML={{__html: `googletag.cmd.push(function() { googletag.display('div-gpt-ad-1680994203642-0'); });`}} />
-                    </div>
-                    {/* <!-- /22901649087/sidebar2 --> */}
-                    <div id='div-gpt-ad-1680994309478-0' style={{minWidth: '120px', minHeight: '240px'}}>
-                        <script dangerouslySetInnerHTML={{__html: `googletag.cmd.push(function() { googletag.display('div-gpt-ad-1680994309478-0'); });`}} />                        
-                    </div>
-                </aside>
+                <SideAds />
             </section>
             <Footer footerData={footerData} categories={categories} />
             <script
