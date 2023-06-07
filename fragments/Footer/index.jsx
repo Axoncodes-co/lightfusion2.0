@@ -36,7 +36,7 @@ export default function Footer({ footerData, categories }) {
                 <div className={'centerOnTablet fitWidth horizontal horizontalTabletBreak lefty subcontainer wideonTablet'}>
                     {footerData.attributes.socialmedia.Link.map((item, key) => (
                         <Link key={key} href={item.Link}>
-                            <Image alt={item.Name} src={`/${item.Name}.svg`} width={20} height={20} />
+                            <Image alt={item.Name} src={`/icons/${item.Name}.svg`} width={20} height={20} />
                         </Link>
                     ))}
                 </div>
