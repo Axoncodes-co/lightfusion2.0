@@ -62,7 +62,7 @@ export default function Text({
 
   return link
     ? <Link
-        href={link}
+        href={link+(link[link.length-1] == '/' ? '' : '/')}
         aria-label={arialabel}
         {...strAttr(allattr)} 
         {...strAttr(attr)} 

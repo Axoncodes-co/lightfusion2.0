@@ -54,7 +54,7 @@ export default function Home({
 			<meta property="og:image:width" content="1280" key={"og:image:width"} />
 			<meta property="og:image:height" content="519" key={"og:image:height"} />
 		</Head>
-		<Header categories={categories} courses={courses} />
+		{/* <Header categories={categories} courses={courses} /> */}
 		<section className={'horizontal subcontainer verticalLargeTabletBreak spread'}>
 			<div style={{
 				filter: 'brightness(0.5)',
@@ -83,7 +83,7 @@ export default function Home({
 			>
 				{item.lessons.map((lesson, key) => key < 3 ? <LessonBox
 					key={key}
-					thumbnail_url={`/data/media/${lesson.thumbnail_url}`}
+					thumbnail_url={lesson.thumbnail_url?`/data/media/${lesson.thumbnail_url}`:''}
 					tags={lesson.tags}
 					updateDate={lesson.updateDate}
 					title={lesson.title}
