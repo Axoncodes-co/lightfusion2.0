@@ -54,7 +54,7 @@ export default function Home({
 			<meta property="og:image:width" content="1280" key={"og:image:width"} />
 			<meta property="og:image:height" content="519" key={"og:image:height"} />
 		</Head>
-		{/* <Header categories={categories} courses={courses} /> */}
+		<Header categories={categories} courses={courses} />
 		<section className={'horizontal subcontainer verticalLargeTabletBreak spread'}>
 			<div style={{
 				filter: 'brightness(0.5)',
