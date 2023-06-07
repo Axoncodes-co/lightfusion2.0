@@ -82,7 +82,7 @@ export const getStaticProps = async () => {
 			courses,
 			pageData,
 			metatags: {
-				href: "https://homapilot.com/contact/",
+				href: `${process.env.DOMAIN}/contact/`,
 				ico: '/favicon.ico'
 			}
 		}

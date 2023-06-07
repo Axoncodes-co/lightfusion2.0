@@ -40,7 +40,7 @@ categories.forEach(category => {
 let xmlContent = `<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">`
 // pages
 urls.forEach(url => {
-  const link = `https://homapilot.com${url.url}/`
+  const link = `${process.env.DOMAIN}${url.url}/`
   xmlContent += `<url>\n`
   xmlContent += ` <loc>${link}</loc>\n`
   xmlContent += ` <priority>${url.priority}</priority>\n`
@@ -48,7 +48,7 @@ urls.forEach(url => {
     url.imageslist.forEach(image => {
       xmlContent += `
         <image:image>
-          <image:loc>https://homapilot.com${image}</image:loc>
+          <image:loc>${process.env.DOMAIN}${image}</image:loc>
         </image:image>\n`
     })
   }

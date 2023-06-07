@@ -78,7 +78,7 @@ export default function Articles({ footerData, categories, courses, course, less
 						"itemListElement": lessons.map((lesson, key) => ({
 							"@type":"ListItem",
 							"position":key,
-							"url":`https://homapilot.com/articles/${lesson.slug}`
+							"url":`${process.env.DOMAIN}/articles/${lesson.slug}`
 						}))
 					})
 				}}
@@ -103,7 +103,7 @@ export const getStaticProps = async () => {
             lessons,
             footerData,
 			metatags: {
-                href: 'https://homapilot.com/articles/',
+                href: `${process.env.DOMAIN}/articles/`,
                 ico: '/favicon.ico'
             }
 		}

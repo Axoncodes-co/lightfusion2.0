@@ -117,7 +117,7 @@ export const getStaticProps = async () => {
 			categories,
 			courses,
 			metatags: {
-				href: "https://homapilot.com/",
+				href: process.env.DOMAIN,
 				ico: '/favicon.ico',
 			}
 		}
