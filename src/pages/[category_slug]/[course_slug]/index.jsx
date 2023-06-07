@@ -77,7 +77,7 @@ export default function Archive({ footerData, category_slug, courseslist, catego
 					</section>
 				</section>
 			</section>
-			<script
+			{process.env.ALLOW_CATEGORY_GOOGLE_ENHANCEMENTS?.toLocaleLowerCase == "true" ? <script
 				type="application/ld+json"
 				dangerouslySetInnerHTML={{
 				__html: JSON.stringify({
@@ -87,11 +87,11 @@ export default function Archive({ footerData, category_slug, courseslist, catego
 					"description": metatags.description,
 					"provider": {
 						"@type": "Organization",
-						"name": "Homa Pilot",
+						"name": process.env.WEBNAME,
 					}
 				})
 				}}
-			/>
+			/> : ''}
 			<Footer footerData={footerData} categories={categories} />
 		</>
     )
