@@ -88,12 +88,16 @@ export default function Post({ footerData, courseslist, categories, lesson, cour
                     <div className={'hide visibleOnTablet wide lefty'}>{postIntro('secondary_color')}</div>
                     <p className={`${style.excerpt} font_l4 weight_l3 secondary_color`} dangerouslySetInnerHTML={{__html: lesson.attributes.Excerpt}}></p>
                     <main id='content' className={`${style.content}`} dangerouslySetInnerHTML={{__html: lesson.attributes.Content}}></main>
-                    <BottomAds />
+                    <section id='belowads' className={'subcontainer horizontal center padding_l3 verticalTabletBreak'}>
+                        <BottomAds />
+                    </section>
                 </section>
-                <SideAds />
+                <aside style={{position: 'sticky', top: '38px'}} className={'centerImgOnmobileBreakpoint fitWidth horizontalMobileBreak subcontainer vertical'}>
+                    <SideAds />
+                </aside>
             </section>
             <Footer footerData={footerData} categories={categories} />
-            <script
+            {process.env.ALLOW_ARTICLES_GOOGLE_ENHANCEMENTS?.toLocaleLowerCase == "true" ? <script
 				type="application/ld+json"
 				dangerouslySetInnerHTML={{
 					__html: JSON.stringify({
@@ -110,7 +114,7 @@ export default function Post({ footerData, courseslist, categories, lesson, cour
                         }]
                     })
 				}}
-			/>
+			/> : ''}
             
         </>
     )

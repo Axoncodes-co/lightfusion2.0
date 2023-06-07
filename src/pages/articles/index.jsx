@@ -69,7 +69,7 @@ export default function Articles({ footerData, categories, courses, course, less
 					</section>
 				</section>
 			</section>
-            <script
+            {process.env.ALLOW_ARTICLES_GOOGLE_ENHANCEMENTS?.toLocaleLowerCase == "true" ? <script
 				type="application/ld+json"
 				dangerouslySetInnerHTML={{
 					__html: JSON.stringify({
@@ -82,7 +82,7 @@ export default function Articles({ footerData, categories, courses, course, less
 						}))
 					})
 				}}
-			/>
+			/> : ''}
 			<Footer footerData={footerData} categories={categories} />
 		</>
     )

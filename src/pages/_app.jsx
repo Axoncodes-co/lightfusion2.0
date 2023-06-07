@@ -13,7 +13,7 @@ export default function App({ Component, pageProps }) {
       <Component {...pageProps} />
       <ActivationHandler />
       <Script src={'/activationhandlerutils.js'} strategy={"beforeInteractive"}></Script>
-      <Script async src={"https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5146054383186265"} crossOrigin={"anonymous"}></Script>
+      <Script async src={process.env.GOOGLE_SYNDICATION_LINK} crossOrigin={"anonymous"}></Script>
     </>
   )
 }

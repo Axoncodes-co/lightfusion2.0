@@ -103,7 +103,7 @@ export default function Archive({ footerData, category_slug, levels, paids, cate
 					</section>
 				</section>
 			</section>
-			<script
+			{process.env.ALLOW_CATEGORY_GOOGLE_ENHANCEMENTS?.toLocaleLowerCase == "true" ? <script
 				type="application/ld+json"
 				dangerouslySetInnerHTML={{
 					__html: JSON.stringify({
@@ -116,7 +116,7 @@ export default function Archive({ footerData, category_slug, levels, paids, cate
 						}))
 					})
 				}}
-			/>
+			/> : ''}
 			<Footer footerData={footerData} categories={categories} />
 		</>
     )

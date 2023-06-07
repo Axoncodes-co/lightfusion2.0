@@ -1,9 +1,9 @@
 {
   "name": "web",
-  "version": "0.1.0",
+  "version": "2.0.0",
   "private": true,
   "scripts": {
-    "dev": "DOMAIN=https://www.homapilot.com CMS_TOKEN=18b93ddbd65129e43ae32bd82fde679f73f3d8b358047ca44a7fcf7bd1263cf6b6284e6370fe76900a7de8dea4181a43977bce3c53732d5924be3cb6b012ad223851e44f38cec48e815e7b1053ebe163db212c69315b08a6b42db6561e0657ac1427ebd3dd064e0eeaef77276e9054e54cdb91fb88ed4eb893f2620632422fbf CMS_BASE_URL=http://localhost:1337 next dev",
+    "dev": "ALLOW_CATEGORY_GOOGLE_ENHANCEMENTS=true ALLOW_ORGANIZATION_GOOGLE_ENHANCEMENTS=true ALLOW_WEBSITE_GOOGLE_ENHANCEMENTS=true ALLOW_ARTICLES_GOOGLE_ENHANCEMENTS=true WEBNAME_ALT='HP' WEBNAME='Homa Pilot' GOOGLE_SYNDICATION_LINK=https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5146054383186265 DOMAIN=https://www.homapilot.com CMS_TOKEN=18b93ddbd65129e43ae32bd82fde679f73f3d8b358047ca44a7fcf7bd1263cf6b6284e6370fe76900a7de8dea4181a43977bce3c53732d5924be3cb6b012ad223851e44f38cec48e815e7b1053ebe163db212c69315b08a6b42db6561e0657ac1427ebd3dd064e0eeaef77276e9054e54cdb91fb88ed4eb893f2620632422fbf CMS_BASE_URL=http://localhost:1337 next dev",
     "build": "next build && next export",
     "start": "next start",
     "lint": "next lint",
