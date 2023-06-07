@@ -24,7 +24,7 @@ export default function Post({ footerData, courseslist, categories, lesson, cour
             />
             <Author
                 name={author_data.display_name}
-                avatar_url={`/data/media/${author_data.Avatar.data.attributes.hash+author_data.Avatar.data.attributes.ext}`}
+                avatar_url={`/data/media/${author_data.Avatar.data.attributes.name}`}
                 date={lesson.attributes.updatedAt || lesson.attributes.publishedAt}
                 color={color}
             />
