@@ -24,7 +24,7 @@ export default function Footer({ footerData, categories }) {
                     <section key={key} className={'subcontainer fitWidth topy'}>
                         <Text text={'Categories'} textclasses={headsclasses} />
                         <div className={'subcontainer vertical'}>
-                            {list.Link.map((link, key) => <Text key={key} text={link.Name} link={`/${link.Link}`} textclasses={itemsclasses} />)}
+                            {list.Link.map((link, key) => <Text key={key} text={link.Name} link={link.Link} textclasses={itemsclasses} />)}
                         </div>
                     </section>
                 ))}
