@@ -1,14 +1,3 @@
-RedirectMatch 301 /general/stall https://www.homapilot.com/general/principles-of-flight/stall
-RedirectMatch 301 /general/angle-of-attack https://www.homapilot.com/general/principles-of-flight/angle-of-attack
-RedirectMatch 301 /general/relative-wind https://www.homapilot.com/general/principles-of-flight/relative-wind
-RedirectMatch 301 /general/four-forces-of-flight https://www.homapilot.com/general/principles-of-flight/four-forces-of-flight
-RedirectMatch 301 /general/main-structure-of-airplanes https://www.homapilot.com/general/principles-of-flight/main-structure-of-airplanes
-RedirectMatch 301 /general/temperature-inversion https://www.homapilot.com/general/meteorology/temperature-inversion
-RedirectMatch 301 /general/lapse-rate https://www.homapilot.com/general/meteorology/lapse-rate
-RedirectMatch 301 /general/temperature https://www.homapilot.com/general/meteorology/temperature
-RedirectMatch 301 /general/earth-atmosphere-composition-and-structure https://www.homapilot.com/general/meteorology/earth-atmosphere-composition-and-structure
-
-
 RedirectMatch 301 /wp-content/uploads/2021/10/rc-airplane-icon.svg /data/media/rc-airplane-icon.svg
 RedirectMatch 301 /wp-content/uploads/2021/10/Paper-airplane-icon.svg /data/media/Paper-airplane-icon.svg
 RedirectMatch 301 /wp-content/uploads/2021/10/Radio-Navigation.svg /data/media/Radio-Navigation.svg
