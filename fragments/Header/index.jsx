@@ -137,7 +137,7 @@ export default function Header({ categories, courses }) {
       <Link href={'/'}>
         <Image
           alt={'Logo'}
-          src={'/logo.png'}
+          src={'/data/media/logo.png'}
           width={120}
           height={48}
           style={{minWidth: 90}}
