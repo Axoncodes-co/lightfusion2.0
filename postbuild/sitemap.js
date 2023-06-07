@@ -1,42 +1,38 @@
 const fs = require('fs');
 const path = require('path');
+require('dotenv').config();
 
 const urls = [
-  { url: '', changefreq: 'weekly', priority: 1 },
+  { url: '', changefreq: 'monthly', priority: 1 },
   { url: '/about', changefreq: 'monthly', priority: 0.8 },
   { url: '/contact', changefreq: 'monthly', priority: 0.8 },
-  // Add more URLs as needed
 ];
 
-const jsonData = fs.readFileSync(path.join(process.cwd(), 'public/data/categories.json'), 'utf-8')
-const categories = JSON.parse(jsonData)
-categories.forEach(category => {
-  urls.push({url: `/${category.slug}`, changefreq: 'monthly', priority: 0.8})
-  category.courses.forEach(course => {
-    urls.push({url: `/${category.slug}/${course.slug}`, changefreq: 'monthly', priority: 0.8})
-    course.lessons.forEach(lesson => {
-      urls.push({
-        url: `/${category.slug}/${course.slug}/${lesson.slug}`,
-        changefreq: 'monthly',
-        priority: 0.8,
-        redirect: `/${category.slug}/${lesson.slug}`,
-        imageslist: lesson.imageslist
-      })
-    })
+JSON.parse(fs.readFileSync(path.join(process.cwd(), 'public/data/categories.json'), 'utf-8')).data.forEach(category => {
+  urls.push({
+    url: `/${category.attributes.Slug}`,
+    changefreq: 'monthly',
+    priority: 0.8
+  })
+  
+})
+
+JSON.parse(fs.readFileSync(path.join(process.cwd(), 'public/data/courses.json'), 'utf-8')).data.forEach(course => {
+  urls.push({
+    url: `/${course.attributes.category.data?(course.attributes.category.data.attributes.Slug+'/') : ''}${course.attributes.Slug}`,
+    changefreq: 'monthly',
+    priority: 0.8
   })
 })
 
-// categories.forEach(category => {
-//   urls.push({url: `/${category.slug}`, changefreq: 'monthly', priority: 0.5})
-//   category.courses.forEach(course => {
-//     urls.push({url: `/${category.slug}/${course.slug}`, changefreq: 'monthly', priority: 0.4})
-//     course.lessons.forEach(lesson => {
-//       urls.push({url: `/${category.slug}/${course.slug}/${lesson.slug}`, changefreq: 'monthly', priority: 0.3})
-//     })
-//   })
-// })
-
-
+JSON.parse(fs.readFileSync(path.join(process.cwd(), 'public/data/lessons.json'), 'utf-8')).data.forEach(lesson => {
+  urls.push({
+    url: `/${lesson.attributes.course.data.attributes.category.data?lesson.attributes.course.data.attributes.category.data.attributes.Slug+'/':''}${lesson.attributes.course.data.attributes.Slug}/${lesson.attributes.Slug}`,
+    changefreq: 'monthly',
+    priority: 0.8,
+    imageslist: lesson.imageslist
+  })
+})
 let xmlContent = `<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">`
 // pages
 urls.forEach(url => {

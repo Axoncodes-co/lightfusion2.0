@@ -1,4 +1,3 @@
 User-agent: *
 Allow: /
-
-Sitemap: https://homapilot.com/sitemap.xml
+Sitemap: https://www.homapilot.com/sitemap.xml
