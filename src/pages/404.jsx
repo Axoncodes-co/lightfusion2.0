@@ -94,7 +94,7 @@ export const getStaticProps = async () => {
 			pageData,
 			footerData,
 			metatags: {
-				href: "https://homapilot.com/404/",
+				href: `${process.env.DOMAIN}/404/`,
                 ico: '/favicon.ico'
 			}
 		}

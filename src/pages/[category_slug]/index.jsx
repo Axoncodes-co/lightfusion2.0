@@ -112,7 +112,7 @@ export default function Archive({ footerData, category_slug, levels, paids, cate
 						"itemListElement": categoryCourses.map((course, key) => ({
 							"@type":"ListItem",
 							"position":key,
-							"url":`https://homapilot.com/${category_slug}/${course.slug}`
+							"url":`${process.env.DOMAIN}/${category_slug}/${course.slug}`
 						}))
 					})
 				}}
@@ -148,7 +148,7 @@ export const getStaticProps = async ({params}) => {
 			category_slug,
 			footerData,
 			metatags: {
-                href: `https://homapilot.com/${category_slug}/`,
+                href: `${process.env.DOMAIN}/${category_slug}/`,
                 ico: '/favicon.ico'
             }
 		}

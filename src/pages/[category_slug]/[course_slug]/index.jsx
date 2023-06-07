@@ -130,7 +130,7 @@ export const getStaticProps = async ({params}) => {
 			lessons,
 			footerData,
 			metatags: {
-                href: `https://homapilot.com/${category_slug}/${course_slug}/`,
+                href: `${process.env.DOMAIN}/${category_slug}/${course_slug}/`,
                 ico: '/favicon.ico'
             }
 		}

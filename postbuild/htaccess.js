@@ -24,7 +24,7 @@ categories.forEach(category => {
 let xmlContent = ''
 // pages
 urls.forEach(url => {
-  xmlContent += url.redirect ? `Redirect 301 ${url.redirect} https://www.homapilot.com${url.url}\n` : ''
+  xmlContent += url.redirect ? `Redirect 301 ${url.redirect} ${process.env.DOMAIN}${url.url}\n` : ''
 })
 
 
@@ -40,7 +40,7 @@ const redirects = []
 medias.forEach(media => {
   redirects.push({ 
     "source": `https://${media.url.slice(media.url.indexOf('blog.')+5)}`,
-    "destination": `https://homapilot.com/data/media${media.url.slice(media.url.lastIndexOf('/'))}`, 
+    "destination": `${process.env.DOMAIN}/data/media${media.url.slice(media.url.lastIndexOf('/'))}`, 
     "statusCode": 301
   })
   // `Redirect 301 /data/media${media.url.slice(media.url.lastIndexOf('/'))} https://${media.url.slice(media.url.indexOf('blog.')+5)}\n`

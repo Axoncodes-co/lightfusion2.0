@@ -12,15 +12,15 @@ export default function Document() {
               "@type" : "WebSite",
               "name" : "Homa Pilot",
               "alternateName" : "HP",
-              "url" : "https://homapilot.com/"
+              "url" : process.env.DOMAIN
         })}} />
         <script type="application/ld+json"
           dangerouslySetInnerHTML={{
             __html: JSON.stringify({
               "@context": "https://schema.org",
               "@type": "Organization",
-              "url": "https://homapilot.com",
-              "logo": "https://homapilot.com/logo.png"
+              "url": process.env.DOMAIN,
+              "logo": `${process.env.DOMAIN}/logo.png`
         })}} />
         {/* <!-- Google tag (gtag.js) --> */}
         <Script async src="https://www.googletagmanager.com/gtag/js?id=UA-187520717-1"></Script>

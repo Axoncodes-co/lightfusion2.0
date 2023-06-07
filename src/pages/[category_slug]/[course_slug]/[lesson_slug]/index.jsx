@@ -112,13 +112,13 @@ export default function Post({ footerData, courseslist, categories, category_slu
                         "@context": "https://schema.org",
                         "@type": "NewsArticle",
                         "headline": metatags.title,
-                        "image": lesson.imageslist.map(img => `https://homapilot.com${img}`),
+                        "image": lesson.imageslist.map(img => `${process.env.DOMAIN}${img}/`),
                         "datePublished": lesson.publishDate,
                         "dateModified": lesson.updateDate,
                         "author": [{
                             "@type": "Person",
                             "name": lesson.author_name,
-                            "url": "https://homapilot.com/about/"
+                            "url": `${process.env.DOMAIN}/about/`
                         }]
                     })
 				}}
@@ -160,7 +160,7 @@ export const getStaticProps = async ({params}) => {
             lesson_slug,
             footerData,
             metatags: {
-                href: `https://homapilot.com/${category_slug}/${course_slug}/${lesson_slug}/`,
+                href: `${process.env.DOMAIN}/${category_slug}/${course_slug}/${lesson_slug}/`,
                 ico: '/favicon.ico'
             }
         }
