@@ -1,3 +1,8 @@
 .lessonwidth {
     width: 48%!important;
 }
+@media screen and (max-width: 900px) {
+    .lessonwidth {
+        width: 100%!important;
+    }
+}
