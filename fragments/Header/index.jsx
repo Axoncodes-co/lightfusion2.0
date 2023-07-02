@@ -37,8 +37,6 @@ export default function Header({ categories, courses }) {
         textclasses: 'weight_l3 font_l3 secondary_font nomargin secondary_color primary_color_hover',
         customclasses: 'secondary_bg_hover widePadding_l1',
       },
-      subtrigger: 'click',
-      subopening: 'sub',
     },
     {
       text: {
@@ -58,7 +56,7 @@ export default function Header({ categories, courses }) {
         listclasses: 'vertical centerOnTablet lefty',
         text: {
           text: title,
-          link: `/${catslug}`,
+          link: `/${catslug}/`,
           textclasses: 'font_l7 tertiary_color nomargin',
           customclasses: 'centerOnTablet colgap_l2',
           // icon: {
@@ -70,7 +68,7 @@ export default function Header({ categories, courses }) {
         content: courses[catslug]?.courses?.map(({title, slug: courseslug}) => ({
           text: {
             text: title,
-            link: `/${catslug}/${courseslug}`,
+            link: `/${catslug}/${courseslug}/`,
             textclasses: 'nomargin widePadding_l1 font_l4 primary_color secondary_color_hover weight_l3',
             customclasses: 'round_l2 colgap_l2',
             // icon: {
@@ -86,23 +84,19 @@ export default function Header({ categories, courses }) {
       structure: 'link',
       text: {
         text: 'About',
-        link: '/about',
+        link: '/about/',
         textclasses: 'weight_l3 font_l3 secondary_font nomargin secondary_color primary_color_hover',
         customclasses: 'secondary_bg_hover widePadding_l1',
       },
-      subtrigger: 'click',
-      subopening: 'sub',
     },
     {
       structure: 'link',
       text: {
         text: 'Contact',
-        link: '/contact',
+        link: '/contact/',
         textclasses: 'weight_l3 font_l3 secondary_font nomargin secondary_color primary_color_hover',
         customclasses: 'secondary_bg_hover widePadding_l1',
       },
-      subtrigger: 'click',
-      subopening: 'sub',
     },
   ])
 
