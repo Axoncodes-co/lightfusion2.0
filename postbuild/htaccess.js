@@ -4,7 +4,7 @@ require('dotenv').config();
 let xmlContent = ''
 
 // Add url ending slash and path redirect config
-xmlContent += "RewriteEngine On"
+xmlContent += "RewriteEngine On\n"
 
 xmlContent += `# Remove /client/ from the path\n`
 xmlContent += `RewriteCond %{REQUEST_FILENAME} !-f\n`
