@@ -1,6 +1,6 @@
 
 import Script from 'next/script'
-import ActivationHandler from '../../axg-react/ActivationHandler'
+import ActivationHandler from '../../builtin-axg/ActivationHandler'
 import '../../builtin-axg/dropdown/v5/style.css'
 import '../../builtin-axg/styleV2.css'
 import '../../builtin-axg/colorVars.css'

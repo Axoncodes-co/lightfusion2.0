@@ -1,5 +1,5 @@
 
-import SectionTitle from '../../../../axg-react/SectionTitle'
+import SectionTitle from '../../../../builtin-axg/SectionTitle'
 import LessonBox from '../../../../components/LessonBox'
 import style from './course.module.css'
 import Header from '../../../../fragments/Header'

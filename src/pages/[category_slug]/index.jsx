@@ -1,6 +1,6 @@
 
-import SectionTitle from '../../../axg-react/SectionTitle'
-import Filter from '../../../axg-react/Filter'
+import SectionTitle from '../../../builtin-axg/SectionTitle'
+import Filter from '../../../builtin-axg/Filter'
 import CourseBox from '../../../components/CourseBox'
 import Header from '../../../fragments/Header'
 import Navbar from '../../../fragments/Navbar'
