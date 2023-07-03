@@ -1,6 +1,6 @@
 
 import style from './style.module.css'
-import Input from '../input/v2'
+import Input from '../input/v3'
 import { useState, useEffect } from 'react'
 import xjs from '@axoncodes/xjs'
 import Text from '../text/v2'

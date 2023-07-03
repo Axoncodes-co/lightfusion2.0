@@ -1,0 +1,50 @@
+.div {
+    display: flex;
+    align-items: center;
+    border-radius: 3px;
+    column-gap: 5px;
+    width: max-content;
+    justify-content: center;
+  }
+  
+  .padding {
+    padding: 2vw;
+  }
+  
+  .sidepadding {
+    padding-right: 13px;
+    padding-left: 13px;
+  }
+  
+  .input {
+    margin: 0;
+  }
+  
+  .select {
+    border: none;
+    font-size: var(--standard-button-fontSize);
+  }
+  
+  .color {
+    border: none;
+    padding: 0;
+  }
+  
+  .lable {
+    font-size: var(--standard-button-fontSize);
+    text-transform: capitalize;
+  }
+  
+  .small {
+    height: max(2vw, 40px);
+  }
+  
+  .small label {
+    font-size: var(--standard-text-fontSize);
+    font-weight: 300;
+  }
+  
+  .small select {
+    font-weight: 300;
+    font-size: var(--standard-text-fontSize);
+  }
