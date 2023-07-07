@@ -128,7 +128,7 @@ export default function Header({ categories, courses }) {
       }}
       className={'transition primary_bg container horizontal horizontalTabletBreak padding_l0'}
     >
-      <Link href={'/'}>
+      <Link href={'/'} className={'widePadding_l2'}>
         <Image
           alt={'Logo'}
           src={'/data/media/logo.png'}
