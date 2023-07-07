@@ -7,6 +7,7 @@ import '../../builtin-axg/colorVars.css'
 import '../../builtin-axg/fontVars.css'
 import '../styles/globals.css'
 import '../styles/fonts.css'
+import "../../builtin-axg/switchThemescheme";
 
 export default function App({ Component, pageProps }) {
   return (<>

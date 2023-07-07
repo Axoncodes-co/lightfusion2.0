@@ -19,7 +19,7 @@ export default function Posts({link, title, svg, children}) {
                 <Text
                     text={'View All'}
                     link={link}
-                    textclasses={'font_l2 nomargin weight_l4'}
+                    textclasses={'style_dynamic_a font_l2 nomargin weight_l4'}
                     customclasses={'centerOnMobile righty'}
                 />
             </section>
