@@ -58,7 +58,7 @@ export default function Filter({
   }, [catFilter])
   
   return (
-    <div className={style.body+" wideonMobile"} id={elementId} style={{overflowY: hidden}}>
+    <div className={style.body+" wideonMobile"} id={elementId} style={{overflowY: "hidden"}}>
       {elements.map((filter, i) => (
         <div key={i}>
           <Text tag="p" key={i} text={filter.name} customclasses={filter.customclasses} textclasses={filter.textclasses} />
