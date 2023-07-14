@@ -521,9 +521,6 @@ body {
   text-align: right!important;
 }
 @media screen and (max-width: 768px) {
-  .righty.centerOnTablet {
-    align-items: center!important;
-  }
 }
 .allLefty {
   justify-content: flex-start !important;

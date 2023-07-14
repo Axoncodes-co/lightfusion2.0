@@ -41,7 +41,7 @@ export default function Footer({ footerData, categories }) {
                     ))}
                 </div>
             )}
-            <p className={'centerOnTablet font_l2_min primary_color righty weight_l3 wideonTablet'} dangerouslySetInnerHTML={{__html:footerData.attributes.socket}}></p>
+            <p className={'subcontainer centerOnTablet font_l2_min primary_color righty weight_l3 wideonTablet'} dangerouslySetInnerHTML={{__html:footerData.attributes.socket}}></p>
         </section>
     </footer>)
 }
